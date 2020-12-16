@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="sl.com.eightdigitz.chat">
+
+    <dist:module
+        dist:instant="true"
+        dist:onDemand="false"
+        dist:title="@string/module_feature_chat">
+        <dist:fusing dist:include="true" />
+    </dist:module>
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name="sl.com.eightdigitz.chat.presentation.ui.chat.ChatActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="sl.com.eightdigitz.chat.presentation.ui.image.PreviewActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme" />
+        <activity android:name="sl.com.eightdigitz.chat.presentation.ui.video.TrimVideoActivity" />
+        <activity
+            android:name="sl.com.eightdigitz.chat.presentation.ui.video.VideoPreviewActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme" />
+    </application>
+
+</manifest>

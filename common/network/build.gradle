@@ -1,0 +1,13 @@
+apply from: "$rootDir/common-kotlin-library.gradle"
+
+dependencies {
+    implementation 'org.json:json:20180813'
+
+    implementation Libraries.rxjava
+    implementation Libraries.rxkotlin
+
+    implementation Libraries.retrofit
+    implementation Moshi.moshiConverter
+    implementation Libraries.loggingInterceptor
+    implementation Libraries.rxjavaAdapter
+}

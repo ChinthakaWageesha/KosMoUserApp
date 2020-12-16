@@ -1,0 +1,12 @@
+// CORE module
+include ":core", ":common:presentation", ":navigation"
+
+include ":common:network", ":apiclient"
+
+// FEATURE modules
+include ":features:authentication"
+include ":features:notifications"
+//include ":features:chat"
+
+// Application
+include ":app"

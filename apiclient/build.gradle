@@ -1,0 +1,71 @@
+apply from: "$rootDir/common-android-library.gradle"
+apply plugin: "com.yelp.codegen.plugin"
+
+buildscript {
+    repositories {
+        mavenLocal()
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        classpath "com.yelp.codegen:plugin:1.2.0"
+    }
+}
+
+android {
+    buildTypes {
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "API_URL", "${ApiLiveServer.url}"
+            buildConfigField "String", "API_KEY", "${ApiLiveServer.apiKey}"
+        }
+        debug {
+            buildConfigField "String", "API_URL", "${ApiSandboxServer.url}"
+            buildConfigField "String", "API_KEY", "${ApiSandboxServer.apiKey}"
+        }
+    }
+}
+
+dependencies {
+    implementation project(Modules.network)
+
+    implementation Libraries.rxjava
+    implementation Libraries.rxkotlin
+
+    implementation Libraries.retrofit
+    implementation Libraries.loggingInterceptor
+
+    implementation AndroidX.kotlin
+    implementation AndroidX.ktx
+    implementation Libraries.koinAndroid
+
+    implementation Moshi.moshi
+    implementation Moshi.moshiConverter
+    implementation Moshi.moshiAdapter
+    implementation Moshi.moshiKotlin
+
+    implementation Libraries.threetenabp
+}
+
+generateSwagger {
+    platform = "kotlin"
+    packageName = "sl.com.eightdigitz.client"
+    specName = "integration"
+    specVersion = "1.0.0"
+    inputFile = file("swagger.json")
+    outputDir = file("./src/main/java/")
+    features {
+        headersToRemove = ["Accept-Language"]
+    }
+
+}
+
+
+repositories {
+    mavenCentral()
+}

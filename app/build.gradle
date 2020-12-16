@@ -1,0 +1,38 @@
+apply from: "$rootDir/common-android-dynamic-feature.gradle"
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+dependencies {
+
+    implementation project(Modules.core)
+    implementation project(Modules.network)
+    implementation project(Modules.presentation)
+    implementation project(Modules.apiclient)
+    implementation project(Modules.navigation)
+    implementation project(Modules.notifications)
+    //implementation project(Modules.chat)
+
+    implementation SupportLibraries.design
+    implementation SupportLibraries.appcompat
+    implementation SupportLibraries.cardview
+
+    implementation Libraries.kotlin
+    implementation Libraries.koinAndroid
+    implementation Libraries.koinViewModel
+    implementation Libraries.ktx
+
+    implementation Libraries.lifecycleExtensions
+
+    implementation Libraries.rxjava
+    implementation Libraries.rxkotlin
+    implementation Libraries.gson
+
+    implementation FirebaseLibraries.messaging
+
+//    implementation ExternalLib.imagePicker
+
+    implementation Libraries.retrofit
+    //implementation Libraries.retrofitJsonConverter
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+}

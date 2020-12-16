@@ -1,0 +1,21 @@
+apply from: "$rootDir/common-android-library.gradle"
+apply plugin: 'kotlin-kapt'
+
+dependencies {
+    implementation Libraries.lifecycleExtensions
+    kapt Libraries.lifecycleCompiler
+
+    implementation SupportLibraries.design
+    implementation SupportLibraries.appcompat
+    implementation SupportLibraries.constraintLayout
+    implementation ExternalLib.loader
+
+
+    api Libraries.glide
+    kapt Libraries.glideCompiler
+
+    implementation Libraries.gson
+
+    implementation ExternalLib.imagePicker
+    implementation ExternalLib.imageViewer
+}

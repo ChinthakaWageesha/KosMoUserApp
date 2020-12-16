@@ -1,0 +1,37 @@
+apply from: "$rootDir/common-android-dynamic-feature.gradle"
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+dependencies {
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+  implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+  implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+  implementation project(Modules.network)
+    implementation project(Modules.presentation)
+    implementation project(Modules.navigation)
+    implementation project(Modules.apiclient)
+
+    implementation Libraries.koinAndroid
+    implementation Libraries.koinViewModel
+
+    implementation Libraries.lifecycleExtensions
+
+    implementation SupportLibraries.design
+    implementation SupportLibraries.appcompat
+    implementation SupportLibraries.constraintLayout
+
+
+    implementation Libraries.rxjava
+    implementation Libraries.rxkotlin
+
+    implementation Libraries.retrofit
+    implementation FirebaseLibraries.messaging
+
+
+    implementation Libraries.butterKnife
+    kapt Libraries.butterKnifeCompiler
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheckedTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ctv_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:checkMark="?android:attr/listChoiceIndicatorSingle"
+    android:paddingStart="@dimen/ctv_dropdown_margin_start"
+    android:paddingTop="@dimen/ctv_dropdown_margin_top"
+    android:paddingEnd="@dimen/ctv_dropdown_margin_end"
+    android:paddingBottom="@dimen/ctv_dropdown_margin_bottom"
+    android:text="item" />

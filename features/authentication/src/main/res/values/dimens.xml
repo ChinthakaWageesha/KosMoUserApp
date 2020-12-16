@@ -1,0 +1,105 @@
+<resources>
+
+
+    <!--    margin values-->
+    <dimen name="edit_auth_reset_margin_start">24dp</dimen>
+    <dimen name="edit_auth_reset_margin_end">24dp</dimen>
+    <dimen name="edit_auth_reset_margin_top">96dp</dimen>
+    <dimen name="text_info_forgot_password_margin_top">96dp</dimen>
+
+    <dimen name="button_auth_reset_password_margin_top">24dp</dimen>
+
+
+    <dimen name="image_app_logo_margin_top">72dp</dimen>
+    <dimen name="text_label_email_margin_start">16dp</dimen>
+    <dimen name="text_label_email_margin_top">72dp</dimen>
+
+
+    <dimen name="edit_email_margin_top">8dp</dimen>
+    <dimen name="edit_email_margin_end">16dp</dimen>
+
+    <dimen name="text_label_password_margin_start">16dp</dimen>
+    <dimen name="text_label_password_margin_top">24dp</dimen>
+
+
+    <dimen name="edit_password_margin_top">8dp</dimen>
+
+
+    <dimen name="button_sign_up_margin_top">8dp</dimen>
+    <dimen name="button_sign_up_margin_start">8dp</dimen>
+    <dimen name="button_sign_up_margin_left">8dp</dimen>
+    <dimen name="button_sign_up_margin_end">8dp</dimen>
+
+    <dimen name="text_goto_forget_password_margin_top">16dp</dimen>
+    <dimen name="text_goto_forget_password_margin_start">8dp</dimen>
+    <dimen name="text_goto_forget_password_margin_end">8dp</dimen>
+
+
+    <dimen name="text_not_have_account_margin_top">16dp</dimen>
+
+
+    <dimen name="text_goto_sign_up_margin_top">8dp</dimen>
+    <dimen name="text_goto_sign_up_margin_end">8dp</dimen>
+    <dimen name="text_goto_sign_up_margin_right">8dp</dimen>
+    <dimen name="text_goto_sign_up_margin_start">8dp</dimen>
+    <dimen name="text_goto_sign_up_margin_left">8dp</dimen>
+
+
+    <dimen name="text_info_forgot_password_margin_start">8dp</dimen>
+    <dimen name="text_info_forgot_password_margin_end">8dp</dimen>
+
+    <dimen name="registration_image_app_logo_margin_top">64dp</dimen>
+
+
+    <dimen name="layout_register_form_margin_top">8dp</dimen>
+    <dimen name="edit_first_name_margin_top">8dp</dimen>
+
+    <dimen name="text_title_first_name_margin_top">8dp</dimen>
+    <dimen name="text_title_last_name_margin_top">8dp</dimen>
+    <dimen name="text_submit_margin_top">16dp</dimen>
+
+    <dimen name="text_and_start">4dp</dimen>
+    <dimen name="text_and_end">4dp</dimen>
+
+    <dimen name="button_sign_up_registration_margin_top">24dp</dimen>
+    <dimen name="button_sign_up_registration_margin_end">8dp</dimen>
+    <dimen name="button_sign_up_registration_margin_right">8dp</dimen>
+    <dimen name="button_sign_up_registration_margin_start">8dp</dimen>
+    <dimen name="button_sign_up_registration_margin_left">8dp</dimen>
+
+
+    <dimen name="text_account_margin_top">24dp</dimen>
+    <dimen name="text_account_margin_bottom">24dp</dimen>
+
+    <dimen name="text_sign_in_margin_start">24dp</dimen>
+    <dimen name="text_sign_in_margin_top">24dp</dimen>
+
+
+    <dimen name="image_user_avatar_margin_start">8dp</dimen>
+    <dimen name="image_user_avatar_margin_top">8dp</dimen>
+    <dimen name="image_user_avatar_margin_end">8dp</dimen>
+
+
+    <dimen name="cl_toolbar_container_margin_bottom">8dp</dimen>
+    <dimen name="ibutton_back_margin_start">24dp</dimen>
+
+
+    <dimen name="text_toolbar_title_margin_start">80dp</dimen>
+
+
+    <!--    width values-->
+    <dimen name="edit_email_width">16dp</dimen>
+
+    <!--    height values-->
+    <dimen name="edit_email_height">40dp</dimen>
+    <dimen name="edit_password__height">40dp</dimen>
+
+
+    <!--      padding values-->
+    <dimen name="text_goto_forget_password_padding">8dp</dimen>
+
+    <dimen name="layout_registration_form_padding">24dp</dimen>
+    <dimen name="layout_sign_in_text_not_have_account_padding">4dp</dimen>
+
+
+</resources>

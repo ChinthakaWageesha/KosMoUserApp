@@ -1,0 +1,40 @@
+pipelines:
+  custom:
+    assembleRelease:
+      - parallel:
+          - step:
+              name: Build 
+#              image: bitbucketpipelines/android-ci-image
+              image: mingc/android-build-box:latest
+              caches:
+                - gradle
+              script:
+                - echo "$SIGNING_JKS_FILE" | base64 -d > android-signing-keystore.jks
+                - ./gradlew assembleRelease 
+#                - curl -X POST "https://atlas.elegant-media.com/api/v1/projects/assets/upload" --form files=@"app/build/outputs/apk/release/PR274_DOD-release-unsigned.apk" -H "x-api-key:fYossdfDI32cjiOH7MKQBhXAVK4JBYJHxIibuGK5CEcLgraNiWw8J6QFC" -H "Job-Name:PR274" -H "Build-Number:#1" -H "Build-Timestamp:1583216429979"
+              artifacts:
+                - app/build/outputs/**
+    bundleDebug:
+      - parallel:
+          - step:
+              name: Build  
+              image: mingc/android-build-box:latest
+              caches:
+                - gradle
+              script:
+                - echo "$SIGNING_JKS_FILE" | base64 -d > android-signing-keystore.jks
+                - git submodule init git submodule update --remote
+                - ./gradlew bundleDebug
+                - wget https://github.com/google/bundletool/releases/download/1.0.0/bundletool-all-1.0.0.jar
+                - java -jar bundletool-all-1.0.0.jar build-apks --bundle=core/build/outputs/bundle/debug/core.aab --output=core/build/outputs/bundle/debug/core.apks --mode=universal
+                - mv core/build/outputs/bundle/debug/core.apks core/build/outputs/bundle/debug/core.zip
+                - unzip core/build/outputs/bundle/debug/core.zip  -d core/build/outputs/bundle/debug/
+                - rm -rf core/build/outputs/bundle/debug/core.zip
+                - rm -rf core/build/outputs/bundle/debug/core.aab
+#                - curl -X POST "https://atlas.elegant-media.com/api/v1/projects/assets/upload" --form files=@"app/build/outputs/apk/release/PR274_DOD-release-unsigned.apk" -H "x-api-key:fYossdfDI32cjiOH7MKQBhXAVK4JBYJHxIibuGK5CEcLgraNiWw8J6QFC" -H "Job-Name:PR274" -H "Build-Number:#1" -H "Build-Timestamp:1583216429979"
+              artifacts:
+                - core/build/outputs/**
+definitions:
+  caches:
+    gradle-wrapper: ~/.gradle/wrapper
+    

@@ -1,0 +1,36 @@
+apply from: "$rootDir/common-android-dynamic-feature.gradle"
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(Modules.core)
+    implementation project(Modules.network)
+    implementation project(Modules.apiclient)
+    implementation project(Modules.navigation)
+    implementation project(Modules.presentation)
+
+    implementation SupportLibraries.design
+    implementation SupportLibraries.appcompat
+    implementation SupportLibraries.cardview
+
+    implementation Libraries.kotlin
+    implementation Libraries.koinAndroid
+    implementation Libraries.koinViewModel
+    implementation Libraries.ktx
+
+    implementation Libraries.lifecycleExtensions
+
+    implementation FirebaseLibraries.core
+    implementation FirebaseLibraries.messaging
+    implementation Libraries.rxjava
+    implementation Libraries.rxkotlin
+    implementation Libraries.gson
+
+
+    implementation Libraries.retrofit
+    //implementation Libraries.retrofitJsonConverter
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+}
+apply plugin: 'com.google.gms.google-services'

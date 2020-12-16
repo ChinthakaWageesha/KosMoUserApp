@@ -1,0 +1,179 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="TextHintNormalStyle">
+        <item name="android:textColor">@color/colorHint</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextWhiteNormalStyle">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextWhiteBoltStyle">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextRedNormalStyle">
+        <item name="android:textColor">@color/colorRed</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextRedBoltStyle">
+        <item name="android:textColor">@color/colorRed</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextBlackNormalStyle">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextBlackBoltStyle">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextFontNormalStyle">
+        <item name="android:textColor">@color/colorFont</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextFontBoltStyle">
+        <item name="android:textColor">@color/colorFont</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextHintLightNormalStyle">
+        <item name="android:textColor">@color/colorHintLight</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextHintLightNormalStyle.size13">
+        <item name="android:textSize">13sp</item>
+    </style>
+
+
+    <style name="TextFontNormalStyle.size14">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextFontNormalStyle.size15">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="TextFontNormalStyle.size17">
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="TextFontNormalStyle.size20">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="TextFontNormalStyle.size10">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+
+    <style name="TextFontBoltStyle.size18">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextFontBoltStyle.size17">
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="TextFontBoltStyle.size26">
+        <item name="android:textSize">26sp</item>
+    </style>
+
+    <style name="TextFontBoltStyle.size14">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextFontBoltStyle.size15">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+
+    <style name="TextBlackNormalStyle.size17">
+        <item name="android:textSize">17dp</item>
+    </style>
+
+
+    <style name="TextWhiteNormalStyle.size15">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="TextWhiteBoltStyle.size15">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="TextWhiteNormalStyle.size14">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextWhiteNormalStyle.size12">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+
+    <style name="TextRedNormalStyle.size10">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="TextRedNormalStyle.size14">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextRedNormalStyle.size15">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="TextRedNormalStyle.size18">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextRedBoltStyle.size18">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextRedBoltStyle.size17">
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="TextRedNormalStyle.size20">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="TextHintNormalStyle.size20">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+
+    <style name="TextHintNormalStyle.size17">
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="TextHintNormalStyle.size15">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="TextHintNormalStyle.size13">
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="TextHintNormalStyle.size14" parent="TextHintNormalStyle">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+</resources>

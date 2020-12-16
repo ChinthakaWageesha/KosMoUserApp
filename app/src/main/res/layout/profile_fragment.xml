@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_sign_in_base"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/iv_photo"
+            android:layout_width="@dimen/iv_photo_width"
+            android:layout_height="@dimen/iv_photo_height"
+            android:layout_marginTop="@dimen/iv_photo_margin_top"
+            android:background="@color/colorTransparent"
+            android:elevation="@dimen/iv_photo_elevation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_camera"
+            android:layout_width="@dimen/cv_camera_width"
+            android:layout_height="@dimen/cv_camera_height"
+            android:layout_marginBottom="@dimen/cv_camera_margin_bottom"
+            app:cardElevation="@dimen/cv_camera_elevation"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_photo"
+            app:layout_constraintEnd_toEndOf="@+id/iv_photo"
+            app:layout_constraintStart_toStartOf="@+id/iv_photo"
+            app:layout_constraintTop_toBottomOf="@+id/iv_photo">
+
+            <ImageButton
+                android:id="@+id/btn_camera"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorBlack" />
+
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/linearLayout_margin_top_profile"
+            android:orientation="vertical"
+            android:padding="@dimen/linearLayout_padding_profile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_photo">
+
+            <TextView
+                android:id="@+id/tv_title_first_name"
+                style="@style/editTextTitleLabelStyle.size16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tv_title_first_name_margin_top_profile"
+                android:text="@string/hint_first_name" />
+
+            <EditText
+                android:id="@+id/et_first_name"
+                style="@style/editTextWithHintRoundCornerStyle.size15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/et_first_name_margin_top_profile"
+                android:hint="@string/hint_first_name"
+                android:inputType="textCapSentences" />
+
+            <TextView
+                android:id="@+id/tv_title_last_name"
+                style="@style/editTextTitleLabelStyle.size16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tv_title_last_name_margin_top_profile"
+                android:text="@string/hint_last_name"
+
+                />
+
+            <EditText
+                android:id="@+id/et_last_name"
+                style="@style/editTextWithHintRoundCornerStyle.size15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/et_last_name_margin_top_profile"
+                android:hint="@string/hint_last_name"
+                android:inputType="textCapSentences" />
+
+            <TextView
+                android:id="@+id/tv_title_email"
+                style="@style/editTextTitleLabelStyle.size16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tv_title_email_margin_top_profile"
+                android:text="@string/hint_email" />
+
+            <EditText
+                android:id="@+id/et_email"
+                style="@style/editTextWithHintRoundCornerStyle.size15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/et_email_margin_top_profile"
+                android:hint="@string/hint_email"
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                style="@style/editTextTitleLabelStyle.size16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/hint_address" />
+
+
+            <EditText
+                android:id="@+id/et_address"
+                style="@style/editTextWithHintRoundCornerStyle.size15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/et_address_margin_top_profile"
+                android:hint="@string/hint_address"
+                android:inputType="text" />
+
+            <!--<TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/label_time_zone"
+                style="@style/TextWhiteNormalStyle.size15"
+                />
+
+            <Spinner
+                android:id="@+id/et_timezone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:hint=""
+                android:spinnerMode="dropdown"
+                android:inputType="textEmailAddress"
+                style="@style/SpinnerStyle"
+                />-->
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_save"
+            style="@style/roundedSolidColorButtonStyle.size20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/btn_save_margin_top_profile"
+            android:text="@string/action_title_save"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <TextView
+            android:id="@+id/btn_change_password"
+            style="@style/textViewButtonStyle.size16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/btn_change_password_margin_top_profile"
+            android:layout_marginBottom="@dimen/btn_change_password_margin_bottom_profile"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="@dimen/btn_change_password_padding"
+            android:text="@string/action_title_change_password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_save"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

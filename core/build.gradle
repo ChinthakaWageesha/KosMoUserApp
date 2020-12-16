@@ -1,0 +1,111 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion Versions.compileSdk
+    defaultConfig {
+        applicationId ApplicationId.id
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
+        versionCode Releases.versionCode
+        versionName Releases.versionName
+
+        multiDexEnabled true //Add this
+    }
+
+    //  kapt {
+    //    generateStubs = true
+    //  }
+
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+        exclude 'LICENSE.txt'
+        exclude 'META-INF/license/LICENSE.base64.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/rxjava.properties'
+        exclude 'META-INF/MANIFEST.MF'
+        exclude 'META-INF/DEPENDENCIES'
+    }
+
+    configurations.all {
+        resolutionStrategy {
+            force "com.android.volley:volley:${Versions.volley}"
+            //            exclude group: 'org.apache.httpcomponents.httpmime' , module: 'httpclient'
+        }
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildTypes {
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "API_URL", "${ApiLiveServer.url}"
+            buildConfigField "String", "API_KEY", "${ApiLiveServer.apiKey}"
+        }
+        debug {
+            buildConfigField "String", "API_URL", "${ApiSandboxServer.url}"
+            buildConfigField "String", "API_KEY", "${ApiSandboxServer.apiKey}"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    //TODO ADD DYNAMIC FEATURE MODULES HERE
+    dynamicFeatures = [Modules.authentication, Modules.app, Modules.notifications]
+
+}
+
+dependencies {
+//    api project(Modules.api)
+
+    implementation project(Modules.network)
+    implementation project(Modules.apiclient)
+    implementation project(Modules.navigation)
+    implementation project(Modules.presentation)
+
+    implementation AndroidX.kotlin
+    implementation AndroidX.ktx
+    implementation Libraries.koinScope
+    implementation Libraries.koinAndroid
+    implementation Libraries.koinViewModel
+    implementation Libraries.koinExt
+
+    implementation SupportLibraries.design
+    implementation SupportLibraries.cardview
+    implementation SupportLibraries.appcompat
+    implementation SupportLibraries.recyclerview
+
+//  implementation Libraries.crashlytics
+
+    implementation Libraries.gson
+    implementation Libraries.okhttp
+    implementation Libraries.okhttpLoggin
+    implementation Libraries.volley
+
+    implementation FirebaseLibraries.core
+    implementation FirebaseLibraries.messaging
+
+    implementation "life.knowledge4:k4l-video-trimmer:1.0"
+    implementation "com.google.android.exoplayer:exoplayer:2.9.5"
+}
+
+repositories {
+    mavenCentral()
+}
