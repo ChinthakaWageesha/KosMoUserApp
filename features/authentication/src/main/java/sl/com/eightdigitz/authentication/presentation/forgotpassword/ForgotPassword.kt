@@ -54,8 +54,6 @@ class ForgotPassword : BaseFragment() {
         }
     }
 
-    override fun progressBar(): View? = (activity as AuthActivity).progressBar()
-
     @SuppressLint("MissingPermission")
     private fun click(v: View) {
         when (v.id) {
@@ -82,11 +80,11 @@ class ForgotPassword : BaseFragment() {
         when (it.state) {
             ResourceState.LOADING -> {
                 btn_auth_reset_password.disableButton()
-                progressBar()?.visible()
+                showProgress()
             }
             ResourceState.SUCCESS -> {
                 btn_auth_reset_password.enableButton()
-                progressBar()?.gone()
+                hideProgress()
                 (requireActivity() as AuthActivity).setResetPassword()
                 /* this.alert("Link Sent", it.message) {
                      positiveButton("Ok") {
@@ -96,7 +94,7 @@ class ForgotPassword : BaseFragment() {
             }
             ResourceState.ERROR -> {
                 btn_auth_reset_password.enableButton()
-                progressBar()?.gone()
+                hideProgress()
                 showAlert(it.message.toString())
             }
         }

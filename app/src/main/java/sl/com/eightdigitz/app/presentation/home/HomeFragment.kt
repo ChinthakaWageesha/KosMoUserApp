@@ -28,8 +28,6 @@ class HomeFragment : BaseFragment() {
     override fun onViewCreated() {
     }
 
-    override fun progressBar(): View? = null
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this)

@@ -80,7 +80,7 @@ interface AuthApi {
         @retrofit2.http.Field("email") email: String,
         @retrofit2.http.Field("password") password: String,
         @retrofit2.http.Field("password_confirmation") passwordConfirmation: String,
-        @retrofit2.http.Field("user_type") userType: Int,
+        @retrofit2.http.Field("user_type") userType: String,
         @retrofit2.http.Field("device_push_token") devicePushToken: String?
     ): Single<AuthRegisterResponse>
 

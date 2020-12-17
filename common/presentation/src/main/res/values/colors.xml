@@ -20,5 +20,9 @@
     <color name="colorDarkBlue">#001041</color>
     <color name="colorMediumDarkGray">#4D77819C</color>
 
+    <color name="colorPink">#F1166F</color>
+    <color name="colorPurple">#652770</color>
+    <color name="colorDarkMagenta">#8B008B</color>
+
     <color name="colorDarkGray">#282828</color>
 </resources>

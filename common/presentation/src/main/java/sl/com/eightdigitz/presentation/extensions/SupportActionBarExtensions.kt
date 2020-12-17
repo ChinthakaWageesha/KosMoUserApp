@@ -38,7 +38,7 @@ fun ActionBar.setActionBar(
     } else {
         tv.setTextColor(Color.WHITE)
         tv.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 17f)
-        ResourcesCompat.getFont(tv.context, R.font.nunito_extrabold)
+        ResourcesCompat.getFont(tv.context, R.font.sf_pro_display_medium)
             ?.also { mTypeFace ->
                 tv.typeface = mTypeFace
             }

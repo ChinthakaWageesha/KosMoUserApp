@@ -15,10 +15,10 @@ import sl.com.eightdigitz.core.presentation.model.PUser
 import sl.com.eightdigitz.presentation.Msg
 import sl.com.eightdigitz.presentation.Resource
 import sl.com.eightdigitz.presentation.ResourceState
-import sl.com.eightdigitz.presentation.USER_TYPE
 import sl.com.eightdigitz.presentation.extensions.*
 import kotlinx.android.synthetic.main.activity_authentication_registration.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import sl.com.eightdigitz.presentation.LanguageType
 
 class RegistrationFragment : BaseFragment(), View.OnClickListener {
 
@@ -53,10 +53,6 @@ class RegistrationFragment : BaseFragment(), View.OnClickListener {
 
         btn_create_account.setOnClickListener(this)
 
-        if ((requireActivity() as AuthActivity).userType == USER_TYPE.TYPE_BUSINESS) {
-            btn_create_account.text = "Create Business Account"
-        }
-
         tv_terms_condition.setOnClickListener {
             //startDetailActivity(AppInformation.TAG_CONDITIONS)
         }
@@ -74,7 +70,7 @@ class RegistrationFragment : BaseFragment(), View.OnClickListener {
                         name = et_full_name.getStringTrim(),
                         email = et_email.getStringTrim()
                     ).also {
-                        it.userType = (requireActivity() as AuthActivity).userType
+                        it.userType = (requireActivity() as AuthActivity).languageType
                         it.deviceId = context?.getDeviceId()
                         it.deviceType = getDeviceType()
                         it.password = et_password.getString()
@@ -113,10 +109,10 @@ class RegistrationFragment : BaseFragment(), View.OnClickListener {
         resource.let {
             when (it.state) {
                 ResourceState.LOADING -> {
-                    progressBar()?.visible()
+                   showProgress()
                 }
                 ResourceState.SUCCESS -> {
-                    progressBar()?.gone()
+                    hideProgress()
                     val accessToken = it.data?.accessToken
                     if (!accessToken.isNullOrEmpty()) {
                         (requireActivity() as AuthActivity).authSuccess()
@@ -125,12 +121,10 @@ class RegistrationFragment : BaseFragment(), View.OnClickListener {
                     }
                 }
                 ResourceState.ERROR -> {
-                    progressBar()?.gone()
+                    hideProgress()
                     it.message?.showToast(requireContext())
                 }
             }
         }
     }
-
-    override fun progressBar(): View? = (activity as AuthActivity).progressBar()
 }

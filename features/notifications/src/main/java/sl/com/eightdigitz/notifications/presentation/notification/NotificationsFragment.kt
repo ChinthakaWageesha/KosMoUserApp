@@ -48,8 +48,6 @@ class NotificationsFragment : BaseFragment() {
         itemTouchHelper.attachToRecyclerView(rvNotifications)
     }
 
-    override fun progressBar(): View? = null
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

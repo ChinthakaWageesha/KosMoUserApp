@@ -29,7 +29,7 @@ data class DUser(
     var services: String? = null,
     var accessToken: String? = null
 ) {
-    var userType: Int? = null
+    var userType: String? = null
     var idSM: String? = null
     var token: String? = null
     var provider: String? = null

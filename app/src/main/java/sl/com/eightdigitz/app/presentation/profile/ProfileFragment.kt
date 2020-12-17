@@ -66,8 +66,6 @@ class ProfileFragment : BaseFragment(), View.OnClickListener /*, TakePhoto.TakeR
         vm.getUserData()
     }
 
-    override fun progressBar(): View? = null
-
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btn_save -> {

@@ -57,21 +57,19 @@ class ResetPasswordFragment : BaseFragment(), View.OnClickListener {
         resource.let {
             when (it.state) {
                 ResourceState.LOADING -> {
-                    progressBar()?.visible()
+                    showProgress()
                 }
                 ResourceState.SUCCESS -> {
-                    progressBar()?.gone()
-                    (requireActivity() as AuthActivity).setSelectUser()
+                    hideProgress()
+                    (requireActivity() as AuthActivity).setChooseLanguage()
                 }
                 ResourceState.ERROR -> {
-                    progressBar()?.gone()
+                    hideProgress()
                     it.message?.showToast(requireContext())
                 }
             }
         }
     }
-
-    override fun progressBar(): View? = (requireActivity() as AuthActivity).progressBar()
 
     override fun onClick(v: View?) {
 

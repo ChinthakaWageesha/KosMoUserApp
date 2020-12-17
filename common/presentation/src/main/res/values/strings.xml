@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Presentation</string>
+
+    <string name="btn_title_sinhala">සිංහල</string>
+    <string name="btn_title_tamil">தமிழ்</string>
+    <string name="btn_title_english">English</string>
 </resources>

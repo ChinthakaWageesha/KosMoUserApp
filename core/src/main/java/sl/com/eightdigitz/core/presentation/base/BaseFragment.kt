@@ -10,14 +10,12 @@ import sl.com.eightdigitz.presentation.extensions.visible
 abstract class BaseFragment : Fragment() {
 
     private var parentActivity: BaseActivity? = null
-    var mProgressBar: View? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is BaseActivity) {
             val activity = context as BaseActivity?
             this.parentActivity = activity
-            // activity?.onFragmentAttached()
         }
     }
 
@@ -32,20 +30,18 @@ abstract class BaseFragment : Fragment() {
     ) {
         super.onViewCreated(view, savedInstanceState)
         onViewCreated()
-        mProgressBar = progressBar()
     }
 
-    fun showProgress() { progressBar()?.visible() }
+    fun showProgress() { getBaseActivity()?.showProgress() }
 
-    fun hideProgress() { progressBar()?.gone() }
+    fun hideProgress() { getBaseActivity()?.hideProgress() }
+
+    private fun getBaseActivity() = parentActivity
 
     override fun onDestroyView() {
         super.onDestroyView()
         hideProgress()
     }
 
-    fun getBaseActivity() = parentActivity
-
     abstract fun onViewCreated()
-    abstract fun progressBar(): View?
 }

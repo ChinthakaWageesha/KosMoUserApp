@@ -112,5 +112,4 @@ class LoginFragment : BaseFragment() {
         }
     }
 
-    override fun progressBar(): View? = (activity as AuthActivity).progressBar()
 }

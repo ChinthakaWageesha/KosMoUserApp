@@ -22,7 +22,7 @@ data class PUser(
     var accessToken: String? = null
 ) : Parcelable {
     @IgnoredOnParcel
-    var userType: Int? = null
+    var userType: String? = null
 
     @IgnoredOnParcel
     var idSM: String? = null

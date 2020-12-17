@@ -8,7 +8,7 @@ import sl.com.eightdigitz.authentication.presentation.forgotpassword.ForgotPassw
 import sl.com.eightdigitz.authentication.presentation.login.LoginFragment
 import sl.com.eightdigitz.authentication.presentation.registration.RegistrationFragment
 import sl.com.eightdigitz.authentication.presentation.resetpassword.ResetPasswordFragment
-import sl.com.eightdigitz.authentication.presentation.selectuser.SelectUserFragment
+import sl.com.eightdigitz.authentication.presentation.chooseLanguage.ChooseLanguageFragment
 import sl.com.eightdigitz.core.presentation.base.BaseActivity
 import sl.com.eightdigitz.navigation.features.ResultCode
 import sl.com.eightdigitz.presentation.extensions.currentFragment
@@ -17,13 +17,13 @@ import kotlinx.android.synthetic.main.activity_auth.*
 
 class AuthActivity : BaseActivity() {
 
-    var userType: Int? = null
+    var languageType: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auth)
         injectFeature()
-        setSelectUser()
+        setChooseLanguage()
     }
 
     override fun progressBar(): View? = progressBar
@@ -34,19 +34,11 @@ class AuthActivity : BaseActivity() {
         }
     }
 
-    fun setSignIn() {
+    fun setChooseLanguage() {
         supportFragmentManager.replaceFragment(
             R.id.fl_auth,
-            LoginFragment.newInstance(),
-            LoginFragment.TAG
-        )
-    }
-
-    fun setSelectUser() {
-        supportFragmentManager.replaceFragment(
-            R.id.fl_auth,
-            SelectUserFragment.newInstance(),
-            SelectUserFragment.TAG
+            ChooseLanguageFragment.newInstance(),
+            ChooseLanguageFragment.TAG
         )
     }
 
@@ -75,7 +67,7 @@ class AuthActivity : BaseActivity() {
     }
 
     override fun onBackPressed() {
-        if (supportFragmentManager.currentFragment(R.id.fl_auth) is SelectUserFragment) {
+        if (supportFragmentManager.currentFragment(R.id.fl_auth) is ChooseLanguageFragment) {
             finishAffinity()
         } else {
             super.onBackPressed()

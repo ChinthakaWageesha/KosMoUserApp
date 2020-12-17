@@ -12,9 +12,10 @@ object Constant {
     const val PREF_FCM_TOKEN = "fcm_push_token"
 }
 
-object USER_TYPE {
-    const val TYPE_BUSINESS = 1
-    const val TYPE_CLIENT = 2
+object LanguageType {
+    const val SINHALA = "si"
+    const val TAMIL = "ta"
+    const val ENGLISH = "en"
 }
 
 object IntentActionConstants {
