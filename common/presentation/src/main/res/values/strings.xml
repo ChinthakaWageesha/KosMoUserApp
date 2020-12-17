@@ -1,7 +1,13 @@
 <resources>
     <string name="app_name">Presentation</string>
 
-    <string name="btn_title_sinhala">සිංහල</string>
-    <string name="btn_title_tamil">தமிழ்</string>
-    <string name="btn_title_english">English</string>
+    <string name="title_sinhala_btn">සිංහල</string>
+    <string name="title_tamil_btn">தமிழ்</string>
+    <string name="title_english_btn">English</string>
+    <string name="title_sign_up_tv">Signup</string>
+    <string name="title_what_is_phone_number">What is your Phone number?</string>
+    <string name="message_get_phone_description">Add your phone number. We will send you a verification code so we know you are real.</string>
+    <string name="hint_mobile_number">Mobile_number</string>
+    <string name="title_send_code_btn">Send Code</string>
+
 </resources>

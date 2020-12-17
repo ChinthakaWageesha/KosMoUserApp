@@ -31,10 +31,10 @@
     </style>
 
     <style name="PrimaryButtonStyle">
-        <item name="android:textAppearance">@style/WhiteBoldTextStyle.Size14</item>
-        <item name="android:background">@drawable/shape_blue_corner_round</item>
-        <item name="android:paddingLeft">10dp</item>
-        <item name="android:paddingRight">10dp</item>
+        <item name="android:textAppearance">@style/PrimaryButtonTextStyle</item>
+        <item name="android:background">@drawable/bg_pink_btn_corner_round_3dp</item>
+        <item name="android:paddingLeft">14dp</item>
+        <item name="android:paddingRight">14dp</item>
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:minHeight">48dp</item>
         <item name="android:textAllCaps">false</item>
@@ -94,6 +94,13 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+    <style name="PrimaryButtonTextStyle">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textStyle">normal</item>
+        <item name="fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
 
     <style name="WhiteBoldTextStyle">
         <item name="android:textColor">@color/colorWhite</item>
@@ -105,11 +112,48 @@
         <item name="android:textStyle">normal</item>
     </style>
 
+    <style name="BlackNormalTextStyle">
+        <item name="android:textColor">@color/colorTextBlack</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="BlackBoldTextStyle">
+        <item name="android:textColor">@color/colorTextBlack</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="BlackHintTextStyle">
+        <item name="android:textColor">@color/colorTextBlack</item>
+        <item name="android:textStyle">normal</item>
+        <item name="fontFamily">@font/sf_pro_display_regular</item>
+    </style>
+
+    <style name="BlackOpacityNormalTextStyle">
+        <item name="android:textColor">@color/colorTextBlackOp50</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
     <style name="WhiteBoldTextStyle.Size14">
         <item name="android:textSize">14sp</item>
     </style>
 
     <style name="WhiteNormalTextStyle.Size15">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="BlackNormalTextStyle.Size19">
+        <item name="android:textSize">19sp</item>
+    </style>
+
+    <style name="BlackBoldTextStyle.Size50">
+        <item name="android:textSize">50sp</item>
+    </style>
+
+    <style name="BlackOpacityNormalTextStyle.Size14">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="BlackHintTextStyle.Size15">
         <item name="android:textSize">15sp</item>
     </style>
 
@@ -170,8 +214,8 @@
     </style>
 
     <style name="EditTextTheme">
-        <item name="android:textColor">@color/colorDarkGray</item>
-        <item name="android:textColorHint">@color/colorGray</item>
+        <item name="android:textColor">@color/colorTextBlack</item>
+        <item name="android:textColorHint">@color/colorTextBlackOp50</item>
         <item name="colorAccent">@color/colorBlue</item>
     </style>
 

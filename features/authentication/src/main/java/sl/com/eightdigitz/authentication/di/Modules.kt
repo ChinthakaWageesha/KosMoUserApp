@@ -6,7 +6,7 @@ import sl.com.eightdigitz.authentication.datasource.remote.AuthRemoteDataSourceI
 import sl.com.eightdigitz.authentication.domain.repository.AuthRepository
 import sl.com.eightdigitz.authentication.domain.usecase.AuthUseCase
 import sl.com.eightdigitz.authentication.presentation.forgotpassword.ForgotPasswordViewModel
-import sl.com.eightdigitz.authentication.presentation.login.LoginViewModel
+import sl.com.eightdigitz.authentication.presentation.verifyOTP.LoginViewModel
 import sl.com.eightdigitz.authentication.presentation.registration.RegistrationViewModel
 import sl.com.eightdigitz.authentication.presentation.resetpassword.ResetPasswordViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel

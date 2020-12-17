@@ -38,15 +38,15 @@ class ChooseLanguageFragment : BaseFragment(), View.OnClickListener {
         when (v?.id) {
             R.id.btn_sinhala -> {
                 (requireActivity() as AuthActivity).languageType = LanguageType.SINHALA
-                (requireActivity() as AuthActivity).setSignUp()
+                (requireActivity() as AuthActivity).setVerify()
             }
             R.id.btn_tamil -> {
                 (requireActivity() as AuthActivity).languageType = LanguageType.TAMIL
-                (requireActivity() as AuthActivity).setSignUp()
+                (requireActivity() as AuthActivity).setVerify()
             }
             R.id.btn_english -> {
                 (requireActivity() as AuthActivity).languageType = LanguageType.ENGLISH
-                (requireActivity() as AuthActivity).setSignUp()
+                (requireActivity() as AuthActivity).setVerify()
             }
         }
     }

@@ -1,4 +1,4 @@
-package sl.com.eightdigitz.authentication.presentation.login
+package sl.com.eightdigitz.authentication.presentation.verifyOTP
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

@@ -17,6 +17,7 @@ object Modules {
     const val authentication = ":features:authentication"
     const val notifications = ":features:notifications"
     const val chat = ":features:chat"
+    const val countryPicker = ":countrypicker"
 }
 
 object Releases {

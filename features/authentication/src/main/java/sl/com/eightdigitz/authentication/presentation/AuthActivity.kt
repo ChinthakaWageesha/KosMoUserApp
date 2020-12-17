@@ -5,7 +5,6 @@ import android.view.View
 import sl.com.eightdigitz.authentication.R
 import sl.com.eightdigitz.authentication.di.injectFeature
 import sl.com.eightdigitz.authentication.presentation.forgotpassword.ForgotPassword
-import sl.com.eightdigitz.authentication.presentation.login.LoginFragment
 import sl.com.eightdigitz.authentication.presentation.registration.RegistrationFragment
 import sl.com.eightdigitz.authentication.presentation.resetpassword.ResetPasswordFragment
 import sl.com.eightdigitz.authentication.presentation.chooseLanguage.ChooseLanguageFragment
@@ -14,6 +13,7 @@ import sl.com.eightdigitz.navigation.features.ResultCode
 import sl.com.eightdigitz.presentation.extensions.currentFragment
 import sl.com.eightdigitz.presentation.extensions.replaceFragment
 import kotlinx.android.synthetic.main.activity_auth.*
+import sl.com.eightdigitz.authentication.presentation.verifyOTP.GetPhoneNumberFragment
 
 class AuthActivity : BaseActivity() {
 
@@ -39,6 +39,14 @@ class AuthActivity : BaseActivity() {
             R.id.fl_auth,
             ChooseLanguageFragment.newInstance(),
             ChooseLanguageFragment.TAG
+        )
+    }
+
+    fun setVerify(){
+        supportFragmentManager.replaceFragment(
+            R.id.fl_auth,
+            GetPhoneNumberFragment.newInstance(),
+            GetPhoneNumberFragment.TAG
         )
     }
 

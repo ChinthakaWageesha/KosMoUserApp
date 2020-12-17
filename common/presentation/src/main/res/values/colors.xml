@@ -10,7 +10,8 @@
     <color name="colorTransparent">#00000000</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
-    <color name="colorDarkBlack">#FF030303</color>
+    <color name="colorTextBlack">#0D010C</color>
+    <color name="colorTextBlackOp50">#70000000</color>
     <color name="colorLightGray">#EEEEEE</color>
     <color name="colorGrayWhite">#F6F8FA</color>
     <color name="colorGray">#C7C7C7</color>
@@ -21,6 +22,7 @@
     <color name="colorMediumDarkGray">#4D77819C</color>
 
     <color name="colorPink">#F1166F</color>
+    <color name="colorDarkPink">#DF186F</color>
     <color name="colorPurple">#652770</color>
     <color name="colorDarkMagenta">#8B008B</color>
 
