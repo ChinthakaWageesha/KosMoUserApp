@@ -7,7 +7,7 @@
 
 
     <!--    width values-->
-    <dimen name="cl_dialog_container_min_width">300dp</dimen>
+    <dimen name="cl_dialog_container_min_width">350dp</dimen>
     <dimen name="btn_border_width">1dp</dimen>
 
 

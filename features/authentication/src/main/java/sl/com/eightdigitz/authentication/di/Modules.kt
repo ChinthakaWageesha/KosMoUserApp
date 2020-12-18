@@ -5,10 +5,8 @@ import sl.com.eightdigitz.authentication.data.repository.AuthRepositoryImpl
 import sl.com.eightdigitz.authentication.datasource.remote.AuthRemoteDataSourceImpl
 import sl.com.eightdigitz.authentication.domain.repository.AuthRepository
 import sl.com.eightdigitz.authentication.domain.usecase.AuthUseCase
-import sl.com.eightdigitz.authentication.presentation.forgotpassword.ForgotPasswordViewModel
 import sl.com.eightdigitz.authentication.presentation.verifyOTP.LoginViewModel
 import sl.com.eightdigitz.authentication.presentation.registration.RegistrationViewModel
-import sl.com.eightdigitz.authentication.presentation.resetpassword.ResetPasswordViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.loadKoinModules
 import org.koin.core.module.Module
@@ -41,9 +39,7 @@ private val loadAuthAPiLayer by lazy {
 
 val viewModelModule: Module = module {
     viewModel { LoginViewModel(authUseCase = get()) }
-    viewModel { ForgotPasswordViewModel(authUseCase = get()) }
     viewModel { RegistrationViewModel(authUseCase = get()) }
-    viewModel { ResetPasswordViewModel(authUseCase = get()) }
 }
 
 val useCaseModule: Module = module(override = true) {

@@ -3,12 +3,8 @@ package sl.com.eightdigitz.presentation.extensions
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
+import sl.com.eightdigitz.presentation.R
 
-/**
- * This extension supports EditText validation such as emails, maximum and minimum length
- * inspired from
- * @see https://proandroiddev.com/easy-edittext-content-validation-with-kotlin-316d835d25b3
- * */
 fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
     this.addTextChangedListener(object : TextWatcher {
         override fun afterTextChanged(s: Editable?) {
@@ -21,14 +17,19 @@ fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
     })
 }
 
-/**
- * You can validate the EditText like
- *
- * et_email.validate("Valid email address required"){ s -> s.isValidEmail() }
- *
- * et_email.validate("Minimum length is 6"){ s-> s.length>=6 }
- *
- * */
+fun EditText.onTextChanged(onTextChanged: (String) -> Unit) {
+    this.addTextChangedListener(object : TextWatcher {
+        override fun afterTextChanged(s: Editable?) {
+        }
+
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            onTextChanged.invoke(s.toString().trim())
+        }
+    })
+}
+
 fun EditText.validate(message: String, validator: (String) -> Boolean): Boolean {
     this.afterTextChanged {
         this.error = if (validator(it)) null else message
@@ -53,31 +54,43 @@ fun EditText.validate(
     return validator(this.getString())
 }
 
+fun EditText.validateOnTextChange(
+    message: String? = "error",
+    isCheckValidateIcon: Boolean = false,
+    validator: (String) -> Boolean
+): Boolean {
+    this.onTextChanged {
+        val errorMessage = if (validator(it)) null else message
+        backGroundRunTime(errorMessage, isCheckValidateIcon)
+    }
+    val errorMessage = if (validator(this.getString())) null else message
+    backGroundRunTime(errorMessage, isCheckValidateIcon)
+
+    return validator(this.getString())
+}
+
 private fun EditText.backGroundRunTime(
     errorMessage: String?,
     isCheckValidateIcon: Boolean
 ) {
 
-    /* this.backgroundTintList = if (errorMessage == null) {
-         this.context.getCompatColorState(R.color.edit_text_normal_state)
-     } else {
-         this.context.getCompatColorState(R.color.edit_text_error_state)
-     }*/
     if (isCheckValidateIcon) {
         if (errorMessage == null) {
             this.setCompoundDrawablesWithIntrinsicBounds(
                 null,
                 null,
-                this.context.getCompatDrawable(sl.com.eightdigitz.presentation.R.drawable.ic_text_field_check),
+                this.context.getCompatDrawable(R.drawable.ic_text_field_check),
                 null
             )
+            this.setBackgroundResource(R.drawable.bg_edit_text_boarder_corner_round_3dp)
         } else {
             this.setCompoundDrawablesWithIntrinsicBounds(
                 null,
                 null,
-                null,
+                this.context.getCompatDrawable(R.drawable.ic_error),
                 null
             )
+            this.setBackgroundResource(R.drawable.bg_edit_text_error_boarder_corner_round_3dp)
         }
     }
 }

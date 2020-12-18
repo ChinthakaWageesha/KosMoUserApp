@@ -12,13 +12,21 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import sl.com.eightdigitz.presentation.R
 
-inline fun Activity.alert(title: CharSequence? = null, message: CharSequence? = null, func: AlertDialogHelper.() -> Unit): AlertDialog {
+inline fun Activity.alert(
+    title: CharSequence? = null,
+    message: CharSequence? = null,
+    func: AlertDialogHelper.() -> Unit
+): AlertDialog {
     return AlertDialogHelper(this, title, message).apply {
         func()
     }.create()
 }
 
-inline fun Activity.alert(titleResource: Int = 0, messageResource: Int = 0, func: AlertDialogHelper.() -> Unit): AlertDialog {
+inline fun Activity.alert(
+    titleResource: Int = 0,
+    messageResource: Int = 0,
+    func: AlertDialogHelper.() -> Unit
+): AlertDialog {
     val title = if (titleResource == 0) null else getString(titleResource)
     val message = if (messageResource == 0) null else getString(messageResource)
     return AlertDialogHelper(this, title, message).apply {
@@ -26,13 +34,21 @@ inline fun Activity.alert(titleResource: Int = 0, messageResource: Int = 0, func
     }.create()
 }
 
-inline fun Fragment.alert(title: CharSequence? = null, message: CharSequence? = null, func: AlertDialogHelper.() -> Unit): AlertDialog {
+inline fun Fragment.alert(
+    title: CharSequence? = null,
+    message: CharSequence? = null,
+    func: AlertDialogHelper.() -> Unit
+): AlertDialog {
     return AlertDialogHelper(this.context!!, title, message).apply {
         func()
     }.create()
 }
 
-inline fun Fragment.alert(titleResource: Int = 0, messageResource: Int = 0, func: AlertDialogHelper.() -> Unit): AlertDialog {
+inline fun Fragment.alert(
+    titleResource: Int = 0,
+    messageResource: Int = 0,
+    func: AlertDialogHelper.() -> Unit
+): AlertDialog {
     val title = if (titleResource == 0) null else getString(titleResource)
     val message = if (messageResource == 0) null else getString(messageResource)
     return AlertDialogHelper(this.context!!, title, message).apply {

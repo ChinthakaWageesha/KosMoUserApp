@@ -92,7 +92,7 @@ class ProfileFragment : BaseFragment(), View.OnClickListener /*, TakePhoto.TakeR
 
     private fun processSaveProfile() {
         if (isValidForm()) {
-            activity?.withNetwork({
+            /*activity?.withNetwork({
 
                 val pUser = PUser(
                     name = et_first_name.getStringTrim(),
@@ -103,7 +103,7 @@ class ProfileFragment : BaseFragment(), View.OnClickListener /*, TakePhoto.TakeR
                 vm.updateProfile(pUser)
             }, {
                 Msg.INTERNET_ISSUE.showToast(context!!)
-            })
+            })*/
         }
     }
 
@@ -143,7 +143,7 @@ class ProfileFragment : BaseFragment(), View.OnClickListener /*, TakePhoto.TakeR
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
-                    showAlert(it.message.toString())
+                    showAlert(Msg.TITLE_ERROR, it.message.toString())
                 }
             }
         }
@@ -155,11 +155,11 @@ class ProfileFragment : BaseFragment(), View.OnClickListener /*, TakePhoto.TakeR
     }
 
     private fun uploadAvatar(filePath: String?) {
-        activity?.withNetwork({
+        /*activity?.withNetwork({
             vm.profilePictureUpdate(File(filePath))
         }, {
             Msg.INTERNET_ISSUE.showToast(context!!)
-        })
+        })*/
     }
 
 //    override fun takeSuccess(result: TResult?) {

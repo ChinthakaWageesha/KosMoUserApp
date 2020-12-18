@@ -1,13 +1,24 @@
 <resources>
     <string name="app_name">Presentation</string>
 
+    <!--Choose Language-->
     <string name="title_sinhala_btn">සිංහල</string>
     <string name="title_tamil_btn">தமிழ்</string>
     <string name="title_english_btn">English</string>
-    <string name="title_sign_up_tv">Signup</string>
+
+    <!--Get phone number to verify-->
+    <string name="title_sign_up">Signup</string>
     <string name="title_what_is_phone_number">What is your Phone number?</string>
     <string name="message_get_phone_description">Add your phone number. We will send you a verification code so we know you are real.</string>
-    <string name="hint_mobile_number">Mobile_number</string>
+    <string name="hint_mobile_number">Mobile Number</string>
     <string name="title_send_code_btn">Send Code</string>
+    <string name="error_invalid_phone">Invalid phone number</string>
+
+    <!--Verify Phone number-->
+    <string name="title_verify_phone_number_tv">Verify your phone number</string>
+    <string name="message_enter_code">Enter your code below</string>
+    <string name="message_did_not_receive_code">I did not receive a code</string>
+    <string name="hint_enter_code">Enter Code</string>
+    <string name="title_verify_btn">Verify</string>
 
 </resources>

@@ -70,7 +70,7 @@ class RegistrationFragment : BaseFragment(), View.OnClickListener {
                         name = et_full_name.getStringTrim(),
                         email = et_email.getStringTrim()
                     ).also {
-                        it.userType = (requireActivity() as AuthActivity).languageType
+                        it.userType = "si"
                         it.deviceId = context?.getDeviceId()
                         it.deviceType = getDeviceType()
                         it.password = et_password.getString()

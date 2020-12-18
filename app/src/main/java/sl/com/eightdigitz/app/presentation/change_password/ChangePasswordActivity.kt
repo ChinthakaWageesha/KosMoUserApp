@@ -19,7 +19,7 @@ import sl.com.eightdigitz.presentation.extensions.showAlert
 import kotlinx.android.synthetic.main.activity_change_password.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class ChangePasswordActivity : BaseActivity() {
+class ChangePasswordActivity : BaseActivity(), View.OnClickListener {
 
     private val vm by viewModel<ChangePasswordViewModel>()
 
@@ -31,27 +31,8 @@ class ChangePasswordActivity : BaseActivity() {
 
         vm.liveData.observe(this, Observer { updatePassword(it) })
 
-        btn_save.setOnClickListener {
-            val isPassword =
-                et_password.validate(Msg.MIN_REQUIREMENT_PASSWORD) { s -> s.length >= 6 }
-            val isCurrentPassowrd =
-                et_current_password.validate(Msg.REQUIRED_PASSWORD) { s -> s.isNotEmpty() }
-            val isPasswordConfirmed =
-                et_confirm_password.validate(Msg.NOT_MATCH) { s -> s == et_password.getString() }
-
-            withNetwork(
-                {
-                    if (isPassword && isCurrentPassowrd && isPasswordConfirmed) {
-                        vm.changePassword(et_current_password.getString(), et_password.getString())
-                    }
-                },
-                {
-                    Msg.INTERNET_ISSUE.showToast(this)
-                })
-        }
+        btn_save.setOnClickListener(this)
     }
-
-    override fun progressBar(): View? = null
 
     private fun updatePassword(resource: Resource<Success>?) {
         resource?.let {
@@ -69,9 +50,33 @@ class ChangePasswordActivity : BaseActivity() {
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
-                    showAlert(it.message.toString())
+                    showAlert(Msg.TITLE_ERROR,it.message.toString())
                 }
             }
         }
+    }
+
+    override fun onClick(v: View?) {
+        when(v?.id){
+            R.id.btn_save -> {
+                val isPassword =
+                    et_password.validate(Msg.MIN_REQUIREMENT_PASSWORD) { s -> s.length >= 6 }
+                val isCurrentPassowrd =
+                    et_current_password.validate(Msg.REQUIRED_PASSWORD) { s -> s.isNotEmpty() }
+                val isPasswordConfirmed =
+                    et_confirm_password.validate(Msg.NOT_MATCH) { s -> s == et_password.getString() }
+
+                /*withNetwork(
+                    {
+                        if (isPassword && isCurrentPassowrd && isPasswordConfirmed) {
+                            vm.changePassword(et_current_password.getString(), et_password.getString())
+                        }
+                    },
+                    {
+                        Msg.INTERNET_ISSUE.showToast(this)
+                    })*/
+            }
+        }
+
     }
 }

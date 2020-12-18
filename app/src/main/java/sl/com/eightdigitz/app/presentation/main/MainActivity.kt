@@ -58,8 +58,6 @@ class MainActivity : BaseActivity() {
         )
     }
 
-    override fun progressBar(): View? = progressBar
-
     private fun handleFcmNotifications() {
         val isShowNotifications =
             intent.getBooleanExtra(IntentParsableConstants.EXTRA_NOTIFICATION, false)

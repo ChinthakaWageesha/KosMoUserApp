@@ -9,14 +9,14 @@ fun String.showToast(context: Context) {
     Toast.makeText(context, this, Toast.LENGTH_SHORT).show()
 }
 
-fun Activity.showAlert(message: String, title: String = "Alert") {
+fun Activity.showAlert(title: String = "Alert", message: String) {
     this.alert(title, message) {
         positiveButton("Ok") {
         }
     }.show()
 }
 
-fun Fragment.showAlert(message: String, title: String = "Alert") {
+fun Fragment.showAlert(title: String = "Alert", message: String) {
     this.alert(title, message) {
         positiveButton("Ok") {
         }

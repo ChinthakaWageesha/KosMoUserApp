@@ -1,10 +1,12 @@
 package sl.com.eightdigitz.core.presentation.base
 
+import android.app.Dialog
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import sl.com.eightdigitz.core.CoreActivity
 import sl.com.eightdigitz.core.R
@@ -17,12 +19,20 @@ import org.koin.android.ext.android.inject
 
 abstract class BaseActivity : AppCompatActivity() {
 
+    private var progress: Dialog? = null
     private val mNetworkSupportInterceptor by inject<SupportInterceptor>()
     private val mSharedPreferences by inject<SharedPreferences>()
-    var mProgressBar: View? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+       progress = Dialog(this, R.style.progressBarStyle).apply {
+           requestWindowFeature(Window.FEATURE_NO_TITLE)
+           setContentView(sl.com.eightdigitz.presentation.R.layout.item_progress)
+           setCancelable(true)
+           setCanceledOnTouchOutside(true)
+       }
+
         mNetworkSupportInterceptor.setAuthCallBackListner(object :
             SupportInterceptor.AuthenticatorCallBack {
             override fun onUnAuthorizedResponse(responseCode: Int?) {
@@ -32,14 +42,12 @@ abstract class BaseActivity : AppCompatActivity() {
                     }
                     ApiResponseCodes.SERVER_ERROR -> {
                         runOnUiThread {
-                            showAlert(Msg.ERROR_COMMON)
+                            showAlert(message = Msg.ERROR_COMMON)
                         }
                     }
                 }
             }
         })
-
-        mProgressBar = progressBar()
     }
 
     private fun handleResponse() {
@@ -58,11 +66,20 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun showProgress() {
-        progressBar()?.visible()
+        hideProgress()
+        progress?.let {
+            if (!it.isShowing){
+                it.show()
+            }
+        }
     }
 
     fun hideProgress() {
-        progressBar()?.gone()
+        progress?.let {
+            if (it.isShowing){
+                it.dismiss()
+            }
+        }
     }
 
     override fun onDestroy() {
@@ -82,6 +99,4 @@ abstract class BaseActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-
-    abstract fun progressBar(): View?
 }

@@ -2,6 +2,8 @@ package sl.com.eightdigitz.presentation
 
 object Msg {
 
+    const val TITLE_ERROR = "Error"
+
     const val INTERNAL_ISSUE = "Got internal issues."
     const val INTERNET_ISSUE = "Network connection not available."
     const val ERROR_COMMON = "Oops, something went wrong. Let\'s try it again."
