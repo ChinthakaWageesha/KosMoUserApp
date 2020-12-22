@@ -13,7 +13,7 @@ import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
-import sl.com.eightdigitz.core.CoreActivity
+import sl.com.eightdigitz.core.ui.CoreActivity
 import sl.com.eightdigitz.presentation.Constant.PREF_FCM_TOKEN
 import sl.com.eightdigitz.presentation.IntentActionConstants.ACTION_VIEW_NOTIFICATIONS
 import sl.com.eightdigitz.presentation.IntentParsableConstants.EXTRA_NOTIFICATION

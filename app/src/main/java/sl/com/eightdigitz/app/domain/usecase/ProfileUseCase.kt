@@ -1,7 +1,7 @@
 package sl.com.eightdigitz.app.domain.usecase
 
 import sl.com.eightdigitz.app.domain.repository.ProfileRepository
-import sl.com.eightdigitz.core.domain.model.DUser
+import sl.com.eightdigitz.core.model.domain.DUser
 import io.reactivex.Single
 import okhttp3.MultipartBody
 

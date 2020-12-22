@@ -1,14 +1,13 @@
-package sl.com.eightdigitz.core.presentation.base
+package sl.com.eightdigitz.core.base
 
 import android.app.Dialog
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.View
 import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
-import sl.com.eightdigitz.core.CoreActivity
+import sl.com.eightdigitz.core.ui.CoreActivity
 import sl.com.eightdigitz.core.R
 import sl.com.eightdigitz.network.SupportInterceptor
 import sl.com.eightdigitz.presentation.ApiResponseCodes

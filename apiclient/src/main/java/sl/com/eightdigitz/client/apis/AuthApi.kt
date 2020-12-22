@@ -13,6 +13,7 @@ import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.POST
+import sl.com.eightdigitz.client.models.GetOTPResponse
 import java.math.BigDecimal
 
 @JvmSuppressWildcards
@@ -53,6 +54,15 @@ interface AuthApi {
         @retrofit2.http.Field("password") password: String,
         @retrofit2.http.Field("device_push_token") devicePushToken: String?
     ): Single<AuthLoginResponse>
+
+    @retrofit2.http.FormUrlEncoded
+    @POST("https://dev-ahamad.us.auth0.com/passwordless/start")
+    fun getOTP(
+        @retrofit2.http.Field("client_id") clientId: String,
+        @retrofit2.http.Field("connection") connection: String,
+        @retrofit2.http.Field("send") send: String,
+        @retrofit2.http.Field("phone_number") phoneNumber: String
+    ): Single<GetOTPResponse>
 
     /**
      * Register

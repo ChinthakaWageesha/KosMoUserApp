@@ -1,4 +1,4 @@
-package sl.com.eightdigitz.core.presentation.model
+package sl.com.eightdigitz.core.model.presentation
 
 data class PSettings(
     var id: Int? = null,

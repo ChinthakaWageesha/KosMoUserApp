@@ -1,13 +1,21 @@
-package sl.com.eightdigitz.core.presentation.model
+package sl.com.eightdigitz.core.model.domain
 
-import android.os.Parcelable
-import sl.com.eightdigitz.client.models.Business
-import kotlinx.android.parcel.IgnoredOnParcel
-import kotlinx.android.parcel.Parcelize
-import java.math.BigDecimal
 
-@Parcelize
-data class PUser(
+/**
+ * @property id
+ * @property uuid
+ * @property firstName
+ * @property lastName
+ * @property fullName
+ * @property phone
+ * @property email
+ * @property avatarUrl
+ * @property address
+ * @property accessToken
+ *
+ */
+
+data class DUser(
     var id: Int? = null,
     var uuid: String? = null,
     var name: String? = null,
@@ -17,34 +25,17 @@ data class PUser(
     var timezone: String? = null,
     var type: Int? = null,
     var signupError: String? = null,
-    var business: PBusiness? = null,
+    var business: DBusiness? = null,
     var services: String? = null,
     var accessToken: String? = null
-) : Parcelable {
-    @IgnoredOnParcel
+) {
     var userType: String? = null
-
-    @IgnoredOnParcel
     var idSM: String? = null
-
-    @IgnoredOnParcel
     var token: String? = null
-
-    @IgnoredOnParcel
     var provider: String? = null
-
-    @IgnoredOnParcel
     var deviceId: String? = null
-
-    @IgnoredOnParcel
     var deviceType: String? = null
-
-    @IgnoredOnParcel
     var password: String? = null
-
-    @IgnoredOnParcel
     var devicePushToken: String? = null
-
-    @IgnoredOnParcel
     var message: String? = null
 }

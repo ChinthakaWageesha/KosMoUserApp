@@ -1,4 +1,4 @@
-package sl.com.eightdigitz.core.domain.model
+package sl.com.eightdigitz.core.model.domain
 
 data class DSettings(
     var id: Int? = null,

@@ -1,4 +1,4 @@
-package sl.com.eightdigitz.core.di
+package sl.com.eightdigitz.core
 
 import android.content.Context
 import sl.com.eightdigitz.presentation.Constant
@@ -6,14 +6,6 @@ import org.koin.android.ext.koin.androidApplication
 import org.koin.core.context.loadKoinModules
 import org.koin.core.module.Module
 import org.koin.dsl.module
-
-fun injectFeature() = loadFeature
-
-private val loadFeature by lazy {
-    loadKoinModules(
-        sharedPreferencesModule
-    )
-}
 
 val sharedPreferencesModule: Module = module {
     single {

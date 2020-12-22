@@ -5,7 +5,7 @@ object Msg {
     const val TITLE_ERROR = "Error"
 
     const val INTERNAL_ISSUE = "Got internal issues."
-    const val INTERNET_ISSUE = "Network connection not available."
+    const val INTERNET_ISSUE = "Sorry, Seems your internet connection is not available. Let's try it again."
     const val ERROR_COMMON = "Oops, something went wrong. Let\'s try it again."
     const val INVALID_EMAIL = "Please enter valid email."
     const val INVALID_PASSWORD = "Please enter valid password."

@@ -4,7 +4,7 @@
  * More info on this tool is available on https://github.com/Yelp/swagger-gradle-codegen
  */
 
-package sl.com.eightdigitz.core.domain.model
+package sl.com.eightdigitz.core.model.domain
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

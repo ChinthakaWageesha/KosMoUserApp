@@ -3,7 +3,7 @@ package sl.com.eightdigitz.app.data.repository
 import android.content.SharedPreferences
 import sl.com.eightdigitz.app.domain.repository.ProfileRepository
 import sl.com.eightdigitz.app.data.datasource.ProfileDataSource
-import sl.com.eightdigitz.core.domain.model.DUser
+import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.presentation.Constant
 import sl.com.eightdigitz.presentation.extensions.get
 import sl.com.eightdigitz.presentation.extensions.jsonStringMapTo

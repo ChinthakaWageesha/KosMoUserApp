@@ -6,6 +6,8 @@ object Constant {
     const val CATEGORY_PERPAGE = 20
     const val PREF_NAME = "user_app"
 
+    const val CLIENT_ID = "k4PQJsn9sjtYNw6YGQyy5WnU7JmMvYQs"
+
     const val PREF_USER = "user_data"
     const val PREF_TOKEN = "access_token"
     const val ACTION_UNAUTH = "ACTION_UNAUTH"

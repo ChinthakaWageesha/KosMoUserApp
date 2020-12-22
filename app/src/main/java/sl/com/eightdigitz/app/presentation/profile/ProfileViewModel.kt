@@ -1,12 +1,11 @@
 package sl.com.eightdigitz.app.presentation.profile
 
-import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import sl.com.eightdigitz.app.domain.usecase.ProfileUseCase
-import sl.com.eightdigitz.core.domain.model.mapToDomain
-import sl.com.eightdigitz.core.domain.model.mapToPresentation
-import sl.com.eightdigitz.core.presentation.model.PUser
+import sl.com.eightdigitz.core.model.mapToDomain
+import sl.com.eightdigitz.core.model.mapToPresentation
+import sl.com.eightdigitz.core.model.presentation.PUser
 import sl.com.eightdigitz.network.ErrorHandler
 import sl.com.eightdigitz.presentation.Resource
 import sl.com.eightdigitz.presentation.setError

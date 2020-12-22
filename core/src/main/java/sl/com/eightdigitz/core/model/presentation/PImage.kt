@@ -4,20 +4,24 @@
  * More info on this tool is available on https://github.com/Yelp/swagger-gradle-codegen
  */
 
-package sl.com.eightdigitz.core.domain.model
+package sl.com.eightdigitz.core.model.presentation
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
-
 /**
  *
  * @property id
- * @property name
+ * @property url
+ * @property thumbnailUrl
+ * @property category
  */
 
-data class DService(
+@Parcelize
+data class PImage(
     var id: Int? = null,
-    var name: String? = null
-)
+    var url: String? = null,
+    var thumbnailUrl: String? = null,
+    var category: String? = null
+): Parcelable
 

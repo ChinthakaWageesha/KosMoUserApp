@@ -1,7 +1,8 @@
-package sl.com.eightdigitz.core.domain.model
+package sl.com.eightdigitz.core.model
 
 import sl.com.eightdigitz.client.models.*
-import sl.com.eightdigitz.core.presentation.model.*
+import sl.com.eightdigitz.core.model.domain.*
+import sl.com.eightdigitz.core.model.presentation.*
 
 
 fun User.mapToDomain(): DUser =
@@ -120,4 +121,13 @@ fun Setting.mapToDomain() = DSettings(
 
 fun DSettings.mapToPresentation() = PSettings(
     id, key, value, createdAt, updatedAt
+)
+
+fun GetOTPResponse.mapToDomain():DAuth0 = DAuth0(
+    id = id,
+    phoneNumber = phoneNumber,
+    phoneVerified = phone_verified,
+    requestLanguage = requestLanguage,
+    error = error,
+    errorDescription = errorDescription
 )

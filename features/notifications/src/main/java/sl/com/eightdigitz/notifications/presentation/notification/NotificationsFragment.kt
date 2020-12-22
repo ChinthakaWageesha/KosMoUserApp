@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import sl.com.eightdigitz.core.presentation.base.BaseFragment
+import sl.com.eightdigitz.core.base.BaseFragment
 import sl.com.eightdigitz.notifications.R
 import sl.com.eightdigitz.notifications.presentation.models.PNotification
 import com.google.android.material.snackbar.Snackbar

@@ -1,4 +1,4 @@
-package sl.com.eightdigitz.core.presentation.base
+package sl.com.eightdigitz.core.base
 
 import android.app.Dialog
 import android.content.Context

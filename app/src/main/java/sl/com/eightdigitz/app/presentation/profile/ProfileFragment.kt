@@ -11,8 +11,8 @@ import androidx.lifecycle.Observer
 import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.app.presentation.change_password.ChangePasswordActivity
 import sl.com.eightdigitz.app.presentation.utill.FileUtil
-import sl.com.eightdigitz.core.presentation.base.BaseFragment
-import sl.com.eightdigitz.core.presentation.model.PUser
+import sl.com.eightdigitz.core.base.BaseFragment
+import sl.com.eightdigitz.core.model.presentation.PUser
 import sl.com.eightdigitz.presentation.Msg
 import sl.com.eightdigitz.presentation.Resource
 import sl.com.eightdigitz.presentation.ResourceState

@@ -1,4 +1,4 @@
-package sl.com.eightdigitz.core
+package sl.com.eightdigitz.core.ui
 
 import android.content.Context
 import android.content.Intent

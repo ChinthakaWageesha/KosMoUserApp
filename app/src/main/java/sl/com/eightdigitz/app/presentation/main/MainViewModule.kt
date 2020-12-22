@@ -4,7 +4,7 @@ import android.content.SharedPreferences
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import sl.com.eightdigitz.app.domain.usecase.AuthUseCase
-import sl.com.eightdigitz.core.presentation.model.PUser
+import sl.com.eightdigitz.core.model.presentation.PUser
 import sl.com.eightdigitz.models.Success
 import sl.com.eightdigitz.network.ErrorHandler
 import sl.com.eightdigitz.network.SupportInterceptor

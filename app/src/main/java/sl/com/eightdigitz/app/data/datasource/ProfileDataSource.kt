@@ -1,6 +1,6 @@
 package sl.com.eightdigitz.app.data.datasource
 
-import sl.com.eightdigitz.core.domain.model.DUser
+import sl.com.eightdigitz.core.model.domain.DUser
 import io.reactivex.Single
 import okhttp3.MultipartBody
 

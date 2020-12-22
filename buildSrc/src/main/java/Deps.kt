@@ -20,6 +20,11 @@ object Modules {
     const val countryPicker = ":countrypicker"
 }
 
+object Auth0 {
+    const val auth0Domain = "dev-ahamad.us.auth0.com"
+    const val auth0Schema = "demo"
+}
+
 object Releases {
     const val versionCode = 1
     const val versionName = "1.0"
@@ -78,6 +83,7 @@ object Versions {
     const val moshi = "1.8.0"
     const val threetenabp = "1.1.1"
     const val permission = "4.6.0"
+    const val auth0 = "1.30.0"
 }
 
 object Libraries {
@@ -130,6 +136,7 @@ object Libraries {
 }
 
 object SupportLibraries {
+    const val auth0 = "com.auth0.android:auth0:${Versions.auth0}"
     const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
     const val design = "com.google.android.material:material:${Versions.design}"
     const val cardview = "androidx.cardview:cardview:${Versions.cardview}"

@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
 import sl.com.eightdigitz.app.R
-import sl.com.eightdigitz.core.presentation.base.BaseFragment
+import sl.com.eightdigitz.core.base.BaseFragment
 
 class HomeFragment : BaseFragment() {
 

@@ -1,11 +1,11 @@
 package sl.com.eightdigitz.authentication.di
 
-import sl.com.eightdigitz.authentication.data.datasource.AuthRemoteDataSource
+import sl.com.eightdigitz.authentication.data.datasource.AuthDataSource
 import sl.com.eightdigitz.authentication.data.repository.AuthRepositoryImpl
-import sl.com.eightdigitz.authentication.datasource.remote.AuthRemoteDataSourceImpl
+import sl.com.eightdigitz.authentication.datasource.remote.AuthDataSourceImpl
 import sl.com.eightdigitz.authentication.domain.repository.AuthRepository
 import sl.com.eightdigitz.authentication.domain.usecase.AuthUseCase
-import sl.com.eightdigitz.authentication.presentation.verifyOTP.LoginViewModel
+import sl.com.eightdigitz.authentication.presentation.verifyOTP.OPTViewModel
 import sl.com.eightdigitz.authentication.presentation.registration.RegistrationViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.loadKoinModules
@@ -25,8 +25,6 @@ private val loadFeature by lazy {
     )
 }
 
-fun injectAuthApiLayer() = loadAuthAPiLayer
-
 private val loadAuthAPiLayer by lazy {
     loadKoinModules(
         listOf(
@@ -38,7 +36,7 @@ private val loadAuthAPiLayer by lazy {
 }
 
 val viewModelModule: Module = module {
-    viewModel { LoginViewModel(authUseCase = get()) }
+    viewModel { OPTViewModel(authUseCase = get()) }
     viewModel { RegistrationViewModel(authUseCase = get()) }
 }
 
@@ -49,20 +47,17 @@ val useCaseModule: Module = module(override = true) {
 val repositoryModule: Module = module(override = true) {
     single {
         AuthRepositoryImpl(
-            authRemoteDataSource = get(),
-            sharedPreferences = get()
+            authDataSource = get()
         ) as AuthRepository
     }
 }
 
 val dataSourceModule: Module = module(override = true) {
     single {
-        AuthRemoteDataSourceImpl(
+        AuthDataSourceImpl(
             authApi = get(),
-            forgotPasswordApi = get(),
-            resetPasswordApi = get(),
             mSharedPreferences = get(),
-            mSupportInteceptor = get()
-        ) as AuthRemoteDataSource
+            mSupportInterceptor = get()
+        ) as AuthDataSource
     }
 }

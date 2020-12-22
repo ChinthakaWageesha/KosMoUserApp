@@ -10,15 +10,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import sl.com.eightdigitz.authentication.R
 import sl.com.eightdigitz.authentication.presentation.AuthActivity
-import sl.com.eightdigitz.core.presentation.base.BaseFragment
-import sl.com.eightdigitz.core.presentation.model.PUser
+import sl.com.eightdigitz.core.base.BaseFragment
+import sl.com.eightdigitz.core.model.presentation.PUser
 import sl.com.eightdigitz.presentation.Msg
 import sl.com.eightdigitz.presentation.Resource
 import sl.com.eightdigitz.presentation.ResourceState
 import sl.com.eightdigitz.presentation.extensions.*
 import kotlinx.android.synthetic.main.activity_authentication_registration.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import sl.com.eightdigitz.presentation.LanguageType
 
 class RegistrationFragment : BaseFragment(), View.OnClickListener {
 

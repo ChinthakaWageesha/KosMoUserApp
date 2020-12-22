@@ -4,7 +4,7 @@
  * More info on this tool is available on https://github.com/Yelp/swagger-gradle-codegen
  */
 
-package sl.com.eightdigitz.core.presentation.model
+package sl.com.eightdigitz.core.model.domain
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
@@ -16,9 +16,8 @@ import kotlinx.android.parcel.Parcelize
  * @property name
  */
 
-@Parcelize
-data class PService(
+data class DService(
     var id: Int? = null,
     var name: String? = null
-): Parcelable
+)
 

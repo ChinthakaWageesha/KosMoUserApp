@@ -4,11 +4,7 @@
  * More info on this tool is available on https://github.com/Yelp/swagger-gradle-codegen
  */
 
-package sl.com.eightdigitz.core.presentation.model
-
-import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
-import java.math.BigDecimal
+package sl.com.eightdigitz.core.model.domain
 
 /**
  *
@@ -29,8 +25,7 @@ import java.math.BigDecimal
  * @property services
  */
 
-@Parcelize
-data class PBusiness(
+data class DBusiness(
     var id: Int? = null,
     var userId: Int? = null,
     var registeredName: String? = null,
@@ -44,7 +39,7 @@ data class PBusiness(
     var createdAt: String? = null,
     var updatedAt: String? = null,
     var phone: String? = null,
-    var images: List<PImage>? = null,
-    var services: List<PService>? = null
-): Parcelable
+    var images: List<DImage>? = null,
+    var services: List<DService>? = null
+)
 

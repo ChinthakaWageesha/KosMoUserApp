@@ -2,15 +2,13 @@ package sl.com.eightdigitz.app.presentation.main
 
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import androidx.lifecycle.Observer
 import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.app.di.injectFeature
-import sl.com.eightdigitz.core.CoreActivity
-import sl.com.eightdigitz.core.presentation.base.BaseActivity
-import sl.com.eightdigitz.core.presentation.model.PUser
+import sl.com.eightdigitz.core.ui.CoreActivity
+import sl.com.eightdigitz.core.base.BaseActivity
+import sl.com.eightdigitz.core.model.presentation.PUser
 import sl.com.eightdigitz.models.Success
-import sl.com.eightdigitz.navigation.features.ResultCode
 import sl.com.eightdigitz.notifications.presentation.models.PCustomNotificationModel
 import sl.com.eightdigitz.notifications.presentation.service.FcmService
 import sl.com.eightdigitz.presentation.IntentParsableConstants

@@ -3,9 +3,9 @@ package sl.com.eightdigitz.authentication.presentation.registration
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import sl.com.eightdigitz.authentication.domain.usecase.AuthUseCase
-import sl.com.eightdigitz.core.domain.model.mapToDomain
-import sl.com.eightdigitz.core.domain.model.mapToPresentation
-import sl.com.eightdigitz.core.presentation.model.PUser
+import sl.com.eightdigitz.core.model.mapToDomain
+import sl.com.eightdigitz.core.model.mapToPresentation
+import sl.com.eightdigitz.core.model.presentation.PUser
 import sl.com.eightdigitz.presentation.Resource
 import sl.com.eightdigitz.presentation.setError
 import sl.com.eightdigitz.presentation.setLoading

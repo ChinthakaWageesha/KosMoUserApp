@@ -2,8 +2,8 @@ package sl.com.eightdigitz.app.datasource.remote
 
 import sl.com.eightdigitz.app.data.datasource.ProfileDataSource
 import sl.com.eightdigitz.client.apis.ProfileApi
-import sl.com.eightdigitz.core.domain.model.DUser
-import sl.com.eightdigitz.core.domain.model.mapToDomain
+import sl.com.eightdigitz.core.model.domain.DUser
+import sl.com.eightdigitz.core.model.mapToDomain
 import io.reactivex.Single
 import okhttp3.MultipartBody
 

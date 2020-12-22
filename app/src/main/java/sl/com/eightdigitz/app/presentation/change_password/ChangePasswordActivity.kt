@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
 import sl.com.eightdigitz.app.R
-import sl.com.eightdigitz.core.presentation.base.BaseActivity
+import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.models.Success
 import sl.com.eightdigitz.presentation.Msg
 import sl.com.eightdigitz.presentation.Resource
@@ -12,8 +12,6 @@ import sl.com.eightdigitz.presentation.ResourceState
 import sl.com.eightdigitz.presentation.extensions.validate
 import sl.com.eightdigitz.presentation.extensions.setActionBar
 import sl.com.eightdigitz.presentation.extensions.getString
-import sl.com.eightdigitz.presentation.extensions.withNetwork
-import sl.com.eightdigitz.presentation.extensions.showToast
 import sl.com.eightdigitz.presentation.extensions.alert
 import sl.com.eightdigitz.presentation.extensions.showAlert
 import kotlinx.android.synthetic.main.activity_change_password.*

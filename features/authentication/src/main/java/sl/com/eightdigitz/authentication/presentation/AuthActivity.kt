@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.view.View
 import sl.com.eightdigitz.authentication.R
 import sl.com.eightdigitz.authentication.di.injectFeature
-import sl.com.eightdigitz.core.presentation.base.BaseActivity
+import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.navigation.features.ResultCode
 import kotlinx.android.synthetic.main.activity_auth.*
-import sl.com.eightdigitz.authentication.presentation.verifyOTP.GetPhoneNumberActivity
+import sl.com.eightdigitz.authentication.presentation.verifyOTP.GetOTPActivity
 import sl.com.eightdigitz.presentation.extensions.startActivity
 
 class AuthActivity : BaseActivity(), View.OnClickListener {
@@ -35,14 +35,14 @@ class AuthActivity : BaseActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btn_sinhala -> {
-                startActivity<GetPhoneNumberActivity>()
+                startActivity<GetOTPActivity>()
 
             }
             R.id.btn_tamil -> {
-                startActivity<GetPhoneNumberActivity>()
+                startActivity<GetOTPActivity>()
             }
             R.id.btn_english -> {
-                startActivity<GetPhoneNumberActivity>()
+                startActivity<GetOTPActivity>()
 
             }
         }

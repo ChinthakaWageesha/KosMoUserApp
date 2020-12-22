@@ -13,6 +13,9 @@ android {
         versionName Releases.versionName
 
         multiDexEnabled true //Add this
+
+        // ---> Add the next line
+        manifestPlaceholders = [auth0Domain : Auth0.auth0Domain, auth0Scheme: Auth0.auth0Schema ]
     }
 
     //  kapt {
@@ -91,6 +94,8 @@ dependencies {
     implementation SupportLibraries.cardview
     implementation SupportLibraries.appcompat
     implementation SupportLibraries.recyclerview
+
+    implementation SupportLibraries.auth0
 
 //  implementation Libraries.crashlytics
 

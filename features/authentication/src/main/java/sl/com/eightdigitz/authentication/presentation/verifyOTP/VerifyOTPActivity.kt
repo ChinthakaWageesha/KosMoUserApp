@@ -3,7 +3,7 @@ package sl.com.eightdigitz.authentication.presentation.verifyOTP
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_verify_otp.*
 import sl.com.eightdigitz.authentication.R
-import sl.com.eightdigitz.core.presentation.base.BaseActivity
+import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.presentation.extensions.validate
 
 class VerifyOTPActivity : BaseActivity() {

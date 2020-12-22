@@ -14,6 +14,10 @@
     <string name="title_send_code_btn">Send Code</string>
     <string name="error_invalid_phone">Invalid phone number</string>
 
+    <string name="auth0_audience_url">https://%s/userinfo</string>
+    <string name="com_auth0_client_id">k4PQJsn9sjtYNw6YGQyy5WnU7JmMvYQs</string>
+    <string name="com_auth0_domain">dev-ahamad.us.auth0.com</string>
+
     <!--Verify Phone number-->
     <string name="title_verify_phone_number_tv">Verify your phone number</string>
     <string name="message_enter_code">Enter your code below</string>

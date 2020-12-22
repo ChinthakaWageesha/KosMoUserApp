@@ -1,11 +1,9 @@
-package sl.com.eightdigitz.core.presentation.base
+package sl.com.eightdigitz.core.base
 
 import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import sl.com.eightdigitz.presentation.extensions.gone
-import sl.com.eightdigitz.presentation.extensions.visible
 
 abstract class BaseFragment : Fragment() {
 
