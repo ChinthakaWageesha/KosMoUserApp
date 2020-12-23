@@ -24,5 +24,6 @@
     <string name="message_did_not_receive_code">I did not receive a code</string>
     <string name="hint_enter_code">Enter Code</string>
     <string name="title_verify_btn">Verify</string>
+    <string name="error_invalid_verify_code">Invalid verification code</string>
 
 </resources>

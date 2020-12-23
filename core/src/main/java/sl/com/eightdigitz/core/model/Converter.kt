@@ -3,6 +3,7 @@ package sl.com.eightdigitz.core.model
 import sl.com.eightdigitz.client.models.*
 import sl.com.eightdigitz.core.model.domain.*
 import sl.com.eightdigitz.core.model.presentation.*
+import sl.com.eightdigitz.models.Success
 
 
 fun User.mapToDomain(): DUser =
@@ -95,10 +96,10 @@ fun DImage.mapToPresentation() = PImage(
     id, url, thumbnailUrl, category
 )
 
-/**
- * Convert presentation's  @PUser to domain's @DUser
- *
- * */
+fun Message.mapToDomain(): DMessage = DMessage(
+    error = error
+)
+
 fun PUser.mapToDomain(): DUser =
     DUser(
         id, uuid, name, phone, email, avatarUrl, timezone, type, services = services
@@ -114,16 +115,7 @@ fun PUser.mapToDomain(): DUser =
         it.message = message
     }
 
-
-fun Setting.mapToDomain() = DSettings(
-    id, key, value, createdAt, updatedAt
-)
-
-fun DSettings.mapToPresentation() = PSettings(
-    id, key, value, createdAt, updatedAt
-)
-
-fun GetOTPResponse.mapToDomain():DAuth0 = DAuth0(
+fun OTPResponse.mapToDomain():DOTP = DOTP(
     id = id,
     phoneNumber = phoneNumber,
     phoneVerified = phone_verified,
@@ -131,3 +123,16 @@ fun GetOTPResponse.mapToDomain():DAuth0 = DAuth0(
     error = error,
     errorDescription = errorDescription
 )
+
+fun OTPTokenResponse.mapToDomain(): DOTPToken = DOTPToken(
+    accessToken = accessToken,
+    idToken = idToken,
+    scope = scope,
+    expiresIn = expiresIn,
+    tokenType = tokenType,
+    error = error,
+    errorDescription = errorDescription
+)
+
+fun SuccessResponse.mapToDataSource(): Success =
+    Success(message, status, payload)

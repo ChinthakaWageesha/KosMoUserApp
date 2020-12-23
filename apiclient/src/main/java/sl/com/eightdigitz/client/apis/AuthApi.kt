@@ -6,54 +6,24 @@
 
 package sl.com.eightdigitz.client.apis
 
-import sl.com.eightdigitz.client.models.AuthLoginResponse
 import sl.com.eightdigitz.client.models.AuthRegisterResponse
 import sl.com.eightdigitz.client.models.SuccessResponse
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.POST
-import sl.com.eightdigitz.client.models.GetOTPResponse
-import java.math.BigDecimal
+import sl.com.eightdigitz.client.models.OTPResponse
+import sl.com.eightdigitz.client.models.OTPTokenResponse
 
 @JvmSuppressWildcards
 interface AuthApi {
-    /**
-     * Logout
-     * Logout the user from current device
-     * The endpoint is owned by integration service owner
-     * @param accept Set to &#x60;application/json&#x60; (required)
-     */
+
     @Headers(
         "X-Operation-Id: auth_get_logout",
         "Content-Type: application/json"
     )
     @GET("logout")
     fun authGetLogout(): Single<SuccessResponse>
-
-    /**
-     * Login
-     *
-     * The endpoint is owned by integration service owner
-     * @param accept &#x60;application/json&#x60; (required)
-     * @param deviceId Unique ID of the device (required)
-     * @param deviceType Type of the device &#x60;APPLE&#x60; or &#x60;ANDROID&#x60; (required)
-     * @param email Email (required)
-     * @param password Password (required)
-     * @param devicePushToken Unique push token for the device (optional)
-     */
-    @retrofit2.http.FormUrlEncoded
-    @Headers(
-        "X-Operation-Id: auth_post_login"
-    )
-    @POST("login")
-    fun authPostLogin(
-        @retrofit2.http.Field("device_id") deviceId: String,
-        @retrofit2.http.Field("device_type") deviceType: String,
-        @retrofit2.http.Field("email") email: String,
-        @retrofit2.http.Field("password") password: String,
-        @retrofit2.http.Field("device_push_token") devicePushToken: String?
-    ): Single<AuthLoginResponse>
 
     @retrofit2.http.FormUrlEncoded
     @POST("https://dev-ahamad.us.auth0.com/passwordless/start")
@@ -62,7 +32,17 @@ interface AuthApi {
         @retrofit2.http.Field("connection") connection: String,
         @retrofit2.http.Field("send") send: String,
         @retrofit2.http.Field("phone_number") phoneNumber: String
-    ): Single<GetOTPResponse>
+    ): Single<OTPResponse>
+
+    @retrofit2.http.FormUrlEncoded
+    @POST("https://dev-ahamad.us.auth0.com/oauth/token")
+    fun getOTPToken(
+        @retrofit2.http.Field("client_id") clientId: String,
+        @retrofit2.http.Field("grant_type") grantType: String,
+        @retrofit2.http.Field("username") phoneNumber: String,
+        @retrofit2.http.Field("otp") otp: String,
+        @retrofit2.http.Field("realm") realm: String
+    ) : Single<OTPTokenResponse>
 
     /**
      * Register

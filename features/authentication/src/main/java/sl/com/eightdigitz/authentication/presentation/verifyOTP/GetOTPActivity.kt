@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.activity_get_otp.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.authentication.R
 import sl.com.eightdigitz.core.base.BaseActivity
-import sl.com.eightdigitz.core.model.domain.DAuth0
+import sl.com.eightdigitz.core.model.domain.DOTP
 import sl.com.eightdigitz.presentation.Msg
 import sl.com.eightdigitz.presentation.Resource
 import sl.com.eightdigitz.presentation.ResourceState
@@ -18,7 +18,7 @@ import sl.com.eightdigitz.presentation.extensions.*
 class GetOTPActivity : BaseActivity(), View.OnClickListener {
 
     private var auth0: Auth0? = null
-    private val vmOTP by viewModel<OPTViewModel>()
+    private val vmOTP by viewModel<OTPViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +29,7 @@ class GetOTPActivity : BaseActivity(), View.OnClickListener {
     private fun init() {
         auth0 = Auth0(this)
         auth0?.isOIDCConformant = true
-        vmOTP.liveDataGetOTP.observe(this, Observer { observerGetOTP(it) })
+        vmOTP.liveDataOTP.observe(this, Observer { observerGetOTP(it) })
         et_mobile.validateOnTextChange(isCheckValidateIcon = true) { s -> s.isValidPhone() }
         btn_send_code.setOnClickListener(this)
     }
@@ -55,20 +55,24 @@ class GetOTPActivity : BaseActivity(), View.OnClickListener {
         })
     }
 
-    private fun observerGetOTP(resource: Resource<DAuth0>){
+    private fun observerGetOTP(resource: Resource<DOTP>) {
         resource.let {
-            when(it.state){
+            when (it.state) {
                 ResourceState.LOADING -> showProgress()
                 ResourceState.SUCCESS -> {
                     hideProgress()
-                    it.data?.id?.showToast(this)
+                    navigateToVerify()
                 }
                 ResourceState.ERROR -> {
-                   hideProgress()
-                   showAlert(Msg.TITLE_ERROR, it.message.toString())
+                    hideProgress()
+                    showAlert(Msg.TITLE_ERROR, it.message.toString())
                 }
             }
         }
+    }
+
+    private fun navigateToVerify() {
+        VerifyOTPActivity.startActivity(this, "+94715781989")
     }
 
     override fun onClick(v: View?) {
@@ -76,5 +80,4 @@ class GetOTPActivity : BaseActivity(), View.OnClickListener {
             R.id.btn_send_code -> onSendCode()
         }
     }
-
 }

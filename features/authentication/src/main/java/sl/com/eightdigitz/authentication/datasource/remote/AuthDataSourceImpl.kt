@@ -2,11 +2,7 @@ package sl.com.eightdigitz.authentication.datasource.remote
 
 import android.content.SharedPreferences
 import sl.com.eightdigitz.authentication.data.datasource.AuthDataSource
-import sl.com.eightdigitz.authentication.datasource.model.Success
-import sl.com.eightdigitz.authentication.datasource.model.mapToDataSource
 import sl.com.eightdigitz.client.apis.AuthApi
-import sl.com.eightdigitz.client.apis.ForgotPasswordApi
-import sl.com.eightdigitz.client.apis.ResetPasswordApi
 import sl.com.eightdigitz.client.models.User
 import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.core.model.mapToDomain
@@ -16,7 +12,8 @@ import sl.com.eightdigitz.presentation.extensions.setToken
 import sl.com.eightdigitz.presentation.extensions.setValue
 import sl.com.eightdigitz.presentation.extensions.toJsonString
 import io.reactivex.Single
-import sl.com.eightdigitz.core.model.domain.DAuth0
+import sl.com.eightdigitz.core.model.domain.DOTP
+import sl.com.eightdigitz.core.model.domain.DOTPToken
 
 class AuthDataSourceImpl constructor(
     private val authApi: AuthApi,
@@ -24,12 +21,23 @@ class AuthDataSourceImpl constructor(
     private val mSupportInterceptor: SupportInterceptor
 ) : AuthDataSource {
 
-    override fun getOTP(phoneNumber: String): Single<DAuth0> =
+    override fun getOTP(phoneNumber: String): Single<DOTP> =
         authApi.getOTP(
             clientId = Constant.CLIENT_ID,
             connection = "sms",
             send = "code",
             phoneNumber = phoneNumber
+        ).map {
+            it.mapToDomain()
+        }
+
+    override fun getOTPToken(phoneNumber: String, otp: String): Single<DOTPToken> =
+        authApi.getOTPToken(
+            clientId = Constant.CLIENT_ID,
+            grantType = "http://auth0.com/oauth/grant-type/passwordless/otp",
+            phoneNumber = phoneNumber,
+            otp = otp,
+            realm = "sms"
         ).map {
             it.mapToDomain()
         }

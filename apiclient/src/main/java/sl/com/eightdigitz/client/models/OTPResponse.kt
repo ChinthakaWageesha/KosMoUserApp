@@ -2,7 +2,7 @@ package sl.com.eightdigitz.client.models
 
 import com.squareup.moshi.Json
 
-data class GetOTPResponse(
+data class OTPResponse(
     @Json(name = "_id") @field:Json(name = "_id") var id: String? = null,
     @Json(name = "phone_number") @field:Json(name = "phone_number") var phoneNumber: String? = null,
     @Json(name = "phone_verified") @field:Json(name = "phone_verified") var phone_verified: Boolean? = null,

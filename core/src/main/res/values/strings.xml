@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">iQuote</string>
+    <string name="app_name">User App</string>
     <string name="module_feature_authentication">Authentication</string>
     <string name="module_feature_splash">Splash</string>
     <string name="msg_session_expire">Your session has expired. Please sign in again</string>

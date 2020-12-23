@@ -32,5 +32,5 @@ object ApiResponseCodes {
 object IntentParsableConstants {
     const val EXTRA_NOTIFICATION = "extra_notification"
     const val EXTRA_NOTIFICATION_DATA = "extra_notification_data"
-    const val EXTRA_IS_FROM_LOGIN = "EXTRA_IS_FROM_LOGIN"
+    const val EXTRA_PHONE = "EXTRA_PHONE_NUMBER"
 }
