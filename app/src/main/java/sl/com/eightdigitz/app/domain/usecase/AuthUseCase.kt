@@ -8,6 +8,4 @@ class AuthUseCase(private val authRepository: AuthRepository) {
 
     fun logoutUser(): Single<Success> = authRepository.logoutUser()
 
-    fun passwordChange(oldPassworrd: String, password: String): Single<Success> =
-        authRepository.passwordChange(oldPassworrd, password)
 }

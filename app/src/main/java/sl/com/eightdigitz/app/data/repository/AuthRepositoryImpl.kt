@@ -16,7 +16,4 @@ class AuthRepositoryImpl constructor(
         authDataSource.logoutUser().doOnSuccess {
             sharedPreferences.cleaAll()
         }
-
-    override fun passwordChange(oldPassworrd: String, password: String): Single<Success> =
-        authDataSource.passwordChange(oldPassworrd, password)
 }

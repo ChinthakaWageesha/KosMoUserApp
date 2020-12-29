@@ -3,6 +3,7 @@ package sl.com.eightdigitz.authentication.presentation.verifyOTP
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import com.auth0.android.Auth0
 import kotlinx.android.synthetic.main.activity_get_otp.*
@@ -27,11 +28,20 @@ class GetOTPActivity : BaseActivity(), View.OnClickListener {
     }
 
     private fun init() {
+        setToolbar()
         auth0 = Auth0(this)
         auth0?.isOIDCConformant = true
         vmOTP.liveDataOTP.observe(this, Observer { observerGetOTP(it) })
         et_mobile.validateOnTextChange(isCheckValidateIcon = true) { s -> s.isValidPhone() }
         btn_send_code.setOnClickListener(this)
+    }
+
+    private fun setToolbar() {
+        supportActionBar?.setActionBar(
+            this,
+            "",
+            isHomeUpEnables = true
+        )
     }
 
     private fun onSendCode() {
@@ -43,7 +53,8 @@ class GetOTPActivity : BaseActivity(), View.OnClickListener {
             return
         }
 
-        getOtp()
+        VerifyOTPActivity.startActivity(this@GetOTPActivity, "+94715781989")
+        //getOtp()
     }
 
     @SuppressLint("MissingPermission")
@@ -72,7 +83,19 @@ class GetOTPActivity : BaseActivity(), View.OnClickListener {
     }
 
     private fun navigateToVerify() {
-        VerifyOTPActivity.startActivity(this, "+94715781989")
+        showAlert(
+            Msg.TITLE_SUCCESS,
+            "Verification code has been sent to +94715781989",
+            object : Callback {
+                override fun onPositiveClicked() {
+                    VerifyOTPActivity.startActivity(this@GetOTPActivity, "+94715781989")
+                }
+
+                override fun onNegativeClicked() {
+                    TODO("Not yet implemented")
+                }
+
+            })
     }
 
     override fun onClick(v: View?) {

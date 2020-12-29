@@ -9,33 +9,21 @@ package sl.com.eightdigitz.client.models
 import com.squareup.moshi.Json
 import java.math.BigDecimal
 
-/**
- * 
- * @property id 
- * @property uuid 
- * @property name 
- * @property phone 
- * @property email 
- * @property avatarUrl 
- * @property timezone 
- * @property type 
- * @property signupError 
- * @property business 
- * @property services 
- * @property accessToken 
- */
-data class User (
-        @Json(name = "id") @field:Json(name = "id") var id: Int? = null,
-        @Json(name = "uuid") @field:Json(name = "uuid") var uuid: String? = null,
-        @Json(name = "name") @field:Json(name = "name") var name: String? = null,
-        @Json(name = "phone") @field:Json(name = "phone") var phone: String? = null,
-        @Json(name = "email") @field:Json(name = "email") var email: String? = null,
-        @Json(name = "avatar_url") @field:Json(name = "avatar_url") var avatarUrl: String? = null,
-        @Json(name = "timezone") @field:Json(name = "timezone") var timezone: String? = null,
-        @Json(name = "type") @field:Json(name = "type") var type: Int? = null,
-        @Json(name = "signup_error") @field:Json(name = "signup_error") var signupError: String? = null,
-        @Json(name = "business") @field:Json(name = "business") var business: Business? = null,
-        @Json(name = "services") @field:Json(name = "services") var services: String? = null,
-        @Json(name = "access_token") @field:Json(name = "access_token") var accessToken: String? = null
+data class User(
+    @Json(name = "ID") @field:Json(name = "ID") var id: String? = null,
+    @Json(name = "CreatedAt") @field:Json(name = "CreatedAt") var createdAt: String? = null,
+    @Json(name = "UpdatedAt") @field:Json(name = "UpdatedAt") var updatedAt: String? = null,
+    @Json(name = "DeletedAt") @field:Json(name = "DeletedAt") var deletedAt: String? = null,
+    @Json(name = "MobileNo") @field:Json(name = "MobileNo") var mobileNo: String? = null,
+    @Json(name = "DefaultLanguage") @field:Json(name = "DefaultLanguage") var defaultLanguage: String? = null,
+    @Json(name = "Email") @field:Json(name = "Email") var email: String? = null,
+    @Json(name = "DOB") @field:Json(name = "DOB") var dob: String? = null,
+    @Json(name = "Role") @field:Json(name = "Role") var role: String? = null,
+    @Json(name = "ProfilePicture") @field:Json(name = "ProfilePicture") var profilePicture: String? = null,
+    @Json(name = "ProfileVideo") @field:Json(name = "ProfileVideo") var profileVideo: String? = null,
+    @Json(name = "ProfileBanner") @field:Json(name = "ProfileBanner") var profileBanner: String? = null,
+    @Json(name = "Preferences") @field:Json(name = "Preferences") var preferences: String? = null,
+    @Json(name = "Auth0Ref") @field:Json(name = "Auth0Ref") var authReference: String? = null,
+    @Json(name = "Verified") @field:Json(name = "Verified") var verified: Boolean? = null
 )
 

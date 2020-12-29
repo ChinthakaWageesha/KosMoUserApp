@@ -17,6 +17,9 @@ class AuthRepositoryImpl constructor(
     override fun getOTPToken(phoneNumber: String, otp: String): Single<DOTPToken> =
         authDataSource.getOTPToken(phoneNumber, otp)
 
+    override fun getUserByRefToken(idToken: String): Single<DUser> =
+        authDataSource.getUserByRefToken(idToken)
+
     override fun createAccount(dUser: DUser): Single<DUser> =
         authDataSource.createAccount(dUser)
 

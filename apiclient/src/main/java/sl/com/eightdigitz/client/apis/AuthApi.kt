@@ -6,24 +6,15 @@
 
 package sl.com.eightdigitz.client.apis
 
-import sl.com.eightdigitz.client.models.AuthRegisterResponse
-import sl.com.eightdigitz.client.models.SuccessResponse
 import io.reactivex.Single
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.Headers
 import retrofit2.http.POST
-import sl.com.eightdigitz.client.models.OTPResponse
-import sl.com.eightdigitz.client.models.OTPTokenResponse
+import sl.com.eightdigitz.client.models.*
 
 @JvmSuppressWildcards
 interface AuthApi {
-
-    @Headers(
-        "X-Operation-Id: auth_get_logout",
-        "Content-Type: application/json"
-    )
-    @GET("logout")
-    fun authGetLogout(): Single<SuccessResponse>
 
     @retrofit2.http.FormUrlEncoded
     @POST("https://dev-ahamad.us.auth0.com/passwordless/start")
@@ -44,34 +35,34 @@ interface AuthApi {
         @retrofit2.http.Field("realm") realm: String
     ) : Single<OTPTokenResponse>
 
-    /**
-     * Register
-     * This endpoint registers a user. If you need to update a profile image, upload the profile image in the background using `/avatar` endpoint.
-     * The endpoint is owned by integration service owner
-     * @param accept &#x60;application/json&#x60; (required)
-     * @param deviceId Unique ID of the device (required)
-     * @param deviceType Type of the device &#x60;APPLE&#x60; or &#x60;ANDROID&#x60; (required)
-     * @param name Full name of user (required)
-     * @param email Email address of user (required)
-     * @param password Password. Must be at least 8 characters. (required)
-     * @param passwordConfirmation Confirm password. Must be at least 8 characters. (required)
-     * @param userType Type of user 1-business,2-client (required)
-     * @param devicePushToken Unique push token for the device (optional)
-     */
+    @GET("user")
+    fun getUserByFefToken(
+        @retrofit2.http.Header("x-id-token") idToken: String
+    ) : Single<UserByRefTokenResponse>
+
+
+
+    @Headers(
+        "X-Operation-Id: auth_get_logout",
+        "Content-Type: application/json"
+    )
+    @GET("logout")
+    fun authGetLogout(): Single<SuccessResponse>
+
     @retrofit2.http.FormUrlEncoded
     @Headers(
         "X-Operation-Id: auth_post_register"
     )
-    @POST("register")
+    @POST("user")
     fun authPostRegister(
-        @retrofit2.http.Field("device_id") deviceId: String,
-        @retrofit2.http.Field("device_type") deviceType: String,
-        @retrofit2.http.Field("name") name: String,
-        @retrofit2.http.Field("email") email: String,
-        @retrofit2.http.Field("password") password: String,
-        @retrofit2.http.Field("password_confirmation") passwordConfirmation: String,
-        @retrofit2.http.Field("user_type") userType: String,
-        @retrofit2.http.Field("device_push_token") devicePushToken: String?
+        @retrofit2.http.Field("MobileNo") mobileNo: String,
+        @retrofit2.http.Field("DefaultLanguage") defaultLanguage: String,
+        @retrofit2.http.Field("Email") email: String,
+        @retrofit2.http.Field("DOB") dob: String,
+        @retrofit2.http.Field("Role") role: String,
+        @retrofit2.http.Field("ProfilePicture") profilePicture: String,
+        @retrofit2.http.Field("ProfileVideo") profileVideo: String,
+        @retrofit2.http.Field("ProfileBanner") profileBanner: String?
     ): Single<AuthRegisterResponse>
 
     /**

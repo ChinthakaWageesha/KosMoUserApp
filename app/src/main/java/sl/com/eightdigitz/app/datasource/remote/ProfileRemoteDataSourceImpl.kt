@@ -12,7 +12,7 @@ class ProfileRemoteDataSourceImpl(
 ) : ProfileDataSource {
 
     override fun updateProfile(dUser: DUser): Single<DUser> =
-        profileApi.profilePutUpdate(dUser.name!!, dUser.email!!).map { it.payload?.mapToDomain() }
+        profileApi.profilePutUpdate(dUser.mobileNo!!, dUser.email!!).map { it.payload?.mapToDomain() }
 
     override fun getProfile(): Single<DUser> =
         profileApi.profileGetMyProfile().map { it.payload?.mapToDomain() }

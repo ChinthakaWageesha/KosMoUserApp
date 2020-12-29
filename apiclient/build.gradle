@@ -22,11 +22,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField "String", "API_URL", "${ApiLiveServer.url}"
-            buildConfigField "String", "API_KEY", "${ApiLiveServer.apiKey}"
         }
         debug {
             buildConfigField "String", "API_URL", "${ApiSandboxServer.url}"
-            buildConfigField "String", "API_KEY", "${ApiSandboxServer.apiKey}"
         }
     }
 }

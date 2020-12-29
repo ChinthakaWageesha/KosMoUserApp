@@ -32,7 +32,7 @@ abstract class BaseActivity : AppCompatActivity() {
            setCanceledOnTouchOutside(true)
        }
 
-        mNetworkSupportInterceptor.setAuthCallBackListner(object :
+        mNetworkSupportInterceptor.setAuthCallBackListener(object :
             SupportInterceptor.AuthenticatorCallBack {
             override fun onUnAuthorizedResponse(responseCode: Int?) {
                 when (responseCode) {
@@ -50,9 +50,9 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     private fun handleResponse() {
-        val mAccessToken = mSharedPreferences.getToken()
+        val mUser = mSharedPreferences.getUser()
 
-        if (!mAccessToken.isNullOrEmpty()) {
+        if (!mUser.isNullOrEmpty()) {
             runOnUiThread {
                 getString(R.string.msg_session_expire).showToast(this)
             }

@@ -77,7 +77,7 @@ interface ProfileApi {
     )
     @PUT("profile")
     fun profilePutUpdate(
-        @retrofit2.http.Field("name") name: String,
+        @retrofit2.http.Field("MobileNo") mobileNo: String,
         @retrofit2.http.Field("email") email: String
     ): Single<ProfileUpdateResponse>
 

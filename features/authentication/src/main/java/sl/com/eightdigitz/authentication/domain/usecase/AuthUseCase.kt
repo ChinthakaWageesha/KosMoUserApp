@@ -11,5 +11,7 @@ class AuthUseCase constructor(private val authRepository: AuthRepository) {
 
     fun getOTPToken(phoneNumber: String, otp: String) = authRepository.getOTPToken(phoneNumber, otp)
 
+    fun getUserByRefToken(idToken: String) = authRepository.getUserByRefToken(idToken)
+
     fun createAccount(u: DUser): Single<DUser> = authRepository.createAccount(u)
 }

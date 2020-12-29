@@ -51,7 +51,7 @@ object Versions {
     const val design = "1.0.0"
     const val cardview = "1.0.0"
     const val recyclerview = "1.0.0"
-    const val constraintLayout = "1.1.3"
+    const val constraintLayout = "2.0.4"
     const val maps = "15.0.1"
     const val lifecycle = "2.0.0"
     const val support = "1.0.0"
@@ -84,6 +84,7 @@ object Versions {
     const val threetenabp = "1.1.1"
     const val permission = "4.6.0"
     const val auth0 = "1.30.0"
+    const val circularImageView = "3.1.0"
 }
 
 object Libraries {
@@ -141,8 +142,7 @@ object SupportLibraries {
     const val design = "com.google.android.material:material:${Versions.design}"
     const val cardview = "androidx.cardview:cardview:${Versions.cardview}"
     const val recyclerview = "androidx.recyclerview:recyclerview:${Versions.recyclerview}"
-    const val constraintLayout =
-        "androidx.constraintlayout:constraintlayout:2.0.4"
+    const val constraintLayout = "com.android.support.constraint:constraint-layout:${Versions.constraintLayout}}"
 }
 
 object ExternalLib {
@@ -159,6 +159,7 @@ object ExternalLib {
     const val filePicker = "com.droidninja:filepicker:2.2.1"
     const val imageViewer = "com.github.stfalcon:stfalcon-imageviewer:0.1.0"
     const val cropper = "com.isseiaoki:simplecropview:1.1.8"
+    const val circularImageView = "de.hdodenhof:circleimageview:${Versions.circularImageView}"
 }
 
 object GoogleLibraries {
@@ -178,13 +179,11 @@ object FirebaseLibraries {
 }
 
 object ApiLiveServer {
-    const val url = "\"https://iquote.sandbox18.preview.cx/api/v1/\""
-    const val apiKey = "\"LoS1m8izoJ\$OJySzco0TvUaxowQMUfw\""
+    const val url = "\"https://hello-api.dev.hello.eightdigitz.com/\""
 }
 
 object ApiSandboxServer {
-    const val url = "\"https://iquote.sandbox18.preview.cx/api/v1/\""
-    const val apiKey = "\"LoS1m8izoJ\$OJySzco0TvUaxowQMUfw\""
+    const val url = "\"https://hello-api.dev.hello.eightdigitz.com/\""
 }
 
 object Moshi {

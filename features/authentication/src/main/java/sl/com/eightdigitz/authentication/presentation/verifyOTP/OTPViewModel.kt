@@ -11,12 +11,15 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import sl.com.eightdigitz.core.model.domain.DOTP
 import sl.com.eightdigitz.core.model.domain.DOTPToken
+import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.network.ErrorHandler
 
 class OTPViewModel constructor(private val authUseCase: AuthUseCase) : ViewModel() {
 
     val liveDataOTP = MutableLiveData<Resource<DOTP>>()
     val liveDataOTPToken = MutableLiveData<Resource<DOTPToken>>()
+    val liveDataUser = MutableLiveData<Resource<DUser>>()
+
     private val compositeDisposable = CompositeDisposable()
 
     fun getOTP(phoneNumber: String) {
@@ -43,6 +46,20 @@ class OTPViewModel constructor(private val authUseCase: AuthUseCase) : ViewModel
                     liveDataOTPToken.setSuccess(it, null)
                 }, {
                     liveDataOTPToken.setError(ErrorHandler.getApiErrorMessage(it))
+                })
+        )
+    }
+
+    fun getUserByRefToken(idToken: String) {
+        liveDataUser.setLoading()
+        compositeDisposable.add(
+            authUseCase.getUserByRefToken(idToken)
+                .subscribeOn(Schedulers.io())
+                .map { it }
+                .subscribe({
+                    liveDataUser.setSuccess(it, null)
+                }, {
+                    liveDataUser.setError(ErrorHandler.getApiErrorMessage(it))
                 })
         )
     }

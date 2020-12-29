@@ -1,15 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light.Bridge">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorDarkBlue</item>
-        <item name="android:windowBackground">@color/colorWhite</item>
-        <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="lollipop">true</item>
-        <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">true</item>
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/colorPink</item>
+        <item name="colorPrimaryDark">@color/colorDarkPink</item>
+        <item name="colorAccent">@color/colorPink</item>
         <item name="android:statusBarColor">@color/colorTransparent</item>
         <item name="android:fitsSystemWindows">true</item>
-        <item name="android:navigationBarColor">@color/colorWhite</item>
         <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
     </style>
@@ -17,37 +13,51 @@
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <!--<item name="android:windowFullscreen">true</item>-->
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
     </style>
 
-    <style name="AppTheme.NoActionBarFit">
+    <style name="AppTheme.FullScreen">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:fitsSystemWindows">true</item>
-        <item name="android:statusBarColor">@color/colorPrimary</item>
+        <item name="android:windowFullscreen">true</item>
     </style>
 
-    <style name="PrimaryButtonStyle">
+    <style name="PurpleButtonStyle">
         <item name="android:textAppearance">@style/PrimaryButtonTextStyle</item>
-        <item name="android:background">@drawable/bg_pink_btn_corner_round_3dp</item>
+        <item name="android:background">@drawable/bg_purple_btn_corner_round_3dp</item>
         <item name="android:paddingLeft">14dp</item>
         <item name="android:paddingRight">14dp</item>
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:minHeight">48dp</item>
+        <item name="android:gravity">center</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:minWidth">140dp</item>
         <item name="android:stateListAnimator">@null</item>
     </style>
 
     <style name="PinkButtonStyle">
-        <item name="android:textAppearance">@style/WhiteNormalTextStyle.Size15</item>
-        <item name="android:background">@drawable/bg_pink_button</item>
+        <item name="android:textAppearance">@style/PrimaryButtonTextStyle</item>
+        <item name="android:background">@drawable/bg_pink_btn_corner_round_3dp</item>
+        <item name="android:paddingLeft">14dp</item>
+        <item name="android:paddingRight">14dp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:minWidth">140dp</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <style name="GrayButtonStyle">
+        <item name="android:textAppearance">@style/WhiteNormalTextStyle.Size12</item>
+        <item name="android:background">@drawable/bg_btn_select_language</item>
         <item name="fontFamily">@font/sf_pro_display_medium</item>
         <item name="android:paddingLeft">12dp</item>
         <item name="android:paddingRight">12dp</item>
         <item name="android:minHeight">44dp</item>
         <item name="android:textAllCaps">false</item>
-        <item name="android:minWidth">190dp</item>
+        <item name="android:minWidth">100dp</item>
         <item name="android:stateListAnimator">@null</item>
     </style>
 
@@ -95,7 +105,7 @@
     <style name="PrimaryButtonTextStyle">
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:textStyle">normal</item>
-        <item name="fontFamily">@font/sf_pro_display_medium</item>
+        <item name="fontFamily">@font/sf_pro_display_bold</item>
         <item name="android:textSize">17sp</item>
     </style>
 
@@ -126,8 +136,8 @@
         <item name="fontFamily">@font/sf_pro_display_regular</item>
     </style>
 
-    <style name="BlackOpacityNormalTextStyle">
-        <item name="android:textColor">@color/colorTextBlackOp50</item>
+    <style name="WhiteOpacityNormalTextStyle">
+        <item name="android:textColor">@color/colorWhiteOp20</item>
         <item name="android:textStyle">normal</item>
     </style>
 
@@ -136,12 +146,41 @@
         <item name="android:textStyle">normal</item>
     </style>
 
+    <style name="LightGrayNormalTextStyle">
+        <item name="android:textColor">@color/colorLightGray</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
     <style name="WhiteBoldTextStyle.Size14">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="WhiteBoldTextStyle.Size19">
+        <item name="android:textSize">19sp</item>
+    </style>
+
+    <style name="WhiteBoldTextStyle.Size30">
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="WhiteNormalTextStyle.Size12">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="WhiteNormalTextStyle.Size13">
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="WhiteNormalTextStyle.Size14">
         <item name="android:textSize">14sp</item>
     </style>
 
     <style name="WhiteNormalTextStyle.Size15">
         <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="WhiteNormalTextStyle.Size19">
+        <item name="android:textSize">19sp</item>
     </style>
 
     <style name="BlackNormalTextStyle.Size19">
@@ -156,12 +195,8 @@
         <item name="android:textSize">50sp</item>
     </style>
 
-    <style name="BlackOpacityNormalTextStyle.Size14">
-        <item name="android:textSize">14sp</item>
-    </style>
-
-    <style name="BlackOpacityNormalTextStyle.Size15">
-        <item name="android:textSize">15sp</item>
+    <style name="WhiteOpacityNormalTextStyle.Size13">
+        <item name="android:textSize">13sp</item>
     </style>
 
     <style name="BlackHintTextStyle.Size15">
@@ -216,12 +251,15 @@
         <item name="android:textSize">14sp</item>
     </style>
 
+    <style name="LightGrayNormalTextStyle.Size13">
+        <item name="android:textSize">13sp</item>
+    </style>
+
     <style name="PrimaryEditTextStyle">
-        <item name="android:textAppearance">@style/DarkGrayNormalTextStyle.Size14</item>
+        <item name="android:textAppearance">@style/BlackNormalTextStyle.Size14</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:paddingLeft">12dp</item>
         <item name="android:paddingTop">8dp</item>
-        <item name="android:textSize">18sp</item>
         <item name="android:paddingBottom">8dp</item>
         <item name="android:paddingRight">12dp</item>
         <item name="android:minHeight">48dp</item>
@@ -231,7 +269,7 @@
 
     <style name="EditTextTheme">
         <item name="android:textColor">@color/colorBlack</item>
-        <item name="android:textColorHint">@color/colorTextBlackOp50</item>
+        <item name="android:textColorHint">@color/colorLightGray</item>
         <item name="colorAccent">@color/colorBlack</item>
     </style>
 
@@ -250,30 +288,6 @@
         <item name="android:textSize">15sp</item>
     </style>
 
-
-    <!--    Default edit text style with square corner -->
-    <style name="editTextWithHintSquareCornerStyle" parent="editTextWithHintStyle">
-        <item name="android:background">@drawable/bg_square_border_et</item>
-    </style>
-
-
-    <!--    Default edit text style with rounded corner -->
-    <style name="editTextWithHintRoundCornerStyle" parent="editTextWithHintStyle">
-        <item name="android:background">@drawable/bg_rounded_border_btn</item>
-    </style>
-
-    <!--    Default edit text style with rounded corner size 15 -->
-    <style name="editTextWithHintRoundCornerStyle.size15">
-        <item name="android:textSize">15sp</item>
-    </style>
-
-
-    <!--    Default edit text style with square corner with size 15 -->
-    <style name="editTextWithHintSquareCornerStyle.size15">
-        <item name="android:textSize">15sp</item>
-    </style>
-
-
     <!--    Edit text title label style-->
     <style name="editTextTitleLabelStyle">
         <item name="android:textColor">@color/colorHalvetica</item>
@@ -290,34 +304,6 @@
     <style name="basicButtonStyle">
         <item name="android:fontFamily" tools:targetApi="jelly_bean">sans-serif</item>
         <item name="android:textAllCaps">true</item>
-    </style>
-
-
-    <!--    Rounded Button Styles-->
-    <!--    Rounded Solid Background of Basic Button Style-->
-    <style name="roundedSolidColorButtonStyle" parent="basicButtonStyle">
-        <item name="android:background">@drawable/bg_solid_rounded_btn</item>
-    </style>
-
-
-    <!--    Rounded  Background Border of Basic Button Style-->
-    <style name="roundedBorderButtonStyle" parent="basicButtonStyle">
-        <item name="android:background">@drawable/bg_rounded_border_btn</item>
-    </style>
-
-
-    <!--    Extensions Of Round Button Styles-->
-    <!--    Rounded Solid Background of Basic Button Style with Text Color Black And Size 20-->
-    <style name="roundedSolidColorButtonStyle.size20">
-        <item name="android:textSize">20sp</item>
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
-    </style>
-
-
-    <!--    Rounded Border Background of Basic Button Style with Text Color Black And Size 20-->
-    <style name="roundedBorderButtonStyle.size20">
-        <item name="android:textSize">20sp</item>
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
 
 

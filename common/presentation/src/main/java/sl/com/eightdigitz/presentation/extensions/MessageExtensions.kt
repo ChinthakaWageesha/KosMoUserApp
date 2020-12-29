@@ -16,9 +16,39 @@ fun Activity.showAlert(title: String = "Alert", message: String) {
     }.show()
 }
 
+fun Activity.showAlert(title: String = "Alert", message: String, callback: Callback) {
+    this.alert(title, message) {
+        positiveButton("Ok") {
+            callback.onPositiveClicked()
+        }
+    }.show()
+}
+
 fun Fragment.showAlert(title: String = "Alert", message: String) {
     this.alert(title, message) {
         positiveButton("Ok") {
         }
     }.show()
+}
+
+fun Activity.showConfirm(
+    title: String,
+    message: String,
+    negativeText: String,
+    positiveText: String,
+    callback: Callback
+) {
+    this.alert(title, message) {
+        positiveButton(positiveText){
+            callback.onPositiveClicked()
+        }
+        negativeButton(negativeText){
+            callback.onNegativeClicked()
+        }
+    }.show()
+}
+
+interface Callback{
+    fun onPositiveClicked()
+    fun onNegativeClicked()
 }

@@ -8,7 +8,6 @@ import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.core.model.mapToDomain
 import sl.com.eightdigitz.network.SupportInterceptor
 import sl.com.eightdigitz.presentation.Constant
-import sl.com.eightdigitz.presentation.extensions.setToken
 import sl.com.eightdigitz.presentation.extensions.setValue
 import sl.com.eightdigitz.presentation.extensions.toJsonString
 import io.reactivex.Single
@@ -17,8 +16,7 @@ import sl.com.eightdigitz.core.model.domain.DOTPToken
 
 class AuthDataSourceImpl constructor(
     private val authApi: AuthApi,
-    private val mSharedPreferences: SharedPreferences,
-    private val mSupportInterceptor: SupportInterceptor
+    private val mSharedPreferences: SharedPreferences
 ) : AuthDataSource {
 
     override fun getOTP(phoneNumber: String): Single<DOTP> =
@@ -42,24 +40,27 @@ class AuthDataSourceImpl constructor(
             it.mapToDomain()
         }
 
-    override fun createAccount(dUser: DUser): Single<DUser> =
-        authApi.authPostRegister(
-            dUser.deviceId!!,
-            dUser.deviceType!!,
-            dUser.name!!,
-            dUser.email!!,
-            dUser.password!!,
-            dUser.password!!,
-            dUser.userType!!,
-            dUser.devicePushToken
-        ).map {
-            saveData(it.payload)
+    override fun getUserByRefToken(idToken: String): Single<DUser> =
+        authApi.getUserByFefToken(idToken).map {
             it.payload?.mapToDomain()
         }
 
+    override fun createAccount(dUser: DUser): Single<DUser> =
+        authApi.authPostRegister(
+            dUser.mobileNo!!,
+            dUser.defaultLanguage!!,
+            dUser.email!!,
+            dUser.dob!!,
+            dUser.role!!,
+            dUser.profilePicture!!,
+            dUser.profileVideo!!,
+            dUser.profileBanner
+        ).map {
+            saveData(it.data)
+            it.data?.mapToDomain()
+        }
+
     private fun saveData(mUser: User?) {
-        mSupportInterceptor.accessToken = mUser?.accessToken
-        mSharedPreferences.setToken(mUser?.accessToken)
         mSharedPreferences.setValue(Constant.PREF_USER, mUser?.mapToDomain()?.toJsonString())
     }
 }

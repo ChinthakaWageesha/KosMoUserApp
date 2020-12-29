@@ -10,7 +10,6 @@ import sl.com.eightdigitz.network.ErrorHandler
 import sl.com.eightdigitz.network.SupportInterceptor
 import sl.com.eightdigitz.presentation.*
 import sl.com.eightdigitz.presentation.extensions.get
-import sl.com.eightdigitz.presentation.extensions.getToken
 import sl.com.eightdigitz.presentation.extensions.jsonStringMapTo
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -21,9 +20,9 @@ class MainViewModule(
     private val sharedPreferences: SharedPreferences
 ) : ViewModel() {
 
-    init {
+    /*init {
         supportInterceptor.accessToken = sharedPreferences.getToken()
-    }
+    }*/
 
     val liveData = MutableLiveData<Resource<Success>>()
 

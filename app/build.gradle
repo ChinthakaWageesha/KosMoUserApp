@@ -16,6 +16,7 @@ dependencies {
     implementation SupportLibraries.design
     implementation SupportLibraries.appcompat
     implementation SupportLibraries.cardview
+    implementation SupportLibraries.constraintLayout
 
     implementation Libraries.kotlin
     implementation Libraries.koinAndroid
@@ -34,5 +35,4 @@ dependencies {
 
     implementation Libraries.retrofit
     //implementation Libraries.retrofitJsonConverter
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }

@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.PopupMenu
 import androidx.lifecycle.Observer
 import sl.com.eightdigitz.app.R
-import sl.com.eightdigitz.app.presentation.change_password.ChangePasswordActivity
 import sl.com.eightdigitz.app.presentation.utill.FileUtil
 import sl.com.eightdigitz.core.base.BaseFragment
 import sl.com.eightdigitz.core.model.presentation.PUser
@@ -79,8 +78,7 @@ class ProfileFragment : BaseFragment(), View.OnClickListener /*, TakePhoto.TakeR
                 chooseCameraOrGallery(v)
             }
             R.id.btn_change_password -> {
-                val intent = Intent(context, ChangePasswordActivity::class.java)
-                startActivity(intent)
+                "Change password".showToast(context!!)
             }
         }
     }
@@ -124,8 +122,8 @@ class ProfileFragment : BaseFragment(), View.OnClickListener /*, TakePhoto.TakeR
 
     private fun setData(user: PUser?) {
         et_email.setText(user?.email)
-        et_first_name.setText(user?.name)
-        user?.avatarUrl?.let { iv_photo.loadImageRound(it) }
+        et_first_name.setText(user?.authReference)
+        user?.profilePicture?.let { iv_photo.loadImageRound(it) }
     }
 
     private fun updateProfile(resource: Resource<PUser>) {

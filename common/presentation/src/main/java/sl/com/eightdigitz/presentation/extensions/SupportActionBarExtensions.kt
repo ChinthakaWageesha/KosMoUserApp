@@ -36,7 +36,6 @@ fun ActionBar.setActionBar(
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
         tv.setTextAppearance(R.style.DarkGrayBoldTextStyle_Size17)
     } else {
-        tv.setTextColor(Color.WHITE)
         tv.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 17f)
         ResourcesCompat.getFont(tv.context, R.font.sf_pro_display_medium)
             ?.also { mTypeFace ->
@@ -51,6 +50,7 @@ fun ActionBar.setActionBar(
     // Set the ActionBar display option
     this.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
     this.customView = tv
+    this.setBackgroundDrawable(context.getDrawable(R.drawable.bg_support_actionbar))
 
     this.elevation = 0.dpToPx()
     if (isHomeUpEnables) {

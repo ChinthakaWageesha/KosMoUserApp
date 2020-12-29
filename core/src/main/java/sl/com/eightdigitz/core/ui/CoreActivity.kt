@@ -9,8 +9,8 @@ import sl.com.eightdigitz.navigation.features.AuthenticationNavigation
 import sl.com.eightdigitz.navigation.features.MainNavigation
 import sl.com.eightdigitz.navigation.features.RequestCodes
 import sl.com.eightdigitz.presentation.IntentParsableConstants
-import sl.com.eightdigitz.presentation.extensions.getToken
 import org.koin.android.ext.android.inject
+import sl.com.eightdigitz.presentation.extensions.getUser
 
 class CoreActivity : AppCompatActivity() {
 
@@ -24,7 +24,7 @@ class CoreActivity : AppCompatActivity() {
         val mNotificationData =
             intent.getStringExtra(IntentParsableConstants.EXTRA_NOTIFICATION_DATA)
 
-        sharedPreferences.getToken().let {
+        sharedPreferences.getUser().let {
             it.isNullOrEmpty().let { isNotLogin ->
                 if (isNotLogin) {
                     startLogin()

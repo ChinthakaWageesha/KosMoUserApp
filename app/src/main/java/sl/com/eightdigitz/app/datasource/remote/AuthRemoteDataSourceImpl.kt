@@ -13,7 +13,4 @@ class AuthRemoteDataSourceImpl(
     override fun logoutUser(): Single<Success> =
         authApi.authGetLogout().map { it.mapToDataSource() }
 
-    override fun passwordChange(oldPassworrd: String, password: String): Single<Success> =
-        authApi.authPostUpdatePassword(password, oldPassworrd, password)
-            .map { it.mapToDataSource() }
 }

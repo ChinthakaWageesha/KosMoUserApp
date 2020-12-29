@@ -71,7 +71,7 @@
 
             <EditText
                 android:id="@+id/et_first_name"
-                style="@style/editTextWithHintRoundCornerStyle.size15"
+                style="@style/EditTextTheme"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/et_first_name_margin_top_profile"
@@ -90,7 +90,7 @@
 
             <EditText
                 android:id="@+id/et_last_name"
-                style="@style/editTextWithHintRoundCornerStyle.size15"
+                style="@style/EditTextTheme"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/et_last_name_margin_top_profile"
@@ -107,7 +107,7 @@
 
             <EditText
                 android:id="@+id/et_email"
-                style="@style/editTextWithHintRoundCornerStyle.size15"
+                style="@style/EditTextTheme"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/et_email_margin_top_profile"
@@ -124,7 +124,7 @@
 
             <EditText
                 android:id="@+id/et_address"
-                style="@style/editTextWithHintRoundCornerStyle.size15"
+                style="@style/EditTextTheme"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/et_address_margin_top_profile"
@@ -154,7 +154,7 @@
 
         <Button
             android:id="@+id/btn_save"
-            style="@style/roundedSolidColorButtonStyle.size20"
+            style="@style/PinkButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/btn_save_margin_top_profile"

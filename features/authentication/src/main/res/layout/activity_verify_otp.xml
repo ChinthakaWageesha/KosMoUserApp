@@ -4,11 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ic_sample"
     tools:context=".presentation.verifyOTP.VerifyOTPActivity">
 
     <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorFuchsiaOp"
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,7 +24,7 @@
 
             <TextView
                 android:id="@+id/tv_title_verify_phone"
-                style="@style/BlackNormalTextStyle.Size19"
+                style="@style/WhiteNormalTextStyle.Size19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
@@ -34,7 +36,7 @@
 
             <TextView
                 android:id="@+id/tv_message_enter_code"
-                style="@style/BlackOpacityNormalTextStyle.Size15"
+                style="@style/WhiteOpacityNormalTextStyle.Size13"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
@@ -48,7 +50,7 @@
 
             <TextView
                 android:id="@+id/tv_message_not_receive_code"
-                style="@style/BlackNormalTextStyle.Size14"
+                style="@style/WhiteNormalTextStyle.Size14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
@@ -63,12 +65,12 @@
 
             <TextView
                 android:id="@+id/tv_countdown_timer"
-                style="@style/DarkPinkNormalTextStyle.Size14"
+                style="@style/WhiteBoldTextStyle.Size14"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="30dp"
                 android:fontFamily="@font/sf_pro_display_regular"
-                android:text="00:30S"
+                android:text="60:00s"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_message_not_receive_code"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tv_message_not_receive_code"
@@ -88,7 +90,7 @@
 
                 <TextView
                     android:id="@+id/tv_title_enter_code"
-                    style="@style/BlackHintTextStyle.Size15"
+                    style="@style/WhiteNormalTextStyle.Size15"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
@@ -104,9 +106,9 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="30dp"
                     android:layout_weight="1"
-                    app:hintEnabled="false"
-                    app:errorEnabled="false"
                     android:theme="@style/EditTextTheme"
+                    app:errorEnabled="false"
+                    app:hintEnabled="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/tv_title_enter_code"
                     app:layout_constraintTop_toBottomOf="@+id/tv_title_enter_code">
@@ -124,7 +126,7 @@
 
                 <Button
                     android:id="@+id/btn_verify"
-                    style="@style/PrimaryButtonStyle"
+                    style="@style/PurpleButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
@@ -133,7 +135,7 @@
                     android:layout_marginBottom="16dp"
                     android:clickable="true"
                     android:focusable="true"
-                    android:text="@string/title_verify_btn"
+                    android:text="@string/btn_verify"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

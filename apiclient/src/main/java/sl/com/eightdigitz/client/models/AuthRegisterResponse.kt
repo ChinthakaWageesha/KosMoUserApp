@@ -11,12 +11,12 @@ import com.squareup.moshi.Json
 /**
  * 
  * @property message 
- * @property result 
- * @property payload 
+ * @property status
+ * @property data
  */
 data class AuthRegisterResponse (
-        @Json(name = "message") @field:Json(name = "message") var message: String? = null,
-        @Json(name = "result") @field:Json(name = "result") var result: Boolean? = null,
-        @Json(name = "payload") @field:Json(name = "payload") var payload: User? = null
+        @Json(name = "message") @field:Json(name = "message") var message: Message? = null,
+        @Json(name = "status") @field:Json(name = "status") var status: Boolean? = null,
+        @Json(name = "data") @field:Json(name = "data") var data: User? = null
 )
 

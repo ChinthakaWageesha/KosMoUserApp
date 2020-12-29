@@ -11,5 +11,7 @@ interface AuthRepository {
 
     fun getOTPToken(phoneNumber: String, otp: String): Single<DOTPToken>
 
+    fun getUserByRefToken(idToken: String) : Single<DUser>
+
     fun createAccount(dUser: DUser): Single<DUser>
 }

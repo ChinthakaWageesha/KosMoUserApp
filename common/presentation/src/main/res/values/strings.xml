@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Presentation</string>
 
     <!--Choose Language-->
@@ -6,24 +6,41 @@
     <string name="title_tamil_btn">தமிழ்</string>
     <string name="title_english_btn">English</string>
 
+    <!--Get Started-->
+    <string name="message_get_started_description">By signing up, you agree to the Terms of Use &amp; Privacy Policy</string>
+    <string name="title_get_started_btn">Get Started</string>
+
     <!--Get phone number to verify-->
-    <string name="title_sign_up">Signup</string>
-    <string name="title_what_is_phone_number">What is your Phone number?</string>
-    <string name="message_get_phone_description">Add your phone number. We will send you a verification code so we know you are real.</string>
+    <string name="title_get_started">Get Started</string>
+    <string name="title_enter_mobile_number">Enter your mobile number</string>
+    <string name="message_enter_phone_description">By continuing your may receive an SMS for verification. Message and data rates may apply.</string>
     <string name="hint_mobile_number">Mobile Number</string>
-    <string name="title_send_code_btn">Send Code</string>
+    <string name="btn_send_code">Send Code</string>
     <string name="error_invalid_phone">Invalid phone number</string>
 
     <string name="auth0_audience_url">https://%s/userinfo</string>
     <string name="com_auth0_client_id">k4PQJsn9sjtYNw6YGQyy5WnU7JmMvYQs</string>
     <string name="com_auth0_domain">dev-ahamad.us.auth0.com</string>
 
+    <string name="message_otp_sent">Verification code has been sent to </string>
+
     <!--Verify Phone number-->
     <string name="title_verify_phone_number_tv">Verify your phone number</string>
     <string name="message_enter_code">Enter your code below</string>
     <string name="message_did_not_receive_code">I did not receive a code</string>
     <string name="hint_enter_code">Enter Code</string>
-    <string name="title_verify_btn">Verify</string>
+    <string name="btn_verify">Verify</string>
     <string name="error_invalid_verify_code">Invalid verification code</string>
+
+    <!--Sign Up-->
+    <string name="title_sign_up" tools:ignore="StringEscaping">Let us get started</string>
+    <string name="sub_title_sign_up">This will be what shows on your profile</string>
+    <string name="hint_full_name_tv">Your full name</string>
+    <string name="hint_email_tv">Email address</string>
+    <string name="hint_birthday_tv">Birthday</string>
+    <string name="btn_continue">Continue</string>
+    <string name="error_full_name_required">Enter your full name</string>
+    <string name="error_email_required">Enter your full name</string>
+    <string name="error_birthday_required">Select your date of birth</string>
 
 </resources>

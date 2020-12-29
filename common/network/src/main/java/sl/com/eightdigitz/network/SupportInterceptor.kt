@@ -2,25 +2,21 @@ package sl.com.eightdigitz.network
 
 import okhttp3.*
 
-class SupportInterceptor(private val apiKey: String) : Interceptor, Authenticator {
-    var accessToken: String? = null
-    private var req: Request.Builder? = null
+class SupportInterceptor() : Interceptor, Authenticator {
     private var callback: AuthenticatorCallBack? = null
 
     override fun intercept(chain: Interceptor.Chain): Response {
-        var request: Request.Builder = chain.request().newBuilder()
+        val request: Request.Builder = chain.request().newBuilder()
 
-        request.addHeader("x-api-key", apiKey)
         request.addHeader("Content-Type", "application/json")
         request.addHeader("Accept", "application/json")
 
-        if (!accessToken.isNullOrBlank())
-            request.addHeader("x-access-token", accessToken!!)
+        /*if (!accessToken.isNullOrBlank())
+            request.addHeader("x-access-token", accessToken!!)*/
 
         return chain.proceed(request.build())
     }
 
-    //    TODO handle 401 and interact user to re-authenticate - created call back to base activity
     override fun authenticate(route: Route?, response: Response): Request? {
 
         return if (response.code() != 200) {
@@ -33,7 +29,7 @@ class SupportInterceptor(private val apiKey: String) : Interceptor, Authenticato
         }
     }
 
-    fun setAuthCallBackListner(authenticatorCallBack: AuthenticatorCallBack) {
+    fun setAuthCallBackListener(authenticatorCallBack: AuthenticatorCallBack) {
         callback = authenticatorCallBack
     }
 

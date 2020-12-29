@@ -6,6 +6,4 @@ import io.reactivex.Single
 interface AuthRepository {
 
     fun logoutUser(): Single<Success>
-
-    fun passwordChange(oldPassworrd: String, password: String): Single<Success>
 }

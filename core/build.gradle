@@ -57,11 +57,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField "String", "API_URL", "${ApiLiveServer.url}"
-            buildConfigField "String", "API_KEY", "${ApiLiveServer.apiKey}"
         }
         debug {
             buildConfigField "String", "API_URL", "${ApiSandboxServer.url}"
-            buildConfigField "String", "API_KEY", "${ApiSandboxServer.apiKey}"
         }
     }
 
@@ -76,7 +74,6 @@ android {
 }
 
 dependencies {
-//    api project(Modules.api)
 
     implementation project(Modules.network)
     implementation project(Modules.apiclient)
@@ -90,12 +87,14 @@ dependencies {
     implementation Libraries.koinViewModel
     implementation Libraries.koinExt
 
+    implementation SupportLibraries.constraintLayout
     implementation SupportLibraries.design
     implementation SupportLibraries.cardview
     implementation SupportLibraries.appcompat
     implementation SupportLibraries.recyclerview
 
     implementation SupportLibraries.auth0
+    implementation ExternalLib.circularImageView
 
 //  implementation Libraries.crashlytics
 

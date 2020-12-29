@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cl_get_phone_number_base"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite"
+    android:background="@drawable/ic_sample"
     tools:context=".presentation.verifyOTP.GetOTPActivity">
 
     <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:fillViewport="true"
+        android:background="@color/colorFuchsiaOp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,36 +26,36 @@
 
             <TextView
                 android:id="@+id/tv_title_sign_up"
-                style="@style/BlackBoldTextStyle.Size50"
+                style="@style/WhiteBoldTextStyle.Size30"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="63dp"
+                android:layout_marginTop="42dp"
                 android:fontFamily="@font/visby_round_cf_bold"
-                android:text="@string/title_sign_up"
+                android:text="@string/title_get_started"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tv_what_phone_number"
-                style="@style/BlackNormalTextStyle.Size19"
+                style="@style/WhiteNormalTextStyle.Size19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="12dp"
                 android:fontFamily="@font/sf_pro_display_heavy"
-                android:text="@string/title_what_is_phone_number"
+                android:text="@string/title_enter_mobile_number"
                 app:layout_constraintStart_toStartOf="@+id/tv_title_sign_up"
                 app:layout_constraintTop_toBottomOf="@+id/tv_title_sign_up" />
 
             <TextView
                 android:id="@+id/tv_message_get_phone_number"
-                style="@style/BlackOpacityNormalTextStyle.Size14"
+                style="@style/WhiteNormalTextStyle.Size13"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="30dp"
                 android:fontFamily="@font/sf_pro_display_regular"
-                android:text="@string/message_get_phone_description"
+                android:text="@string/message_enter_phone_description"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/tv_what_phone_number"
                 app:layout_constraintTop_toBottomOf="@+id/tv_what_phone_number" />
@@ -62,20 +64,20 @@
                 android:id="@+id/cl_phone_container"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="160dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginTop="32dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_message_get_phone_number"
-                app:layout_constraintVertical_bias="0.0">
+                app:layout_constraintVertical_bias="1.0">
 
                 <TextView
                     android:id="@+id/tv_title_mobile_number"
-                    style="@style/BlackHintTextStyle.Size15"
+                    style="@style/WhiteNormalTextStyle.Size15"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
+                    android:fontFamily="@font/sf_pro_display_regular"
                     android:text="@string/hint_mobile_number"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -85,7 +87,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
-                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="30dp"
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -114,7 +115,7 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="3dp"
+                        android:layout_marginStart="0dp"
                         android:layout_weight="1"
                         android:theme="@style/EditTextTheme">
 
@@ -131,16 +132,16 @@
 
                 <Button
                     android:id="@+id/btn_send_code"
-                    style="@style/PrimaryButtonStyle"
+                    style="@style/PurpleButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="30dp"
-                    android:layout_marginBottom="16dp"
-                    android:text="@string/title_send_code_btn"
+                    android:layout_marginBottom="20dp"
                     android:clickable="true"
                     android:focusable="true"
+                    android:text="@string/btn_send_code"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

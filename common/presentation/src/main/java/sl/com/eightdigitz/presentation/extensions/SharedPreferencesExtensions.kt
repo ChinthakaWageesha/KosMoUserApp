@@ -1,8 +1,9 @@
 package sl.com.eightdigitz.presentation.extensions
 
 import android.content.SharedPreferences
+import sl.com.eightdigitz.presentation.Constant
 
-const val PREF_TOKEN = "pre_token"
+//const val PREF_TOKEN = "pre_token"
 
 inline fun SharedPreferences.edit(operation: (SharedPreferences.Editor) -> Unit) {
     val editor = this.edit()
@@ -36,8 +37,10 @@ fun SharedPreferences.cleaAll() {
     edit { it.clear().apply() }
 }
 
-fun SharedPreferences.setToken(token: String?) {
-    edit { it.putString(PREF_TOKEN, token) }
-}
+fun SharedPreferences.getUser(): String? = getString(Constant.PREF_USER,"")
 
-fun SharedPreferences.getToken(): String? = getString(PREF_TOKEN, "")
+/*fun SharedPreferences.setToken(token: String?) {
+    edit { it.putString(PREF_TOKEN, token) }
+}*/
+
+//fun SharedPreferences.getToken(): String? = getString(PREF_TOKEN, "")

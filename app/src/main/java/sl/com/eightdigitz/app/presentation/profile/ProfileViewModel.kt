@@ -25,7 +25,7 @@ class ProfileViewModel constructor(
 
     private val compositeDisposable = CompositeDisposable()
 
-    fun updateProfile(pUser: PUser) {
+    /*fun updateProfile(pUser: PUser) {
         liveData.setLoading()
         compositeDisposable.add(profileUseCase.updateProfile(pUser.mapToDomain())
             .subscribeOn(Schedulers.io())
@@ -39,7 +39,7 @@ class ProfileViewModel constructor(
                 })
         )
     }
-
+*/
     fun profilePictureUpdate(imageFile: File) {
         liveData.setLoading()
         val requestFile = RequestBody.create((MultipartBody.FORM), imageFile)

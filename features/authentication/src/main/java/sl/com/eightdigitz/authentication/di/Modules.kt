@@ -56,8 +56,7 @@ val dataSourceModule: Module = module(override = true) {
     single {
         AuthDataSourceImpl(
             authApi = get(),
-            mSharedPreferences = get(),
-            mSupportInterceptor = get()
+            mSharedPreferences = get()
         ) as AuthDataSource
     }
 }
