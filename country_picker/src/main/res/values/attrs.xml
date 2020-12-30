@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BaseTheme">
+
+        <!--        Change toolbar title -->
+        <attr name="countryNameTextColor" format="reference|color" />
+
+        <!--        change  text color inside the country picker-->
+        <attr name="countryTextColor" format="reference|color" />
+
+        <!--        change  toolbar background color inside the country picker-->
+        <attr name="countryToolbarBackgroundColor" format="reference|color" />
+
+
+        <!--        Change toolbar title text color-->
+        <attr name="countryPickerTitleTextColor" format="reference|color" />
+
+        <!--        Change status bar color-->
+        <attr name="countryPickerStatusBarColor" format="reference|color" />
+
+        <!--        Change Search  Input box border color-->
+        <attr name="countryPickerInputBorderColor" format="reference|color" />
+
+
+        <!--        Change Search  Input box background color-->
+        <attr name="countryPickerInputBackgroundColor" format="reference|color" />
+
+        <!--        change letter heads background color-->
+        <attr name="countryLetterHeadsBackgroundColor" format="reference|color" />
+
+    </declare-styleable>
+</resources>
+
+

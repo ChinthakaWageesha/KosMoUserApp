@@ -17,6 +17,7 @@
     <string name="hint_mobile_number">Mobile Number</string>
     <string name="btn_send_code">Send Code</string>
     <string name="error_invalid_phone">Invalid phone number</string>
+    <string name="title_country_picker">Select Country</string>
 
     <string name="auth0_audience_url">https://%s/userinfo</string>
     <string name="com_auth0_client_id">k4PQJsn9sjtYNw6YGQyy5WnU7JmMvYQs</string>

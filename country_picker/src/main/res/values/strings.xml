@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">country_picker</string>
+    //actions
+    <string name="action_search">Search</string>
+
+    //labels
+    <string name="label_current_location">current location</string>
+    <string name="label_no_result">No Results</string>
+
+    // messages
+    <string name="msg_fetch_failed">Something Went Wrong !</string>
+    <string name="msg_permission_required">Permission Required To Use The Feature !</string>
+    <string name="msg_enable_location">Please Enable Device Location!</string>
+    <string name="title_home">Search Countries</string>
+    <string name="hint_search">Search</string>
+</resources>

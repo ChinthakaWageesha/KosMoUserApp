@@ -1,0 +1,44 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <!--    margin values-->
+    <dimen name="edit_search_text_margin_start">16dp</dimen>
+    <dimen name="edit_search_text_margin_end">16dp</dimen>
+    <dimen name="edit_search_text_margin_top">16dp</dimen>
+
+
+    <dimen name="recycle_country_list_margin_start">16dp</dimen>
+    <dimen name="recycle_country_list_margin_bottom">16dp</dimen>
+    <dimen name="recycle_country_list_margin_end">16dp</dimen>
+    <dimen name="recycle_country_list_margin_top">16dp</dimen>
+
+
+    <dimen name="image_country_flag_margin_start">23dp</dimen>
+    <dimen name="text_user_country_title_margin_start">8dp</dimen>
+    <dimen name="image_country_flag_margin_top">8dp</dimen>
+    <dimen name="image_country_flag_margin_bottom">8dp</dimen>
+
+
+    <dimen name="text_country_name_margin_start">8dp</dimen>
+    <dimen name="text_country_name_margin_end">8dp</dimen>
+
+
+    <!--    width values-->
+    <dimen name="image_country_flag_width">52dp</dimen>
+
+    <!--    height values-->
+    <dimen name="image_country_flag_height">44dp</dimen>
+    <dimen name="card_country_row_height">48dp</dimen>
+    <dimen name="text_header_height">32dp</dimen>
+
+    <!--    padding values-->
+    <dimen name="text_country_name_padding_start">4dp</dimen>
+    <dimen name="text_country_name_padding_end">8dp</dimen>
+    <dimen name="image_country_flag_width_padding_all">8dp</dimen>
+    <dimen name="constraint_country_container_padding">4dp</dimen>
+
+    <!--    elevation values-->
+    <dimen name="card_country_elevation">6dp</dimen>
+
+
+</resources>

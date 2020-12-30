@@ -1,5 +1,6 @@
 // CORE module
 include ":core", ":common:presentation", ":navigation"
+include ':country_picker'
 
 include ":common:network", ":apiclient"
 

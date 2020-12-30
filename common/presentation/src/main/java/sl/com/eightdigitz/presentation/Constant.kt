@@ -32,8 +32,13 @@ object ApiResponseCodes {
     const val SERVER_ERROR = 500
 }
 
+object RequestCodes {
+    const val COUNTRY_CODE_REQUEST = 1001
+}
+
 object IntentParsableConstants {
     const val EXTRA_NOTIFICATION = "extra_notification"
     const val EXTRA_NOTIFICATION_DATA = "extra_notification_data"
     const val EXTRA_PHONE = "EXTRA_PHONE_NUMBER"
+    const val COUNTRY_SELECTION = "COUNTRY_SELECTION"
 }

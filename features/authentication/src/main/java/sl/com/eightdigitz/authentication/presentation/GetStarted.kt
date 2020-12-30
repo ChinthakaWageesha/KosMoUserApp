@@ -63,8 +63,7 @@ class GetStarted : BaseActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v?.id) {
-           // R.id.btn_get_started -> startActivity<GetOTPActivity>()
-            R.id.btn_get_started -> startActivity<RegisterActivity>()
+           R.id.btn_get_started -> startActivity<GetOTPActivity>()
         }
     }
 

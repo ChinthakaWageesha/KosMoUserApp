@@ -13,7 +13,7 @@ dependencies {
     implementation project(Modules.presentation)
     implementation project(Modules.navigation)
     implementation project(Modules.apiclient)
-    //implementation project(Modules.countryPicker)
+    implementation project(Modules.country_picker)
 
     implementation Libraries.koinAndroid
     implementation Libraries.koinViewModel
@@ -32,6 +32,7 @@ dependencies {
     implementation FirebaseLibraries.messaging
 
     implementation ExternalLib.circularImageView
+    implementation ExternalLib.countryPick
 
     implementation Libraries.butterKnife
     kapt Libraries.butterKnifeCompiler

@@ -12,12 +12,12 @@ object Modules {
     const val api = ":common:api"
     const val network = ":common:network"
     const val apiclient = ":apiclient"
+    const val country_picker = ":country_picker"
 
     const val splash = ":features:splash"
     const val authentication = ":features:authentication"
     const val notifications = ":features:notifications"
     const val chat = ":features:chat"
-    const val countryPicker = ":countrypicker"
 }
 
 object Auth0 {
@@ -160,6 +160,7 @@ object ExternalLib {
     const val imageViewer = "com.github.stfalcon:stfalcon-imageviewer:0.1.0"
     const val cropper = "com.isseiaoki:simplecropview:1.1.8"
     const val circularImageView = "de.hdodenhof:circleimageview:${Versions.circularImageView}"
+    const val countryPick = "com.hbb20:ccp:2.4.0"
 }
 
 object GoogleLibraries {

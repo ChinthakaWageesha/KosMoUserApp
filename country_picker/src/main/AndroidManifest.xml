@@ -1,0 +1,25 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="sl.com.eightdigitz.country_picker">
+
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".presentation.country_picker.CountryPicker"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <activity
+            android:name=".presentation.validator.NumberValidator"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+    </application>
+
+
+</manifest>

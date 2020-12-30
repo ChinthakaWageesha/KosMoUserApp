@@ -1,0 +1,44 @@
+<resources>
+
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="countryNameTextColor">@color/colorBlack</item>
+        <item name="countryTextColor">@color/colorBlack</item>
+        <item name="countryPickerInputBackgroundColor">@color/colorWhite</item>
+        <item name="countryPickerInputBorderColor">@color/colorAtlantis</item>
+        <item name="countryLetterHeadsBackgroundColor">@color/colorAtlantis</item>
+        <item name="countryToolbarBackgroundColor">@color/colorAtlantis</item>
+    </style>
+
+
+    <style name="AppTheme.TextViewStyle">
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
+    <style name="AppTheme.HeaderTextsStyle">
+        <item name="android:background">@color/colorGreyWhite</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AppTheme.HeaderTextsStyle.size18">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="AppTheme.TextViewStyle.size18">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="CountryCodeStyle">
+        <item name="android:textColor">@color/colorDustyGray</item>
+    </style>
+
+    <style name="CountryCodeStyle.size10">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+
+</resources>

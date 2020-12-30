@@ -2,6 +2,8 @@ apply from: "$rootDir/common-android-library.gradle"
 apply plugin: 'kotlin-kapt'
 
 dependencies {
+    implementation project(Modules.country_picker)
+
     implementation Libraries.lifecycleExtensions
     kapt Libraries.lifecycleCompiler
 
