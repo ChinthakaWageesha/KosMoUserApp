@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_gradient_splash"
+    android:background="@drawable/bg_gradient_purple_seablue_get_otp"
     tools:context=".presentation.registration.RegisterActivity">
 
     <ScrollView
@@ -13,46 +13,25 @@
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/tv_title_get_started"
-                style="@style/WhiteBoldTextStyle.Size19"
-                android:fontFamily="@font/sf_pro_display_heavy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="42dp"
-                android:text="@string/title_sign_up"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_sub_title_get_started"
-                style="@style/WhiteOpacityNormalTextStyle.Size13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="9dp"
-                android:text="@string/sub_title_sign_up"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_title_get_started" />
 
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/iv_sign_up_user_photo"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:layout_marginTop="72dp"
+                android:layout_marginTop="90dp"
                 android:src="@drawable/ic_ph_profile_profile_picture"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_sub_title_get_started" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/iv_upload_photo"
@@ -139,7 +118,7 @@
                 style="@style/WhiteNormalTextStyle.Size15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="18dp"
                 android:fontFamily="@font/sf_pro_display_regular"
                 android:text="@string/hint_birthday_tv"
@@ -164,13 +143,45 @@
                     android:id="@+id/et_birthday"
                     style="@style/PrimaryEditTextStyle"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:clickable="true"
+                    android:drawableEnd="@drawable/ic_arrow_down"
                     android:editable="false"
                     android:focusable="true"
-                    android:layout_height="wrap_content"
                     android:inputType="none" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
+            <CheckBox
+                android:id="@+id/chk_register"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="63dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/bg_pink_checkbox"
+                android:button="@null"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintBottom_toTopOf="@+id/btn_continue"
+                app:layout_constraintEnd_toStartOf="@+id/tv_get_updates_desc"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/til_birthday"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
+                android:id="@+id/tv_get_updates_desc"
+                style="@style/WhiteNormalTextStyle.Size13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="30dp"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:text="@string/message_get_updates_description"
+                app:layout_constraintBottom_toBottomOf="@+id/chk_register"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/chk_register"
+                app:layout_constraintTop_toTopOf="@+id/chk_register" />
 
             <Button
                 android:id="@+id/btn_continue"
@@ -178,17 +189,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="38dp"
                 android:layout_marginEnd="30dp"
                 android:layout_marginBottom="32dp"
-                android:text="@string/btn_continue"
                 android:clickable="true"
                 android:focusable="true"
+                android:text="@string/btn_continue"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/til_birthday"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintStart_toStartOf="parent" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

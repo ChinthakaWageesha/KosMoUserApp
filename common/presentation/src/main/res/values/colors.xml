@@ -11,6 +11,7 @@
     <color name="colorBlack">#000000</color>
     <color name="colorTextBlack">#0D010C</color>
     <color name="colorWhiteOp20">#80FFFFFF</color>
+    <color name="colorWhiteOp50">#50FFFFFF</color>
     <color name="colorLightGray">#E1E1E1</color>
     <color name="colorGrayWhite">#F6F8FA</color>
     <color name="colorGray">#C7C7C7</color>
@@ -23,7 +24,6 @@
 
     <color name="colorPink">#F1166F</color>
     <color name="colorDarkPink">#DF186F</color>
-    <color name="colorFuchsiaOp">#79FF19FF</color>
     <color name="colorPurple">#652770</color>
     <color name="colorDarkPurple">#6A266F</color>
     <color name="colorDarkMagenta">#8B008B</color>

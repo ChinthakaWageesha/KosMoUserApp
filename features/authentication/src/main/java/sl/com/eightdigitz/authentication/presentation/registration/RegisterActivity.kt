@@ -44,7 +44,7 @@ class RegisterActivity : BaseActivity(), View.OnClickListener {
     private fun setToolbar() {
         supportActionBar?.setActionBar(
             this,
-            "",
+            getString(sl.com.eightdigitz.presentation.R.string.title_sign_up),
             isHomeUpEnables = true
         )
     }

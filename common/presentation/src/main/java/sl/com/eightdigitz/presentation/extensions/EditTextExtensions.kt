@@ -87,7 +87,7 @@ private fun EditText.backGroundRunTime(
             this.setCompoundDrawablesWithIntrinsicBounds(
                 null,
                 null,
-                this.context.getCompatDrawable(R.drawable.ic_error),
+                null,
                 null
             )
             this.setBackgroundResource(R.drawable.bg_edit_text_error_boarder_corner_round_3dp)

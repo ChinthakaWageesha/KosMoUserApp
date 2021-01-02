@@ -8,6 +8,7 @@ import android.view.Gravity
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar
+import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import sl.com.eightdigitz.presentation.R
 
@@ -34,10 +35,10 @@ fun ActionBar.setActionBar(
     // Set the text color of TextView to black
     // This line change the ActionBar title text color
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        tv.setTextAppearance(R.style.DarkGrayBoldTextStyle_Size17)
+        tv.setTextAppearance(R.style.ToolbarTextWhiteStyle)
     } else {
-        tv.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 17f)
-        ResourcesCompat.getFont(tv.context, R.font.sf_pro_display_medium)
+        tv.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18f)
+        ResourcesCompat.getFont(tv.context, R.font.sf_pro_display_bold)
             ?.also { mTypeFace ->
                 tv.typeface = mTypeFace
             }
@@ -50,12 +51,12 @@ fun ActionBar.setActionBar(
     // Set the ActionBar display option
     this.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
     this.customView = tv
-    this.setBackgroundDrawable(context.getDrawable(R.drawable.bg_support_actionbar))
+    this.setBackgroundDrawable(ContextCompat.getDrawable(context,R.drawable.bg_support_actionbar))
 
     this.elevation = 0.dpToPx()
     if (isHomeUpEnables) {
         this.setDisplayHomeAsUpEnabled(true)
         this.setDisplayShowHomeEnabled(true)
-        this.setHomeAsUpIndicator(R.drawable.ic_nav_back)
+        this.setHomeAsUpIndicator(R.drawable.ic_back_white)
     }
 }

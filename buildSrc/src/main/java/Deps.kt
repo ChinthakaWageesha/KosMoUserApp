@@ -14,7 +14,6 @@ object Modules {
     const val apiclient = ":apiclient"
     const val country_picker = ":country_picker"
 
-    const val splash = ":features:splash"
     const val authentication = ":features:authentication"
     const val notifications = ":features:notifications"
     const val chat = ":features:chat"

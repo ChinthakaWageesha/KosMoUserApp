@@ -52,7 +52,7 @@ class VerifyOTPActivity : BaseActivity(), View.OnClickListener {
     private fun setToolbar() {
         supportActionBar?.setActionBar(
             this,
-            "",
+            getString(sl.com.eightdigitz.presentation.R.string.title_verify_phone_number_tv),
             isHomeUpEnables = true
         )
     }

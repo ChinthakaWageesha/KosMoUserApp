@@ -13,9 +13,10 @@ object Constant {
 }
 
 object LanguageType {
+    const val ENGLISH = "en"
     const val SINHALA = "si"
     const val TAMIL = "ta"
-    const val ENGLISH = "en"
+    const val HINDI = "hi"
 }
 
 object AppInformationType{

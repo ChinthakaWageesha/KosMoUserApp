@@ -28,7 +28,7 @@
         <activity
             android:name=".presentation.verifyOTP.GetOTPActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"
+            android:theme="@style/AppTheme.FullScreen"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".presentation.verifyOTP.VerifyOTPActivity"

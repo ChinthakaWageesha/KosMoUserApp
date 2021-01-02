@@ -1,5 +1,7 @@
 package sl.com.eightdigitz.authentication.presentation
 
+import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Html
@@ -9,6 +11,7 @@ import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.text.style.ForegroundColorSpan
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.core.text.HtmlCompat
 import kotlinx.android.synthetic.main.activity_get_started.*
 import sl.com.eightdigitz.authentication.R
@@ -23,6 +26,15 @@ import sl.com.eightdigitz.presentation.extensions.showToast
 import sl.com.eightdigitz.presentation.extensions.startActivity
 
 class GetStarted : BaseActivity(), View.OnClickListener {
+
+    companion object {
+        fun startActivity(context: Context, action: String) {
+            val intent = Intent(context, GetStarted::class.java).apply {
+                this.action = action
+            }
+            context.startActivity(intent)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,6 +64,9 @@ class GetStarted : BaseActivity(), View.OnClickListener {
         span.setSpan(clickSpan2, 47, 61, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
         span.setSpan(ForegroundColorSpan(Color.WHITE), 47, 61, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
 
+        cl_get_started_base.background =
+            ContextCompat.getDrawable(this, sl.com.eightdigitz.presentation.R.drawable.ic_sample)
+
         tv_get_started_desc.text = span
         tv_get_started_desc.movementMethod = LinkMovementMethod.getInstance()
     }
@@ -63,8 +78,8 @@ class GetStarted : BaseActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v?.id) {
-           R.id.btn_get_started -> startActivity<GetOTPActivity>()
+            // R.id.btn_get_started -> startActivity<GetOTPActivity>()
+            R.id.btn_get_started -> startActivity<RegisterActivity>()
         }
     }
-
 }

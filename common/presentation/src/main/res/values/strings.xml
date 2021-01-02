@@ -2,18 +2,23 @@
     <string name="app_name">Presentation</string>
 
     <!--Choose Language-->
-    <string name="title_sinhala_btn">සිංහල</string>
-    <string name="title_tamil_btn">தமிழ்</string>
-    <string name="title_english_btn">English</string>
+    <string name="title_select_language">Bringing you closer to the people you love</string>
+    <string name="label_view_more">View more</string>
+    <string name="title_english_btn">Choose \nEnglish as your \nLanguage \n\n\nEnglish</string>
+    <string name="title_sinhala_btn">ඔබේ භාෂාව \nසිංහල ලෙස \nතෝරන්න \n\n\nසිංහල</string>
+    <string name="title_tamil_btn">உங்கள் \nமொழியாக \nதமிழை \nஅமைக்கவும் \n\n\nதமிழ்</string>
+    <string name="title_china_btn">जल्द आ रहा है \n\n\nहिंदी</string>
+    <string name="title_continue_btn">Continue</string>
 
     <!--Get Started-->
     <string name="message_get_started_description">By signing up, you agree to the Terms of Use &amp; Privacy Policy</string>
     <string name="title_get_started_btn">Get Started</string>
 
     <!--Get phone number to verify-->
-    <string name="title_get_started">Get Started</string>
+    <string name="title_welcome">Welcome</string>
+    <string name="subtitle_get_started">Use your mobile number \nto get started.</string>
     <string name="title_enter_mobile_number">Enter your mobile number</string>
-    <string name="message_enter_phone_description">By continuing your may receive an SMS for verification. Message and data rates may apply.</string>
+    <string name="message_enter_phone_description">By continuing your may receive an SMS for verification. \nMessage and data rates may apply.</string>
     <string name="hint_mobile_number">Mobile Number</string>
     <string name="btn_send_code">Send Code</string>
     <string name="error_invalid_phone">Invalid phone number</string>
@@ -34,7 +39,7 @@
     <string name="error_invalid_verify_code">Invalid verification code</string>
 
     <!--Sign Up-->
-    <string name="title_sign_up" tools:ignore="StringEscaping">Let us get started</string>
+    <string name="title_sign_up">Create Your Profile</string>
     <string name="sub_title_sign_up">This will be what shows on your profile</string>
     <string name="hint_full_name_tv">Your full name</string>
     <string name="hint_email_tv">Email address</string>
@@ -43,5 +48,6 @@
     <string name="error_full_name_required">Enter your full name</string>
     <string name="error_email_required">Enter your full name</string>
     <string name="error_birthday_required">Select your date of birth</string>
+    <string name="message_get_updates_description">I would like to receive news &amp; updates email</string>
 
 </resources>
