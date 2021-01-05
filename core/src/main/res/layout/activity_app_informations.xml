@@ -1,20 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/iv_back_app_info"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back2" />
+
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_title_terms"
+        style="@style/DarkPinkNormalTextStyle.Size16"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:fontFamily="@font/sf_pro_display_semibold"
+        android:text="Terms of use"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_back_app_info"
+        app:layout_constraintEnd_toStartOf="@+id/tv_pp"
+        app:layout_constraintStart_toEndOf="@+id/iv_back_app_info"
+        app:layout_constraintTop_toTopOf="@+id/iv_back_app_info" />
+
+    <TextView
+        android:id="@+id/tv_pp"
+        style="@style/DarkPinkOp30NormalTextStyle.Size16"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:text="Privacy Policy"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_title_terms"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_title_terms"
+        app:layout_constraintTop_toTopOf="@+id/tv_title_terms" />
+
+    <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
-        android:text="@string/label_app_info"
+        android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_terms">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_general_terms"
+                style="@style/LightBlackNormalTextStyle.Size18"
+                android:fontFamily="@font/sf_pro_display_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="42dp"
+                android:text="General Terms"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView"
+                style="@style/BlackOp80NormalTextStyle.Size13"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="30dp"
+                android:text="Felis eget nunc lobortis mattis. Quam vulputate dign issim suspendisse in est ante in nibh. Arcu non odio euismod lacinia at. Pharetra magna ac placerat vestibulum lectus. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Enim sit amet venenatis urna cursus eget nunc. Semper viverra nam libero justo laoreet. Libero justo laoreet sit amet cursus sit amet. Sagittis vitae et leo duis ut diam quam nulla. Etiam dignissim diam quis enim lobortis scelerisque fermentum. Blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque. Tristique et egestas quis ipsum."
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_general_terms" />
+
+            <TextView
+                android:id="@+id/textView1"
+                style="@style/LightBlackNormalTextStyle.Size18"
+                android:fontFamily="@font/sf_pro_display_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="42dp"
+                android:text="Terms"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <TextView
+                android:id="@+id/textView2"
+                style="@style/BlackOp80NormalTextStyle.Size13"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="30dp"
+                android:text="Eros donec ac odio tempor orci dapibus. Pellentesque id nibh tortor id. Pulvinar neque laoreet suspendisse interdum consectetur. Semper viverra nam libero justo. Ac odio tempor orci dapibus ultrices in iaculis nunc. Dui accumsan sit amet nulla facilisi morbi tempus iaculis urna. Vulputate ut pharetra sit amet aliquam id diam maecenas. Adipiscing diam donec adipiscing tristique risus. Sed blandit libero volutpat sed cras ornare arcu dui. Duis at consectetur lorem donec. Sagittis id consectetur purus ut faucibus pulvinar elementum integer. Etiam erat velit scelerisque in. Arcu dictum varius duis at consectetur lorem donec. Mauris cursus mattis molestie a iaculis at. Id aliquet lectus proin nibh nisl condimentum id. Faucibus in ornare quam viverra orci."
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView1" />
+
+            <Button
+                android:id="@+id/btn_agree"
+                style="@style/PinkButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="32dp"
+                android:text="Agree"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
+                app:layout_constraintVertical_bias="1.0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

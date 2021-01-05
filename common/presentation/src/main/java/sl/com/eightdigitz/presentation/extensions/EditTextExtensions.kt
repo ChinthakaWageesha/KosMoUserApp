@@ -82,7 +82,25 @@ private fun EditText.backGroundRunTime(
                 this.context.getCompatDrawable(R.drawable.ic_text_field_check),
                 null
             )
-            this.setBackgroundResource(R.drawable.bg_edit_text_boarder_corner_round_3dp)
+            this.setBackgroundResource(R.drawable.bg_white_corner_round_8dp)
+        } else {
+            this.setCompoundDrawablesWithIntrinsicBounds(
+                null,
+                null,
+                this.context.getCompatDrawable(R.drawable.ic_error),
+                null
+            )
+            this.setBackgroundResource(R.drawable.bg_white_red_stroke_corner_round_3dp)
+        }
+    } else {
+        if (errorMessage == null) {
+            this.setCompoundDrawablesWithIntrinsicBounds(
+                null,
+                null,
+                null,
+                null
+            )
+            this.setBackgroundResource(R.drawable.bg_white_corner_round_8dp)
         } else {
             this.setCompoundDrawablesWithIntrinsicBounds(
                 null,
@@ -90,7 +108,7 @@ private fun EditText.backGroundRunTime(
                 null,
                 null
             )
-            this.setBackgroundResource(R.drawable.bg_edit_text_error_boarder_corner_round_3dp)
+            this.setBackgroundResource(R.drawable.bg_white_red_stroke_corner_round_3dp)
         }
     }
 }
@@ -107,4 +125,8 @@ fun EditText.getString(): String {
  * */
 fun EditText.getStringTrim(): String {
     return this.getString().trim()
+}
+
+fun EditText.clearText(){
+    this.setText("")
 }

@@ -8,11 +8,10 @@ import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.core.model.mapToDomain
 import sl.com.eightdigitz.network.SupportInterceptor
 import sl.com.eightdigitz.presentation.Constant
-import sl.com.eightdigitz.presentation.extensions.setValue
-import sl.com.eightdigitz.presentation.extensions.toJsonString
 import io.reactivex.Single
 import sl.com.eightdigitz.core.model.domain.DOTP
 import sl.com.eightdigitz.core.model.domain.DOTPToken
+import sl.com.eightdigitz.presentation.extensions.*
 
 class AuthDataSourceImpl constructor(
     private val authApi: AuthApi,
@@ -37,6 +36,7 @@ class AuthDataSourceImpl constructor(
             otp = otp,
             realm = "sms"
         ).map {
+            saveTokens(it.mapToDomain())
             it.mapToDomain()
         }
 
@@ -47,7 +47,9 @@ class AuthDataSourceImpl constructor(
 
     override fun createAccount(dUser: DUser): Single<DUser> =
         authApi.authPostRegister(
+            mSharedPreferences.getIdToken()!!,
             dUser.mobileNo!!,
+            dUser.fullName!!,
             dUser.defaultLanguage!!,
             dUser.email!!,
             dUser.dob!!,
@@ -56,11 +58,16 @@ class AuthDataSourceImpl constructor(
             dUser.profileVideo!!,
             dUser.profileBanner
         ).map {
-            saveData(it.data)
+            saveUser(it.data)
             it.data?.mapToDomain()
         }
 
-    private fun saveData(mUser: User?) {
+    private fun saveTokens(otpToken: DOTPToken){
+        mSharedPreferences.setAccessToken(otpToken.accessToken)
+        mSharedPreferences.setIdToken(otpToken.idToken)
+    }
+
+    private fun saveUser(mUser: User?) {
         mSharedPreferences.setValue(Constant.PREF_USER, mUser?.mapToDomain()?.toJsonString())
     }
 }

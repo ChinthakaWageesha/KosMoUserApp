@@ -2,7 +2,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="sl.com.eightdigitz.country_picker">
 
-
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application tools:ignore="GoogleAppIndexingWarning">

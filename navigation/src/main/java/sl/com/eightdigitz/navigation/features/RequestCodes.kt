@@ -2,9 +2,10 @@ package sl.com.eightdigitz.navigation.features
 
 object RequestCodes {
     const val SPLASH = 100
-    const val LOGIN = 101
+    const val AUTH = 101
     const val REGISTRATION = 102
     const val MAIN = 103
+    const val LOGIN = 104
 }
 
 object ResultCode {

@@ -17,12 +17,13 @@ data class User(
     @Json(name = "MobileNo") @field:Json(name = "MobileNo") var mobileNo: String? = null,
     @Json(name = "DefaultLanguage") @field:Json(name = "DefaultLanguage") var defaultLanguage: String? = null,
     @Json(name = "Email") @field:Json(name = "Email") var email: String? = null,
+    @Json(name = "FullName") @field:Json(name = "FullName") var fullName: String? = null,
     @Json(name = "DOB") @field:Json(name = "DOB") var dob: String? = null,
     @Json(name = "Role") @field:Json(name = "Role") var role: String? = null,
     @Json(name = "ProfilePicture") @field:Json(name = "ProfilePicture") var profilePicture: String? = null,
     @Json(name = "ProfileVideo") @field:Json(name = "ProfileVideo") var profileVideo: String? = null,
     @Json(name = "ProfileBanner") @field:Json(name = "ProfileBanner") var profileBanner: String? = null,
-    @Json(name = "Preferences") @field:Json(name = "Preferences") var preferences: String? = null,
+    @Json(name = "Preferences") @field:Json(name = "Preferences") var preferences: List<Preference>? = null,
     @Json(name = "Auth0Ref") @field:Json(name = "Auth0Ref") var authReference: String? = null,
     @Json(name = "Verified") @field:Json(name = "Verified") var verified: Boolean? = null
 )

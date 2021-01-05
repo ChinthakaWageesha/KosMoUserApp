@@ -32,12 +32,20 @@
         <item name="android:textSize">18sp</item>
     </style>
 
+    <style name="AppTheme.TextViewStyle.size16">
+        <item name="android:textSize">16sp</item>
+    </style>
+
     <style name="CountryCodeStyle">
         <item name="android:textColor">@color/colorDustyGray</item>
     </style>
 
     <style name="CountryCodeStyle.size10">
         <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="CountryCodeStyle.size12">
+        <item name="android:textSize">12sp</item>
     </style>
 
 

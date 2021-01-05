@@ -31,7 +31,32 @@ fun Fragment.showAlert(title: String = "Alert", message: String) {
     }.show()
 }
 
+fun Fragment.showAlert(title: String = "Alert", message: String, callback: Callback) {
+    this.alert(title, message) {
+        positiveButton("Ok") {
+            callback.onPositiveClicked()
+        }
+    }.show()
+}
+
 fun Activity.showConfirm(
+    title: String,
+    message: String,
+    negativeText: String,
+    positiveText: String,
+    callback: Callback
+) {
+    this.alert(title, message) {
+        positiveButton(positiveText){
+            callback.onPositiveClicked()
+        }
+        negativeButton(negativeText){
+            callback.onNegativeClicked()
+        }
+    }.show()
+}
+
+fun Fragment.showConfirm(
     title: String,
     message: String,
     negativeText: String,

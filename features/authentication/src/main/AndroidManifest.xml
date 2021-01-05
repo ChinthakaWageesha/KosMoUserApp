@@ -15,31 +15,13 @@
     </dist:module>
 
     <application tools:ignore="GoogleAppIndexingWarning">
+
         <activity
-            android:name=".presentation.LanguageSelection"
-            android:launchMode="singleTop"
+            android:name=".presentation.AuthActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.FullScreen" />
-        <activity
-            android:name=".presentation.GetStarted"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.FullScreen"
-            android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity
-            android:name=".presentation.verifyOTP.GetOTPActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.FullScreen"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
-        <activity
-            android:name=".presentation.verifyOTP.VerifyOTPActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
-        <activity
-            android:name=".presentation.registration.RegisterActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"
-            android:windowSoftInputMode="stateHidden|adjustResize"/>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize"/>
+
     </application>
 
 </manifest>

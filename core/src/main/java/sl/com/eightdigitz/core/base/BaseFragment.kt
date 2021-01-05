@@ -3,6 +3,8 @@ package sl.com.eightdigitz.core.base
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import androidx.fragment.app.Fragment
 
 abstract class BaseFragment : Fragment() {
@@ -35,6 +37,13 @@ abstract class BaseFragment : Fragment() {
     fun hideProgress() { getBaseActivity()?.hideProgress() }
 
     private fun getBaseActivity() = parentActivity
+
+    fun showKeyboard(editText: EditText){
+        val imgr: InputMethodManager =
+            activity!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imgr.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+        editText.requestFocus()
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()

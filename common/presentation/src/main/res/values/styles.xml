@@ -1,16 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="AppTheme" parent="Theme.AppCompat.Light">
-        <item name="colorPrimary">@color/colorPink</item>
-        <item name="colorPrimaryDark">@color/colorDarkPink</item>
-        <item name="colorAccent">@color/colorPink</item>
+        <item name="colorPrimary">@color/colorTransparent</item>
+        <item name="colorPrimaryDark">@color/colorTransparent</item>
+        <item name="colorAccent">@color/colorDarkPink</item>
         <item name="android:statusBarColor">@color/colorTransparent</item>
         <item name="android:fitsSystemWindows">true</item>
         <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
     </style>
 
-    <style name="SplashTheme">
+    <style name="AppTheme.SplashTheme">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
@@ -140,6 +140,16 @@
         <item name="android:textStyle">normal</item>
     </style>
 
+    <style name="LightBlackNormalTextStyle">
+        <item name="android:textColor">@color/colorLightBlack</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="BlackOp80NormalTextStyle">
+        <item name="android:textColor">@color/colorBlackOp80</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
     <style name="BlackNormalTextStyle">
         <item name="android:textColor">@color/colorTextBlack</item>
         <item name="android:textStyle">normal</item>
@@ -178,6 +188,11 @@
         <item name="android:textStyle">normal</item>
     </style>
 
+    <style name="DarkPinkOp30NormalTextStyle">
+        <item name="android:textColor">@color/colorDarkPinkOp50</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
     <style name="LightGrayNormalTextStyle">
         <item name="android:textColor">@color/colorLightGray</item>
         <item name="android:textStyle">normal</item>
@@ -189,6 +204,10 @@
 
     <style name="WhiteBoldTextStyle.Size16">
         <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="WhiteBoldTextStyle.Size18">
+        <item name="android:textSize">18sp</item>
     </style>
 
     <style name="WhiteBoldTextStyle.Size19">
@@ -223,20 +242,44 @@
         <item name="android:textSize">19sp</item>
     </style>
 
+    <style name="LightBlackNormalTextStyle.Size18">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="BlackOp80NormalTextStyle.Size13">
+        <item name="android:textSize">13sp</item>
+    </style>
+
     <style name="BlackNormalTextStyle.Size19">
         <item name="android:textSize">19sp</item>
     </style>
 
-    <style name="BlackNormalTextStyle.Size14">
-        <item name="android:textSize">14sp</item>
+    <style name="BlackNormalTextStyle.Size18">
+        <item name="android:textSize">18sp</item>
     </style>
 
     <style name="BlackNormalTextStyle.Size15">
         <item name="android:textSize">15sp</item>
     </style>
 
+    <style name="BlackNormalTextStyle.Size14">
+        <item name="android:textSize">14sp</item>
+    </style>
+
     <style name="BlackBoldTextStyle.Size50">
         <item name="android:textSize">50sp</item>
+    </style>
+
+    <style name="BlackBoldTextStyle.Size27">
+        <item name="android:textSize">27sp</item>
+    </style>
+
+    <style name="BlackBoldTextStyle.Size16">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="BlackBoldTextStyle.Size14">
+        <item name="android:textSize">14sp</item>
     </style>
 
     <style name="WhiteOpacity20TextStyle.Size13">
@@ -253,6 +296,14 @@
 
     <style name="DarkPinkNormalTextStyle.Size14">
         <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="DarkPinkNormalTextStyle.Size16">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="DarkPinkOp30NormalTextStyle.Size16">
+        <item name="android:textSize">16sp</item>
     </style>
 
     <style name="DarkGrayNormalTextStyle">
@@ -312,7 +363,19 @@
         <item name="android:paddingRight">12dp</item>
         <item name="android:minHeight">48dp</item>
         <item name="fontFamily">@font/sf_pro_display_semibold</item>
-        <item name="android:background">@drawable/bg_edit_text_boarder_corner_round_3dp</item>
+        <item name="android:background">@drawable/bg_white_gray_stroke_corner_round_3dp</item>
+    </style>
+
+    <style name="PhoneNumberEditTextStyle">
+        <item name="android:textAppearance">@style/BlackNormalTextStyle.Size18</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="fontFamily">@font/sf_pro_display_semibold</item>
+        <item name="android:background">@drawable/bg_white_corner_round_8dp</item>
     </style>
 
     <style name="EditTextTheme">
@@ -358,6 +421,15 @@
     <style name="toolbarTitleStyle">
         <item name="android:textSize">17sp</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/colorBlack</item>
+        <item name="android:textColorSecondary">@color/colorBlack</item>
+        <item name="android:textAppearanceSmall">@style/BlackBoldTextStyle.Size14</item>
+        <item name="android:textAppearanceMedium">@style/BlackBoldTextStyle.Size14</item>
+        <item name="android:textAppearanceLarge">@style/BlackBoldTextStyle.Size14</item>
     </style>
 
 

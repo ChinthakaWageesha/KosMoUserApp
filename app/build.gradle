@@ -31,7 +31,7 @@ dependencies {
 
     implementation FirebaseLibraries.messaging
 
-//    implementation ExternalLib.imagePicker
+    implementation ExternalLib.circularImageView
 
     implementation Libraries.retrofit
     //implementation Libraries.retrofitJsonConverter

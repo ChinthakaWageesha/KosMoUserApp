@@ -146,7 +146,7 @@ object SupportLibraries {
 
 object ExternalLib {
     const val loader = "com.github.ybq:Android-SpinKit:1.4.0"
-    const val imagePicker = "net.alhazmy13.MediaPicker:libary:2.4.4" //"com.github.dhaval2404:imagepicker:1.3"
+    const val imagePicker =  "com.github.dhaval2404:imagepicker:1.3"
     const val pictureSelector  = "com.github.LuckSiege.PictureSelector:picture_library:v2.2.4"
 
     const val permissionDispatcher =
@@ -157,6 +157,7 @@ object ExternalLib {
     const val emoji = "com.vanniktech:emoji-google:0.6.0"
     const val filePicker = "com.droidninja:filepicker:2.2.1"
     const val imageViewer = "com.github.stfalcon:stfalcon-imageviewer:0.1.0"
+
     const val cropper = "com.isseiaoki:simplecropview:1.1.8"
     const val circularImageView = "de.hdodenhof:circleimageview:${Versions.circularImageView}"
     const val countryPick = "com.hbb20:ccp:2.4.0"

@@ -1,44 +1,310 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        style="@style/DarkGrayBoldTextStyle.Size17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Not Implement"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btn_logout"
-        style="@style/PinkButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="Log Out"
-        android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <include
-        android:id="@+id/progressBar"
-        layout="@layout/progress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@+id/cl_temp_bottom_nav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_main_user_img"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="54dp"
+                android:src="@drawable/ic_sample"
+                app:civ_border_color="@color/colorDarkPink"
+                app:civ_border_width="3dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_user_name"
+                style="@style/BlackBoldTextStyle.Size27"
+                android:fontFamily="@font/sf_pro_display_semibold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Rishan Rizvi"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_main_user_img" />
+
+            <TextView
+                android:id="@+id/tv_edit_profile"
+                style="@style/DarkPinkNormalTextStyle.Size14"
+                android:fontFamily="@font/sf_pro_display_semibold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Edit Profile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_user_name" />
+
+            <TextView
+                android:id="@+id/tv_order_history"
+                style="@style/BlackBoldTextStyle.Size16"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:drawableStart="@drawable/ic_sent"
+                android:drawablePadding="28dp"
+                android:fontFamily="@font/sf_pro_display_semibold"
+                android:gravity="center_vertical"
+                android:paddingStart="43dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="43dp"
+                android:paddingBottom="8dp"
+                android:text="Order History"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_edit_profile" />
+
+            <TextView
+                android:id="@+id/tv_shout_outs"
+                style="@style/BlackBoldTextStyle.Size16"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:drawableStart="@drawable/ic_megaphone"
+                android:drawablePadding="28dp"
+                android:fontFamily="@font/sf_pro_display_semibold"
+                android:gravity="center_vertical"
+                android:paddingStart="43dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="43dp"
+                android:paddingBottom="8dp"
+                android:text="Shoutouts"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_order_history" />
+
+            <TextView
+                android:id="@+id/tv_payments"
+                style="@style/BlackBoldTextStyle.Size16"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:drawableStart="@drawable/ic_wallet"
+                android:drawablePadding="28dp"
+                android:fontFamily="@font/sf_pro_display_semibold"
+                android:gravity="center_vertical"
+                android:paddingStart="43dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="43dp"
+                android:paddingBottom="8dp"
+                android:text="Payments"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_shout_outs" />
+
+            <TextView
+                android:id="@+id/tv_favourites"
+                style="@style/BlackBoldTextStyle.Size16"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:drawableStart="@drawable/ic_heart"
+                android:drawablePadding="28dp"
+                android:fontFamily="@font/sf_pro_display_semibold"
+                android:gravity="center_vertical"
+                android:paddingStart="43dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="43dp"
+                android:paddingBottom="8dp"
+                android:text="Your Favourites"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_payments" />
+
+            <TextView
+                android:id="@+id/tv_reminders"
+                style="@style/BlackBoldTextStyle.Size16"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:drawableStart="@drawable/ic_add_reminder"
+                android:drawablePadding="28dp"
+                android:fontFamily="@font/sf_pro_display_semibold"
+                android:gravity="center_vertical"
+                android:paddingStart="43dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="43dp"
+                android:paddingBottom="8dp"
+                android:text="Reminders"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_favourites" />
+
+            <TextView
+                android:id="@+id/tv_settings"
+                style="@style/BlackBoldTextStyle.Size16"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:drawableStart="@drawable/ic_settings"
+                android:drawablePadding="28dp"
+                android:fontFamily="@font/sf_pro_display_semibold"
+                android:gravity="center_vertical"
+                android:paddingStart="43dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="43dp"
+                android:paddingBottom="8dp"
+                android:text="Settings"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_reminders" />
+
+            <TextView
+                android:id="@+id/tv_promotions"
+                style="@style/BlackBoldTextStyle.Size16"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:drawableStart="@drawable/ic_sale_tag"
+                android:drawablePadding="28dp"
+                android:fontFamily="@font/sf_pro_display_semibold"
+                android:gravity="center_vertical"
+                android:paddingStart="43dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="43dp"
+                android:paddingBottom="8dp"
+                android:text="Promotions"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_settings" />
+
+            <TextView
+                android:id="@+id/tv_support"
+                style="@style/BlackBoldTextStyle.Size16"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:drawableStart="@drawable/ic_customer_support"
+                android:drawablePadding="28dp"
+                android:fontFamily="@font/sf_pro_display_semibold"
+                android:gravity="center_vertical"
+                android:paddingStart="43dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="43dp"
+                android:paddingBottom="8dp"
+                android:text="Support"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_promotions" />
+
+            <TextView
+                android:id="@+id/tv_logout"
+                style="@style/DarkPinkNormalTextStyle.Size16"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="16dp"
+                android:drawableStart="@drawable/ic_logout"
+                android:drawablePadding="28dp"
+                android:fontFamily="@font/sf_pro_display_semibold"
+                android:gravity="center_vertical"
+                android:paddingStart="43dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="43dp"
+                android:paddingBottom="8dp"
+                android:text="Log out"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_support"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_temp_bottom_nav"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/iv_search"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_home_main" />
+
+        <ImageView
+            android:id="@+id/iv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/iv_layers"
+            app:layout_constraintStart_toEndOf="@+id/iv_home"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.515"
+            app:srcCompat="@drawable/ic_search_main" />
+
+        <ImageView
+            android:id="@+id/iv_layers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/iv_newspaper"
+            app:layout_constraintStart_toEndOf="@+id/iv_search"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_layers_main" />
+
+        <ImageView
+            android:id="@+id/iv_newspaper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageView5"
+            app:layout_constraintStart_toEndOf="@+id/iv_layers"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_newspaper_main" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_newspaper"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_profile_main" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

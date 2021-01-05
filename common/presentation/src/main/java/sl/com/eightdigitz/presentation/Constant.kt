@@ -8,12 +8,14 @@ object Constant {
     const val CLIENT_ID = "k4PQJsn9sjtYNw6YGQyy5WnU7JmMvYQs"
 
     const val PREF_USER = "user_data"
+    const val PREF_ACCESS_TOKEN = "access_token"
+    const val PREF_ID_TOKEN = "id_token"
     const val ACTION_UNAUTH = "ACTION_UNAUTH"
     const val PREF_FCM_TOKEN = "fcm_push_token"
 }
 
 object LanguageType {
-    const val ENGLISH = "en"
+    const val ENGLISH = "English"
     const val SINHALA = "si"
     const val TAMIL = "ta"
     const val HINDI = "hi"

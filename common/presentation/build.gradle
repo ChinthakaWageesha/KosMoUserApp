@@ -1,7 +1,11 @@
 apply from: "$rootDir/common-android-library.gradle"
 apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android'
 
 dependencies {
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation project(Modules.country_picker)
 
     implementation Libraries.lifecycleExtensions
@@ -17,6 +21,7 @@ dependencies {
     kapt Libraries.glideCompiler
 
     implementation Libraries.gson
+    implementation ExternalLib.cropper
 
     implementation ExternalLib.imagePicker
     implementation ExternalLib.imageViewer

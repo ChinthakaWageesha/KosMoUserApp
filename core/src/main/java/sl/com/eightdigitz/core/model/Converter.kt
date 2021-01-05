@@ -15,12 +15,13 @@ fun User.mapToDomain(): DUser =
         mobileNo = mobileNo,
         defaultLanguage = defaultLanguage,
         email = email,
+        fullName = fullName,
         dob = dob,
         role = role,
         profilePicture = profilePicture,
         profileVideo = profileVideo,
         profileBanner = profileBanner,
-        preferences = preferences,
+        preferences = preferences?.map { it.mapToDomain() },
         authReference = authReference,
         verified = verified
     )
@@ -34,12 +35,13 @@ fun DUser.mapToPresentation(): PUser =
         mobileNo = mobileNo,
         defaultLanguage = defaultLanguage,
         email = email,
+        fullName = fullName,
         dob = dob,
         role = role,
         profilePicture = profilePicture,
         profileVideo = profileVideo,
         profileBanner = profileBanner,
-        preferences = preferences,
+        preferences = preferences?.map { it.mapToPresentation() },
         authReference = authReference,
         verified = verified
     )
@@ -61,6 +63,26 @@ fun OTPTokenResponse.mapToDomain(): DOTPToken = DOTPToken(
     tokenType = tokenType,
     error = error,
     errorDescription = errorDescription
+)
+
+fun Preference.mapToDomain(): DPreference = DPreference(
+    id = id,
+    createdAt = createdAt,
+    updatedAt = updatedAt,
+    deletedAt = deletedAt,
+    code = code,
+    name = name,
+    language = language
+)
+
+fun DPreference.mapToPresentation(): PPreference = PPreference(
+    id = id,
+    createdAt = createdAt,
+    updatedAt = updatedAt,
+    deletedAt = deletedAt,
+    code = code,
+    name = name,
+    language = language
 )
 
 fun SuccessResponse.mapToDataSource(): Success =

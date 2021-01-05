@@ -5,7 +5,7 @@ import sl.com.eightdigitz.navigation.loadIntentOrNull
 
 object AuthenticationNavigation : DynamicFeature<Intent> {
 
-    private const val LOGIN = "sl.com.eightdigitz.authentication.presentation.LanguageSelection"
+    private const val LOGIN = "sl.com.eightdigitz.authentication.presentation.AuthActivity"
 
     override val dynamicStart: Intent?
         get() = LOGIN.loadIntentOrNull()

@@ -55,7 +55,9 @@ interface AuthApi {
     )
     @POST("user")
     fun authPostRegister(
+        @retrofit2.http.Header("x-id-token") idToken: String,
         @retrofit2.http.Field("MobileNo") mobileNo: String,
+        @retrofit2.http.Field("FullName") fullName: String,
         @retrofit2.http.Field("DefaultLanguage") defaultLanguage: String,
         @retrofit2.http.Field("Email") email: String,
         @retrofit2.http.Field("DOB") dob: String,

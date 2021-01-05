@@ -5,13 +5,13 @@
     android:id="@+id/cl_get_phone_number_base"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_gradient_purple_seablue_get_otp"
-    tools:context=".presentation.verifyOTP.GetOTPActivity">
+    tools:context=".presentation.verifyOTP.GetOTP">
 
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fillViewport="true"
+        android:background="@drawable/bg_gradient_purple_seablue_get_otp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -82,54 +82,62 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <LinearLayout
-                    android:id="@+id/ll_phone_number_container"
-                    android:layout_width="0dp"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout2"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="30dp"
-                    android:orientation="horizontal"
+                    android:background="@drawable/bg_white_gray_stroke_corner_round_3dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_title_mobile_number">
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="110dp"
+                    <ImageView
+                        android:id="@+id/iv_flag"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:theme="@style/EditTextTheme">
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/flag_lk"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/et_mobile_code"
-                            style="@style/PrimaryEditTextStyle"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:clickable="true"
-                            android:cursorVisible="false"
-                            android:editable="false"
-                            android:ems="7"
-                            android:drawableEnd="@drawable/ic_arrow_down"
-                            android:focusable="true"
-                            android:inputType="none" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_mobile_code"
+                        style="@style/PhoneNumberEditTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:cursorVisible="false"
+                        android:drawableEnd="@drawable/ic_arrow_down"
+                        android:editable="false"
+                        android:drawablePadding="16dp"
+                        android:focusable="true"
+                        android:inputType="none"
+                        android:text="+94"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/iv_flag"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_mobile"
+                        style="@style/PhoneNumberEditTextStyle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="0dp"
-                        android:layout_weight="1"
-                        android:theme="@style/EditTextTheme">
+                        android:layout_marginEnd="0dp"
+                        android:inputType="phone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/et_mobile_code"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/et_mobile"
-                            style="@style/PrimaryEditTextStyle"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="phone" />
 
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <Button
                     android:id="@+id/btn_send_code"
@@ -146,8 +154,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ll_phone_number_container" />
-
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

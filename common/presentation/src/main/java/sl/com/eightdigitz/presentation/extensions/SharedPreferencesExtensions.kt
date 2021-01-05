@@ -39,8 +39,14 @@ fun SharedPreferences.cleaAll() {
 
 fun SharedPreferences.getUser(): String? = getString(Constant.PREF_USER,"")
 
-/*fun SharedPreferences.setToken(token: String?) {
-    edit { it.putString(PREF_TOKEN, token) }
-}*/
+fun SharedPreferences.setAccessToken(token: String?) {
+    edit { it.putString(Constant.PREF_ACCESS_TOKEN, token) }
+}
 
-//fun SharedPreferences.getToken(): String? = getString(PREF_TOKEN, "")
+fun SharedPreferences.setIdToken(token: String?){
+    edit{it.putString(Constant.PREF_ID_TOKEN, token)}
+}
+
+fun SharedPreferences.getAccessToken(): String? = getString(Constant.PREF_ACCESS_TOKEN, "")
+
+fun SharedPreferences.getIdToken(): String? = getString(Constant.PREF_ID_TOKEN, "")

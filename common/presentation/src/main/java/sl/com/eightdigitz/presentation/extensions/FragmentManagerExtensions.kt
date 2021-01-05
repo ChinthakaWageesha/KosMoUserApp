@@ -3,6 +3,7 @@ package sl.com.eightdigitz.presentation.extensions
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE
+import sl.com.eightdigitz.presentation.R
 
 fun FragmentManager.removeFragment(
     tag: String,
@@ -37,17 +38,23 @@ fun FragmentManager.addFragment(
 fun FragmentManager.replaceFragment(
     containerViewId: Int,
     fragment: Fragment,
-    tag: String,
-    slideIn: Int = 0,
-    slideOut: Int = 0,
-    fadeIn: Int = 0/* R.animator.fade_in*/,
-    fadeOut: Int = 0/*R.animator.fade_out*/
+    tag: String
 ) {
     this.beginTransaction()
-        .setCustomAnimations(slideIn, slideOut, fadeIn, fadeOut)
+        .setCustomAnimations(R.animator.enter, R.animator.exit, R.animator.fade_in, R.animator.fade_out)
         .replace(containerViewId, fragment, tag)
-        .addToBackStack(tag)
+        .addToBackStack(null)
         .commit()
+}
+
+fun FragmentManager.removeFragment(
+    tag: String
+) {
+    this.beginTransaction()
+        .disallowAddToBackStack()
+        .setCustomAnimations(R.animator.enter, R.animator.exit, R.animator.fade_in, R.animator.fade_out)
+        .remove(this.findFragmentByTag(tag)!!)
+        .commitNow()
 }
 
 fun FragmentManager.currentFragment(containerViewId: Int) =

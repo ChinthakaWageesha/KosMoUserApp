@@ -1,44 +1,34 @@
 package sl.com.eightdigitz.authentication.presentation
 
-import android.content.Context
-import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.text.Html
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.text.style.ForegroundColorSpan
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import androidx.core.text.HtmlCompat
-import kotlinx.android.synthetic.main.activity_get_started.*
+import kotlinx.android.synthetic.main.fragment_get_started.*
 import sl.com.eightdigitz.authentication.R
-import sl.com.eightdigitz.authentication.presentation.registration.RegisterActivity
-import sl.com.eightdigitz.authentication.presentation.verifyOTP.GetOTPActivity
-import sl.com.eightdigitz.authentication.presentation.verifyOTP.VerifyOTPActivity
-import sl.com.eightdigitz.core.base.BaseActivity
+import sl.com.eightdigitz.core.base.BaseFragment
 import sl.com.eightdigitz.core.ui.AppInformation
 import sl.com.eightdigitz.presentation.AppInformationType
-import sl.com.eightdigitz.presentation.Constant
-import sl.com.eightdigitz.presentation.extensions.showToast
-import sl.com.eightdigitz.presentation.extensions.startActivity
 
-class GetStarted : BaseActivity(), View.OnClickListener {
 
-    companion object {
-        fun startActivity(context: Context, action: String) {
-            val intent = Intent(context, GetStarted::class.java).apply {
-                this.action = action
-            }
-            context.startActivity(intent)
-        }
+class GetStarted : BaseFragment(), View.OnClickListener {
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_get_started, container, false)
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_get_started)
+    override fun onViewCreated() {
         setContent()
         btn_get_started.setOnClickListener(this)
     }
@@ -64,22 +54,28 @@ class GetStarted : BaseActivity(), View.OnClickListener {
         span.setSpan(clickSpan2, 47, 61, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
         span.setSpan(ForegroundColorSpan(Color.WHITE), 47, 61, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
 
-        cl_get_started_base.background =
-            ContextCompat.getDrawable(this, sl.com.eightdigitz.presentation.R.drawable.ic_sample)
-
         tv_get_started_desc.text = span
         tv_get_started_desc.movementMethod = LinkMovementMethod.getInstance()
     }
 
     private fun navigateToAppInfo(title: String) {
         tv_get_started_desc.highlightColor = Color.TRANSPARENT
-        AppInformation.startActivity(this, title)
+        AppInformation.startActivity(context!!, title)
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            // R.id.btn_get_started -> startActivity<GetOTPActivity>()
-            R.id.btn_get_started -> startActivity<RegisterActivity>()
+            R.id.btn_get_started -> {
+                (requireActivity() as AuthActivity).setGetOTP()
+            }
+        }
+    }
+
+    companion object{
+        const val TAG = "get_started"
+
+        fun newInstance(): Fragment {
+            return GetStarted()
         }
     }
 }

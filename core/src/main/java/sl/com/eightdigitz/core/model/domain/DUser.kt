@@ -12,12 +12,13 @@ data class DUser(
     var mobileNo: String? = null,
     var defaultLanguage: String? = null,
     var email: String? = null,
+    var fullName: String? = null,
     var dob: String? = null,
     var role: String? = null,
     var profilePicture: String? = null,
     var profileVideo: String? = null,
     var profileBanner: String? = null,
-    var preferences: String? = null,
+    var preferences: List<DPreference>? = null,
     var authReference: String? = null,
     var verified: Boolean? = null
 ): Parcelable

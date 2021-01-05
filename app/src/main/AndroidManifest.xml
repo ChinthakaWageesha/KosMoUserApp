@@ -20,12 +20,9 @@
         <activity
             android:name=".presentation.main.MainActivity"
             android:launchMode="singleTop"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".presentation.change_password.ChangePasswordActivity"
-            android:launchMode="singleTop"
-            android:theme="@style/AppTheme"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden"/>
     </application>
 
 </manifest>

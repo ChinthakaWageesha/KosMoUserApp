@@ -137,7 +137,7 @@ class CountryPickerAdapter(
                 mCountry.name?.let {
                     if (mUserCountryString != null) {
 
-                        if (it.toLowerCase(Locale.ENGLISH) == mUserCountryString.toLowerCase(Locale.ENGLISH)) {
+                        if (it.equals(mUserCountryString, ignoreCase = true)) {
                             itemView.text_header.text =
                                 mContext.getString(R.string.label_current_location)
                                     .toCapitalizeFirstLetter()
@@ -212,7 +212,6 @@ class CountryPickerAdapter(
 
             return -1
         }
-
     }
 
 

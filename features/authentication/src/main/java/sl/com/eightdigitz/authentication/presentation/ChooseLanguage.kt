@@ -1,26 +1,33 @@
 package sl.com.eightdigitz.authentication.presentation
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
 import android.view.View
-import android.widget.RadioGroup
-import kotlinx.android.synthetic.main.activity_language_selection.*
+import android.view.ViewGroup
+import kotlinx.android.synthetic.main.fragment_choose_language.*
 import sl.com.eightdigitz.authentication.R
-import sl.com.eightdigitz.authentication.di.injectFeature
-import sl.com.eightdigitz.core.base.BaseActivity
-import sl.com.eightdigitz.presentation.Constant
+import sl.com.eightdigitz.core.base.BaseFragment
 import sl.com.eightdigitz.presentation.LanguageType
-import sl.com.eightdigitz.presentation.extensions.showToast
+import sl.com.eightdigitz.presentation.Msg
+import sl.com.eightdigitz.presentation.extensions.Callback
+import sl.com.eightdigitz.presentation.extensions.showConfirm
 
-class LanguageSelection : BaseActivity(), View.OnClickListener {
+class ChooseLanguage : BaseFragment(), View.OnClickListener {
 
     private var language: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_language_selection)
-        injectFeature()
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_choose_language, container, false)
+    }
+
+    override fun onViewCreated() {
         init()
     }
+
 
     private fun init() {
         btn_english.isChecked = true
@@ -57,11 +64,6 @@ class LanguageSelection : BaseActivity(), View.OnClickListener {
 
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        finishAffinity()
-    }
-
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btn_continue -> {
@@ -77,9 +79,17 @@ class LanguageSelection : BaseActivity(), View.OnClickListener {
                 if (btn_hindi.isChecked) {
                     language = LanguageType.HINDI
                 }
-
-                GetStarted.startActivity(this, language!!)
+                (requireActivity() as AuthActivity).language = language
+                (requireActivity() as AuthActivity).setGetStarted()
             }
+        }
+    }
+
+    companion object{
+        const val TAG = "choose_language"
+
+        fun newInstance(): Fragment {
+            return ChooseLanguage()
         }
     }
 }

@@ -215,7 +215,6 @@ class CountryPicker : AppCompatActivity() {
         var mItem: PCountry? = null
         mAllCountryList?.let { mutableList ->
             mItem = mutableList.find {
-                Log.e("***", it.dialCode)
                 it.dialCode == mDialoCode?.trim()
             }
         }
@@ -245,8 +244,6 @@ class CountryPicker : AppCompatActivity() {
                 }
             }
         )
-
-
 
         mUserCountry?.let {
             mData.add(0, mUserCountry)

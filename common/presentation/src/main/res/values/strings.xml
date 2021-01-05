@@ -22,6 +22,7 @@
     <string name="hint_mobile_number">Mobile Number</string>
     <string name="btn_send_code">Send Code</string>
     <string name="error_invalid_phone">Invalid phone number</string>
+    <string name="error_invalid_country_code">Enter your mobile code</string>
     <string name="title_country_picker">Select Country</string>
 
     <string name="auth0_audience_url">https://%s/userinfo</string>
@@ -37,8 +38,10 @@
     <string name="hint_enter_code">Enter Code</string>
     <string name="btn_verify">Verify</string>
     <string name="error_invalid_verify_code">Invalid verification code</string>
+    <string name="error_not_registered_user">You are not a registered user. Please register with our app to continue.</string>
+    <string name="label_cancel">Cancel</string>
 
-    <!--Sign Up-->
+    <!--Register-->
     <string name="title_sign_up">Create Your Profile</string>
     <string name="sub_title_sign_up">This will be what shows on your profile</string>
     <string name="hint_full_name_tv">Your full name</string>
@@ -49,5 +52,11 @@
     <string name="error_email_required">Enter your full name</string>
     <string name="error_birthday_required">Select your date of birth</string>
     <string name="message_get_updates_description">I would like to receive news &amp; updates email</string>
+
+    <!--Post Register-->
+    <string name="title_welcome_hello">Welcome to Hello!</string>
+    <string name="tv_sample">Rutrum tellus pellentesque eu tincidunt tortor. Condimentum vitaesapien
+        pellentesque habitant morbi tristique senectus et netus.</string>
+    <string name="btn_lets_do_it">Let\'s Do it</string>
 
 </resources>
