@@ -56,6 +56,7 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
         et_birthday.setOnClickListener(this)
         btn_continue.setOnClickListener(this)
         iv_upload_photo.setOnClickListener(this)
+        iv_back_register.setOnClickListener(this)
         et_email.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
@@ -197,7 +198,6 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == AVATAR_IMAGE_REQ_CODE) {
             if (resultCode == Activity.RESULT_OK) {
-                // File object will not be null for RESULT_OK
                 file = ImagePicker.getFile(data)
                 file?.absolutePath?.let { CropImageActivity.startCropActivity(this, it) }
             } else if (resultCode == ImagePicker.RESULT_ERROR) {
@@ -208,6 +208,7 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
                 val result = data?.data
                 file = File(result?.path!!)
                 iv_sign_up_user_photo.loadImageRound(file?.absolutePath!!)
+                (requireActivity() as AuthActivity).avatarUrl = file?.absolutePath
                 /*file?.let {
                     activity?.withNetwork({
                         iv_sign_up_user_photo.loadImageRound(file?.absolutePath!!)
@@ -223,7 +224,13 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
             R.id.et_birthday -> setDatePicker()
             R.id.btn_continue -> onContinue()
             R.id.iv_upload_photo -> cameraOptionsDialog(arrayOptions, AVATAR_IMAGE_REQ_CODE)
+            R.id.iv_back_register -> activity?.onBackPressed()
         }
+    }
+
+    override fun onResume() {
+        setBackground(sl.com.eightdigitz.presentation.R.drawable.bg_gradient_purple_seablue_register)
+        super.onResume()
     }
 
     companion object{

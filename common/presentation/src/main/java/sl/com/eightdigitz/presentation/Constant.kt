@@ -15,7 +15,7 @@ object Constant {
 }
 
 object LanguageType {
-    const val ENGLISH = "English"
+    const val ENGLISH = "en"
     const val SINHALA = "si"
     const val TAMIL = "ta"
     const val HINDI = "hi"

@@ -64,6 +64,7 @@ class VerifyOTP : BaseFragment(), View.OnClickListener {
             }
 
         })
+
         btn_verify.setOnClickListener(this)
         iv_back_verify_otp.setOnClickListener(this)
         tv_message_not_receive_code.setOnClickListener(this)
@@ -196,8 +197,9 @@ class VerifyOTP : BaseFragment(), View.OnClickListener {
         }
     }
 
-    override fun onPause() {
-        super.onPause()
+    override fun onResume() {
+        setBackground(sl.com.eightdigitz.presentation.R.drawable.bg_gradient_verify_otp)
+        super.onResume()
     }
 
     companion object {

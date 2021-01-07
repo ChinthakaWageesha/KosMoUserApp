@@ -40,7 +40,6 @@ class GetOTP : BaseFragment(), View.OnClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         return inflater.inflate(R.layout.fragment_get_otp, container, false)
     }
 
@@ -179,6 +178,11 @@ class GetOTP : BaseFragment(), View.OnClickListener {
             R.id.btn_send_code -> onSendCode()
             R.id.et_mobile_code -> startCountryPicker()
         }
+    }
+
+    override fun onResume() {
+        setBackground(sl.com.eightdigitz.presentation.R.drawable.bg_gradient_purple_seablue_get_otp)
+        super.onResume()
     }
 
     companion object {

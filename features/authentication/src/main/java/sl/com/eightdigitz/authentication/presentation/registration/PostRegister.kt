@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.fragment_post_register.*
 import sl.com.eightdigitz.authentication.R
 import sl.com.eightdigitz.authentication.presentation.AuthActivity
 import sl.com.eightdigitz.core.base.BaseFragment
+import sl.com.eightdigitz.presentation.extensions.loadImageRound
 
 class PostRegister : BaseFragment(), View.OnClickListener {
 
@@ -21,12 +22,13 @@ class PostRegister : BaseFragment(), View.OnClickListener {
     }
 
     override fun onViewCreated() {
-       init()
+        init()
     }
 
     @SuppressLint("SetTextI18n")
-    private fun init(){
+    private fun init() {
         tv_hi_user_txt.text = "Hi ${(requireActivity() as AuthActivity).fullName},"
+        iv_welcome_user_img.loadImageRound((requireActivity() as AuthActivity).avatarUrl!!)
         btn_lets_do_it.setOnClickListener(this)
     }
 
@@ -38,8 +40,13 @@ class PostRegister : BaseFragment(), View.OnClickListener {
         }
     }
 
+    override fun onResume() {
+        setBackground(sl.com.eightdigitz.presentation.R.drawable.bg_gradient_welcome)
+        super.onResume()
+    }
+
     override fun onClick(v: View?) {
-        when(v?.id){
+        when (v?.id) {
             R.id.btn_lets_do_it -> {
                 (requireActivity() as AuthActivity).authSuccess()
             }

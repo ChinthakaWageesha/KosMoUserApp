@@ -9,6 +9,7 @@ import sl.com.eightdigitz.authentication.presentation.verifyOTP.GetOTP
 import sl.com.eightdigitz.authentication.presentation.verifyOTP.VerifyOTP
 import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.navigation.features.ResultCode
+import sl.com.eightdigitz.presentation.extensions.currentFragment
 import sl.com.eightdigitz.presentation.extensions.replaceFragment
 
 class AuthActivity : BaseActivity() {
@@ -16,6 +17,7 @@ class AuthActivity : BaseActivity() {
     var language: String? = null
     var mobileNumber: String? = null
     var fullName: String? = null
+    var avatarUrl: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -76,5 +78,13 @@ class AuthActivity : BaseActivity() {
             PostRegister.newInstance(),
             PostRegister.TAG
         )
+    }
+
+    override fun onBackPressed() {
+        if (supportFragmentManager.currentFragment(R.id.fl_auth) is ChooseLanguage){
+            finishAffinity()
+        } else {
+            super.onBackPressed()
+        }
     }
 }

@@ -1,10 +1,13 @@
 package sl.com.eightdigitz.core.base
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 
 abstract class BaseFragment : Fragment() {
@@ -32,17 +35,30 @@ abstract class BaseFragment : Fragment() {
         onViewCreated()
     }
 
-    fun showProgress() { getBaseActivity()?.showProgress() }
+    fun showProgress() {
+        getBaseActivity()?.showProgress()
+    }
 
-    fun hideProgress() { getBaseActivity()?.hideProgress() }
+    fun hideProgress() {
+        getBaseActivity()?.hideProgress()
+    }
 
     private fun getBaseActivity() = parentActivity
 
-    fun showKeyboard(editText: EditText){
+    fun showKeyboard(editText: EditText) {
         val imgr: InputMethodManager =
             activity!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imgr.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
         editText.requestFocus()
+    }
+
+    fun setBackground(drawableId: Int) {
+        activity!!.window.setBackgroundDrawable(
+            ContextCompat.getDrawable(
+                requireContext(),
+                drawableId
+            )
+        )
     }
 
     override fun onDestroyView() {

@@ -17,6 +17,7 @@ import sl.com.eightdigitz.authentication.R
 import sl.com.eightdigitz.core.base.BaseFragment
 import sl.com.eightdigitz.core.ui.AppInformation
 import sl.com.eightdigitz.presentation.AppInformationType
+import sl.com.eightdigitz.presentation.extensions.removeFragment
 
 
 class GetStarted : BaseFragment(), View.OnClickListener {
@@ -30,6 +31,7 @@ class GetStarted : BaseFragment(), View.OnClickListener {
 
     override fun onViewCreated() {
         setContent()
+        iv_back_get_started.setOnClickListener(this)
         btn_get_started.setOnClickListener(this)
     }
 
@@ -68,10 +70,16 @@ class GetStarted : BaseFragment(), View.OnClickListener {
             R.id.btn_get_started -> {
                 (requireActivity() as AuthActivity).setGetOTP()
             }
+            R.id.iv_back_get_started -> activity?.onBackPressed()
         }
     }
 
-    companion object{
+    override fun onResume() {
+        setBackground(sl.com.eightdigitz.presentation.R.drawable.bg_gradient_get_started)
+        super.onResume()
+    }
+
+    companion object {
         const val TAG = "get_started"
 
         fun newInstance(): Fragment {

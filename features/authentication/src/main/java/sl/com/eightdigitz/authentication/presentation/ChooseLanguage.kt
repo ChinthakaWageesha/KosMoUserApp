@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.fragment_choose_language.*
 import sl.com.eightdigitz.authentication.R
 import sl.com.eightdigitz.core.base.BaseFragment
@@ -44,6 +45,7 @@ class ChooseLanguage : BaseFragment(), View.OnClickListener {
                 fun1();
             }
         }
+
         btn_continue.setOnClickListener(this)
     }
 
@@ -59,10 +61,6 @@ class ChooseLanguage : BaseFragment(), View.OnClickListener {
         rg_select_language_2.setOnCheckedChangeListener { _, _ -> fun1() }
     }
 
-
-    fun authSuccess() {
-
-    }
 
     override fun onClick(v: View?) {
         when (v?.id) {
@@ -85,7 +83,12 @@ class ChooseLanguage : BaseFragment(), View.OnClickListener {
         }
     }
 
-    companion object{
+    override fun onResume() {
+        setBackground(sl.com.eightdigitz.presentation.R.drawable.bg_gradient_brown_pink_purple)
+        super.onResume()
+    }
+
+    companion object {
         const val TAG = "choose_language"
 
         fun newInstance(): Fragment {

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_gradient_brown_pink_purple"
+    android:background="@color/colorTransparent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.ChooseLanguage">
 
@@ -169,7 +169,5 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
