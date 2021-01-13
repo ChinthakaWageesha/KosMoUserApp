@@ -3,47 +3,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorTransparent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.registration.RegisterUser">
-
-    <ImageView
-        android:id="@+id/iv_back_register"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:src="@drawable/ic_back_white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_title_register"
-        style="@style/WhiteBoldTextStyle.Size18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/sf_pro_display_bold"
-        android:text="@string/title_sign_up"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_back_register"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/iv_back_register" />
 
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
         android:fillViewport="true"
+        android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title_register">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <TextView
+                android:id="@+id/tv_title_register"
+                style="@style/WhiteBoldTextStyle.Size18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:fontFamily="@font/sf_pro_display_bold"
+                android:text="@string/title_sign_up"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/iv_sign_up_user_photo"
@@ -52,8 +42,9 @@
                 android:layout_marginTop="50dp"
                 android:src="@drawable/ic_ph_profile_profile_picture"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_title_register" />
 
             <ImageView
                 android:id="@+id/iv_upload_photo"
@@ -183,7 +174,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="63dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginBottom="32dp"
+                android:layout_marginBottom="51dp"
                 android:background="@drawable/bg_pink_checkbox"
                 android:button="@null"
                 app:layout_constraintBottom_toTopOf="@+id/btn_continue"
@@ -209,7 +200,7 @@
 
             <Button
                 android:id="@+id/btn_continue"
-                style="@style/PinkButtonStyle"
+                style="@style/TransparentButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"

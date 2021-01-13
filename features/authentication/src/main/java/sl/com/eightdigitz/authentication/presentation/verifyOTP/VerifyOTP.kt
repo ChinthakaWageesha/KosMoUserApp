@@ -38,8 +38,17 @@ class VerifyOTP : BaseFragment(), View.OnClickListener {
     }
 
     override fun onViewCreated() {
+        setToolbar()
         init()
         showKeyboard(et_verify_code)
+    }
+
+    private fun setToolbar() {
+        (requireActivity() as AuthActivity).supportActionBar?.setActionBar(
+            context!!,
+            "",
+            isHomeUpEnables = true
+        )
     }
 
     private fun init() {
@@ -66,7 +75,6 @@ class VerifyOTP : BaseFragment(), View.OnClickListener {
         })
 
         btn_verify.setOnClickListener(this)
-        iv_back_verify_otp.setOnClickListener(this)
         tv_message_not_receive_code.setOnClickListener(this)
     }
 
@@ -101,7 +109,7 @@ class VerifyOTP : BaseFragment(), View.OnClickListener {
             }
 
             override fun onFinish() {
-                if (tv_message_not_receive_code != null && tv_timer != null){
+                if (tv_message_not_receive_code != null && tv_timer != null) {
                     tv_message_not_receive_code.text = "Resend Code"
                     tv_timer.visibility = View.GONE
                 }
@@ -187,7 +195,6 @@ class VerifyOTP : BaseFragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btn_verify -> onVerify()
-            R.id.iv_back_verify_otp -> activity?.onBackPressed()
             R.id.tv_message_not_receive_code -> {
                 if (tv_message_not_receive_code.text == "Resend Code") {
                     et_verify_code.clearText()
@@ -201,6 +208,7 @@ class VerifyOTP : BaseFragment(), View.OnClickListener {
         setBackground(sl.com.eightdigitz.presentation.R.drawable.bg_gradient_verify_otp)
         super.onResume()
     }
+
 
     companion object {
         const val TAG = "verify_otp"

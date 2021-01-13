@@ -4,18 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_gradient_get_started"
+    android:background="@drawable/bg_gradient_white_black"
     tools:context=".presentation.GetStarted">
-
-    <ImageView
-        android:id="@+id/iv_back_get_started"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="36dp"
-        android:src="@drawable/ic_back_white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_get_started_container"
@@ -41,7 +31,7 @@
 
         <Button
             android:id="@+id/btn_get_started"
-            style="@style/PinkButtonStyle"
+            style="@style/TransparentButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"

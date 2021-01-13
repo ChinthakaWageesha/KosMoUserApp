@@ -18,11 +18,9 @@ import kotlinx.android.synthetic.main.fragment_register_user.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.authentication.R
 import sl.com.eightdigitz.authentication.presentation.AuthActivity
-import sl.com.eightdigitz.authentication.presentation.verifyOTP.GetOTP
 import sl.com.eightdigitz.core.base.BaseFragment
 import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.core.model.presentation.PUser
-import sl.com.eightdigitz.navigation.features.ResultCode
 import sl.com.eightdigitz.presentation.Msg
 import sl.com.eightdigitz.presentation.Resource
 import sl.com.eightdigitz.presentation.ResourceState
@@ -48,7 +46,17 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
     }
 
     override fun onViewCreated() {
+        setToolbar()
         init()
+        showKeyboard(et_full_name)
+    }
+
+    private fun setToolbar() {
+        (requireActivity() as AuthActivity).supportActionBar?.setActionBar(
+            context!!,
+            "",
+            isHomeUpEnables = true
+        )
     }
 
     private fun init() {
@@ -56,14 +64,13 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
         et_birthday.setOnClickListener(this)
         btn_continue.setOnClickListener(this)
         iv_upload_photo.setOnClickListener(this)
-        iv_back_register.setOnClickListener(this)
         et_email.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
             }
 
             override fun onTextChanged(text: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if (text!!.endsWith(".com")){
+                if (text!!.endsWith(".com")) {
                     et_email.validateOnTextChange(isCheckValidateIcon = true) { s -> s.isValidEmail() }
                 }
             }
@@ -76,7 +83,7 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
 
     @SuppressLint("MissingPermission")
     private fun onContinue() {
-        if (validateForm()) {
+        /*if (validateForm()) {
             val dUser = DUser(
                 mobileNo = (requireActivity() as AuthActivity).mobileNumber,
                 fullName = et_full_name.getStringTrim(),
@@ -93,7 +100,9 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
             }, {
                 Msg.INTERNET_ISSUE.showToast(context!!)
             })
-        }
+        }*/
+        hideKeyboard()
+        (requireActivity() as AuthActivity).setPostRegister()
     }
 
     private fun validateForm(): Boolean {
@@ -156,7 +165,8 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
             date,
             calender.get(Calendar.YEAR),
             calender.get(Calendar.MONTH),
-            calender.get(Calendar.DAY_OF_MONTH))
+            calender.get(Calendar.DAY_OF_MONTH)
+        )
 
         mDatePickerDialog.datePicker.maxDate = System.currentTimeMillis()
         mDatePickerDialog.show()
@@ -219,12 +229,12 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
             }
         }
     }
+
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.et_birthday -> setDatePicker()
             R.id.btn_continue -> onContinue()
             R.id.iv_upload_photo -> cameraOptionsDialog(arrayOptions, AVATAR_IMAGE_REQ_CODE)
-            R.id.iv_back_register -> activity?.onBackPressed()
         }
     }
 
@@ -233,7 +243,8 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
         super.onResume()
     }
 
-    companion object{
+
+    companion object {
         const val TAG = "register_user"
         private const val AVATAR_IMAGE_REQ_CODE = 1124
 

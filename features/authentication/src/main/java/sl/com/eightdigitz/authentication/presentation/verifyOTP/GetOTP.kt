@@ -12,10 +12,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.auth0.android.Auth0
+import com.auth0.android.provider.AuthenticationActivity
 import com.hbb20.CountryCodePicker
 import kotlinx.android.synthetic.main.fragment_get_otp.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -44,6 +46,7 @@ class GetOTP : BaseFragment(), View.OnClickListener {
     }
 
     override fun onViewCreated() {
+        setToolbar()
         init()
         showKeyboard(et_mobile)
     }
@@ -75,6 +78,14 @@ class GetOTP : BaseFragment(), View.OnClickListener {
 
         btn_send_code.setOnClickListener(this)
         et_mobile_code.setOnClickListener(this)
+    }
+
+    private fun setToolbar(){
+        (requireActivity() as AuthActivity).supportActionBar?.setActionBar(
+            context!!,
+            "",
+            isHomeUpEnables = true
+        )
     }
 
 

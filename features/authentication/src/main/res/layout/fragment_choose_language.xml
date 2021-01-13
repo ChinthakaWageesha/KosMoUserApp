@@ -10,7 +10,6 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
         android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,11 +23,11 @@
 
             <TextView
                 android:id="@+id/tv_title_select_language"
-                style="@style/WhiteBoldTextStyle.Size27"
+                style="@style/WhiteBoldTextStyle.Size26"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginBottom="40dp"
                 android:fontFamily="@font/sf_pro_display_bold"
@@ -37,7 +36,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintVertical_bias="0.0" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout"
@@ -152,14 +151,15 @@
 
             <Button
                 android:id="@+id/btn_continue"
-                style="@style/PinkButtonStyle"
+                style="@style/TransparentButtonStyle"
                 android:layout_width="0dp"
+                android:fontFamily="@font/sf_pro_display_bold"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="32dp"
-                android:layout_marginBottom="20dp"
-                android:text="@string/title_continue_btn"
+                android:layout_marginBottom="32dp"
+                android:text="@string/title_confirm_btn"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

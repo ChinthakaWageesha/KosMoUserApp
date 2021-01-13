@@ -3,6 +3,8 @@ package sl.com.eightdigitz.presentation.extensions
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
+import androidx.core.content.ContextCompat
+import com.google.android.material.textfield.TextInputLayout
 import sl.com.eightdigitz.presentation.R
 
 fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
@@ -82,7 +84,7 @@ private fun EditText.backGroundRunTime(
                 this.context.getCompatDrawable(R.drawable.ic_text_field_check),
                 null
             )
-            this.setBackgroundResource(R.drawable.bg_white_corner_round_8dp)
+            this.setBackgroundResource(R.drawable.bg_white_corner_round_3dp)
         } else {
             this.setCompoundDrawablesWithIntrinsicBounds(
                 null,
@@ -90,7 +92,7 @@ private fun EditText.backGroundRunTime(
                 this.context.getCompatDrawable(R.drawable.ic_error),
                 null
             )
-            this.setBackgroundResource(R.drawable.bg_white_red_stroke_corner_round_3dp)
+            this.setBackgroundResource(R.drawable.bg_white_corner_round_3dp)
         }
     } else {
         if (errorMessage == null) {
@@ -100,7 +102,6 @@ private fun EditText.backGroundRunTime(
                 null,
                 null
             )
-            this.setBackgroundResource(R.drawable.bg_white_corner_round_8dp)
         } else {
             this.setCompoundDrawablesWithIntrinsicBounds(
                 null,
@@ -108,10 +109,65 @@ private fun EditText.backGroundRunTime(
                 null,
                 null
             )
-            this.setBackgroundResource(R.drawable.bg_white_red_stroke_corner_round_3dp)
+            this.setBackgroundResource(R.drawable.bg_white_corner_round_3dp)
         }
     }
 }
+
+fun EditText.validateWithTextWatcher(
+    mTextInputLayout: TextInputLayout,
+    message: String,
+    validator: (String) -> Boolean
+): Boolean {
+    this.onTextChanged {
+        mTextInputLayout.error = if (validator(it)) {
+            this.setBackgroundResource(R.drawable.bg_white_corner_round_3dp)
+            this.setCompoundDrawablesWithIntrinsicBounds(
+                null,
+                null,
+                this.context.getCompatDrawable(R.drawable.ic_text_field_check),
+                null
+            )
+            this.setTextColor(ContextCompat.getColor(this.context, R.color.colorTextBlack))
+            null
+        } else {
+            this.setBackgroundResource(R.drawable.bg_white_corner_round_3dp)
+            this.setCompoundDrawablesWithIntrinsicBounds(
+                null,
+                null,
+                this.context.getCompatDrawable(R.drawable.ic_error),
+                null
+            )
+            this.setTextColor(ContextCompat.getColor(this.context, R.color.colorRed))
+            message
+        }
+    }
+    mTextInputLayout.error = if (validator(this.getStringTrim())) {
+        this.setBackgroundResource(R.drawable.bg_white_corner_round_3dp)
+        this.setCompoundDrawablesWithIntrinsicBounds(
+            null,
+            null,
+            this.context.getCompatDrawable(R.drawable.ic_text_field_check),
+            null
+        )
+        this.setTextColor(ContextCompat.getColor(this.context, R.color.colorTextBlack))
+        null
+    } else {
+        this.setBackgroundResource(R.drawable.bg_white_corner_round_3dp)
+        this.setCompoundDrawablesWithIntrinsicBounds(
+            null,
+            null,
+            this.context.getCompatDrawable(R.drawable.ic_error),
+            null
+        )
+        this.setTextColor(ContextCompat.getColor(this.context, R.color.colorRed))
+        message
+    }
+
+    return validator(this.getStringTrim())
+}
+
+
 
 /**
  * @return String value of the EditTextView

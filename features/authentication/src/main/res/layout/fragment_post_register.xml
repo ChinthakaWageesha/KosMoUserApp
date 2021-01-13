@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/bg_gradient_welcome"
+    android:background="@color/colorTransparent"
     tools:context=".presentation.registration.PostRegister">
 
     <TextView
@@ -13,15 +13,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="2dp"
         android:fontFamily="@font/sf_pro_display_heavy"
-        android:text="Hi Rishan,"
         app:layout_constraintBottom_toTopOf="@+id/tv_title_welcome_hello"
         app:layout_constraintEnd_toStartOf="@+id/iv_wave_hand"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintVertical_bias="0.0"
         app:layout_constraintVertical_chainStyle="packed" />
 
@@ -47,7 +46,7 @@
         android:layout_marginBottom="30dp"
         android:fontFamily="@font/sf_pro_display_heavy"
         android:text="@string/title_welcome_hello"
-        app:layout_constraintBottom_toTopOf="@+id/iv_welcome_user_img"
+        app:layout_constraintBottom_toTopOf="@+id/iv_fireworks"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_hi_user_txt" />
@@ -60,7 +59,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/iv_welcome_user_img"
@@ -70,11 +70,10 @@
         app:civ_border_color="@color/colorWhite"
         app:civ_border_overlay="true"
         app:civ_border_width="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_fireworks"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.47000003" />
+        app:layout_constraintTop_toTopOf="@+id/iv_fireworks" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_lets_do_it_base"
@@ -84,7 +83,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_welcome_user_img"
+        app:layout_constraintTop_toBottomOf="@+id/iv_fireworks"
         app:layout_constraintVertical_bias="1.0">
 
         <TextView

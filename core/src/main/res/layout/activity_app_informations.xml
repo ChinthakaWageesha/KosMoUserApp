@@ -13,7 +13,7 @@
         android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back2" />
+        app:srcCompat="@drawable/ic_back_pink" />
 
     <TextView
         android:id="@+id/tv_title_terms"

@@ -7,17 +7,17 @@ import android.text.SpannableString
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.text.style.ForegroundColorSpan
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_get_started.*
 import sl.com.eightdigitz.authentication.R
 import sl.com.eightdigitz.core.base.BaseFragment
 import sl.com.eightdigitz.core.ui.AppInformation
 import sl.com.eightdigitz.presentation.AppInformationType
-import sl.com.eightdigitz.presentation.extensions.removeFragment
+import sl.com.eightdigitz.presentation.extensions.setActionBar
 
 
 class GetStarted : BaseFragment(), View.OnClickListener {
@@ -30,9 +30,17 @@ class GetStarted : BaseFragment(), View.OnClickListener {
     }
 
     override fun onViewCreated() {
+        setToolbar()
         setContent()
-        iv_back_get_started.setOnClickListener(this)
         btn_get_started.setOnClickListener(this)
+    }
+
+    private fun setToolbar() {
+        (requireActivity() as AuthActivity).supportActionBar?.setActionBar(
+            context!!,
+            "",
+            isHomeUpEnables = true
+        )
     }
 
     private fun setContent() {
@@ -70,7 +78,6 @@ class GetStarted : BaseFragment(), View.OnClickListener {
             R.id.btn_get_started -> {
                 (requireActivity() as AuthActivity).setGetOTP()
             }
-            R.id.iv_back_get_started -> activity?.onBackPressed()
         }
     }
 

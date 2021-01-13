@@ -11,6 +11,7 @@ import sl.com.eightdigitz.authentication.R
 import sl.com.eightdigitz.authentication.presentation.AuthActivity
 import sl.com.eightdigitz.core.base.BaseFragment
 import sl.com.eightdigitz.presentation.extensions.loadImageRound
+import sl.com.eightdigitz.presentation.extensions.setActionBar
 
 class PostRegister : BaseFragment(), View.OnClickListener {
 
@@ -23,21 +24,22 @@ class PostRegister : BaseFragment(), View.OnClickListener {
 
     override fun onViewCreated() {
         init()
+        setToolbar()
+    }
+
+    private fun setToolbar() {
+        (requireActivity() as AuthActivity).supportActionBar?.setActionBar(
+            context!!,
+            "",
+            isHomeUpEnables = false
+        )
     }
 
     @SuppressLint("SetTextI18n")
     private fun init() {
-        tv_hi_user_txt.text = "Hi ${(requireActivity() as AuthActivity).fullName},"
-        iv_welcome_user_img.loadImageRound((requireActivity() as AuthActivity).avatarUrl!!)
+        //tv_hi_user_txt.text = "Hi ${(requireActivity() as AuthActivity).fullName},"
+        //iv_welcome_user_img.loadImageRound((requireActivity() as AuthActivity).avatarUrl!!)
         btn_lets_do_it.setOnClickListener(this)
-    }
-
-    companion object {
-        const val TAG = "post_register"
-
-        fun newInstance(): Fragment {
-            return PostRegister()
-        }
     }
 
     override fun onResume() {
@@ -50,6 +52,14 @@ class PostRegister : BaseFragment(), View.OnClickListener {
             R.id.btn_lets_do_it -> {
                 (requireActivity() as AuthActivity).authSuccess()
             }
+        }
+    }
+
+    companion object {
+        const val TAG = "post_register"
+
+        fun newInstance(): Fragment {
+            return PostRegister()
         }
     }
 }

@@ -8,7 +8,7 @@
     <string name="title_sinhala_btn">ඔබේ භාෂාව \nසිංහල ලෙස \nතෝරන්න \n\n\nසිංහල</string>
     <string name="title_tamil_btn">உங்கள் \nமொழியாக \nதமிழை \nஅமைக்கவும் \n\n\nதமிழ்</string>
     <string name="title_china_btn">जल्द आ रहा है \n\n\nहिंदी</string>
-    <string name="title_continue_btn">Continue</string>
+    <string name="title_confirm_btn">Confirm</string>
 
     <!--Get Started-->
     <string name="message_get_started_description">By signing up, you agree to the Terms of Use &amp; Privacy Policy</string>
@@ -32,14 +32,13 @@
     <string name="message_otp_sent">Verification code has been sent to </string>
 
     <!--Verify Phone number-->
-    <string name="title_verify_phone_number_tv">Verify your phone number</string>
+    <string name="title_verify_phone_number">Yay!</string>
+    <string name="subtitle_verify_phone_number">Just a one step away to discover.</string>
     <string name="message_enter_code">Enter your code below</string>
     <string name="message_did_not_receive_code">I did not receive a code</string>
     <string name="hint_enter_code">Enter Code</string>
     <string name="btn_verify">Verify</string>
     <string name="error_invalid_verify_code">Invalid verification code</string>
-    <string name="error_not_registered_user">You are not a registered user. Please register with our app to continue.</string>
-    <string name="label_cancel">Cancel</string>
 
     <!--Register-->
     <string name="title_sign_up">Create Your Profile</string>

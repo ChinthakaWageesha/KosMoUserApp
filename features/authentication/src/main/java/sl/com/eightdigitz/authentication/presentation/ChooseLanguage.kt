@@ -12,6 +12,7 @@ import sl.com.eightdigitz.core.base.BaseFragment
 import sl.com.eightdigitz.presentation.LanguageType
 import sl.com.eightdigitz.presentation.Msg
 import sl.com.eightdigitz.presentation.extensions.Callback
+import sl.com.eightdigitz.presentation.extensions.setActionBar
 import sl.com.eightdigitz.presentation.extensions.showConfirm
 
 class ChooseLanguage : BaseFragment(), View.OnClickListener {
@@ -26,9 +27,17 @@ class ChooseLanguage : BaseFragment(), View.OnClickListener {
     }
 
     override fun onViewCreated() {
+        setToolbar()
         init()
     }
 
+    private fun setToolbar() {
+        (requireActivity() as AuthActivity).supportActionBar?.setActionBar(
+            context!!,
+            "",
+            isHomeUpEnables = false
+        )
+    }
 
     private fun init() {
         btn_english.isChecked = true
@@ -78,7 +87,8 @@ class ChooseLanguage : BaseFragment(), View.OnClickListener {
                     language = LanguageType.HINDI
                 }
                 (requireActivity() as AuthActivity).language = language
-                (requireActivity() as AuthActivity).setGetStarted()
+                //(requireActivity() as AuthActivity).setGetStarted()
+                (requireActivity() as AuthActivity).setRegister()
             }
         }
     }

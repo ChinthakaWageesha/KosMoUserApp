@@ -63,7 +63,7 @@
 
             <TextView
                 android:id="@+id/tv_title_first_name"
-                style="@style/editTextTitleLabelStyle.size16"
+                style="@style/BlackBoldTextStyle.Size16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/tv_title_first_name_margin_top_profile"
@@ -80,7 +80,7 @@
 
             <TextView
                 android:id="@+id/tv_title_last_name"
-                style="@style/editTextTitleLabelStyle.size16"
+                style="@style/BlackBoldTextStyle.Size16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/tv_title_last_name_margin_top_profile"
@@ -99,7 +99,7 @@
 
             <TextView
                 android:id="@+id/tv_title_email"
-                style="@style/editTextTitleLabelStyle.size16"
+                style="@style/BlackBoldTextStyle.Size16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/tv_title_email_margin_top_profile"
@@ -115,7 +115,7 @@
                 android:inputType="textEmailAddress" />
 
             <TextView
-                style="@style/editTextTitleLabelStyle.size16"
+                style="@style/BlackBoldTextStyle.Size16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -166,7 +166,7 @@
 
         <TextView
             android:id="@+id/btn_change_password"
-            style="@style/textViewButtonStyle.size16"
+            style="@style/BlackBoldTextStyle.Size16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/btn_change_password_margin_top_profile"

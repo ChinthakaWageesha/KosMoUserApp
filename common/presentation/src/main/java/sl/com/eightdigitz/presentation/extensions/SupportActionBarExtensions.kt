@@ -20,20 +20,15 @@ fun ActionBar.setActionBar(
 ) {
     val tv = TextView(context.applicationContext)
 
-    // Create a LayoutParams for TextView
     val lp = RelativeLayout.LayoutParams(
-        RelativeLayout.LayoutParams.WRAP_CONTENT, // Width of TextView
+        RelativeLayout.LayoutParams.WRAP_CONTENT,
         RelativeLayout.LayoutParams.WRAP_CONTENT
-    ) // Height of TextView
+    )
 
-    // Apply the layout parameters to TextView widget
     tv.layoutParams = lp
 
-    // Set text to display in TextView
-    tv.text = title // ActionBar title text
+    tv.text = title
 
-    // Set the text color of TextView to black
-    // This line change the ActionBar title text color
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
         tv.setTextAppearance(R.style.ToolbarTextWhiteStyle)
     } else {
@@ -48,7 +43,6 @@ fun ActionBar.setActionBar(
         tv.setPadding(24, 0, 0, 0)
     }
 
-    // Set the ActionBar display option
     this.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
     this.customView = tv
     this.setBackgroundDrawable(ContextCompat.getDrawable(context,R.drawable.bg_support_actionbar))

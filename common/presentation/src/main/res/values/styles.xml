@@ -70,10 +70,10 @@
         <item name="android:stateListAnimator">@null</item>
     </style>
 
-    <style name="GrayButtonStyle">
-        <item name="android:textAppearance">@style/WhiteNormalTextStyle.Size12</item>
-        <item name="android:background">@drawable/bg_btn_select_language</item>
-        <item name="fontFamily">@font/sf_pro_display_medium</item>
+    <style name="TransparentButtonStyle">
+        <item name="android:textAppearance">@style/WhiteNormalTextStyle.Size17</item>
+        <item name="android:background">@drawable/bg_transparent_white_stroke_3dp</item>
+        <item name="fontFamily">@font/sf_pro_display_bold</item>
         <item name="android:paddingLeft">12dp</item>
         <item name="android:paddingRight">12dp</item>
         <item name="android:minHeight">44dp</item>
@@ -96,31 +96,10 @@
         <item name="android:topDark">@color/colorTransparent</item>
     </style>
 
-    <!--    Progress Bar Style-->
-    <style name="ProgressbarStyle" parent="ThemeOverlay.AppCompat.Dialog">
-        <item name="android:alertDialogStyle">@style/CustomAlertDialogStyle</item>
-        <item name="android:windowBackground">@color/colorTransparent</item>
-        <item name="android:textColorPrimary">@color/colorWhite</item>
-        <item name="android:backgroundDimEnabled">false</item>
-        <item name="android:textColor">@color/colorWhite</item>
-        <item name="android:textStyle">normal</item>
-    </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
-    <style name="AppBarTextStyle">
-        <item name="android:textColor">@color/colorHalvetica</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
+    <!--Progress bar Loader style-->
     <style name="progressBarStyle" parent="android:Theme.Holo.Dialog">
         <item name="android:windowBackground">@color/colorTransparent</item>
-    </style>
-
-    <style name="FullScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowFullscreen">true</item>
     </style>
 
     <style name="PrimaryButtonTextStyle">
@@ -214,6 +193,10 @@
         <item name="android:textSize">19sp</item>
     </style>
 
+    <style name="WhiteBoldTextStyle.Size26">
+        <item name="android:textSize">26sp</item>
+    </style>
+
     <style name="WhiteBoldTextStyle.Size27">
         <item name="android:textSize">27sp</item>
     </style>
@@ -236,6 +219,10 @@
 
     <style name="WhiteNormalTextStyle.Size16">
         <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="WhiteNormalTextStyle.Size17">
+        <item name="android:textSize">17sp</item>
     </style>
 
     <style name="WhiteNormalTextStyle.Size19">
@@ -355,18 +342,6 @@
     </style>
 
     <style name="PrimaryEditTextStyle">
-        <item name="android:textAppearance">@style/BlackNormalTextStyle.Size15</item>
-        <item name="android:textAllCaps">false</item>
-        <item name="android:paddingLeft">12dp</item>
-        <item name="android:paddingTop">8dp</item>
-        <item name="android:paddingBottom">8dp</item>
-        <item name="android:paddingRight">12dp</item>
-        <item name="android:minHeight">48dp</item>
-        <item name="fontFamily">@font/sf_pro_display_semibold</item>
-        <item name="android:background">@drawable/bg_white_gray_stroke_corner_round_3dp</item>
-    </style>
-
-    <style name="PhoneNumberEditTextStyle">
         <item name="android:textAppearance">@style/BlackNormalTextStyle.Size18</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:paddingLeft">12dp</item>
@@ -375,7 +350,19 @@
         <item name="android:paddingRight">12dp</item>
         <item name="android:minHeight">48dp</item>
         <item name="fontFamily">@font/sf_pro_display_semibold</item>
-        <item name="android:background">@drawable/bg_white_corner_round_8dp</item>
+        <item name="android:background">@drawable/bg_white_corner_round_3dp</item>
+    </style>
+
+    <style name="PhoneNumberEditTextStyle">
+        <item name="android:textAppearance">@style/BlackNormalTextStyle.Size18</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:paddingLeft">6dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingRight">6dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="fontFamily">@font/sf_pro_display_semibold</item>
+        <item name="android:background">@drawable/bg_white_corner_round_3dp</item>
     </style>
 
     <style name="EditTextTheme">
@@ -384,45 +371,8 @@
         <item name="colorAccent">@color/colorBlack</item>
     </style>
 
-    <!--    Edit text title label style-->
-    <style name="editTextTitleLabelStyle">
-        <item name="android:textColor">@color/colorHalvetica</item>
-    </style>
 
-    <!--    Default edit text title style -->
-    <style name="editTextTitleLabelStyle.size16">
-        <item name="android:textSize">16sp</item>
-    </style>
-
-
-    <!--Button Text Styles-->
-    <!--    Basic Button Style-->
-    <style name="basicButtonStyle">
-        <item name="android:fontFamily" tools:targetApi="jelly_bean">sans-serif</item>
-        <item name="android:textAllCaps">true</item>
-    </style>
-
-
-    <!--    Text view styles when its a button-->
-    <style name="textViewButtonStyle">
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
-    </style>
-
-    <style name="textViewButtonStyle.size20">
-        <item name="android:textSize">20sp</item>
-    </style>
-
-    <style name="textViewButtonStyle.size16">
-        <item name="android:textSize">16sp</item>
-    </style>
-
-
-    <!--    Toolbar title Style-->
-    <style name="toolbarTitleStyle">
-        <item name="android:textSize">17sp</item>
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
-    </style>
-
+    <!--Alert Dialog Style-->
     <style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColorPrimary">@color/colorBlack</item>
@@ -431,6 +381,5 @@
         <item name="android:textAppearanceMedium">@style/BlackBoldTextStyle.Size14</item>
         <item name="android:textAppearanceLarge">@style/BlackBoldTextStyle.Size14</item>
     </style>
-
 
 </resources>
