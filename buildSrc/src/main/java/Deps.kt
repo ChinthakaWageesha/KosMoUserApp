@@ -47,7 +47,7 @@ object Versions {
 
     const val sdkVersion = "28.0.0"
     const val appcompat = "1.1.0"
-    const val design = "1.0.0"
+    const val design = "1.2.0-beta01"
     const val cardview = "1.0.0"
     const val recyclerview = "1.0.0"
     const val constraintLayout = "2.0.4"

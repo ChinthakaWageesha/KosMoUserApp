@@ -66,7 +66,16 @@ class GetOTP : BaseFragment(), View.OnClickListener {
             }
 
             override fun onTextChanged(text: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if (text?.length!! > 9) {
+                if (text?.length!! > 10) {
+
+                    if (ccpPicker.isValidFullNumber) {
+                        tv_get_otp_validation.visibility = View.GONE
+                    } else {
+                        tv_get_otp_validation.visibility = View.VISIBLE
+                        tv_get_otp_validation.text =
+                            getString(sl.com.eightdigitz.presentation.R.string.error_invalid_phone)
+                    }
+
                     et_mobile.validateOnTextChange(isCheckValidateIcon = true) { s -> ccpPicker.isValidFullNumber }
                 }
             }
@@ -80,7 +89,7 @@ class GetOTP : BaseFragment(), View.OnClickListener {
         et_mobile_code.setOnClickListener(this)
     }
 
-    private fun setToolbar(){
+    private fun setToolbar() {
         (requireActivity() as AuthActivity).supportActionBar?.setActionBar(
             context!!,
             "",
@@ -91,7 +100,7 @@ class GetOTP : BaseFragment(), View.OnClickListener {
 
     private fun onSendCode() {
 
-        val isCountryCode = et_mobile.validateOnTextChange { s -> s.isNotEmpty() }
+        val isCountryCode = et_mobile_code.validateOnTextChange { s -> s.isNotEmpty() }
 
         val isPhone =
             et_mobile.validateOnTextChange(
@@ -100,16 +109,21 @@ class GetOTP : BaseFragment(), View.OnClickListener {
             ) { s -> ccpPicker.isValidFullNumber }
 
         if (!isCountryCode) {
-            showAlert(message = getString(sl.com.eightdigitz.presentation.R.string.error_invalid_country_code))
+            tv_get_otp_validation.visibility = View.VISIBLE
+            tv_get_otp_validation.text =
+                getString(sl.com.eightdigitz.presentation.R.string.error_invalid_country_code)
             return
         }
 
         if (!isPhone) {
-            showAlert(message = getString(sl.com.eightdigitz.presentation.R.string.error_invalid_phone))
+            tv_get_otp_validation.visibility = View.VISIBLE
+            tv_get_otp_validation.text =
+                getString(sl.com.eightdigitz.presentation.R.string.error_invalid_phone)
             return
         }
 
-        getOtp()
+        //getOtp()
+        navigateToVerify()
     }
 
     @SuppressLint("MissingPermission")

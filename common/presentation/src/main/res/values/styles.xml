@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.Bridge">
         <item name="colorPrimary">@color/colorTransparent</item>
         <item name="colorPrimaryDark">@color/colorTransparent</item>
         <item name="colorAccent">@color/colorDarkPink</item>
@@ -143,6 +143,11 @@
         <item name="android:textColor">@color/colorTextBlack</item>
         <item name="android:textStyle">normal</item>
         <item name="fontFamily">@font/sf_pro_display_regular</item>
+    </style>
+
+    <style name="YellowNormalTextStyle">
+        <item name="android:textColor">@color/colorYellow</item>
+        <item name="android:textStyle">normal</item>
     </style>
 
     <style name="ToolbarTextWhiteStyle">
@@ -293,6 +298,10 @@
         <item name="android:textSize">16sp</item>
     </style>
 
+    <style name="YellowNormalTextStyle.Size13">
+        <item name="android:textSize">13sp</item>
+    </style>
+
     <style name="DarkGrayNormalTextStyle">
         <item name="android:textColor">@color/colorDarkGray</item>
         <item name="android:textStyle">normal</item>
@@ -351,6 +360,7 @@
         <item name="android:minHeight">48dp</item>
         <item name="fontFamily">@font/sf_pro_display_semibold</item>
         <item name="android:background">@drawable/bg_white_corner_round_3dp</item>
+        <item name="android:stateListAnimator">@null</item>
     </style>
 
     <style name="PhoneNumberEditTextStyle">
@@ -363,14 +373,14 @@
         <item name="android:minHeight">48dp</item>
         <item name="fontFamily">@font/sf_pro_display_semibold</item>
         <item name="android:background">@drawable/bg_white_corner_round_3dp</item>
+        <item name="android:stateListAnimator">@null</item>
     </style>
 
     <style name="EditTextTheme">
-        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textColor">@color/colorTextBlack</item>
         <item name="android:textColorHint">@color/colorLightGray</item>
         <item name="colorAccent">@color/colorBlack</item>
     </style>
-
 
     <!--Alert Dialog Style-->
     <style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">

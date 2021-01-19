@@ -21,8 +21,8 @@
     <string name="message_enter_phone_description">By continuing your may receive an SMS for verification. \nMessage and data rates may apply.</string>
     <string name="hint_mobile_number">Mobile Number</string>
     <string name="btn_send_code">Send Code</string>
-    <string name="error_invalid_phone">Invalid phone number</string>
-    <string name="error_invalid_country_code">Enter your mobile code</string>
+    <string name="error_invalid_phone">The Phone number is invalid</string>
+    <string name="error_invalid_country_code">The mobile code is invalid</string>
     <string name="title_country_picker">Select Country</string>
 
     <string name="auth0_audience_url">https://%s/userinfo</string>
@@ -38,7 +38,7 @@
     <string name="message_did_not_receive_code">I did not receive a code</string>
     <string name="hint_enter_code">Enter Code</string>
     <string name="btn_verify">Verify</string>
-    <string name="error_invalid_verify_code">Invalid verification code</string>
+    <string name="error_invalid_verify_code">The code you enter is incorrect</string>
 
     <!--Register-->
     <string name="title_sign_up">Create Your Profile</string>

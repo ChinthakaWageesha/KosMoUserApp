@@ -84,6 +84,7 @@ private fun EditText.backGroundRunTime(
                 this.context.getCompatDrawable(R.drawable.ic_text_field_check),
                 null
             )
+            this.setPadding(0,0,16,0)
             this.setBackgroundResource(R.drawable.bg_white_corner_round_3dp)
         } else {
             this.setCompoundDrawablesWithIntrinsicBounds(
@@ -92,6 +93,7 @@ private fun EditText.backGroundRunTime(
                 this.context.getCompatDrawable(R.drawable.ic_error),
                 null
             )
+            this.setPadding(0,0,16,0)
             this.setBackgroundResource(R.drawable.bg_white_corner_round_3dp)
         }
     } else {
@@ -138,7 +140,7 @@ fun EditText.validateWithTextWatcher(
                 this.context.getCompatDrawable(R.drawable.ic_error),
                 null
             )
-            this.setTextColor(ContextCompat.getColor(this.context, R.color.colorRed))
+            this.setTextColor(ContextCompat.getColor(this.context, R.color.colorTextBlack))
             message
         }
     }
@@ -160,7 +162,7 @@ fun EditText.validateWithTextWatcher(
             this.context.getCompatDrawable(R.drawable.ic_error),
             null
         )
-        this.setTextColor(ContextCompat.getColor(this.context, R.color.colorRed))
+        this.setTextColor(ContextCompat.getColor(this.context, R.color.colorTextBlack))
         message
     }
 

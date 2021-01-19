@@ -52,44 +52,31 @@ class VerifyOTP : BaseFragment(), View.OnClickListener {
     }
 
     private fun init() {
-        countDownTimer()
+
+
+        //countDownTimer()
         vmOTPToken.liveDataOTP.observe(this, Observer { observerGetOTP(it) })
         vmOTPToken.liveDataOTPToken.observe(this, Observer { observerOTPToken(it) })
         vmOTPToken.liveDataUser.observe(this, Observer { observerRefUser(it) })
-
-        et_verify_code.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
-            }
-
-            override fun onTextChanged(text: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if (text?.length!! > 6) {
-                    et_verify_code.validate(isCheckValidateIcon = true) { s -> s.length == 6 }
-                }
-            }
-
-            override fun afterTextChanged(p0: Editable?) {
-
-            }
-
-        })
 
         btn_verify.setOnClickListener(this)
         tv_message_not_receive_code.setOnClickListener(this)
     }
 
     private fun onVerify() {
-        val isOTPCode =
-            et_verify_code.validateOnTextChange(
-                "",
-                isCheckValidateIcon = true
-            ) { s -> s.length > 4 }
+        val isValid = et_verify_code.validateWithTextWatcher(
+            til_verify_otp,
+            getString(R.string.error_email_invalid)
+        ) { s -> s.length == 6 }
 
-        if (!isOTPCode) {
-            showAlert(message = getString(sl.com.eightdigitz.presentation.R.string.error_invalid_verify_code))
+        til_verify_otp.isEndIconVisible = isValid
+
+        if (!isValid) {
             return
         }
-        verifyCode()
+
+        (requireActivity() as AuthActivity).setRegister()
+        //verifyCode()
     }
 
     @SuppressLint("SetTextI18n")
@@ -205,10 +192,9 @@ class VerifyOTP : BaseFragment(), View.OnClickListener {
     }
 
     override fun onResume() {
-        setBackground(sl.com.eightdigitz.presentation.R.drawable.bg_gradient_verify_otp)
+        setBackground(sl.com.eightdigitz.presentation.R.drawable.bg_gradient_purple_seablue_get_otp)
         super.onResume()
     }
-
 
     companion object {
         const val TAG = "verify_otp"

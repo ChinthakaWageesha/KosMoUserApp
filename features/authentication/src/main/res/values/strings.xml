@@ -43,6 +43,4 @@
     <string name="hint_password">Password*</string>
     <string name="hint_email">Email*</string>
     <string name="string_im_looking_service">I am looking for a service</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
