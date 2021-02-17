@@ -1,5 +1,6 @@
 package sl.com.eightdigitz.app.presentation.search
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,8 +9,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_search.*
 import sl.com.eightdigitz.app.R
+import sl.com.eightdigitz.app.presentation.search.preferenceSearch.SearchTalentByPreference
 import sl.com.eightdigitz.core.base.BaseFragment
-import sl.com.eightdigitz.presentation.extensions.showToast
+import sl.com.eightdigitz.presentation.IntentParsableConstants
 
 class SearchFragment : BaseFragment(), (String) -> Unit {
 
@@ -74,6 +76,8 @@ class SearchFragment : BaseFragment(), (String) -> Unit {
     }
 
     override fun invoke(preference: String) {
-        preference.showToast(context!!)
+        val intent = Intent(context!!, SearchTalentByPreference::class.java)
+        intent.putExtra(IntentParsableConstants.EXTRA_PREFERENCE, preference)
+        startActivity(intent)
     }
 }

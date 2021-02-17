@@ -45,4 +45,5 @@ object IntentParsableConstants {
     const val EXTRA_NOTIFICATION_DATA = "extra_notification_data"
     const val EXTRA_PHONE = "EXTRA_PHONE_NUMBER"
     const val COUNTRY_SELECTION = "COUNTRY_SELECTION"
+    const val EXTRA_PREFERENCE = "extra_preference"
 }
