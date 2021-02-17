@@ -58,4 +58,16 @@
         pellentesque habitant morbi tristique senectus et netus.</string>
     <string name="btn_lets_do_it">Let\'s Do it</string>
 
+    <!--Bottom Navigation-->
+    <string name="title_bottom_nav_home">Home</string>
+    <string name="title_bottom_nav_search">Search</string>
+    <string name="title_bottom_nav_explore">Explore</string>
+    <string name="title_bottom_nav_activity">Activity</string>
+    <string name="title_bottom_nav_profile">Profile</string>
+
+    <!--Home-->
+    <string name="hint_search_talent_home">Search favourite people here</string>
+    <string name="title_recent_searches">Recent Searches</string>
+    <string name="title_people_you_know">People you may know</string>
+    <string name="title_recommended">Recommended</string>
 </resources>

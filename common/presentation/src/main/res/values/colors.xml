@@ -11,7 +11,9 @@
     <color name="colorLightBlack">#404040</color>
     <color name="colorBlack">#000000</color>
     <color name="colorBlackOp80">#80000000</color>
+    <color name="colorBlackOp50">#50000000</color>
     <color name="colorTextBlack">#0D010C</color>
+    <color name="colorTextGray">#3D3D3D</color>
     <color name="colorWhiteOp20">#80FFFFFF</color>
     <color name="colorWhiteOp50">#50FFFFFF</color>
     <color name="colorLightGray">#E1E1E1</color>

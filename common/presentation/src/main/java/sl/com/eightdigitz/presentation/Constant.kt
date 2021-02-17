@@ -12,6 +12,7 @@ object Constant {
     const val PREF_ID_TOKEN = "id_token"
     const val ACTION_UNAUTH = "ACTION_UNAUTH"
     const val PREF_FCM_TOKEN = "fcm_push_token"
+    const val USER_IMAGE_URL = "https://storage.googleapis.com/hello-app-cont/2021-02-16-hello-app-sms|5fe19563be03d24dc9df5020-product-image-1401286402_800x.jpg"
 }
 
 object LanguageType {

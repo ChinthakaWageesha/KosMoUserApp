@@ -66,7 +66,7 @@ class VerifyOTP : BaseFragment(), View.OnClickListener {
     private fun onVerify() {
         val isValid = et_verify_code.validateWithTextWatcher(
             til_verify_otp,
-            getString(R.string.error_email_invalid)
+            Msg.INVALID_EMAIL
         ) { s -> s.length == 6 }
 
         til_verify_otp.isEndIconVisible = isValid

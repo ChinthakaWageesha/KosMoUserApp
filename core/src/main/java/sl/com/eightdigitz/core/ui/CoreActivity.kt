@@ -27,7 +27,8 @@ class CoreActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        handleLogin()
+        startMain()
+        //handleLogin()
     }
 
     private fun handleLogin() {

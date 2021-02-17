@@ -82,6 +82,19 @@
         <item name="android:stateListAnimator">@null</item>
     </style>
 
+    <style name="PreferenceButtonStyle">
+        <item name="android:textAppearance">@style/TextGrayNormalStyle.Size12</item>
+        <item name="android:background">@drawable/bg_white_black_stroke_corner_round_4dp</item>
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:paddingLeft">6dp</item>
+        <item name="android:paddingRight">6dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:gravity">center</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+
+
     <!--    custom dialog style-->
     <style name="CustomAlertDialogStyle">
         <item name="android:bottomBright">@color/colorTransparent</item>
@@ -96,10 +109,40 @@
         <item name="android:topDark">@color/colorTransparent</item>
     </style>
 
+    <style name="MainSearchStyle">
+        <item name="android:background">@drawable/bg_gray_search_corner_round_10dp</item>
+        <item name="android:drawableStart">@drawable/ic_search_app</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/colorTextBlack</item>
+        <item name="android:textColorHint">@color/colorBlackOp50</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textCursorDrawable">@drawable/bg_cursor_color</item>
+    </style>
+
 
     <!--Progress bar Loader style-->
     <style name="progressBarStyle" parent="android:Theme.Holo.Dialog">
         <item name="android:windowBackground">@color/colorTransparent</item>
+    </style>
+
+    <style name="BottomNavigationActiveTextStyle">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:fontFamily">@font/sf_pro_text_regular</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="BottomNavigationInactiveTextStyle">
+        <item name="android:textColor">@color/colorBlackOp50</item>
+        <item name="android:fontFamily">@font/sf_pro_text_regular</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAllCaps">false</item>
     </style>
 
     <style name="PrimaryButtonTextStyle">
@@ -147,6 +190,15 @@
 
     <style name="YellowNormalTextStyle">
         <item name="android:textColor">@color/colorYellow</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextGrayNormalStyle">
+        <item name="android:textColor">@color/colorTextGray</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="AnyColorNormalStyle">
         <item name="android:textStyle">normal</item>
     </style>
 
@@ -348,6 +400,18 @@
 
     <style name="LightGrayNormalTextStyle.Size13">
         <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="TextGrayNormalStyle.Size12">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="AnyColorNormalStyle.Size9">
+        <item name="android:textSize">9sp</item>
+    </style>
+
+    <style name="AnyColorNormalStyle.Size8">
+        <item name="android:textSize">8sp</item>
     </style>
 
     <style name="PrimaryEditTextStyle">
