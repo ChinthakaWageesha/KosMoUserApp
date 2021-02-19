@@ -13,11 +13,11 @@ fun View.isGone(): Boolean = this.visibility == View.GONE
 
 fun View.isInvisible(): Boolean = this.visibility == View.INVISIBLE
 
-fun View.visible() {
+fun View.makeVisible() {
     this.visibility = View.VISIBLE
 }
 
-fun View.gone() {
+fun View.makeGone() {
     this.visibility = View.GONE
 }
 

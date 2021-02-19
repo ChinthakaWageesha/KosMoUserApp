@@ -1,14 +1,17 @@
 package sl.com.eightdigitz.app.presentation.search.preferenceSearch
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_search_talent_by_preference.*
 import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.presentation.IntentParsableConstants
-import sl.com.eightdigitz.presentation.extensions.setAppActionBar
+import sl.com.eightdigitz.presentation.extensions.*
 
-class SearchTalentByPreference : BaseActivity() {
+class SearchTalentByPreference : BaseActivity(), View.OnClickListener {
 
     private var title: String? = null
 
@@ -25,6 +28,26 @@ class SearchTalentByPreference : BaseActivity() {
 
         setToolbar()
         setAdapter()
+        et_search_talent_by_preference.clearFocus()
+        et_search_talent_by_preference.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(sequence: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                if (sequence!!.isNotEmpty()){
+                    tv_cancel.makeVisible()
+                } else {
+                    tv_cancel.makeGone()
+                }
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+
+            }
+
+        })
+        tv_cancel.setOnClickListener(this)
     }
 
     private fun setToolbar() {
@@ -44,5 +67,11 @@ class SearchTalentByPreference : BaseActivity() {
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return super.onSupportNavigateUp()
+    }
+
+    override fun onClick(v: View?) {
+        when(v?.id){
+            R.id.tv_cancel -> et_search_talent_by_preference.clearText()
+        }
     }
 }

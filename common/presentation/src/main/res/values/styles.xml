@@ -151,6 +151,13 @@
         <item name="android:textSize">17sp</item>
     </style>
 
+    <style name="HomeCategoriesTabTextStyle">
+        <item name="android:textColor">@color/colorMediumGray</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/sf_ui_display_regular</item>
+    </style>
+
     <style name="WhiteBoldTextStyle">
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:textStyle">bold</item>
@@ -176,6 +183,11 @@
         <item name="android:textStyle">normal</item>
     </style>
 
+    <style name="BlackNormalStyle">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
     <style name="BlackBoldTextStyle">
         <item name="android:textColor">@color/colorTextBlack</item>
         <item name="android:textStyle">bold</item>
@@ -189,6 +201,11 @@
 
     <style name="YellowNormalTextStyle">
         <item name="android:textColor">@color/colorYellow</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="RedNormalTextStyle">
+        <item name="android:textColor">@color/colorLightRed</item>
         <item name="android:textStyle">normal</item>
     </style>
 
@@ -294,6 +311,10 @@
 
     <style name="LightBlackNormalTextStyle.Size18">
         <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="BlackNormalStyle.Size15">
+        <item name="android:textSize">15sp</item>
     </style>
 
     <style name="BlackOp80NormalTextStyle.Size13">
@@ -412,6 +433,14 @@
         <item name="android:textSize">12sp</item>
     </style>
 
+    <style name="TextGrayNormalStyle.Size17">
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="RedNormalTextStyle.Size13">
+        <item name="android:textSize">13sp</item>
+    </style>
+
     <style name="AnyColorNormalStyle.Size8">
         <item name="android:textSize">8sp</item>
     </style>
@@ -426,6 +455,14 @@
 
     <style name="AnyColorNormalStyle.Size13">
         <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="AnyColorNormalStyle.Size14">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="AnyColorNormalStyle.Size18">
+        <item name="android:textSize">18sp</item>
     </style>
 
     <style name="PrimaryEditTextStyle">

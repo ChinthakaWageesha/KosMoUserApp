@@ -16,22 +16,48 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="@string/hint_search_talent_home"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/tv_cancel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="#E3E3E3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_search_talent_by_preference" />
+
+    <TextView
+        android:id="@+id/tv_cancel"
+        style="@style/TextGrayNormalStyle.Size17"
+        android:fontFamily="@font/sf_pro_text_regular"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/action_title_cancel"
+        app:layout_constraintBottom_toBottomOf="@+id/et_search_talent_by_preference"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/et_search_talent_by_preference" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_search_talent_preference"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:nestedScrollingEnabled="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_search_talent_by_preference" />
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

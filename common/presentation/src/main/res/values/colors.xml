@@ -35,6 +35,8 @@
     <color name="colorDarkMagenta">#8B008B</color>
     <color name="colorGrayLine">#F2F2F2</color>
     <color name="colorRed">#FD003A</color>
+    <color name="colorLightRed">#FF2D55</color>
+    <color name="colorMediumGray">#ACB1C0</color>
 
     <color name="colorDarkGray">#282828</color>
 </resources>

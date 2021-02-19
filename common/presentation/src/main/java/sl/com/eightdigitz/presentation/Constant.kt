@@ -13,6 +13,9 @@ object Constant {
     const val ACTION_UNAUTH = "ACTION_UNAUTH"
     const val PREF_FCM_TOKEN = "fcm_push_token"
     const val USER_IMAGE_URL = "https://storage.googleapis.com/hello-app-cont/2021-02-16-hello-app-sms|5fe19563be03d24dc9df5020-product-image-1401286402_800x.jpg"
+    const val MOVIE_IMAGE_URL = "https://storage.googleapis.com/hello-app-cont/2021-02-18-hello-app-sms|5fe19563be03d24dc9df5020-download.jfif"
+    const val MOVIE_IMAGE_URL_1 = "https://storage.googleapis.com/hello-app-cont/2021-02-18-hello-app-sms|5fe19563be03d24dc9df5020-download (1).jfif"
+    const val POSTER_IMAGE_URL = "https://storage.googleapis.com/hello-app-cont/2021-02-19-hello-app-sms|5fe19563be03d24dc9df5020-poster.jpg"
 }
 
 object LanguageType {
@@ -46,4 +49,5 @@ object IntentParsableConstants {
     const val EXTRA_PHONE = "EXTRA_PHONE_NUMBER"
     const val COUNTRY_SELECTION = "COUNTRY_SELECTION"
     const val EXTRA_PREFERENCE = "extra_preference"
+    const val EXTRA_CATEGORY_ITEM_HOME = "home_category_item"
 }

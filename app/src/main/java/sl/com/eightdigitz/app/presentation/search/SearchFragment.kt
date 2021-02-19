@@ -10,10 +10,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_search.*
 import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.app.presentation.search.preferenceSearch.SearchTalentByPreference
+import sl.com.eightdigitz.app.presentation.search.recentSearch.RecentSearches
 import sl.com.eightdigitz.core.base.BaseFragment
 import sl.com.eightdigitz.presentation.IntentParsableConstants
+import sl.com.eightdigitz.presentation.extensions.startActivity
 
-class SearchFragment : BaseFragment(), (String) -> Unit {
+class SearchFragment : BaseFragment(), (String) -> Unit, View.OnClickListener {
 
     private var preferenceList = mutableListOf<String>()
 
@@ -33,6 +35,7 @@ class SearchFragment : BaseFragment(), (String) -> Unit {
         setRecentSearchAdapter()
         setPeopleYouKnowAdapter()
         setRecommendedAdapter()
+        et_search_talent_home.setOnClickListener(this)
     }
 
     private fun setUpPreferenceAdapter() {
@@ -79,5 +82,11 @@ class SearchFragment : BaseFragment(), (String) -> Unit {
         val intent = Intent(context!!, SearchTalentByPreference::class.java)
         intent.putExtra(IntentParsableConstants.EXTRA_PREFERENCE, preference)
         startActivity(intent)
+    }
+
+    override fun onClick(v: View?) {
+        when(v?.id){
+            R.id.et_search_talent_home -> context?.startActivity<RecentSearches>()
+        }
     }
 }
