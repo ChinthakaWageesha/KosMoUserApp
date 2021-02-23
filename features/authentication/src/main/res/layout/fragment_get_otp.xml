@@ -23,62 +23,50 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/tv_title_sign_up"
-                style="@style/WhiteBoldTextStyle.Size27"
+                android:id="@+id/tv_title_get_otp"
+                style="@style/WhiteBoldTextStyle.Size34"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="24dp"
-                android:fontFamily="@font/sf_pro_display_heavy"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/sf_pro_display_bold"
                 android:text="@string/title_welcome"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_what_phone_number"
-                style="@style/WhiteNormalTextStyle.Size19"
+                android:id="@+id/tv_tv_subtitle_get_otp"
+                style="@style/WhiteNormalTextStyle.Size17"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:layout_marginEnd="30dp"
-                android:fontFamily="@font/sf_pro_display_bold"
+                android:fontFamily="@font/sf_pro_text_regular"
                 android:text="@string/subtitle_get_started"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/tv_title_sign_up"
-                app:layout_constraintTop_toBottomOf="@+id/tv_title_sign_up" />
-
-            <TextView
-                android:id="@+id/tv_message_get_phone_number"
-                style="@style/WhiteNormalTextStyle.Size13"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="30dp"
-                android:fontFamily="@font/sf_pro_display_regular"
-                android:text="@string/message_enter_phone_description"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/tv_what_phone_number"
-                app:layout_constraintTop_toBottomOf="@+id/tv_what_phone_number" />
+                app:layout_constraintStart_toStartOf="@+id/tv_title_get_otp"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title_get_otp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_phone_container"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="64dp"
+                android:layout_marginTop="40dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_message_get_phone_number"
-                app:layout_constraintVertical_bias="1.0">
+                app:layout_constraintTop_toBottomOf="@+id/tv_tv_subtitle_get_otp"
+                app:layout_constraintVertical_bias="0.38">
 
                 <TextView
                     android:id="@+id/tv_title_mobile_number"
-                    style="@style/WhiteNormalTextStyle.Size15"
+                    style="@style/WhiteNormalTextStyle.Size14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
-                    android:fontFamily="@font/sf_pro_display_regular"
+                    android:layout_marginEnd="30dp"
+                    android:fontFamily="@font/sf_pro_text_regular"
                     android:text="@string/title_enter_mobile_number"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -87,9 +75,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="30dp"
-                    android:background="@drawable/bg_white_corner_round_3dp"
+                    android:background="@drawable/bg_white_corner_round_5dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_title_mobile_number">
@@ -112,10 +100,11 @@
                         style="@style/PhoneNumberEditTextStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
                         android:clickable="true"
                         android:cursorVisible="false"
                         android:drawableEnd="@drawable/ic_arrow_down"
-                        android:drawablePadding="16dp"
+                        android:drawablePadding="10dp"
                         android:editable="false"
                         android:focusable="true"
                         android:inputType="none"
@@ -136,36 +125,169 @@
                         app:layout_constraintStart_toEndOf="@+id/et_mobile_code"
                         app:layout_constraintTop_toTopOf="parent" />
 
+                    <ImageView
+                        android:id="@+id/iv_error_no_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:background="@color/colorWhite"
+                        android:src="@drawable/ic_error"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.48000002" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <TextView
-                    android:id="@+id/tv_get_otp_validation"
-                    style="@style/YellowNormalTextStyle.Size13"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:fontFamily="@font/sf_pro_display_regular"
-                    android:visibility="gone"
-                    app:layout_constraintEnd_toEndOf="@+id/constraintLayout2"
-                    app:layout_constraintStart_toStartOf="@+id/constraintLayout2"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
-
-                <Button
-                    android:id="@+id/btn_send_code"
-                    style="@style/TransparentButtonStyle"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_get_otp_button_container"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
-                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="30dp"
-                    android:layout_marginBottom="20dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:text="@string/btn_continue"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+                    app:layout_constraintVertical_bias="0.0">
+
+                    <TextView
+                        android:id="@+id/tv_get_otp_desc"
+                        style="@style/WhiteNormalTextStyle.Size12"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginBottom="40dp"
+                        android:fontFamily="@font/sf_pro_display_regular"
+                        android:text="@string/message_sms_charges"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/cl_next"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cl_next"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/tv_get_otp_desc"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/tv_next"
+                            style="@style/TextPinkAlpha30Normal.size17"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:text="@string/title_next"
+                            app:layout_constraintBottom_toBottomOf="@+id/ibtn_goto_verify"
+                            app:layout_constraintEnd_toStartOf="@+id/ibtn_goto_verify"
+                            app:layout_constraintTop_toTopOf="@+id/ibtn_goto_verify" />
+
+                        <ImageButton
+                            android:id="@+id/ibtn_goto_verify"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:alpha="0.3"
+                            android:background="@color/colorTransparent"
+                            android:clickable="false"
+                            android:focusable="false"
+                            android:src="@drawable/ic_next"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_get_otp_error_container"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="30dp"
+                    android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_get_otp_validation" />
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+
+                    <TextView
+                        android:id="@+id/tv_error_one"
+                        style="@style/WhiteNormalTextStyle.Size12"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/sf_pro_display_regular"
+                        android:text="@string/get_otp_error_desc_one"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_get_otp_default"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginBottom="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+
+                    <TextView
+                        android:id="@+id/tv_get_otp_default"
+                        style="@style/WhiteNormalTextStyle.Size13"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:fontFamily="@font/sf_pro_text_regular"
+                        android:text="@string/message_get_otp_default"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_are_u_talent"
+                        style="@style/WhiteNormalTextStyle.Size13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="180dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginBottom="8dp"
+                        android:fontFamily="@font/sf_pro_text_regular"
+                        android:text="@string/message_are_u_talent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/tv_send_request"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_get_otp_default"
+                        app:layout_constraintVertical_bias="0.9" />
+
+                    <TextView
+                        android:id="@+id/tv_send_request"
+                        style="@style/WhiteNormalTextStyle.Size13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/sf_pro_text_regular"
+                        android:text="@string/message_send_request"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_are_u_talent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/tv_are_u_talent"
+                        app:layout_constraintTop_toTopOf="@+id/tv_are_u_talent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

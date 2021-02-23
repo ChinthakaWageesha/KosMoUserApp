@@ -10,6 +10,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import kotlinx.android.synthetic.main.fragment_home_category_item.*
 import sl.com.eightdigitz.app.R
+import sl.com.eightdigitz.app.presentation.home.adapters.HomeLatestNewsAdapter
+import sl.com.eightdigitz.app.presentation.home.adapters.HomeMainAdapter
+import sl.com.eightdigitz.app.presentation.home.adapters.HomeMostPopularAdapter
 import sl.com.eightdigitz.core.base.BaseFragment
 
 

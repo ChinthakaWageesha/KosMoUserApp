@@ -11,10 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none"
+        android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_choose_language"
@@ -29,7 +32,8 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="32dp"
-                android:layout_marginBottom="40dp"
+                android:layout_marginBottom="32dp"
+                app:layout_constraintVertical_chainStyle="spread_inside"
                 android:fontFamily="@font/sf_pro_display_bold"
                 android:text="@string/title_select_language"
                 app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
@@ -40,10 +44,15 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title_select_language"
+                app:layout_constraintVertical_chainStyle="spread">
 
                 <RadioGroup
                     android:id="@+id/rg_select_language_1"
@@ -67,7 +76,6 @@
                         android:layout_weight="1"
                         android:background="@drawable/bg_select_language_toggle"
                         android:button="@null"
-                        android:checked="true"
                         android:fontFamily="@font/sf_pro_display_medium"
                         android:paddingStart="16dp"
                         android:paddingTop="16dp"
@@ -75,7 +83,7 @@
                         android:paddingBottom="16dp"
                         android:text="@string/title_english_btn"
                         android:textColor="@drawable/bg_select_language_text"
-                        android:textSize="16sp" />
+                        android:textSize="13sp" />
 
                     <RadioButton
                         android:id="@+id/btn_sinhala"
@@ -94,7 +102,7 @@
                         android:paddingBottom="16dp"
                         android:text="@string/title_sinhala_btn"
                         android:textColor="@drawable/bg_select_language_text"
-                        android:textSize="16sp" />
+                        android:textSize="13sp" />
                 </RadioGroup>
 
                 <RadioGroup
@@ -126,7 +134,8 @@
                         android:paddingEnd="16dp"
                         android:paddingBottom="16dp"
                         android:text="@string/title_tamil_btn"
-                        android:textColor="@drawable/bg_select_language_text" />
+                        android:textColor="@drawable/bg_select_language_text"
+                        android:textSize="13sp"/>
 
                     <RadioButton
                         android:id="@+id/btn_hindi"
@@ -143,28 +152,56 @@
                         android:paddingEnd="16dp"
                         android:paddingBottom="16dp"
                         android:text="@string/title_china_btn"
-                        android:textColor="@drawable/bg_select_language_text" />
+                        android:textColor="@drawable/bg_select_language_text"
+                        android:textSize="13sp"/>
 
                 </RadioGroup>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <Button
-                android:id="@+id/btn_continue"
-                style="@style/TransparentButtonStyle"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout3"
                 android:layout_width="0dp"
-                android:fontFamily="@font/sf_pro_display_bold"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginBottom="32dp"
-                android:text="@string/title_confirm_btn"
+                android:layout_marginTop="32dp"
+                app:layout_constraintVertical_chainStyle="spread_inside"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+                <TextView
+                    android:id="@+id/tv_contact_us"
+                    style="@style/WhiteNormalTextStyle.Size12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/sf_pro_text_regular"
+                    android:padding="16dp"
+                    android:text="@string/label_contact_us"
+                    app:layout_constraintBottom_toTopOf="@+id/btn_continue"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/btn_continue"
+                    style="@style/TransparentButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginBottom="40dp"
+                    android:fontFamily="@font/sf_pro_display_bold"
+                    android:text="@string/title_confirm_btn"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:enabled="false"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

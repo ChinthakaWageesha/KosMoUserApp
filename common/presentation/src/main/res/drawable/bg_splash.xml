@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:gravity="fill"
-        android:drawable="@drawable/bg_gradient_brown_pink_purple">
+        android:drawable="@drawable/bg_splash_background">
     </item>
-    <item
-        android:drawable="@drawable/ic_hello"
-        android:gravity="center" />
 </layer-list>

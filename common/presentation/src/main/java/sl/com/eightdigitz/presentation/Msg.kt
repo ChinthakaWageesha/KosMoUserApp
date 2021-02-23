@@ -6,6 +6,7 @@ object Msg {
     const val TITLE_CONFIRMATION = "Confirmation"
     const val TITLE_ALERT = "Alert"
     const val TITLE_SUCCESS = "Success"
+    const val TITLE_REQUIRED = "Required"
 
     const val INTERNAL_ISSUE = "Got internal issues."
     const val INTERNET_ISSUE = "Sorry, Seems your internet connection is not available. Let's try it again."

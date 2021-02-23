@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.fragment_verify_otp.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -29,6 +30,7 @@ import sl.com.eightdigitz.presentation.extensions.*
 class VerifyOTP : BaseFragment(), View.OnClickListener {
 
     private val vmOTPToken by viewModel<OTPViewModel>()
+    private var isVerifyEnable = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,31 +54,62 @@ class VerifyOTP : BaseFragment(), View.OnClickListener {
     }
 
     private fun init() {
-
-
-        //countDownTimer()
         vmOTPToken.liveDataOTP.observe(this, Observer { observerGetOTP(it) })
         vmOTPToken.liveDataOTPToken.observe(this, Observer { observerOTPToken(it) })
         vmOTPToken.liveDataUser.observe(this, Observer { observerRefUser(it) })
 
-        btn_verify.setOnClickListener(this)
+        et_verify_code.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(text: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                if (text?.length!! > 6) {
+                    et_verify_code.validateOnTextChange(isCheckValidateIcon = true) { s -> s.length == 6 }
+                }
+
+                if (text.length == 6) {
+                    makeVerifyEnable()
+                } else {
+                    makeVerifyDisable()
+                }
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+
+            }
+        })
+
+        cl_verify.setOnClickListener(this)
         tv_message_not_receive_code.setOnClickListener(this)
     }
 
+    private fun makeVerifyEnable() {
+        ibtn_verify.setEnable()
+        tv_verify.setTextColor(
+            ContextCompat.getColor(
+                context!!,
+                sl.com.eightdigitz.presentation.R.color.colorWhite
+            )
+        )
+        isVerifyEnable = true
+    }
+
+    private fun makeVerifyDisable() {
+        ibtn_verify.setDisable()
+        tv_verify.setTextColor(
+            ContextCompat.getColor(
+                context!!,
+                sl.com.eightdigitz.presentation.R.color.colorPinkAlpha30
+            )
+        )
+        isVerifyEnable = false
+    }
+
     private fun onVerify() {
-        val isValid = et_verify_code.validateWithTextWatcher(
-            til_verify_otp,
-            Msg.INVALID_EMAIL
-        ) { s -> s.length == 6 }
-
-        til_verify_otp.isEndIconVisible = isValid
-
-        if (!isValid) {
-            return
+        if (isVerifyEnable) {
+            verifyCode()
         }
-
-        (requireActivity() as AuthActivity).setRegister()
-        //verifyCode()
     }
 
     @SuppressLint("SetTextI18n")
@@ -109,7 +142,7 @@ class VerifyOTP : BaseFragment(), View.OnClickListener {
     private fun resendCode() {
         et_verify_code.requestFocus()
         activity?.withNetwork({
-            vmOTPToken.getOTP((requireActivity() as AuthActivity).mobileNumber!!)
+            vmOTPToken.getOTP((requireActivity() as AuthActivity).mobileNumber94!!)
         }, {
             showAlert(Msg.TITLE_ERROR, Msg.INTERNET_ISSUE)
         })
@@ -119,7 +152,7 @@ class VerifyOTP : BaseFragment(), View.OnClickListener {
     private fun verifyCode() {
         activity?.withNetwork({
             vmOTPToken.getOTPToken(
-                (requireActivity() as AuthActivity).mobileNumber!!,
+                (requireActivity() as AuthActivity).mobileNumber94!!,
                 et_verify_code.getStringTrim()
             )
         }, {
@@ -133,7 +166,7 @@ class VerifyOTP : BaseFragment(), View.OnClickListener {
                 ResourceState.LOADING -> showProgress()
                 ResourceState.SUCCESS -> {
                     hideProgress()
-                    vmOTPToken.getUserByRefToken(it.data?.idToken!!)
+                    vmOTPToken.getUserByIDToken(it.data?.idToken!!)
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
@@ -165,12 +198,16 @@ class VerifyOTP : BaseFragment(), View.OnClickListener {
                 ResourceState.LOADING -> showProgress()
                 ResourceState.SUCCESS -> {
                     hideProgress()
-                    (requireActivity() as AuthActivity).authSuccess()
+                    if (it.data?.fullName.isNullOrEmpty() && it.data?.mobileNo.isNullOrEmpty() && it.data?.email.isNullOrEmpty()) {
+                        navigateToGetStart()
+                    } else {
+                        navigateToSuccess()
+                    }
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
                     if (it.message.toString() == "{\"error\":\"No records found\"}") {
-                        (requireActivity() as AuthActivity).setRegister()
+                        navigateToGetStart()
                     } else {
                         showAlert(Msg.TITLE_ERROR, it.message.toString())
                     }
@@ -179,9 +216,17 @@ class VerifyOTP : BaseFragment(), View.OnClickListener {
         }
     }
 
+    private fun navigateToGetStart() {
+        (requireActivity() as AuthActivity).setGetStarted()
+    }
+
+    private fun navigateToSuccess() {
+        (requireActivity() as AuthActivity).authSuccess()
+    }
+
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.btn_verify -> onVerify()
+            R.id.cl_verify -> onVerify()
             R.id.tv_message_not_receive_code -> {
                 if (tv_message_not_receive_code.text == "Resend Code") {
                     et_verify_code.clearText()
@@ -192,7 +237,8 @@ class VerifyOTP : BaseFragment(), View.OnClickListener {
     }
 
     override fun onResume() {
-        setBackground(sl.com.eightdigitz.presentation.R.drawable.bg_gradient_purple_seablue_get_otp)
+        countDownTimer()
+        setBackground(sl.com.eightdigitz.presentation.R.drawable.bg_gradient_brown_pink_purple)
         super.onResume()
     }
 

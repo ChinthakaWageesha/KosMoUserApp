@@ -50,10 +50,10 @@ class OTPViewModel constructor(private val authUseCase: AuthUseCase) : ViewModel
         )
     }
 
-    fun getUserByRefToken(idToken: String) {
+    fun getUserByIDToken(idToken: String) {
         liveDataUser.setLoading()
         compositeDisposable.add(
-            authUseCase.getUserByRefToken(idToken)
+            authUseCase.getUserByIDToken(idToken)
                 .subscribeOn(Schedulers.io())
                 .map { it }
                 .subscribe({

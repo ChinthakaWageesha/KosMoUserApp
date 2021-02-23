@@ -28,6 +28,7 @@
     <color name="colorYellow">#FFF44F</color>
 
     <color name="colorPink">#F1166F</color>
+    <color name="colorPinkAlpha30">#D894BE</color>
     <color name="colorDarkPink">#DF186F</color>
     <color name="colorDarkPinkOp50">#70DF186F</color>
     <color name="colorPurple">#652770</color>

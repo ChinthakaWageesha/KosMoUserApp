@@ -1,0 +1,29 @@
+package sl.com.eightdigitz.client.apis
+
+import io.reactivex.Single
+import retrofit2.http.Headers
+import retrofit2.http.POST
+import sl.com.eightdigitz.client.models.ContactUsRequest
+import sl.com.eightdigitz.client.models.ContactUsResponse
+import sl.com.eightdigitz.client.models.JoinUsRequest
+import sl.com.eightdigitz.client.models.JoinUsResponse
+
+@JvmSuppressWildcards
+interface JoinContactApi {
+
+    @POST("support")
+    @Headers(
+        "Content-Type: application/x-www-form-urlencoded"
+    )
+    fun contactSupport(
+        @retrofit2.http.Body contactTalentRequest: ContactUsRequest
+    ): Single<ContactUsResponse>
+
+    @POST("joining")
+    @Headers(
+        "Content-Type: application/x-www-form-urlencoded"
+    )
+    fun joinUs(
+        @retrofit2.http.Body joinTalentRequest: JoinUsRequest
+    ): Single<JoinUsResponse>
+}

@@ -4,15 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.fragment_home.*
 import sl.com.eightdigitz.app.R
+import sl.com.eightdigitz.app.presentation.home.adapters.HomeCategoryViewPagerAdapter
 import sl.com.eightdigitz.core.base.BaseFragment
 
 class HomeFragment : BaseFragment() {
 
-    private lateinit var viewModel: HomeViewModel
     private var categoryList = mutableListOf<String>()
 
     override fun onCreateView(

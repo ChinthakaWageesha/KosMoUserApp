@@ -8,7 +8,6 @@ package sl.com.eightdigitz.client.apis
 
 import io.reactivex.Single
 import retrofit2.http.GET
-import retrofit2.http.Header
 import retrofit2.http.Headers
 import retrofit2.http.POST
 import sl.com.eightdigitz.client.models.*
@@ -35,56 +34,20 @@ interface AuthApi {
         @retrofit2.http.Field("realm") realm: String
     ) : Single<OTPTokenResponse>
 
-    @GET("user")
-    fun getUserByFefToken(
+    @GET("user/get-user-by-id-token")
+    fun getUserByIDToken(
         @retrofit2.http.Header("x-id-token") idToken: String
     ) : Single<UserByRefTokenResponse>
 
 
-
     @Headers(
-        "X-Operation-Id: auth_get_logout",
-        "Content-Type: application/json"
-    )
-    @GET("logout")
-    fun authGetLogout(): Single<SuccessResponse>
-
-    @retrofit2.http.FormUrlEncoded
-    @Headers(
-        "X-Operation-Id: auth_post_register"
+        "Content-Type: application/x-www-form-urlencoded"
     )
     @POST("user")
     fun authPostRegister(
         @retrofit2.http.Header("x-id-token") idToken: String,
-        @retrofit2.http.Field("MobileNo") mobileNo: String,
-        @retrofit2.http.Field("FullName") fullName: String,
-        @retrofit2.http.Field("DefaultLanguage") defaultLanguage: String,
-        @retrofit2.http.Field("Email") email: String,
-        @retrofit2.http.Field("DOB") dob: String,
-        @retrofit2.http.Field("Role") role: String,
-        @retrofit2.http.Field("ProfilePicture") profilePicture: String,
-        @retrofit2.http.Field("ProfileVideo") profileVideo: String,
-        @retrofit2.http.Field("ProfileBanner") profileBanner: String?
-    ): Single<AuthRegisterResponse>
+        @retrofit2.http.Body registerRequest: RegisterRequest
+    ): Single<RegisterResponse>
 
-    /**
-     * Update Password
-     *
-     * The endpoint is owned by integration service owner
-     * @param password Password (required)
-     * @param currentPassword Current password (required)
-     * @param passwordConfirmation Password confirmation (required)
-     * @param accept Set to &#x60;application/json&#x60; (required)
-     */
-    @retrofit2.http.FormUrlEncoded
-    @Headers(
-        "X-Operation-Id: auth_post_update_password"
-    )
-    @POST("password/edit")
-    fun authPostUpdatePassword(
-        @retrofit2.http.Field("password") password: String,
-        @retrofit2.http.Field("current_password") currentPassword: String,
-        @retrofit2.http.Field("password_confirmation") passwordConfirmation: String
-    ): Single<SuccessResponse>
 
 }

@@ -20,5 +20,11 @@ data class DUser(
     var profileBanner: String? = null,
     var preferences: List<DPreference>? = null,
     var authReference: String? = null,
-    var verified: Boolean? = null
+    var verified: Boolean? = null,
+    var profileBiography: String? = null,
+    var profileDescription: String? = null,
+    var topSocialMediaPlatform: String? = null,
+    var socialMediaProfileLink: String? = null,
+    var subscribeMail: Boolean? = null,
+    var userName: String? = null
 ): Parcelable

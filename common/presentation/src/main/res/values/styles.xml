@@ -1,5 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- - - - - - - - - - - App Themes - - - - - - - - -  - - - -->
+
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.Bridge">
         <item name="colorPrimary">@color/colorTransparent</item>
         <item name="colorPrimaryDark">@color/colorTransparent</item>
@@ -8,6 +10,7 @@
         <item name="android:fitsSystemWindows">true</item>
         <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="actionMenuTextColor">@color/colorWhite</item>
     </style>
 
     <style name="AppTheme.SplashTheme">
@@ -31,6 +34,9 @@
         <item name="windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
     </style>
+
+
+    <!-- - - - - - - - - - - Primary Button Styles - - - - - - - - -  - - - -->
 
     <style name="SelectLanguageButtonStyle">
         <item name="android:background">@drawable/bg_select_language_toggle</item>
@@ -59,7 +65,7 @@
 
     <style name="PinkButtonStyle">
         <item name="android:textAppearance">@style/PrimaryButtonTextStyle</item>
-        <item name="android:background">@drawable/bg_pink_btn_corner_round_3dp</item>
+        <item name="android:background">@drawable/bg_pink_btn_corner_round_5dp</item>
         <item name="android:paddingLeft">14dp</item>
         <item name="android:paddingRight">14dp</item>
         <item name="android:textColor">@color/colorWhite</item>
@@ -72,7 +78,7 @@
 
     <style name="TransparentButtonStyle">
         <item name="android:textAppearance">@style/WhiteNormalTextStyle.Size17</item>
-        <item name="android:background">@drawable/bg_transparent_white_stroke_3dp</item>
+        <item name="android:background">@drawable/bg_transparent_white_stroke_5dp</item>
         <item name="fontFamily">@font/sf_pro_display_bold</item>
         <item name="android:paddingLeft">12dp</item>
         <item name="android:paddingRight">12dp</item>
@@ -94,8 +100,8 @@
     </style>
 
 
+    <!-- - - - - - - - - - - Custom Dialog Style - - - - - - - - -  - - - -->
 
-    <!--    custom dialog style-->
     <style name="CustomAlertDialogStyle">
         <item name="android:bottomBright">@color/colorTransparent</item>
         <item name="android:bottomDark">@color/colorTransparent</item>
@@ -108,6 +114,16 @@
         <item name="android:topBright">@color/colorTransparent</item>
         <item name="android:topDark">@color/colorTransparent</item>
     </style>
+
+
+    <!-- - - - - - - - - - - Progress bar Loader style - - - - - - - - -  - - - -->
+
+    <style name="progressBarStyle" parent="android:Theme.Holo.Dialog">
+        <item name="android:windowBackground">@color/colorTransparent</item>
+    </style>
+
+
+    <!-- - - - - - - - - - - Search bar styles - - - - - - - - -  - - - -->
 
     <style name="MainSearchStyle">
         <item name="android:background">@drawable/bg_gray_search_corner_round_10dp</item>
@@ -125,10 +141,8 @@
         <item name="android:textCursorDrawable">@drawable/bg_cursor_color</item>
     </style>
 
-    <!--Progress bar Loader style-->
-    <style name="progressBarStyle" parent="android:Theme.Holo.Dialog">
-        <item name="android:windowBackground">@color/colorTransparent</item>
-    </style>
+
+    <!-- - - - - - - - - - - Primary Text styles - - - - - - - - -  - - - -->
 
     <style name="BottomNavigationActiveTextStyle">
         <item name="android:textColor">@color/colorBlack</item>
@@ -257,6 +271,15 @@
         <item name="android:textStyle">normal</item>
     </style>
 
+    <style name="TextPinkAlpha30Normal">
+        <item name="android:textColor">@color/colorPinkAlpha30</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+
+    <!-- - - - - - - - - - - Secondary Text Styles - - - - - - - - -  - - - -->
+
     <style name="WhiteBoldTextStyle.Size14">
         <item name="android:textSize">14sp</item>
     </style>
@@ -279,6 +302,14 @@
 
     <style name="WhiteBoldTextStyle.Size27">
         <item name="android:textSize">27sp</item>
+    </style>
+
+    <style name="WhiteBoldTextStyle.Size30">
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="WhiteBoldTextStyle.Size34">
+        <item name="android:textSize">34sp</item>
     </style>
 
     <style name="WhiteNormalTextStyle.Size12">
@@ -309,6 +340,10 @@
         <item name="android:textSize">19sp</item>
     </style>
 
+    <style name="WhiteNormalTextStyle.Size36">
+        <item name="android:textSize">36sp</item>
+    </style>
+
     <style name="LightBlackNormalTextStyle.Size18">
         <item name="android:textSize">18sp</item>
     </style>
@@ -327,6 +362,10 @@
 
     <style name="BlackNormalTextStyle.Size18">
         <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="BlackNormalTextStyle.Size16">
+        <item name="android:textSize">16sp</item>
     </style>
 
     <style name="BlackNormalTextStyle.Size15">
@@ -355,6 +394,10 @@
 
     <style name="WhiteOpacity20TextStyle.Size13">
         <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="WhiteOpacity20TextStyle.Size15">
+        <item name="android:textSize">15sp</item>
     </style>
 
     <style name="WhiteOpacity50TextStyle.Size17">
@@ -465,29 +508,41 @@
         <item name="android:textSize">18sp</item>
     </style>
 
+    <!--PinkAlpha30 text normal sub text styles-->
+
+    <style name="TextPinkAlpha30Normal.size17">
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="TextPinkAlpha30Normal.size19">
+        <item name="android:textSize">19sp</item>
+    </style>
+
     <style name="PrimaryEditTextStyle">
-        <item name="android:textAppearance">@style/BlackNormalTextStyle.Size18</item>
+        <item name="android:textAppearance">@style/BlackNormalTextStyle.Size16</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:paddingLeft">12dp</item>
         <item name="android:paddingTop">8dp</item>
         <item name="android:paddingBottom">8dp</item>
         <item name="android:paddingRight">12dp</item>
         <item name="android:minHeight">48dp</item>
-        <item name="fontFamily">@font/sf_pro_display_semibold</item>
-        <item name="android:background">@drawable/bg_white_corner_round_3dp</item>
+        <item name="fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:background">@drawable/bg_white_corner_round_5dp</item>
+        <item name="android:textCursorDrawable">@drawable/bg_cursor_color</item>
         <item name="android:stateListAnimator">@null</item>
     </style>
 
     <style name="PhoneNumberEditTextStyle">
-        <item name="android:textAppearance">@style/BlackNormalTextStyle.Size18</item>
+        <item name="android:textAppearance">@style/BlackNormalTextStyle.Size16</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:paddingLeft">6dp</item>
         <item name="android:paddingTop">8dp</item>
         <item name="android:paddingBottom">8dp</item>
         <item name="android:paddingRight">6dp</item>
         <item name="android:minHeight">48dp</item>
-        <item name="fontFamily">@font/sf_pro_display_semibold</item>
-        <item name="android:background">@drawable/bg_white_corner_round_3dp</item>
+        <item name="fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:background">@drawable/bg_white_corner_round_5dp</item>
+        <item name="android:textCursorDrawable">@drawable/bg_cursor_color</item>
         <item name="android:stateListAnimator">@null</item>
     </style>
 

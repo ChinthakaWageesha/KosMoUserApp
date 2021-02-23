@@ -1,12 +1,16 @@
 package sl.com.eightdigitz.core.base
 
 import android.app.Dialog
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.Window
+import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import sl.com.eightdigitz.core.ui.CoreActivity
 import sl.com.eightdigitz.core.R
 import sl.com.eightdigitz.network.SupportInterceptor
@@ -47,12 +51,18 @@ abstract class BaseActivity : AppCompatActivity() {
                 }
             }
         })
+
+        if (!mSharedPreferences.getIdToken().isNullOrEmpty()){
+            mNetworkSupportInterceptor.idToken = mSharedPreferences.getIdToken()
+        }
+
+
     }
 
     private fun handleResponse() {
-        val mUser = mSharedPreferences.getUser()
+        val idToken = mSharedPreferences.getIdToken()
 
-        if (!mUser.isNullOrEmpty()) {
+        if (!idToken.isNullOrEmpty()) {
             runOnUiThread {
                 getString(R.string.msg_session_expire).showToast(this)
             }
@@ -79,6 +89,22 @@ abstract class BaseActivity : AppCompatActivity() {
                 it.dismiss()
             }
         }
+    }
+
+    fun setBackground(drawableId: Int) {
+        window.setBackgroundDrawable(
+            ContextCompat.getDrawable(
+                this,
+                drawableId
+            )
+        )
+    }
+
+    fun showKeyboard(editText: EditText) {
+        val imgr: InputMethodManager =
+            getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imgr.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+        editText.requestFocus()
     }
 
     override fun onDestroy() {

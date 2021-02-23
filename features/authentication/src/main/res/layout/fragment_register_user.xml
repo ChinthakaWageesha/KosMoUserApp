@@ -8,14 +8,12 @@
     tools:context=".presentation.registration.RegisterUser">
 
     <ScrollView
-        android:id="@+id/scrollView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:fillViewport="true"
         android:scrollbars="none"
+        android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -24,68 +22,78 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/tv_title_register"
-                style="@style/WhiteBoldTextStyle.Size18"
-                android:layout_width="wrap_content"
+                android:id="@+id/tv_title_sign_up"
+                style="@style/WhiteBoldTextStyle.Size34"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
                 android:fontFamily="@font/sf_pro_display_bold"
                 android:text="@string/title_sign_up"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/iv_sign_up_user_photo"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_marginTop="50dp"
-                android:src="@drawable/ic_ph_profile_profile_picture"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_title_register" />
-
-            <ImageView
-                android:id="@+id/iv_upload_photo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@+id/iv_sign_up_user_photo"
-                app:layout_constraintEnd_toEndOf="@+id/iv_sign_up_user_photo"
-                app:layout_constraintHorizontal_bias="0.96"
-                app:layout_constraintStart_toStartOf="@+id/iv_sign_up_user_photo"
-                app:layout_constraintTop_toTopOf="@+id/iv_sign_up_user_photo"
-                app:layout_constraintVertical_bias="0.93"
-                app:srcCompat="@drawable/ic_btn_profile_upload_pic" />
-
             <TextView
-                android:id="@+id/tv_title_full_name"
-                style="@style/WhiteNormalTextStyle.Size15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="30dp"
-                android:fontFamily="@font/sf_pro_display_regular"
-                android:text="@string/hint_full_name_tv"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iv_sign_up_user_photo" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_full_name"
+                android:id="@+id/tv_subtitle_sign_up"
+                style="@style/WhiteNormalTextStyle.Size14"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:text="@string/sub_title_sign_up"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title_sign_up" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_sign_up_pro_pic"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginEnd="24dp"
+                android:background="@color/colorTransparent"
+                android:src="@drawable/ic_upload_pro_picture"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_title_sign_up" />
+
+            <TextView
+                android:id="@+id/tv_upload_photo"
+                style="@style/WhiteNormalTextStyle.Size12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="30dp"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:text="@string/message_upload_photo"
+                app:layout_constraintEnd_toEndOf="@+id/iv_sign_up_pro_pic"
+                app:layout_constraintStart_toStartOf="@+id/iv_sign_up_pro_pic"
+                app:layout_constraintTop_toBottomOf="@+id/iv_sign_up_pro_pic" />
+
+            <TextView
+                android:id="@+id/tv_title_name"
+                style="@style/WhiteNormalTextStyle.Size14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:text="@string/hint_name_send_request"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_upload_photo" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_sign_up_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
                 android:theme="@style/EditTextTheme"
                 app:errorEnabled="false"
                 app:hintEnabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_title_full_name">
+                app:layout_constraintTop_toBottomOf="@+id/tv_title_name">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_full_name"
+                    android:id="@+id/et_name_sign_up"
                     style="@style/PrimaryEditTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -95,23 +103,23 @@
 
             <TextView
                 android:id="@+id/tv_title_email"
-                style="@style/WhiteNormalTextStyle.Size15"
+                style="@style/WhiteNormalTextStyle.Size14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="18dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
                 android:fontFamily="@font/sf_pro_display_regular"
-                android:text="@string/hint_email_tv"
+                android:text="@string/hint_email_send_request"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/til_full_name" />
+                app:layout_constraintTop_toBottomOf="@+id/til_sign_up_name" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_email_address"
+                android:id="@+id/til_sign_up_email"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="30dp"
+                android:layout_marginEnd="24dp"
                 android:theme="@style/EditTextTheme"
                 app:errorEnabled="false"
                 app:hintEnabled="false"
@@ -120,7 +128,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_title_email">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_email"
+                    android:id="@+id/et_sign_up_email"
                     style="@style/PrimaryEditTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -129,94 +137,208 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/tv_title_birthday"
-                style="@style/WhiteNormalTextStyle.Size15"
+                android:id="@+id/tv_title_phone_number"
+                style="@style/WhiteNormalTextStyle.Size14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="18dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
                 android:fontFamily="@font/sf_pro_display_regular"
-                android:text="@string/hint_birthday_tv"
+                android:text="@string/hint_phone_number_tv"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/til_email_address" />
+                app:layout_constraintTop_toBottomOf="@+id/til_sign_up_email" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_birthday"
+                android:id="@+id/til_sign_up_phone_number"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="30dp"
+                android:layout_marginEnd="24dp"
                 android:theme="@style/EditTextTheme"
                 app:errorEnabled="false"
                 app:hintEnabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_title_birthday">
+                app:layout_constraintTop_toBottomOf="@+id/tv_title_phone_number">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_birthday"
+                    android:id="@+id/et_sign_up_phone_number"
                     style="@style/PrimaryEditTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:drawableEnd="@drawable/ic_arrow_down"
-                    android:editable="false"
-                    android:focusable="true"
-                    android:inputType="none" />
+                    android:inputType="phone" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <CheckBox
-                android:id="@+id/chk_register"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="63dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="51dp"
-                android:background="@drawable/bg_pink_checkbox"
-                android:button="@null"
-                app:layout_constraintBottom_toTopOf="@+id/btn_continue"
-                app:layout_constraintEnd_toStartOf="@+id/tv_get_updates_desc"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/til_birthday"
-                app:layout_constraintVertical_bias="1.0" />
-
             <TextView
-                android:id="@+id/tv_get_updates_desc"
-                style="@style/WhiteNormalTextStyle.Size13"
+                android:id="@+id/tv_title_birthday"
+                style="@style/WhiteNormalTextStyle.Size14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="30dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
                 android:fontFamily="@font/sf_pro_display_regular"
-                android:text="@string/message_get_updates_description"
-                app:layout_constraintBottom_toBottomOf="@+id/chk_register"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/chk_register"
-                app:layout_constraintTop_toTopOf="@+id/chk_register" />
+                android:text="@string/hint_birthday_tv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/til_sign_up_phone_number" />
 
-            <Button
-                android:id="@+id/btn_continue"
-                style="@style/TransparentButtonStyle"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_birthday"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/bg_white_corner_round_5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title_birthday">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_birthday"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/EditTextTheme"
+                    app:errorEnabled="false"
+                    app:hintEnabled="false"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/iv_calendar"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_birthday"
+                        style="@style/PrimaryEditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:editable="false"
+                        android:focusable="true"
+                        android:inputType="none" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageView
+                    android:id="@+id/iv_calendar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_calendar"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv_title_country"
+                style="@style/WhiteNormalTextStyle.Size14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:text="@string/hint_country_tv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cl_birthday" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_country"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
+                android:theme="@style/EditTextTheme"
+                app:errorEnabled="false"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title_country">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_country"
+                    style="@style/PrimaryEditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:inputType="none"
+                    android:focusable="true"
+                    android:clickable="true"
+                    android:editable="false"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tv_title_talent_description"
+                style="@style/WhiteNormalTextStyle.Size14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:text="@string/hint_sign_up_profile_description"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/til_country" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_talent_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
+                android:theme="@style/EditTextTheme"
+                app:errorEnabled="false"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title_talent_description">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_sign_up_description"
+                    style="@style/PrimaryEditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:gravity="start"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tv_message_sign_up_desc"
+                style="@style/WhiteNormalTextStyle.Size12"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:text="@string/message_sign_up_desc"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/til_talent_description" />
+
+            <Button
+                android:id="@+id/btn_submit_sign_up"
+                style="@style/PinkButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="24dp"
                 android:layout_marginBottom="32dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:text="@string/btn_continue"
+                android:text="@string/btn_submit"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_message_sign_up_desc" />
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

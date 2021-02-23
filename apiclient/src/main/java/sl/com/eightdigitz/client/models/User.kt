@@ -25,6 +25,12 @@ data class User(
     @Json(name = "ProfileBanner") @field:Json(name = "ProfileBanner") var profileBanner: String? = null,
     @Json(name = "Preferences") @field:Json(name = "Preferences") var preferences: List<Preference>? = null,
     @Json(name = "Auth0Ref") @field:Json(name = "Auth0Ref") var authReference: String? = null,
-    @Json(name = "Verified") @field:Json(name = "Verified") var verified: Boolean? = null
+    @Json(name = "Verified") @field:Json(name = "Verified") var verified: Boolean? = null,
+    @Json(name = "ProfileBiography") @field:Json(name = "ProfileBiography") var profileBiography: String? = null,
+    @Json(name = "ProfileDescription") @field:Json(name = "ProfileDescription") var profileDescription: String? = null,
+    @Json(name = "TopSocialMediaPlatform") @field:Json(name = "TopSocialMediaPlatform") var topSocialMediaPlatform: String? = null,
+    @Json(name = "SocialMediaProfileLink") @field:Json(name = "SocialMediaProfileLink") var socialMediaProfileLink: String? = null,
+    @Json(name = "SubscribeMail") @field:Json(name = "SubscribeMail") var subscribeMail: Boolean? = null,
+    @Json(name = "UserName") @field:Json(name = "UserName") var userName: String? = null
 )
 

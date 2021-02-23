@@ -14,6 +14,9 @@ fun String.isValidEmail(): Boolean = this.isNotEmpty() &&
 fun String.isValidPhone(): Boolean = this.length == 9 &&
         Patterns.PHONE.matcher(this.trim()).matches()
 
+fun String.isValidMobile(): Boolean = this.length == 10 &&
+        Patterns.PHONE.matcher(this.trim()).matches()
+
 fun String.isValidPassword(): Boolean {
     var valid: Boolean
     try {

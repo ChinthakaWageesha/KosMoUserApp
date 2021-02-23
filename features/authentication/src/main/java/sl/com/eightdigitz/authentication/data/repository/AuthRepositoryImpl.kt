@@ -2,14 +2,26 @@ package sl.com.eightdigitz.authentication.data.repository
 
 import sl.com.eightdigitz.authentication.data.datasource.AuthDataSource
 import sl.com.eightdigitz.authentication.domain.repository.AuthRepository
-import sl.com.eightdigitz.core.model.domain.DUser
 import io.reactivex.Single
-import sl.com.eightdigitz.core.model.domain.DOTP
-import sl.com.eightdigitz.core.model.domain.DOTPToken
+import okhttp3.MultipartBody
+import sl.com.eightdigitz.client.models.ContactUsRequest
+import sl.com.eightdigitz.client.models.JoinUsRequest
+import sl.com.eightdigitz.client.models.RegisterRequest
+import sl.com.eightdigitz.core.model.ListResponse
+import sl.com.eightdigitz.core.model.domain.*
 
 class AuthRepositoryImpl constructor(
     private val authDataSource: AuthDataSource
 ) : AuthRepository {
+
+    override fun uploadAvatar(image: MultipartBody.Part): Single<String> =
+        authDataSource.uploadAvatar(image)
+
+    override fun contactSupport(contactUsRequest: ContactUsRequest): Single<DContactUs> =
+        authDataSource.contactSupport(contactUsRequest)
+
+    override fun joinUs(joinUsRequest: JoinUsRequest): Single<DJoinUs> =
+        authDataSource.joinUs(joinUsRequest)
 
     override fun getOTP(phoneNumber: String): Single<DOTP> =
         authDataSource.getOTP(phoneNumber)
@@ -17,10 +29,13 @@ class AuthRepositoryImpl constructor(
     override fun getOTPToken(phoneNumber: String, otp: String): Single<DOTPToken> =
         authDataSource.getOTPToken(phoneNumber, otp)
 
-    override fun getUserByRefToken(idToken: String): Single<DUser> =
-        authDataSource.getUserByRefToken(idToken)
+    override fun getUserByIDToken(idToken: String): Single<DUser> =
+        authDataSource.getUserByIDToken(idToken)
 
-    override fun createAccount(dUser: DUser): Single<DUser> =
-        authDataSource.createAccount(dUser)
+    override fun getPreferences(): Single<ListResponse<DPreference>> =
+        authDataSource.getPreferences()
+
+    override fun createAccount(registerRequest: RegisterRequest): Single<DUser> =
+        authDataSource.createAccount(registerRequest)
 
 }

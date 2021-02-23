@@ -9,54 +9,86 @@
     <string name="title_tamil_btn">உங்கள் \nமொழியாக \nதமிழை \nஅமைக்கவும் \n\n\nதமிழ்</string>
     <string name="title_china_btn">जल्द आ रहा है \n\n\nहिंदी</string>
     <string name="title_confirm_btn">Confirm</string>
+    <string name="label_contact_us">Contact Us</string>
 
     <!--Get Started-->
-    <string name="message_get_started_description">By signing up, you agree to the Terms of Use &amp; Privacy Policy</string>
-    <string name="title_get_started_btn">Get Started</string>
+    <string name="message_get_started_description">Book personalized video messages &amp; Shoutouts from your favorite people you love</string>
+    <string name="title_get_started_btn">Join Now!</string>
 
     <!--Get phone number to verify-->
     <string name="title_welcome">Welcome</string>
-    <string name="subtitle_get_started">Use your mobile number \nto get started.</string>
+    <string name="subtitle_get_started">Connect from anywhere! \nWith people you love.</string>
     <string name="title_enter_mobile_number">Enter your mobile number</string>
-    <string name="message_enter_phone_description">By continuing your may receive an SMS for verification. \nMessage and data rates may apply.</string>
+    <string name="message_sms_charges">Depending on your carrier, you might receive charges for SMS.</string>
     <string name="hint_mobile_number">Mobile Number</string>
+    <string name="title_next">Next</string>
     <string name="btn_send_code">Send Code</string>
     <string name="error_invalid_phone">The Phone number is invalid</string>
     <string name="error_invalid_country_code">The mobile code is invalid</string>
     <string name="title_country_picker">Select Country</string>
-
+    <string name="message_get_otp_default">You will receive a one-time sms to verify your account. The SMS will contain a verification code, which you can enter in the next step.</string>
+    <string name="get_otp_error_desc_one">You must be able to receive SMS to the phone number you are trying to verify.</string>
     <string name="auth0_audience_url">https://%s/userinfo</string>
     <string name="com_auth0_client_id">k4PQJsn9sjtYNw6YGQyy5WnU7JmMvYQs</string>
     <string name="com_auth0_domain">dev-ahamad.us.auth0.com</string>
+    <string name="message_are_u_talent">Are you a talent?</string>
+    <string name="message_send_request"><u>Send us a request</u></string>
 
     <string name="message_otp_sent">Verification code has been sent to </string>
 
     <!--Verify Phone number-->
-    <string name="title_verify_phone_number">Yay!</string>
-    <string name="subtitle_verify_phone_number">Just a one step away to discover.</string>
-    <string name="message_enter_code">Enter your code below</string>
-    <string name="message_did_not_receive_code">I did not receive a code</string>
+    <string name="title_verify_phone_number">Verification</string>
+    <string name="subtitle_verify_phone_number">Enter the 6 digit code sent to your mobile number</string>
+    <string name="message_enter_code">Type the code below</string>
+    <string name="message_did_not_receive_code">Didn\'t receive a code?</string>
     <string name="hint_enter_code">Enter Code</string>
     <string name="btn_verify">Verify</string>
-    <string name="error_invalid_verify_code">The code you enter is incorrect</string>
+
+    <!--Contact us for support-->
+    <string name="title_contact_us">Contact us for Support</string>
+    <string name="subtitle_contact_us">Have questions or need to report an issue with a product or service? We’ve got you covered.</string>
+    <string name="hint_name_contact_us">Name</string>
+    <string name="hint_email_contact_us">Email*</string>
+    <string name="hint_phone_number_contact_us">Phone Number*</string>
+    <string name="hint_subject_contact_us">Subject*</string>
+    <string name="hint_feedback_problem_contact_us">Describe your feedback or problem</string>
+    <string name="hint_upload_image_contact_us">Upload Screenshot/ Image</string>
+    <string name="hint_description_contact_us">Please note that we value and respect your privacy and will only use your data for
+        services purposes and will not share it with third parties. Please read the our Privacy Statement for more information.</string>
+    <string name="btn_submit">Submit</string>
+
+    <!--Send us a request-->
+    <string name="title_send_request">Join us</string>
+    <string name="subtitle_send_request">For talent registrations only.</string>
+    <string name="message_upload_photo">Upload a Photo*</string>
+    <string name="hint_name_send_request">Name*</string>
+    <string name="hint_email_send_request">Email*</string>
+    <string name="hint_phone_number_send_request">Phone Number*</string>
+    <string name="hint_top_social_media">Your top Social Media Platform*</string>
+    <string name="hint_social_media_link">Social Media Account Username/Link*</string>
+    <string name="hint_profile_description">Please describe yourself to us*</string>
+    <string name="message_join_us_desc_one">If you meet the eligibility requirements, a representative will contact you within a few days to finish onboarding.</string>
+    <string name="message_join_us_desc_two">Learn all you need to know,</string>
+    <string name="message_join_us_desc_three"><u>visit our help centre</u></string>
 
     <!--Register-->
-    <string name="title_sign_up">Create Your Profile</string>
-    <string name="sub_title_sign_up">This will be what shows on your profile</string>
+    <string name="title_sign_up">Signup</string>
+    <string name="sub_title_sign_up">Create Your Profile</string>
     <string name="hint_full_name_tv">Your full name</string>
     <string name="hint_email_tv">Email address</string>
     <string name="hint_birthday_tv">Birthday</string>
+    <string name="hint_phone_number_tv">Phone number (this is your verified number)</string>
     <string name="btn_continue">Continue</string>
-    <string name="error_full_name_required">Enter your full name</string>
-    <string name="error_email_required">Enter your full name</string>
-    <string name="error_birthday_required">Select your date of birth</string>
-    <string name="message_get_updates_description">I would like to receive news &amp; updates email</string>
+    <string name="hint_country_tv">Country</string>
+    <string name="hint_sign_up_profile_description">Describe you here</string>
+    <string name="message_sign_up_desc">Please note that we value and respect your privacy and will
+        only use your data for services purposes. Read the our Privacy Statement for more information.
+        Learn all you need to know, visit our help centre.</string>
 
     <!--Post Register-->
-    <string name="title_welcome_hello">Welcome to Hello!</string>
-    <string name="tv_sample">Rutrum tellus pellentesque eu tincidunt tortor. Condimentum vitaesapien
-        pellentesque habitant morbi tristique senectus et netus.</string>
-    <string name="btn_lets_do_it">Let\'s Do it</string>
+    <string name="title_welcome_hello">Account Created</string>
+    <string name="tv_post_register_desc">We use these preferences to recommend you favorite genres and people, Go on tap your favs!</string>
+    <string name="btn_go_explore">Go Explore!</string>
 
     <!--Bottom Navigation-->
     <string name="title_bottom_nav_home">Home</string>
@@ -79,4 +111,6 @@
     <string name="title_latest_news">Latest News</string>
     <string name="title_most_popular">Most Popular</string>
     <string name="message_see_all">See All</string>
+
+
 </resources>

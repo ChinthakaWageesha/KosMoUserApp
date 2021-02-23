@@ -1,10 +1,8 @@
 package sl.com.eightdigitz.presentation.extensions
 
 import android.content.Context
-import android.graphics.Color
 import android.os.Build
 import android.util.TypedValue
-import android.view.Gravity
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar
@@ -91,7 +89,7 @@ fun ActionBar.setAppActionBar(
     this.setBackgroundDrawable(
         ContextCompat.getDrawable(
             context,
-            R.drawable.bg_white_corner_round_3dp
+            R.drawable.bg_white_corner_round_5dp
         )
     )
     this.elevation = 1.dpToPx()

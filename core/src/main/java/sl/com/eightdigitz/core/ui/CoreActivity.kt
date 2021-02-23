@@ -8,8 +8,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import sl.com.eightdigitz.navigation.features.AuthenticationNavigation
 import sl.com.eightdigitz.navigation.features.MainNavigation
-import sl.com.eightdigitz.navigation.features.RequestCodes
-import sl.com.eightdigitz.presentation.IntentParsableConstants
 import org.koin.android.ext.android.inject
 import sl.com.eightdigitz.navigation.features.RequestCodes.AUTH
 import sl.com.eightdigitz.navigation.features.RequestCodes.MAIN
@@ -18,8 +16,7 @@ import sl.com.eightdigitz.navigation.features.ResultCode.RESULT_NAV_LOGOUT
 import sl.com.eightdigitz.navigation.features.ResultCode.RESULT_NAV_MAIN
 import sl.com.eightdigitz.presentation.Constant.ACTION_UNAUTH
 import sl.com.eightdigitz.presentation.extensions.cleaAll
-import sl.com.eightdigitz.presentation.extensions.getAccessToken
-import sl.com.eightdigitz.presentation.extensions.getUser
+import sl.com.eightdigitz.presentation.extensions.getAuthReference
 
 class CoreActivity : AppCompatActivity() {
 
@@ -27,8 +24,8 @@ class CoreActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        startMain()
-        //handleLogin()
+        //startMain()
+        handleLogin()
     }
 
     private fun handleLogin() {
@@ -42,7 +39,7 @@ class CoreActivity : AppCompatActivity() {
     }
 
     private fun checkIsLoggedIn() {
-        if (!sharedPreferences.getAccessToken().isNullOrEmpty()) {
+        if (!sharedPreferences.getAuthReference().isNullOrEmpty()) {
             startMain()
         } else {
             startLogin()

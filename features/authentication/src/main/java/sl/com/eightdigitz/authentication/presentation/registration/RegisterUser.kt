@@ -7,23 +7,28 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.github.dhaval2404.imagepicker.constant.ImageProvider
+import com.hbb20.CountryCodePicker
+import kotlinx.android.synthetic.main.fragment_get_otp.*
 import kotlinx.android.synthetic.main.fragment_register_user.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.authentication.R
 import sl.com.eightdigitz.authentication.presentation.AuthActivity
+import sl.com.eightdigitz.authentication.presentation.contact.JoinContactViewModel
 import sl.com.eightdigitz.core.base.BaseFragment
 import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.core.model.presentation.PUser
-import sl.com.eightdigitz.presentation.Msg
-import sl.com.eightdigitz.presentation.Resource
-import sl.com.eightdigitz.presentation.ResourceState
+import sl.com.eightdigitz.country_picker.presentation.country_picker.CountryPickerBuilder
+import sl.com.eightdigitz.country_picker.presentation.models.PCountry
+import sl.com.eightdigitz.presentation.*
 import sl.com.eightdigitz.presentation.cropper.CropImageActivity
 import sl.com.eightdigitz.presentation.extensions.*
 import sl.com.eightdigitz.presentation.utile.AppDialog
@@ -34,9 +39,11 @@ import java.util.*
 class RegisterUser : BaseFragment(), View.OnClickListener {
 
     private var calender = Calendar.getInstance()
-    private val vmRegister by viewModel<RegistrationViewModel>()
+    private lateinit var ccpPicker: CountryCodePicker
+    private val vmAvatar by viewModel<JoinContactViewModel>()
     private val arrayOptions: Array<CharSequence> = arrayOf("Take photo", "Choose from gallery")
     private var file: File? = null
+    private var dobFormat: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,7 +55,7 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
     override fun onViewCreated() {
         setToolbar()
         init()
-        showKeyboard(et_full_name)
+        showKeyboard(et_name_sign_up)
     }
 
     private fun setToolbar() {
@@ -60,18 +67,24 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
     }
 
     private fun init() {
-        vmRegister.liveDataSaveUser.observe(this, Observer { observerSaveUser(it) })
-        et_birthday.setOnClickListener(this)
-        btn_continue.setOnClickListener(this)
-        iv_upload_photo.setOnClickListener(this)
-        et_email.addTextChangedListener(object : TextWatcher {
+        vmAvatar.liveDataContactImage.observe(this, Observer { observerUploadAvatar(it) })
+        ccpPicker = CountryCodePicker(context)
+        ccpPicker.setAutoDetectedCountry(true)
+        ccpPicker.setDefaultCountryUsingNameCode("lk")
+        ccpPicker.registerCarrierNumberEditText(et_country)
+
+        if (!(requireActivity() as AuthActivity).mobileNumber94.isNullOrEmpty()) {
+            et_sign_up_phone_number.setText((requireActivity() as AuthActivity).mobileNumber94)
+        }
+
+        et_sign_up_email.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
             }
 
             override fun onTextChanged(text: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 if (text!!.endsWith(".com")) {
-                    et_email.validateOnTextChange(isCheckValidateIcon = true) { s -> s.isValidEmail() }
+                    et_sign_up_email.validateOnTextChange(isCheckValidateIcon = true) { s -> s.isValidEmail() }
                 }
             }
 
@@ -79,56 +92,90 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
 
             }
         })
+
+        iv_calendar.setOnClickListener(this)
+        btn_submit_sign_up.setOnClickListener(this)
+        iv_sign_up_pro_pic.setOnClickListener(this)
+        et_country.setOnClickListener(this)
+    }
+
+    private fun startCountryPicker() {
+        CountryPickerBuilder.instance
+            .setTitleTextColor(sl.com.eightdigitz.presentation.R.color.colorBlack)
+            .setActivityResultKey(IntentParsableConstants.COUNTRY_SELECTION)
+            .setActivityTitle(sl.com.eightdigitz.presentation.R.string.title_country_picker)
+            .start(this, RequestCodes.COUNTRY_CODE_REQUEST)
+    }
+
+    private fun getResId(drawableName: String): Int {
+
+        try {
+            val res = sl.com.eightdigitz.country_picker.R.drawable::class.java
+            val field = res.getField(drawableName)
+            return field.getInt(null)
+        } catch (e: Exception) {
+            Log.e("CountryCodePicker", "Failure to get drawable id.", e)
+        }
+
+        return -1
     }
 
     @SuppressLint("MissingPermission")
     private fun onContinue() {
-        /*if (validateForm()) {
+        if (validateForm() && validateProPic()) {
             val dUser = DUser(
-                mobileNo = (requireActivity() as AuthActivity).mobileNumber,
-                fullName = et_full_name.getStringTrim(),
+                fullName = et_name_sign_up.getStringTrim(),
+                email = et_sign_up_email.getStringTrim(),
+                mobileNo = (requireActivity() as AuthActivity).mobileNumber0,
+                //dob = et_birthday.getStringTrim(),
                 defaultLanguage = (requireActivity() as AuthActivity).language,
-                email = et_email.getStringTrim(),
-                dob = et_birthday.getStringTrim(),
                 role = "User",
-                profilePicture = "",
-                profileBanner = "",
-                profileVideo = ""
+                profilePicture = (requireActivity() as AuthActivity).avatarUrl
             )
-            activity?.withNetwork({
-                vmRegister.createAccount(dUser)
-            }, {
-                Msg.INTERNET_ISSUE.showToast(context!!)
-            })
-        }*/
-        hideKeyboard()
-        (requireActivity() as AuthActivity).setPostRegister()
+            if (et_sign_up_description.getStringTrim().isNotEmpty()) {
+                dUser.profileDescription = et_sign_up_description.getStringTrim()
+            }
+
+            hideKeyboard()
+            (requireActivity() as AuthActivity).setPostRegister(dUser)
+        }
     }
 
     private fun validateForm(): Boolean {
-        val isFullName = et_full_name.validate(isCheckValidateIcon = true) { s -> s.length > 3 }
+        val isName = et_name_sign_up.validate(isCheckValidateIcon = true) { s -> s.length > 3 }
+
         val isEmail =
-            et_email.validateOnTextChange(isCheckValidateIcon = true) { s -> s.isValidEmail() }
-        val isDateOfBirth = et_birthday.validate { s -> s.isNotEmpty() }
+            et_sign_up_email.validateOnTextChange(isCheckValidateIcon = true) { s -> s.isValidEmail() }
 
-        if (!isFullName) {
-            showAlert(message = getString(sl.com.eightdigitz.presentation.R.string.error_full_name_required))
+        val isPhone =
+            et_sign_up_phone_number.validateOnTextChange(isCheckValidateIcon = true) { s ->
+                s.replace(
+                    "+94",
+                    "0"
+                ).isValidMobile()
+            }
+
+        val isDateOfBirth = et_birthday.validate(isCheckValidateIcon = true) { s -> s.isNotEmpty() }
+
+        val isCountry = et_country.validate(isCheckValidateIcon = true) { s -> s.isNotEmpty() }
+
+        if (!isName || !isEmail || !isPhone || !isDateOfBirth || !isCountry) {
+            showAlert(Msg.TITLE_REQUIRED, "Please fill out the required fields.")
             return false
         }
 
-        if (!isEmail) {
-            showAlert(message = getString(sl.com.eightdigitz.presentation.R.string.error_email_required))
-            return false
-        }
+        return true
+    }
 
-        if (!isDateOfBirth) {
-            showAlert(message = getString(sl.com.eightdigitz.presentation.R.string.error_birthday_required))
+    private fun validateProPic(): Boolean {
+        if ((requireActivity() as AuthActivity).avatarUrl.isNullOrEmpty()) {
+            showAlert(Msg.TITLE_REQUIRED, "Please upload profile picture")
             return false
         }
         return true
     }
 
-    private fun observerSaveUser(resource: Resource<PUser>) {
+    private fun observerUploadAvatar(resource: Resource<String>) {
         resource.let {
             when (it.state) {
                 ResourceState.LOADING -> {
@@ -136,12 +183,8 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
                 }
                 ResourceState.SUCCESS -> {
                     hideProgress()
-                    if (!it.data?.authReference.isNullOrEmpty()) {
-                        (requireActivity() as AuthActivity).fullName = et_full_name.getStringTrim()
-                        (requireActivity() as AuthActivity).setPostRegister()
-                    } else {
-                        Msg.ERROR_COMMON.showToast(context!!)
-                    }
+                    (requireActivity() as AuthActivity).avatarUrl = it.data.toString()
+                    iv_sign_up_pro_pic.loadImageRound(file?.absolutePath!!)
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
@@ -150,6 +193,8 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
             }
         }
     }
+
+
 
     private fun setDatePicker() {
         val date =
@@ -174,8 +219,11 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
 
     private fun updateLabel() {
         val myFormat = "yyyy-MM-dd"
-        val sdf = SimpleDateFormat(myFormat, Locale.US)
-        et_birthday.setText(sdf.format(calender.time))
+        val stdFormat = "dd MMMM yyyy"
+        val sdfForView = SimpleDateFormat(myFormat, Locale.US)
+        val sdfForDB = SimpleDateFormat(stdFormat, Locale.US)
+        dobFormat = sdfForDB.format(calender.time)
+        et_birthday.setText(sdfForView.format(calender.time))
     }
 
     private fun cameraOptionsDialog(
@@ -217,29 +265,28 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
             if (resultCode == Activity.RESULT_OK) {
                 val result = data?.data
                 file = File(result?.path!!)
-                iv_sign_up_user_photo.loadImageRound(file?.absolutePath!!)
-                (requireActivity() as AuthActivity).avatarUrl = file?.absolutePath
-                /*file?.let {
-                    activity?.withNetwork({
-                        iv_sign_up_user_photo.loadImageRound(file?.absolutePath!!)
-                    }, {
-                        Msg.INTERNET_ISSUE.showToast(context!!)
-                    })
-                }*/
+                vmAvatar.uploadAvatar(file!!)
+            }
+        } else if (requestCode == RequestCodes.COUNTRY_CODE_REQUEST) {
+            if (resultCode == Activity.RESULT_OK) {
+                val mCountry =
+                    data?.extras?.getParcelable<PCountry>(IntentParsableConstants.COUNTRY_SELECTION)
+                et_country.setText(mCountry?.name)
             }
         }
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.et_birthday -> setDatePicker()
-            R.id.btn_continue -> onContinue()
-            R.id.iv_upload_photo -> cameraOptionsDialog(arrayOptions, AVATAR_IMAGE_REQ_CODE)
+            R.id.iv_calendar -> setDatePicker()
+            R.id.btn_submit_sign_up -> onContinue()
+            R.id.et_country -> startCountryPicker()
+            R.id.iv_sign_up_pro_pic -> cameraOptionsDialog(arrayOptions, AVATAR_IMAGE_REQ_CODE)
         }
     }
 
     override fun onResume() {
-        setBackground(sl.com.eightdigitz.presentation.R.drawable.bg_gradient_purple_seablue_register)
+        setBackground(sl.com.eightdigitz.presentation.R.drawable.bg_get_otp)
         super.onResume()
     }
 

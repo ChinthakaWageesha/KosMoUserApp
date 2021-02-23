@@ -6,18 +6,27 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_search.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.app.presentation.search.preferenceSearch.SearchTalentByPreference
 import sl.com.eightdigitz.app.presentation.search.recentSearch.RecentSearches
 import sl.com.eightdigitz.core.base.BaseFragment
+import sl.com.eightdigitz.core.model.domain.DPreference
+import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.presentation.IntentParsableConstants
+import sl.com.eightdigitz.presentation.Msg
+import sl.com.eightdigitz.presentation.Resource
+import sl.com.eightdigitz.presentation.ResourceState
+import sl.com.eightdigitz.presentation.extensions.showAlert
+import sl.com.eightdigitz.presentation.extensions.showToast
 import sl.com.eightdigitz.presentation.extensions.startActivity
 
-class SearchFragment : BaseFragment(), (String) -> Unit, View.OnClickListener {
+class SearchFragment : BaseFragment(), (DPreference) -> Unit, View.OnClickListener {
 
-    private var preferenceList = mutableListOf<String>()
+    private val vm by viewModel<SearchViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,43 +40,73 @@ class SearchFragment : BaseFragment(), (String) -> Unit, View.OnClickListener {
     }
 
     private fun init() {
-        setUpPreferenceAdapter()
-        setRecentSearchAdapter()
+        vm.getHomeCategories()
+        vm.getRecentSearches()
         setPeopleYouKnowAdapter()
         setRecommendedAdapter()
         et_search_talent_home.setOnClickListener(this)
+        vm.liveDataCategories.observe(this, Observer { observerGetCategories(it) })
+        vm.liveDataRecentSearches.observe(this, Observer { observerGetRecentSearches(it) })
     }
 
-    private fun setUpPreferenceAdapter() {
-        preferenceList.add(0, "Cricket")
-        preferenceList.add(1, "Movie")
-        preferenceList.add(2, "Music")
-        preferenceList.add(3, "Business")
-        preferenceList.add(4, "Politics")
-        preferenceList.add(5, "Transport")
-        preferenceList.add(6, "Security")
-
+    private fun setUpPreferenceAdapter(preferenceList: MutableList<DPreference>) {
         rv_preferences_home.adapter = PreferenceAdapter(preferenceList, this)
         rv_preferences_home.layoutManager =
             LinearLayoutManager(context!!, LinearLayoutManager.HORIZONTAL, false)
     }
 
-    private fun setRecentSearchAdapter() {
-        rv_recent_searches.adapter = PeopleSearchAdapter()
+    private fun setRecentSearchAdapter(recentTalentList: MutableList<DUser>) {
+        rv_recent_searches.adapter = SearchAdapterTalents(recentTalentList)
         rv_recent_searches.layoutManager =
             LinearLayoutManager(context!!, LinearLayoutManager.HORIZONTAL, false)
     }
 
     private fun setPeopleYouKnowAdapter() {
-        rv_people_you_know.adapter = PeopleSearchAdapter()
+        /*rv_people_you_know.adapter = SearchAdapterTalents()
         rv_people_you_know.layoutManager =
-            LinearLayoutManager(context!!, LinearLayoutManager.HORIZONTAL, false)
+            LinearLayoutManager(context!!, LinearLayoutManager.HORIZONTAL, false)*/
     }
 
     private fun setRecommendedAdapter() {
-        rv_recommended.adapter = PeopleSearchAdapter()
+        /*rv_recommended.adapter = SearchAdapterTalents()
         rv_recommended.layoutManager =
-            LinearLayoutManager(context!!, LinearLayoutManager.HORIZONTAL, false)
+            LinearLayoutManager(context!!, LinearLayoutManager.HORIZONTAL, false)*/
+    }
+
+    private fun observerGetCategories(resource: Resource<List<DPreference>>) {
+        resource.let {
+            when (it.state) {
+                ResourceState.LOADING -> showProgress()
+                ResourceState.SUCCESS -> {
+                    hideProgress()
+                    setUpPreferenceAdapter(it.data!!.toMutableList())
+                }
+                ResourceState.ERROR -> {
+                    hideProgress()
+                    showAlert(title = Msg.TITLE_ERROR, message = it.message!!)
+                }
+            }
+        }
+    }
+
+    private fun observerGetRecentSearches(resource: Resource<List<DUser>>){
+        resource.let {
+            when(it.state){
+                ResourceState.LOADING -> showProgress()
+                ResourceState.SUCCESS -> {
+                    hideProgress()
+                    if (it.data?.size!! > 0){
+                        setRecentSearchAdapter(it.data!!.toMutableList())
+                    } else {
+                        "No recent searches".showToast(context!!)
+                    }
+                }
+                ResourceState.ERROR -> {
+                    hideProgress()
+                    showAlert(title = Msg.TITLE_ERROR, message = it.message!!)
+                }
+            }
+        }
     }
 
     companion object {
@@ -78,14 +117,14 @@ class SearchFragment : BaseFragment(), (String) -> Unit, View.OnClickListener {
         }
     }
 
-    override fun invoke(preference: String) {
+    override fun invoke(preference: DPreference) {
         val intent = Intent(context!!, SearchTalentByPreference::class.java)
         intent.putExtra(IntentParsableConstants.EXTRA_PREFERENCE, preference)
         startActivity(intent)
     }
 
     override fun onClick(v: View?) {
-        when(v?.id){
+        when (v?.id) {
             R.id.et_search_talent_home -> context?.startActivity<RecentSearches>()
         }
     }

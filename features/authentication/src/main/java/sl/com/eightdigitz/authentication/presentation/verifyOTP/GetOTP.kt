@@ -23,6 +23,7 @@ import kotlinx.android.synthetic.main.fragment_get_otp.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.authentication.R
 import sl.com.eightdigitz.authentication.presentation.AuthActivity
+import sl.com.eightdigitz.authentication.presentation.contact.SendRequest
 import sl.com.eightdigitz.core.base.BaseFragment
 import sl.com.eightdigitz.core.model.domain.DOTP
 import sl.com.eightdigitz.country_picker.presentation.country_picker.CountryPickerBuilder
@@ -37,6 +38,7 @@ class GetOTP : BaseFragment(), View.OnClickListener {
     private lateinit var ccpPicker: CountryCodePicker
     private var auth0: Auth0? = null
     private val vmOTP by viewModel<OTPViewModel>()
+    private var isNextClickable = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,7 +50,15 @@ class GetOTP : BaseFragment(), View.OnClickListener {
     override fun onViewCreated() {
         setToolbar()
         init()
-        showKeyboard(et_mobile)
+        hideKeyboard()
+    }
+
+    private fun setToolbar() {
+        (requireActivity() as AuthActivity).supportActionBar?.setActionBar(
+            context!!,
+            "",
+            isHomeUpEnables = true
+        )
     }
 
     private fun init() {
@@ -66,18 +76,24 @@ class GetOTP : BaseFragment(), View.OnClickListener {
             }
 
             override fun onTextChanged(text: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if (text?.length!! > 10) {
+                iv_error_no_number.visibility = View.GONE
+                cl_get_otp_default.makeGone()
+                cl_get_otp_error_container.makeGone()
+                cl_get_otp_button_container.makeVisible()
 
-                    if (ccpPicker.isValidFullNumber) {
-                        tv_get_otp_validation.visibility = View.GONE
-                    } else {
-                        tv_get_otp_validation.visibility = View.VISIBLE
-                        tv_get_otp_validation.text =
-                            getString(sl.com.eightdigitz.presentation.R.string.error_invalid_phone)
-                    }
 
+                if (text?.length!! > 10){
+                    makeNextEnable()
+                }
+                /*if (text?.length!! > 10) {
                     et_mobile.validateOnTextChange(isCheckValidateIcon = true) { s -> ccpPicker.isValidFullNumber }
                 }
+
+                if (ccpPicker.isValidFullNumber) {
+                    makeNextEnable()
+                } else {
+                    makeNextDisable()
+                }*/
             }
 
             override fun afterTextChanged(p0: Editable?) {
@@ -85,54 +101,43 @@ class GetOTP : BaseFragment(), View.OnClickListener {
             }
         })
 
-        btn_send_code.setOnClickListener(this)
         et_mobile_code.setOnClickListener(this)
+        cl_next.setOnClickListener(this)
+        tv_send_request.setOnClickListener(this)
     }
 
-    private fun setToolbar() {
-        (requireActivity() as AuthActivity).supportActionBar?.setActionBar(
-            context!!,
-            "",
-            isHomeUpEnables = true
+    private fun makeNextEnable() {
+        ibtn_goto_verify.setEnable()
+        tv_next.setTextColor(
+            ContextCompat.getColor(
+                context!!,
+                sl.com.eightdigitz.presentation.R.color.colorWhite
+            )
         )
+        isNextClickable = true
     }
 
-
-    private fun onSendCode() {
-
-        val isCountryCode = et_mobile_code.validateOnTextChange { s -> s.isNotEmpty() }
-
-        val isPhone =
-            et_mobile.validateOnTextChange(
-                "",
-                isCheckValidateIcon = true
-            ) { s -> ccpPicker.isValidFullNumber }
-
-        if (!isCountryCode) {
-            tv_get_otp_validation.visibility = View.VISIBLE
-            tv_get_otp_validation.text =
-                getString(sl.com.eightdigitz.presentation.R.string.error_invalid_country_code)
-            return
-        }
-
-        if (!isPhone) {
-            tv_get_otp_validation.visibility = View.VISIBLE
-            tv_get_otp_validation.text =
-                getString(sl.com.eightdigitz.presentation.R.string.error_invalid_phone)
-            return
-        }
-
-        //getOtp()
-        navigateToVerify()
+    private fun makeNextDisable() {
+        ibtn_goto_verify.setDisable()
+        tv_next.setTextColor(
+            ContextCompat.getColor(
+                context!!,
+                sl.com.eightdigitz.presentation.R.color.colorPinkAlpha30
+            )
+        )
+        isNextClickable = false
     }
 
     @SuppressLint("MissingPermission")
     private fun getOtp() {
-        activity?.withNetwork({
-            vmOTP.getOTP(ccpPicker.fullNumberWithPlus)
-        }, {
-            showAlert(Msg.TITLE_ERROR, Msg.INTERNET_ISSUE)
-        })
+        if (isNextClickable) {
+            activity?.withNetwork({
+                (requireActivity() as AuthActivity).mobileNumber94 = ccpPicker.fullNumberWithPlus
+                vmOTP.getOTP(ccpPicker.fullNumberWithPlus)
+            }, {
+                showAlert(Msg.TITLE_ERROR, Msg.INTERNET_ISSUE)
+            })
+        }
     }
 
     private fun observerGetOTP(resource: Resource<DOTP>) {
@@ -152,7 +157,8 @@ class GetOTP : BaseFragment(), View.OnClickListener {
     }
 
     private fun navigateToVerify() {
-        (requireActivity() as AuthActivity).mobileNumber = ccpPicker.fullNumberWithPlus
+        (requireActivity() as AuthActivity).mobileNumber0 =
+            ccpPicker.fullNumberWithPlus.replace("+94", "0")
         (requireActivity() as AuthActivity).setVerifyOTP()
     }
 
@@ -161,8 +167,6 @@ class GetOTP : BaseFragment(), View.OnClickListener {
             .setTitleTextColor(sl.com.eightdigitz.presentation.R.color.colorBlack)
             .setActivityResultKey(IntentParsableConstants.COUNTRY_SELECTION)
             .setActivityTitle(sl.com.eightdigitz.presentation.R.string.title_country_picker)
-            //.setUpNavigationDrawable(au.com.fakebuzz.presentation.R.drawable.ic_ab_back)
-            //.setSearchDrawable(au.com.fakebuzz.presentation.R.drawable.ic_ab_searchbar_search)
             .start(this, RequestCodes.COUNTRY_CODE_REQUEST)
     }
 
@@ -200,13 +204,14 @@ class GetOTP : BaseFragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.btn_send_code -> onSendCode()
+            R.id.cl_next -> getOtp()
             R.id.et_mobile_code -> startCountryPicker()
+            R.id.tv_send_request -> context?.startActivity<SendRequest>()
         }
     }
 
     override fun onResume() {
-        setBackground(sl.com.eightdigitz.presentation.R.drawable.bg_gradient_purple_seablue_get_otp)
+        setBackground(sl.com.eightdigitz.presentation.R.drawable.bg_get_otp)
         super.onResume()
     }
 

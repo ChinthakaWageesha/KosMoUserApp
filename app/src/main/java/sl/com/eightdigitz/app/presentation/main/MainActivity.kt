@@ -17,7 +17,7 @@ import sl.com.eightdigitz.presentation.extensions.*
 class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var navView: BottomNavigationView
-    private val mainVm by viewModel<MainViewModule>()
+    private val vm by viewModel<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -6,10 +6,21 @@ object Constant {
     const val PREF_NAME = "user_app"
 
     const val CLIENT_ID = "k4PQJsn9sjtYNw6YGQyy5WnU7JmMvYQs"
+    var SAMPLE_X_ID_TOKEN = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjhoVUNjenZpcGtuWlNOT" +
+            "2VjS0NQdCJ9.eyJuaWNrbmFtZSI6IiIsIm5hbWUiOiIiLCJwaWN0dXJlIjoiaHR0cHM6Ly9jZG4uYXV0aDAuY" +
+            "29tL2F2YXRhcnMvZGVmYXVsdC5wbmciLCJ1cGRhdGVkX2F0IjoiMjAyMS0wMi0xOVQxNzoyMTo0NC45OTZaIiw" +
+            "icGhvbmVfbnVtYmVyIjoiKzk0NzE1NzgxOTg5IiwiaXNzIjoiaHR0cHM6Ly9kZXYtYWhhbWFkLnVzLmF1dGgwL" +
+            "mNvbS8iLCJzdWIiOiJzbXN8NWZlMTk1NjNiZTAzZDI0ZGM5ZGY1MDIwIiwiYXVkIjoiazRQUUpzbjlzanRZTn" +
+            "c2WUdReXk1V25VN0ptTXZZUXMiLCJpYXQiOjE2MTM3NTUzMDUsImV4cCI6MTYxMzc5MTMwNX0.XsCu8QM-qKi" +
+            "pxtZeqfffOWctuns-JqkKIOHM2feFCcout7pWwjbEYurcfiJDQtL1qmuG3z0BQE_BSevRERulH6NSXyPiOFK2s8" +
+            "GL4fJAT-6htY8ORKcvfrnElhPJNMohlQeM_mlbTFXWrL8Jkea2692XtqnP7GHj2CYVZn1a7m035ejR2At4Vyb5s" +
+            "cq0r5pCMISGm_wE-8g8LRVXfex0Ryt1L0vvj3XUKKzAOWZ-iuaa2frFE4TnVRnWBjiqxj2UmrYchwoWIkVDI0U" +
+            "US1qL_I8O5ZUp8L-XhU7rC0n1XFiZDLDbRy6VHbxwPb4IshiW9CTV2fNbsN3Vu0mU-p6v9A"
 
     const val PREF_USER = "user_data"
     const val PREF_ACCESS_TOKEN = "access_token"
     const val PREF_ID_TOKEN = "id_token"
+    const val PREF_AUTH_REFERENCE = "auth_reference"
     const val ACTION_UNAUTH = "ACTION_UNAUTH"
     const val PREF_FCM_TOKEN = "fcm_push_token"
     const val USER_IMAGE_URL = "https://storage.googleapis.com/hello-app-cont/2021-02-16-hello-app-sms|5fe19563be03d24dc9df5020-product-image-1401286402_800x.jpg"
@@ -46,7 +57,7 @@ object RequestCodes {
 object IntentParsableConstants {
     const val EXTRA_NOTIFICATION = "extra_notification"
     const val EXTRA_NOTIFICATION_DATA = "extra_notification_data"
-    const val EXTRA_PHONE = "EXTRA_PHONE_NUMBER"
+    const val EXTRA_USER = "EXTRA_USER"
     const val COUNTRY_SELECTION = "COUNTRY_SELECTION"
     const val EXTRA_PREFERENCE = "extra_preference"
     const val EXTRA_CATEGORY_ITEM_HOME = "home_category_item"

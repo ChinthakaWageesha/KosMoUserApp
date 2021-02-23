@@ -23,26 +23,28 @@
 
             <TextView
                 android:id="@+id/tv_title_verify_otp"
-                style="@style/WhiteBoldTextStyle.Size27"
+                style="@style/WhiteBoldTextStyle.Size34"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="8dp"
-                android:fontFamily="@font/sf_pro_display_heavy"
+                android:fontFamily="@font/sf_pro_display_bold"
                 android:text="@string/title_verify_phone_number"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tv_subtitle_verify_otp"
-                style="@style/WhiteBoldTextStyle.Size19"
+                style="@style/WhiteNormalTextStyle.Size17"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="30dp"
-                android:fontFamily="@font/sf_pro_display_bold"
+                android:fontFamily="@font/sf_pro_text_regular"
                 android:text="@string/subtitle_verify_phone_number"
+                app:layout_constraintVertical_chainStyle="spread_inside"
+                app:layout_constraintBottom_toTopOf="@+id/cl_verify_phone_container"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_title_verify_otp" />
@@ -61,29 +63,44 @@
 
                 <TextView
                     android:id="@+id/tv_title_enter_code"
-                    style="@style/WhiteNormalTextStyle.Size15"
-                    android:layout_width="wrap_content"
+                    style="@style/WhiteNormalTextStyle.Size14"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
+                    android:layout_marginEnd="16dp"
                     android:text="@string/message_enter_code"
+                    android:fontFamily="@font/sf_pro_text_regular"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_timer"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+
+                <TextView
+                    android:id="@+id/tv_timer"
+                    style="@style/WhiteNormalTextStyle.Size14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="32dp"
+                    android:fontFamily="@font/sf_pro_text_regular"
+                    android:text="60:00s"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_title_enter_code"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tv_title_enter_code"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/til_verify_otp"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="12dp"
                     android:layout_marginEnd="30dp"
                     android:layout_weight="1"
                     android:background="@color/colorTransparent"
                     android:backgroundTint="@null"
                     android:theme="@style/EditTextTheme"
                     app:errorEnabled="false"
-                    app:errorIconDrawable="@drawable/ic_error"
-                    app:endIconDrawable="@drawable/ic_text_field_check"
-                    app:errorTextColor="@color/colorYellow"
                     app:hintEnabled="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/tv_title_enter_code"
@@ -100,49 +117,67 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <Button
-                    android:id="@+id/btn_verify"
-                    style="@style/TransparentButtonStyle"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_resend_code"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="30dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:text="@string/btn_verify"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/til_verify_otp" />
-
-                <TextView
-                    android:id="@+id/tv_message_not_receive_code"
-                    style="@style/WhiteNormalTextStyle.Size16"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="16dp"
-                    android:fontFamily="@font/sf_pro_display_regular"
-                    android:text="@string/message_did_not_receive_code"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="30dp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/tv_timer"
-                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintEnd_toStartOf="@+id/cl_verify"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btn_verify" />
+                    app:layout_constraintTop_toBottomOf="@+id/til_verify_otp">
 
-                <TextView
-                    android:id="@+id/tv_timer"
-                    style="@style/WhiteBoldTextStyle.Size16"
+                    <TextView
+                        android:id="@+id/tv_message_not_receive_code"
+                        style="@style/WhiteNormalTextStyle.Size12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/sf_pro_display_regular"
+                        android:text="@string/message_did_not_receive_code"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_verify"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/sf_pro_display_bold"
-                    android:text="60:00s"
-                    android:visibility="visible"
-                    app:layout_constraintBottom_toBottomOf="@+id/tv_message_not_receive_code"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginBottom="30dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/tv_message_not_receive_code"
-                    app:layout_constraintTop_toTopOf="@+id/tv_message_not_receive_code" />
+                    app:layout_constraintStart_toEndOf="@+id/cl_resend_code"
+                    app:layout_constraintTop_toBottomOf="@+id/til_verify_otp">
+
+                    <TextView
+                        android:id="@+id/tv_verify"
+                        style="@style/TextPinkAlpha30Normal.size17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="@string/btn_verify"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/ibtn_verify"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageButton
+                        android:id="@+id/ibtn_verify"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:alpha="0.3"
+                        android:background="@color/colorTransparent"
+                        android:src="@drawable/ic_next"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

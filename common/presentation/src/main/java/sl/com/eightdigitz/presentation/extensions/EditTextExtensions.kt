@@ -84,8 +84,8 @@ private fun EditText.backGroundRunTime(
                 this.context.getCompatDrawable(R.drawable.ic_text_field_check),
                 null
             )
-            this.setPadding(0,0,16,0)
-            this.setBackgroundResource(R.drawable.bg_white_corner_round_3dp)
+            this.compoundDrawablePadding = 8
+            this.setBackgroundResource(R.drawable.bg_white_corner_round_5dp)
         } else {
             this.setCompoundDrawablesWithIntrinsicBounds(
                 null,
@@ -93,8 +93,8 @@ private fun EditText.backGroundRunTime(
                 this.context.getCompatDrawable(R.drawable.ic_error),
                 null
             )
-            this.setPadding(0,0,16,0)
-            this.setBackgroundResource(R.drawable.bg_white_corner_round_3dp)
+            this.compoundDrawablePadding = 8
+            this.setBackgroundResource(R.drawable.bg_white_corner_round_5dp)
         }
     } else {
         if (errorMessage == null) {
@@ -111,7 +111,7 @@ private fun EditText.backGroundRunTime(
                 null,
                 null
             )
-            this.setBackgroundResource(R.drawable.bg_white_corner_round_3dp)
+            this.setBackgroundResource(R.drawable.bg_white_corner_round_5dp)
         }
     }
 }
@@ -123,45 +123,49 @@ fun EditText.validateWithTextWatcher(
 ): Boolean {
     this.onTextChanged {
         mTextInputLayout.error = if (validator(it)) {
-            this.setBackgroundResource(R.drawable.bg_white_corner_round_3dp)
+            this.setBackgroundResource(R.drawable.bg_white_corner_round_5dp)
             this.setCompoundDrawablesWithIntrinsicBounds(
                 null,
                 null,
                 this.context.getCompatDrawable(R.drawable.ic_text_field_check),
                 null
             )
+            this.compoundDrawablePadding = 8
             this.setTextColor(ContextCompat.getColor(this.context, R.color.colorTextBlack))
             null
         } else {
-            this.setBackgroundResource(R.drawable.bg_white_corner_round_3dp)
+            this.setBackgroundResource(R.drawable.bg_white_corner_round_5dp)
             this.setCompoundDrawablesWithIntrinsicBounds(
                 null,
                 null,
                 this.context.getCompatDrawable(R.drawable.ic_error),
                 null
             )
+            this.compoundDrawablePadding = 8
             this.setTextColor(ContextCompat.getColor(this.context, R.color.colorTextBlack))
             message
         }
     }
     mTextInputLayout.error = if (validator(this.getStringTrim())) {
-        this.setBackgroundResource(R.drawable.bg_white_corner_round_3dp)
+        this.setBackgroundResource(R.drawable.bg_white_corner_round_5dp)
         this.setCompoundDrawablesWithIntrinsicBounds(
             null,
             null,
             this.context.getCompatDrawable(R.drawable.ic_text_field_check),
             null
         )
+        this.compoundDrawablePadding = 8
         this.setTextColor(ContextCompat.getColor(this.context, R.color.colorTextBlack))
         null
     } else {
-        this.setBackgroundResource(R.drawable.bg_white_corner_round_3dp)
+        this.setBackgroundResource(R.drawable.bg_white_corner_round_5dp)
         this.setCompoundDrawablesWithIntrinsicBounds(
             null,
             null,
             this.context.getCompatDrawable(R.drawable.ic_error),
             null
         )
+        this.compoundDrawablePadding = 8
         this.setTextColor(ContextCompat.getColor(this.context, R.color.colorTextBlack))
         message
     }

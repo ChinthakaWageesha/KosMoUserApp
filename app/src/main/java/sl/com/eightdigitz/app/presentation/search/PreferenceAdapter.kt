@@ -6,10 +6,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_home_preferences.view.*
 import sl.com.eightdigitz.app.R
+import sl.com.eightdigitz.core.model.domain.DPreference
 
 class PreferenceAdapter(
-    val preferenceList: MutableList<String>,
-    val onClickPreference: (String) -> Unit
+    val preferenceList: MutableList<DPreference>,
+    val onClickPreference: (DPreference) -> Unit
 ) : RecyclerView.Adapter<PreferenceAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -29,7 +30,7 @@ class PreferenceAdapter(
         fun onBind(position: Int) {
             val preference = preferenceList[position]
 
-            itemView.btn_preference.text = preference
+            itemView.btn_preference.text = preference.name
 
             itemView.btn_preference.setOnClickListener {
                 onClickPreference(preference)

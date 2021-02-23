@@ -12,16 +12,34 @@ import sl.com.eightdigitz.presentation.setLoading
 import sl.com.eightdigitz.presentation.setSuccess
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import sl.com.eightdigitz.client.models.RegisterRequest
+import sl.com.eightdigitz.core.model.domain.DPreference
 import sl.com.eightdigitz.core.model.domain.DUser
+import sl.com.eightdigitz.network.ErrorHandler
 
 class RegistrationViewModel constructor(private val authUseCase: AuthUseCase) : ViewModel() {
 
     val liveDataSaveUser = MutableLiveData<Resource<PUser>>()
-
+    val liveDataCategories = MutableLiveData<Resource<List<DPreference>>>()
     private val compositeDisposable = CompositeDisposable()
 
-    fun createAccount(user: DUser) = compositeDisposable.add(
-        authUseCase.createAccount(user)
+
+    fun getPreferences() {
+        liveDataCategories.setLoading()
+        compositeDisposable.add(
+            authUseCase.getPreferences()
+                .subscribeOn(Schedulers.io())
+                .map { it.data }
+                .subscribe({
+                    liveDataCategories.setSuccess(it!!, null)
+                }, {
+                    liveDataCategories.setError(ErrorHandler.getApiErrorMessage(it))
+                })
+        )
+    }
+
+    fun createAccount(request: RegisterRequest) = compositeDisposable.add(
+        authUseCase.createAccount(request)
             .doOnSubscribe {
                 liveDataSaveUser.setLoading()
             }

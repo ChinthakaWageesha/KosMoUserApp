@@ -3,6 +3,8 @@ package sl.com.eightdigitz.network
 import okhttp3.*
 
 class SupportInterceptor() : Interceptor, Authenticator {
+
+    var idToken: String? = null
     private var callback: AuthenticatorCallBack? = null
 
     override fun intercept(chain: Interceptor.Chain): Response {
@@ -11,8 +13,8 @@ class SupportInterceptor() : Interceptor, Authenticator {
         request.addHeader("Content-Type", "application/json")
         request.addHeader("Accept", "application/json")
 
-        /*if (!accessToken.isNullOrBlank())
-            request.addHeader("x-access-token", accessToken!!)*/
+        if (!idToken.isNullOrBlank())
+            request.addHeader("x-id-token", idToken!!)
 
         return chain.proceed(request.build())
     }

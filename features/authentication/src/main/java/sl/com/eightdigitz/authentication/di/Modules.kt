@@ -11,6 +11,7 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.loadKoinModules
 import org.koin.core.module.Module
 import org.koin.dsl.module
+import sl.com.eightdigitz.authentication.presentation.contact.JoinContactViewModel
 
 fun injectFeature() = loadFeature
 
@@ -25,19 +26,10 @@ private val loadFeature by lazy {
     )
 }
 
-private val loadAuthAPiLayer by lazy {
-    loadKoinModules(
-        listOf(
-            useCaseModule,
-            repositoryModule,
-            dataSourceModule
-        )
-    )
-}
-
 val viewModelModule: Module = module {
     viewModel { OTPViewModel(authUseCase = get()) }
     viewModel { RegistrationViewModel(authUseCase = get()) }
+    viewModel { JoinContactViewModel(authUseCase = get()) }
 }
 
 val useCaseModule: Module = module(override = true) {
@@ -55,8 +47,11 @@ val repositoryModule: Module = module(override = true) {
 val dataSourceModule: Module = module(override = true) {
     single {
         AuthDataSourceImpl(
+            mSharedPreferences = get(),
             authApi = get(),
-            mSharedPreferences = get()
+            joinContactApi = get(),
+            multimediaApi = get(),
+            preferencesApi = get()
         ) as AuthDataSource
     }
 }

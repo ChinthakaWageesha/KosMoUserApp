@@ -31,7 +31,6 @@ class GetStarted : BaseFragment(), View.OnClickListener {
 
     override fun onViewCreated() {
         setToolbar()
-        setContent()
         btn_get_started.setOnClickListener(this)
     }
 
@@ -39,50 +38,21 @@ class GetStarted : BaseFragment(), View.OnClickListener {
         (requireActivity() as AuthActivity).supportActionBar?.setActionBar(
             context!!,
             "",
-            isHomeUpEnables = true
+            isHomeUpEnables = false
         )
-    }
-
-    private fun setContent() {
-        val span =
-            SpannableString(getString(sl.com.eightdigitz.presentation.R.string.message_get_started_description))
-
-        val clickSpan1: ClickableSpan = object : ClickableSpan() {
-            override fun onClick(textview: View) {
-                navigateToAppInfo(AppInformationType.TNC)
-            }
-        }
-
-        val clickSpan2: ClickableSpan = object : ClickableSpan() {
-            override fun onClick(textview: View) {
-                navigateToAppInfo(AppInformationType.PRIVACY_POLICY)
-            }
-        }
-
-        span.setSpan(clickSpan1, 32, 44, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
-        span.setSpan(ForegroundColorSpan(Color.WHITE), 32, 44, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-        span.setSpan(clickSpan2, 47, 61, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
-        span.setSpan(ForegroundColorSpan(Color.WHITE), 47, 61, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-
-        tv_get_started_desc.text = span
-        tv_get_started_desc.movementMethod = LinkMovementMethod.getInstance()
-    }
-
-    private fun navigateToAppInfo(title: String) {
-        tv_get_started_desc.highlightColor = Color.TRANSPARENT
-        AppInformation.startActivity(context!!, title)
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btn_get_started -> {
-                (requireActivity() as AuthActivity).setGetOTP()
+                (requireActivity() as AuthActivity).setRegister()
             }
         }
     }
 
     override fun onResume() {
-        setBackground(sl.com.eightdigitz.presentation.R.drawable.bg_gradient_get_started)
+        hideKeyboard()
+        setBackground(sl.com.eightdigitz.presentation.R.drawable.ic_sample_sanga)
         super.onResume()
     }
 

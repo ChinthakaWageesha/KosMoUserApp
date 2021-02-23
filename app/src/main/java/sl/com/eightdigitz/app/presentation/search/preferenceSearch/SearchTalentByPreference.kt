@@ -8,12 +8,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_search_talent_by_preference.*
 import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.core.base.BaseActivity
+import sl.com.eightdigitz.core.model.domain.DPreference
 import sl.com.eightdigitz.presentation.IntentParsableConstants
 import sl.com.eightdigitz.presentation.extensions.*
 
 class SearchTalentByPreference : BaseActivity(), View.OnClickListener {
 
-    private var title: String? = null
+    private var preference: DPreference? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +24,7 @@ class SearchTalentByPreference : BaseActivity(), View.OnClickListener {
 
     private fun init() {
         if (intent.hasExtra(IntentParsableConstants.EXTRA_PREFERENCE)) {
-            title = intent.getStringExtra(IntentParsableConstants.EXTRA_PREFERENCE)
+            preference = intent.getParcelableExtra(IntentParsableConstants.EXTRA_PREFERENCE)
         }
 
         setToolbar()
@@ -53,7 +54,7 @@ class SearchTalentByPreference : BaseActivity(), View.OnClickListener {
     private fun setToolbar() {
         supportActionBar?.setAppActionBar(
             this,
-            title!!,
+            preference?.name!!,
             isHomeUpEnables = true
         )
     }

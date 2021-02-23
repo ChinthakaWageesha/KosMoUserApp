@@ -5,6 +5,7 @@
     package="sl.com.eightdigitz.authentication">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <dist:module
@@ -15,12 +16,13 @@
     </dist:module>
 
     <application tools:ignore="GoogleAppIndexingWarning">
-
+        <activity android:name=".presentation.contact.SendRequest"></activity>
+        <activity android:name=".presentation.contact.ContactSupport" />
         <activity
             android:name=".presentation.AuthActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="stateHidden|adjustResize"/>
+            android:windowSoftInputMode="stateHidden|adjustResize" />
     </application>
 
 </manifest>
