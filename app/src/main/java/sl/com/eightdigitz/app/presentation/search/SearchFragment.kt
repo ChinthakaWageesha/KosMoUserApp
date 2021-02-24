@@ -14,15 +14,14 @@ import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.app.presentation.search.preferenceSearch.SearchTalentByPreference
 import sl.com.eightdigitz.app.presentation.search.recentSearch.RecentSearches
 import sl.com.eightdigitz.core.base.BaseFragment
+import sl.com.eightdigitz.core.model.domain.DDeleteSearch
 import sl.com.eightdigitz.core.model.domain.DPreference
 import sl.com.eightdigitz.core.model.domain.DUser
-import sl.com.eightdigitz.presentation.IntentParsableConstants
-import sl.com.eightdigitz.presentation.Msg
-import sl.com.eightdigitz.presentation.Resource
-import sl.com.eightdigitz.presentation.ResourceState
+import sl.com.eightdigitz.presentation.*
 import sl.com.eightdigitz.presentation.extensions.showAlert
 import sl.com.eightdigitz.presentation.extensions.showToast
 import sl.com.eightdigitz.presentation.extensions.startActivity
+import sl.com.eightdigitz.presentation.extensions.withNetwork
 
 class SearchFragment : BaseFragment(), (DPreference) -> Unit, View.OnClickListener {
 
@@ -40,13 +39,29 @@ class SearchFragment : BaseFragment(), (DPreference) -> Unit, View.OnClickListen
     }
 
     private fun init() {
-        vm.getHomeCategories()
-        vm.getRecentSearches()
+        getSearchCategories()
+        getRecentSearches()
         setPeopleYouKnowAdapter()
         setRecommendedAdapter()
         et_search_talent_home.setOnClickListener(this)
         vm.liveDataCategories.observe(this, Observer { observerGetCategories(it) })
         vm.liveDataRecentSearches.observe(this, Observer { observerGetRecentSearches(it) })
+    }
+
+    private fun getSearchCategories(){
+        activity?.withNetwork({
+            vm.getSearchCategories()
+        },{
+            showAlert(message = Msg.INTERNET_ISSUE)
+        })
+    }
+
+    private fun getRecentSearches(){
+        activity?.withNetwork({
+            vm.getRecentSearches()
+        },{
+            showAlert(message = Msg.INTERNET_ISSUE)
+        })
     }
 
     private fun setUpPreferenceAdapter(preferenceList: MutableList<DPreference>) {
@@ -62,15 +77,15 @@ class SearchFragment : BaseFragment(), (DPreference) -> Unit, View.OnClickListen
     }
 
     private fun setPeopleYouKnowAdapter() {
-        /*rv_people_you_know.adapter = SearchAdapterTalents()
+        rv_people_you_know.adapter = TempAdapter(Constant.USER_IMAGE_PAUL_WALKER)
         rv_people_you_know.layoutManager =
-            LinearLayoutManager(context!!, LinearLayoutManager.HORIZONTAL, false)*/
+            LinearLayoutManager(context!!, LinearLayoutManager.HORIZONTAL, false)
     }
 
     private fun setRecommendedAdapter() {
-        /*rv_recommended.adapter = SearchAdapterTalents()
+        rv_recommended.adapter = TempAdapter(Constant.USER_IMAGE_TOM_HARDY)
         rv_recommended.layoutManager =
-            LinearLayoutManager(context!!, LinearLayoutManager.HORIZONTAL, false)*/
+            LinearLayoutManager(context!!, LinearLayoutManager.HORIZONTAL, false)
     }
 
     private fun observerGetCategories(resource: Resource<List<DPreference>>) {
@@ -117,6 +132,14 @@ class SearchFragment : BaseFragment(), (DPreference) -> Unit, View.OnClickListen
         }
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == RequestCodes.RECENT_SEARCH_REQUEST_CODE && resultCode == ResultCodes.RECENT_SEARCH_RESULT_CODE){
+            getRecentSearches()
+        }
+        super.onActivityResult(requestCode, resultCode, data)
+
+    }
+
     override fun invoke(preference: DPreference) {
         val intent = Intent(context!!, SearchTalentByPreference::class.java)
         intent.putExtra(IntentParsableConstants.EXTRA_PREFERENCE, preference)
@@ -125,7 +148,10 @@ class SearchFragment : BaseFragment(), (DPreference) -> Unit, View.OnClickListen
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.et_search_talent_home -> context?.startActivity<RecentSearches>()
+            R.id.et_search_talent_home -> {
+                val intent = Intent(context, RecentSearches::class.java)
+                startActivityForResult(intent, RequestCodes.RECENT_SEARCH_REQUEST_CODE)
+            }
         }
     }
 }

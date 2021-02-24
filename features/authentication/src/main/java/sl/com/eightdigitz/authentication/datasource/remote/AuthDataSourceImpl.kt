@@ -70,8 +70,8 @@ class AuthDataSourceImpl constructor(
 
     override fun getUserByIDToken(idToken: String): Single<DUser> =
         authApi.getUserByIDToken(idToken).map {
-            saveUser(it.payload)
-            it.payload?.mapToDomain()
+            saveUser(it.data)
+            it.data?.mapToDomain()
         }
 
     override fun getPreferences(): Single<ListResponse<DPreference>> =

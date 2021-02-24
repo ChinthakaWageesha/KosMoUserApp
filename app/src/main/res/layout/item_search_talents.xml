@@ -22,8 +22,8 @@
 
         <ImageView
             android:id="@+id/iv_talent_pro_pic"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:scaleType="fitXY"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -37,7 +37,7 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/sf_pro_display_medium"
             android:gravity="center"
-            android:maxLines="2"
+            android:maxLines="1"
             android:ellipsize="end"
             android:textColor="#414D55"
             app:layout_constraintEnd_toEndOf="@+id/iv_talent_pro_pic"
@@ -52,7 +52,7 @@
             android:layout_marginTop="4dp"
             android:fontFamily="@font/sf_pro_display_medium"
             android:gravity="center"
-            android:maxLines="2"
+            android:maxLines="1"
             android:ellipsize="end"
             android:textColor="#414D55"
             app:layout_constraintBottom_toBottomOf="parent"

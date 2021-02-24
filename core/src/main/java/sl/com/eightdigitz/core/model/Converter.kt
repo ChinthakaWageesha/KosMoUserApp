@@ -88,6 +88,18 @@ fun UserListResponse.mapToDomain(): ListResponse<DUser> = ListResponse(
     data = data?.map { it.mapToDomain() }
 )
 
+fun DeleteSearch.mapToDomain(): DDeleteSearch = DDeleteSearch(
+    id = id,
+    createdAt = createdAt,
+    updatedAt = updatedAt,
+    deletedAt = deletedAt,
+    userID = userID,
+    searchType = searchType,
+    searchText = searchText,
+    profileOwnerID = profileOwnerID,
+    preferenceID = preferenceID
+)
+
 fun Preference.mapToDomain(): DPreference = DPreference(
     id = id,
     createdAt = createdAt,

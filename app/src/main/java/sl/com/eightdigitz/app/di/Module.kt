@@ -34,7 +34,6 @@ val viewModelModule: Module = module {
     }
     viewModel {
         SearchViewModel(
-            mSharedPreferences = get(),
             searchUseCase = get()
         )
     }
@@ -55,6 +54,7 @@ val repositoryModule: Module = module(override = true) {
 val dataSourceModule: Module = module(override = true) {
     single {
         SearchDataSourceImpl(
+            mSharedPreferences = get(),
             preferencesApi = get(),
             searchHistoryApi = get()
         ) as SearchDataSource

@@ -29,7 +29,7 @@
         android:maxLines="1"
         android:textColor="#414D55"
         app:layout_constraintBottom_toTopOf="@+id/tv_talent_field_recent_search"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/iv_clear_recent_search"
         app:layout_constraintStart_toEndOf="@+id/iv_recent_search"
         app:layout_constraintTop_toTopOf="@+id/iv_recent_search"
         app:layout_constraintVertical_chainStyle="packed" />
@@ -46,12 +46,12 @@
         android:maxLines="1"
         android:textColor="#414D55"
         app:layout_constraintBottom_toBottomOf="@+id/iv_recent_search"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/iv_clear_recent_search"
         app:layout_constraintStart_toEndOf="@+id/iv_recent_search"
         app:layout_constraintTop_toBottomOf="@+id/tv_talent_recent_search" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/iv_clear_recent_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"

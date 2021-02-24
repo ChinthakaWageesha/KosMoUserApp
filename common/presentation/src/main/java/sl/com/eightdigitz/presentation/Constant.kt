@@ -23,7 +23,10 @@ object Constant {
     const val PREF_AUTH_REFERENCE = "auth_reference"
     const val ACTION_UNAUTH = "ACTION_UNAUTH"
     const val PREF_FCM_TOKEN = "fcm_push_token"
-    const val USER_IMAGE_URL = "https://storage.googleapis.com/hello-app-cont/2021-02-16-hello-app-sms|5fe19563be03d24dc9df5020-product-image-1401286402_800x.jpg"
+    const val USER_IMAGE_AQUAMAN = "https://storage.googleapis.com/hello-app-cont/2021-02-24-hello-app-sms|6035259e3824a2f357dd0b85-aquaman.jpeg"
+    const val USER_IMAGE_PAUL_WALKER = "https://storage.googleapis.com/hello-app-cont/2021-02-24-hello-app-sms|6035259e3824a2f357dd0b85-paul-walker.jpg"
+    const val USER_IMAGE_TOM_HARDY = "https://storage.googleapis.com/hello-app-cont/2021-02-24-hello-app-sms|6035259e3824a2f357dd0b85-Tom_Hardy.jpg"
+    const val KID_IMAGE_URL = "https://storage.googleapis.com/hello-app-cont/2021-02-24-hello-app-sms|6035259e3824a2f357dd0b85-kid.jfif"
     const val MOVIE_IMAGE_URL = "https://storage.googleapis.com/hello-app-cont/2021-02-18-hello-app-sms|5fe19563be03d24dc9df5020-download.jfif"
     const val MOVIE_IMAGE_URL_1 = "https://storage.googleapis.com/hello-app-cont/2021-02-18-hello-app-sms|5fe19563be03d24dc9df5020-download (1).jfif"
     const val POSTER_IMAGE_URL = "https://storage.googleapis.com/hello-app-cont/2021-02-19-hello-app-sms|5fe19563be03d24dc9df5020-poster.jpg"
@@ -34,6 +37,10 @@ object LanguageType {
     const val SINHALA = "si"
     const val TAMIL = "ta"
     const val HINDI = "hi"
+}
+
+object SearchType {
+    const val PROFILE_SEARCH = "profile-view"
 }
 
 object AppInformationType{
@@ -52,6 +59,11 @@ object ApiResponseCodes {
 
 object RequestCodes {
     const val COUNTRY_CODE_REQUEST = 1001
+    const val RECENT_SEARCH_REQUEST_CODE = 1002
+}
+
+object ResultCodes {
+    const val RECENT_SEARCH_RESULT_CODE = 2002
 }
 
 object IntentParsableConstants {

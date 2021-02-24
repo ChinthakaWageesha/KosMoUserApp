@@ -4,16 +4,24 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_search_talent_by_preference.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.app.R
+import sl.com.eightdigitz.app.presentation.search.SearchViewModel
 import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.core.model.domain.DPreference
+import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.presentation.IntentParsableConstants
+import sl.com.eightdigitz.presentation.Msg
+import sl.com.eightdigitz.presentation.Resource
+import sl.com.eightdigitz.presentation.ResourceState
 import sl.com.eightdigitz.presentation.extensions.*
 
 class SearchTalentByPreference : BaseActivity(), View.OnClickListener {
 
+    private val vm by viewModel<SearchViewModel>()
     private var preference: DPreference? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,15 +36,16 @@ class SearchTalentByPreference : BaseActivity(), View.OnClickListener {
         }
 
         setToolbar()
-        setAdapter()
+        getTalentsByPreference()
+
         et_search_talent_by_preference.clearFocus()
-        et_search_talent_by_preference.addTextChangedListener(object : TextWatcher{
+        et_search_talent_by_preference.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
             }
 
             override fun onTextChanged(sequence: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if (sequence!!.isNotEmpty()){
+                if (sequence!!.isNotEmpty()) {
                     tv_cancel.makeVisible()
                 } else {
                     tv_cancel.makeGone()
@@ -48,6 +57,7 @@ class SearchTalentByPreference : BaseActivity(), View.OnClickListener {
             }
 
         })
+        vm.liveDataTalentByPreferences.observe(this, Observer { observerTalentsByPreference(it) })
         tv_cancel.setOnClickListener(this)
     }
 
@@ -59,19 +69,43 @@ class SearchTalentByPreference : BaseActivity(), View.OnClickListener {
         )
     }
 
-    private fun setAdapter() {
-        rv_search_talent_preference.adapter = SearchTalentByPreferenceAdapter()
+    private fun getTalentsByPreference() {
+        withNetwork({
+            vm.getTalentsByPreference(preference?.id!!)
+        }, {
+            showAlert(message = Msg.INTERNET_ISSUE)
+        })
+    }
+
+    private fun observerTalentsByPreference(resource: Resource<List<DUser>>) {
+        resource.let {
+            when (it.state) {
+                ResourceState.LOADING -> showProgress()
+                ResourceState.SUCCESS -> {
+                    hideProgress()
+                    setAdapter(it.data!!.toMutableList())
+                }
+                ResourceState.ERROR -> {
+                    hideProgress()
+                    showAlert(Msg.TITLE_ERROR, it.message.toString())
+                }
+            }
+        }
+    }
+
+    private fun setAdapter(talentList: MutableList<DUser>) {
+        rv_search_talent_preference.adapter = SearchTalentByPreferenceAdapter(talentList)
         rv_search_talent_preference.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
+        goBack()
         return super.onSupportNavigateUp()
     }
 
     override fun onClick(v: View?) {
-        when(v?.id){
+        when (v?.id) {
             R.id.tv_cancel -> et_search_talent_by_preference.clearText()
         }
     }

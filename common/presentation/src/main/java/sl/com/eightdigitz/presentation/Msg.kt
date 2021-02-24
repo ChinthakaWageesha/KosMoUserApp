@@ -9,7 +9,7 @@ object Msg {
     const val TITLE_REQUIRED = "Required"
 
     const val INTERNAL_ISSUE = "Got internal issues."
-    const val INTERNET_ISSUE = "Sorry, Seems your internet connection is not available. Let's try it again."
+    const val INTERNET_ISSUE = "Sorry, Seems your internet connection is not available. Check & try again."
     const val ERROR_COMMON = "Oops, something went wrong. Let\'s try it again."
     const val INVALID_EMAIL = "Please enter valid email."
 

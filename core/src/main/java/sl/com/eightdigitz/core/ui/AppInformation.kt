@@ -35,7 +35,7 @@ class AppInformation : BaseActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
        when(v?.id){
            R.id.iv_back_app_info -> {
-               onBackPressed()
+               goBack()
            }
        }
     }

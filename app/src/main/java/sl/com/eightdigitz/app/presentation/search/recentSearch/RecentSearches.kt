@@ -4,17 +4,21 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_recent_searches.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.app.R
+import sl.com.eightdigitz.app.presentation.search.SearchViewModel
 import sl.com.eightdigitz.core.base.BaseActivity
-import sl.com.eightdigitz.presentation.extensions.clearText
-import sl.com.eightdigitz.presentation.extensions.hideKeyboard
-import sl.com.eightdigitz.presentation.extensions.makeGone
-import sl.com.eightdigitz.presentation.extensions.makeVisible
+import sl.com.eightdigitz.core.model.domain.DDeleteSearch
+import sl.com.eightdigitz.core.model.domain.DUser
+import sl.com.eightdigitz.presentation.*
+import sl.com.eightdigitz.presentation.extensions.*
 
-class RecentSearches : BaseActivity(), View.OnClickListener {
+class RecentSearches : BaseActivity(), View.OnClickListener, (DUser) -> Unit {
 
+    private val vm by viewModel<SearchViewModel>()
     private var searchKey = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,12 +43,69 @@ class RecentSearches : BaseActivity(), View.OnClickListener {
             }
 
         })
-        setAdapter()
+
+        vm.liveDataRemoveRecent.observe(this, Observer { observerRemoveRecentSearch(it) })
+        vm.liveDataRecentSearches.observe(this, Observer { observerGetRecentSearches(it) })
+        getRecentSearches()
         tv_cancel_recent_searches.setOnClickListener(this)
     }
 
-    private fun setAdapter() {
-        rv_recent_talent_searches.adapter = RecentSearchAdapter()
+    private fun getRecentSearches() {
+        withNetwork({
+            vm.getRecentSearches()
+        }, {
+            showAlert(message = Msg.INTERNET_ISSUE)
+        })
+    }
+
+    private fun removeRecentSearchProfile(ownerId: String, searchType: String) {
+        withNetwork({
+            vm.removeRecentlyViewedProfile(ownerId, searchType)
+        }, {
+            showAlert(message = Msg.INTERNET_ISSUE)
+        })
+    }
+
+
+    private fun observerGetRecentSearches(resource: Resource<List<DUser>>) {
+        resource.let {
+            when (it.state) {
+                ResourceState.LOADING -> showProgress()
+                ResourceState.SUCCESS -> {
+                    hideProgress()
+                    if (it.data?.size!! > 0) {
+                        setAdapter(it.data!!.toMutableList())
+                    } else {
+                        "No recent searches".showToast(this)
+                    }
+                }
+                ResourceState.ERROR -> {
+                    hideProgress()
+                    showAlert(title = Msg.TITLE_ERROR, message = it.message!!)
+                }
+            }
+        }
+    }
+
+    private fun observerRemoveRecentSearch(resource: Resource<DDeleteSearch>) {
+        resource.let {
+            when (it.state) {
+                ResourceState.LOADING -> showProgress()
+                ResourceState.SUCCESS -> {
+                    hideProgress()
+                    setResult(ResultCodes.RECENT_SEARCH_RESULT_CODE)
+                    getRecentSearches()
+                }
+                ResourceState.ERROR -> {
+                    hideProgress()
+                    showAlert(Msg.TITLE_ERROR, it.message.toString())
+                }
+            }
+        }
+    }
+
+    private fun setAdapter(recentVisitedProfileList: MutableList<DUser>) {
+        rv_recent_talent_searches.adapter = RecentSearchAdapter(recentVisitedProfileList, this)
         rv_recent_talent_searches.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
     }
@@ -60,10 +121,13 @@ class RecentSearches : BaseActivity(), View.OnClickListener {
                 if (searchKey.isNotEmpty()) {
                     et_recent_searches.clearText()
                 } else {
-                    hideKeyboard()
-                    onBackPressed()
+                    goBack()
                 }
             }
         }
+    }
+
+    override fun invoke(talent: DUser) {
+        removeRecentSearchProfile(talent.id!!, SearchType.PROFILE_SEARCH)
     }
 }

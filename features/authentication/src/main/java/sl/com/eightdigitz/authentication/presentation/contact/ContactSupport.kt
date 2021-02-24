@@ -196,8 +196,7 @@ class ContactSupport : BaseActivity(), View.OnClickListener {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        hideKeyboard()
-        onBackPressed()
+        goBack()
         return super.onSupportNavigateUp()
     }
 

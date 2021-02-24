@@ -32,13 +32,12 @@ interface AuthApi {
         @retrofit2.http.Field("username") phoneNumber: String,
         @retrofit2.http.Field("otp") otp: String,
         @retrofit2.http.Field("realm") realm: String
-    ) : Single<OTPTokenResponse>
+    ): Single<OTPTokenResponse>
 
     @GET("user/get-user-by-id-token")
     fun getUserByIDToken(
         @retrofit2.http.Header("x-id-token") idToken: String
-    ) : Single<UserByRefTokenResponse>
-
+    ): Single<UserResponse>
 
     @Headers(
         "Content-Type: application/x-www-form-urlencoded"
@@ -47,7 +46,7 @@ interface AuthApi {
     fun authPostRegister(
         @retrofit2.http.Header("x-id-token") idToken: String,
         @retrofit2.http.Body registerRequest: RegisterRequest
-    ): Single<RegisterResponse>
+    ): Single<UserResponse>
 
 
 }

@@ -100,6 +100,11 @@ abstract class BaseActivity : AppCompatActivity() {
         )
     }
 
+    fun goBack(){
+        hideKeyboard()
+        onBackPressed()
+    }
+
     fun showKeyboard(editText: EditText) {
         val imgr: InputMethodManager =
             getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager

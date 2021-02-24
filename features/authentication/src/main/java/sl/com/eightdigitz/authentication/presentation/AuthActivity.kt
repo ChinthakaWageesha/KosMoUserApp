@@ -90,6 +90,7 @@ class AuthActivity : BaseActivity() {
         if (supportFragmentManager.currentFragment(R.id.fl_auth) is ChooseLanguage){
             finishAffinity()
         } else {
+            goBack()
             super.onBackPressed()
         }
     }
