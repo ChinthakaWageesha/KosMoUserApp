@@ -112,5 +112,38 @@
     <string name="title_most_popular">Most Popular</string>
     <string name="message_see_all">See All</string>
 
+    <!--Profile View-->
+    <string name="btn_request_now">Request Now</string>
 
+    <!--Order Details-->
+    <string name="title_order_details">Order Details</string>
+    <string name="title_video_for">Who is this video for?</string>
+    <string name="title_video_to">Video To</string>
+    <string name="title_how_should_address">How should we address</string>
+
+    <!--Instructions-->
+    <string name="title_instructions">Instructions</string>
+    <string name="subtitle_instructions">Type your instructions for the video request</string>
+
+    <!--Payment Checkout-->
+    <string name="title_checkout">Check Out</string>
+    <string name="title_payment_summary">Your Payment Summary</string>
+    <string name="title_subtotal">Subtotal</string>
+    <string name="title_services">Service &amp; Tax</string>
+    <string name="title_promo_code">Promo Code Applied</string>
+    <string name="title_total">Total</string>
+    <string name="title_add_promo_code">Add Promo Code</string>
+    <string name="hint_promo_code">Promo code here</string>
+    <string name="message_payment_checkout">Your card will not be charged until the order is complete.</string>
+
+    <!--Confirm Order-->
+    <string name="title_confirm_order">Confirm Order</string>
+    <string name="title_card_number">Card Number</string>
+    <string name="title_expiry_date">Expiry Data</string>
+    <string name="hint_card_expiry_date">MM-YYYY</string>
+    <string name="title_cvv">CVV</string>
+    <string name="hint_cvv">123</string>
+    <string name="title_name_on_card">Name on Card</string>
+    <string name="message_confirm_order_description">By booking, you agree to Hello’s Terms of Service, including Additional Terms and Privacy Policy.</string>
+    <string name="btn_place_order">Place Order</string>
 </resources>

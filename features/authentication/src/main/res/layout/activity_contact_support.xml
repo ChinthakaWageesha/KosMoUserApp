@@ -221,7 +221,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:gravity="start"
-                    android:inputType="textCapWords" />
+                    android:inputType="textCapSentences|textMultiLine" />
 
             </com.google.android.material.textfield.TextInputLayout>
 

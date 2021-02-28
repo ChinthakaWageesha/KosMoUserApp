@@ -1,13 +1,16 @@
 package sl.com.eightdigitz.app.presentation.search.preferenceSearch
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_search_talent_by_preference.view.*
 import sl.com.eightdigitz.app.R
+import sl.com.eightdigitz.app.presentation.search.viewProfile.ViewProfile
 import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.presentation.Constant
+import sl.com.eightdigitz.presentation.IntentParsableConstants
 import sl.com.eightdigitz.presentation.extensions.setRoundedImage
 
 class SearchTalentByPreferenceAdapter(
@@ -47,6 +50,11 @@ class SearchTalentByPreferenceAdapter(
             itemView.tv_talent_name_search_preference.text = talent.fullName
             itemView.tv_talent_field_search_preference.text = talent.role
 
+            itemView.setOnClickListener {
+                val intent = Intent(it.context, ViewProfile::class.java)
+                intent.putExtra(IntentParsableConstants.EXTRA_USER, talent)
+                it.context.startActivity(intent)
+            }
         }
 
     }
