@@ -18,10 +18,7 @@ import sl.com.eightdigitz.core.model.domain.DDeleteSearch
 import sl.com.eightdigitz.core.model.domain.DPreference
 import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.presentation.*
-import sl.com.eightdigitz.presentation.extensions.showAlert
-import sl.com.eightdigitz.presentation.extensions.showToast
-import sl.com.eightdigitz.presentation.extensions.startActivity
-import sl.com.eightdigitz.presentation.extensions.withNetwork
+import sl.com.eightdigitz.presentation.extensions.*
 
 class SearchFragment : BaseFragment(), (DPreference) -> Unit, View.OnClickListener {
 
@@ -48,18 +45,18 @@ class SearchFragment : BaseFragment(), (DPreference) -> Unit, View.OnClickListen
         vm.liveDataRecentSearches.observe(this, Observer { observerGetRecentSearches(it) })
     }
 
-    private fun getSearchCategories(){
+    private fun getSearchCategories() {
         activity?.withNetwork({
             vm.getSearchCategories()
-        },{
+        }, {
             showAlert(message = Msg.INTERNET_ISSUE)
         })
     }
 
-    private fun getRecentSearches(){
+    private fun getRecentSearches() {
         activity?.withNetwork({
             vm.getRecentSearches()
-        },{
+        }, {
             showAlert(message = Msg.INTERNET_ISSUE)
         })
     }
@@ -104,17 +101,13 @@ class SearchFragment : BaseFragment(), (DPreference) -> Unit, View.OnClickListen
         }
     }
 
-    private fun observerGetRecentSearches(resource: Resource<List<DUser>>){
+    private fun observerGetRecentSearches(resource: Resource<List<DUser>>) {
         resource.let {
-            when(it.state){
+            when (it.state) {
                 ResourceState.LOADING -> showProgress()
                 ResourceState.SUCCESS -> {
                     hideProgress()
-                    if (it.data?.size!! > 0){
-                        setRecentSearchAdapter(it.data!!.toMutableList())
-                    } else {
-                        "No recent searches".showToast(context!!)
-                    }
+                    rv_recent_searches.setEmptyView(tv_no_data_recent_searches, it.data!!.size)
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
@@ -133,7 +126,7 @@ class SearchFragment : BaseFragment(), (DPreference) -> Unit, View.OnClickListen
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == RequestCodes.RECENT_SEARCH_REQUEST_CODE && resultCode == ResultCodes.RECENT_SEARCH_RESULT_CODE){
+        if (requestCode == RequestCodes.RECENT_SEARCH_REQUEST_CODE && resultCode == ResultCodes.RECENT_SEARCH_RESULT_CODE) {
             getRecentSearches()
         }
         super.onActivityResult(requestCode, resultCode, data)
