@@ -23,7 +23,7 @@ data class User(
     @Json(name = "ProfilePicture") @field:Json(name = "ProfilePicture") var profilePicture: String? = null,
     @Json(name = "ProfileVideo") @field:Json(name = "ProfileVideo") var profileVideo: String? = null,
     @Json(name = "ProfileBanner") @field:Json(name = "ProfileBanner") var profileBanner: String? = null,
-    @Json(name = "Preferences") @field:Json(name = "Preferences") var preferences: List<Preference>? = null,
+    @Json(name = "Preferences") @field:Json(name = "Preferences") var preferences: List<UserPreference>? = null,
     @Json(name = "Auth0Ref") @field:Json(name = "Auth0Ref") var authReference: String? = null,
     @Json(name = "Verified") @field:Json(name = "Verified") var verified: Boolean? = null,
     @Json(name = "ProfileBiography") @field:Json(name = "ProfileBiography") var profileBiography: String? = null,

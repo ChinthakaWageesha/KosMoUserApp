@@ -11,21 +11,19 @@ import kotlinx.android.synthetic.main.fragment_register_user.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.authentication.R
 import sl.com.eightdigitz.authentication.presentation.AuthActivity
+import sl.com.eightdigitz.client.models.AddUserPreferenceRequest
 import sl.com.eightdigitz.client.models.Preference
-import sl.com.eightdigitz.client.models.RegisterRequest
 import sl.com.eightdigitz.core.base.BaseFragment
 import sl.com.eightdigitz.core.model.domain.DPreference
-import sl.com.eightdigitz.core.model.domain.DUser
-import sl.com.eightdigitz.core.model.mapToApiModel
-import sl.com.eightdigitz.core.model.presentation.PUser
+import sl.com.eightdigitz.core.model.domain.DUserPreference
 import sl.com.eightdigitz.presentation.*
 import sl.com.eightdigitz.presentation.extensions.*
 
 class PostRegister : BaseFragment(), View.OnClickListener, (Preference, Boolean) -> Unit {
 
     private val viewModel by viewModel<RegistrationViewModel>()
-    private var selectedPreferenceList: ArrayList<Preference>? = null
-    private var dUser: DUser? = null
+   // private var selectedPreferenceList: ArrayList<Preference>? = null
+    private var preferenceId: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,13 +48,13 @@ class PostRegister : BaseFragment(), View.OnClickListener, (Preference, Boolean)
 
     @SuppressLint("SetTextI18n")
     private fun init() {
-        selectedPreferenceList = arrayListOf()
-        dUser = arguments?.getParcelable(IntentParsableConstants.EXTRA_USER)
-        iv_post_register.loadImage((requireActivity() as AuthActivity).avatarUrl)
-        tv_post_register_name.text = dUser?.fullName
+       // selectedPreferenceList = arrayListOf()
         viewModel.getPreferences()
-        viewModel.liveDataSaveUser.observe(this, Observer { observerSaveUser(it) })
+        iv_post_register.loadImage((requireActivity() as AuthActivity).avatarUrl)
+        tv_post_register_name.text = (requireActivity() as AuthActivity).fullName
+
         viewModel.liveDataCategories.observe(this, Observer { observerGetPreferences(it) })
+        viewModel.liveDataPreference.observe(this, Observer { observerSetPreferences(it)})
         btn_lets_do_it.setOnClickListener(this)
     }
 
@@ -76,55 +74,51 @@ class PostRegister : BaseFragment(), View.OnClickListener, (Preference, Boolean)
         }
     }
 
+    private fun observerSetPreferences(resource: Resource<DUserPreference>){
+        resource.let {
+            when(it.state){
+                ResourceState.LOADING -> showProgress()
+                ResourceState.SUCCESS -> {
+                    hideProgress()
+                    navigateToMain()
+                }
+                ResourceState.ERROR -> {
+                    hideProgress()
+                    showConfirm(
+                        title = Msg.TITLE_ALERT,
+                        message = "Sorry, Error occurred!, but you can still set preferences in your profile ",
+                        positiveText = "Navigate",
+                        negativeText = "Cancel",
+                        callback = object : Callback {
+                            override fun onPositiveClicked() {
+                                navigateToMain()
+                            }
+
+                            override fun onNegativeClicked() {
+
+                            }
+                        }
+                    )
+                }
+            }
+        }
+    }
+
     private fun setUpPreferenceAdapter(preferenceList: MutableList<DPreference>) {
         rv_preferences.adapter = PreferenceAdapter(preferenceList, this)
         rv_preferences.layoutManager = GridLayoutManager(context!!, 3)
     }
 
-    @SuppressLint("MissingPermission")
-    private fun createAccount() {
-
-        val registerRequest = RegisterRequest()
-        registerRequest.mobileNo = dUser?.mobileNo
-        registerRequest.fullName = dUser?.fullName
-        registerRequest.defaultLanguage = dUser?.defaultLanguage
-        registerRequest.email = dUser?.email
-        registerRequest.role = "user"
-        registerRequest.profilePicture = dUser?.profilePicture
-        registerRequest.profileDescription = dUser?.profileDescription
-
-        if (!selectedPreferenceList.isNullOrEmpty()) {
-            registerRequest.preferences = selectedPreferenceList
-        }
-
-        activity?.withNetwork({
-            viewModel.createAccount(registerRequest)
-        }, {
-            Msg.INTERNET_ISSUE.showToast(context!!)
-        })
+    private fun navigateToMain(){
+        (requireActivity() as AuthActivity).authSuccess()
     }
 
-    private fun observerSaveUser(resource: Resource<PUser>) {
-        resource.let {
-            when (it.state) {
-                ResourceState.LOADING -> {
-                    showProgress()
-                }
-                ResourceState.SUCCESS -> {
-                    hideProgress()
-                    if (!it.data?.authReference.isNullOrEmpty()) {
-                        (requireActivity() as AuthActivity).authSuccess()
-                    } else {
-                        Msg.ERROR_COMMON.showToast(context!!)
-                    }
-                }
-                ResourceState.ERROR -> {
-                    hideProgress()
-                    showAlert(Msg.TITLE_ERROR, it.message.toString())
-                }
-            }
-        }
+    private fun setPreferences(){
+        val request = AddUserPreferenceRequest()
+        request.preferenceID = preferenceId
+        viewModel.addUserPreferences(request)
     }
+
 
     override fun onResume() {
         setBackground(sl.com.eightdigitz.presentation.R.drawable.bg_get_otp)
@@ -139,7 +133,7 @@ class PostRegister : BaseFragment(), View.OnClickListener, (Preference, Boolean)
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             sl.com.eightdigitz.presentation.R.id.skip -> {
-                createAccount()
+                navigateToMain()
             }
         }
         return super.onOptionsItemSelected(item)
@@ -149,7 +143,11 @@ class PostRegister : BaseFragment(), View.OnClickListener, (Preference, Boolean)
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btn_lets_do_it -> {
-                createAccount()
+                if (!preferenceId.isNullOrEmpty()){
+                    setPreferences()
+                } else {
+                    navigateToMain()
+                }
             }
         }
     }
@@ -157,20 +155,21 @@ class PostRegister : BaseFragment(), View.OnClickListener, (Preference, Boolean)
     companion object {
         const val TAG = "post_register"
 
-        fun newInstance(user: DUser): Fragment {
-            val bundle = Bundle()
-            val fragment = PostRegister()
-            bundle.putParcelable(IntentParsableConstants.EXTRA_USER, user)
-            fragment.arguments = bundle
-            return fragment
+        fun newInstance(): Fragment {
+            return PostRegister()
         }
     }
 
     override fun invoke(preference: Preference, isChecked: Boolean) {
-        if (isChecked) {
+        preferenceId = if (isChecked){
+            preference.id
+        } else {
+            null
+        }
+        /*if (isChecked) {
             selectedPreferenceList?.add(preference)
         } else {
             selectedPreferenceList?.remove(preference)
-        }
+        }*/
     }
 }

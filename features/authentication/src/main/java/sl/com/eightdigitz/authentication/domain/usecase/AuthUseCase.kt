@@ -4,10 +4,12 @@ import sl.com.eightdigitz.authentication.domain.repository.AuthRepository
 import sl.com.eightdigitz.core.model.domain.DUser
 import io.reactivex.Single
 import okhttp3.MultipartBody
+import sl.com.eightdigitz.client.models.AddUserPreferenceRequest
 import sl.com.eightdigitz.client.models.ContactUsRequest
 import sl.com.eightdigitz.client.models.JoinUsRequest
 import sl.com.eightdigitz.client.models.RegisterRequest
 import sl.com.eightdigitz.core.model.domain.DOTP
+import sl.com.eightdigitz.core.model.domain.DUserPreference
 
 class AuthUseCase constructor(private val authRepository: AuthRepository) {
 
@@ -28,4 +30,7 @@ class AuthUseCase constructor(private val authRepository: AuthRepository) {
 
     fun createAccount(request: RegisterRequest): Single<DUser> =
         authRepository.createAccount(request)
+
+    fun addUserPreference(request: AddUserPreferenceRequest): Single<DUserPreference> =
+        authRepository.addUserPreference(request)
 }

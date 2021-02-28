@@ -23,6 +23,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.authentication.R
 import sl.com.eightdigitz.authentication.presentation.AuthActivity
 import sl.com.eightdigitz.authentication.presentation.contact.JoinContactViewModel
+import sl.com.eightdigitz.client.models.RegisterRequest
 import sl.com.eightdigitz.core.base.BaseFragment
 import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.core.model.presentation.PUser
@@ -38,9 +39,10 @@ import java.util.*
 
 class RegisterUser : BaseFragment(), View.OnClickListener {
 
+    private val vmAvatar by viewModel<JoinContactViewModel>()
+    private val vmRegister by viewModel<RegistrationViewModel>()
     private var calender = Calendar.getInstance()
     private lateinit var ccpPicker: CountryCodePicker
-    private val vmAvatar by viewModel<JoinContactViewModel>()
     private val arrayOptions: Array<CharSequence> = arrayOf("Take photo", "Choose from gallery")
     private var file: File? = null
     private var dobFormat: String? = null
@@ -68,6 +70,7 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
 
     private fun init() {
         vmAvatar.liveDataContactImage.observe(this, Observer { observerUploadAvatar(it) })
+        vmRegister.liveDataSaveUser.observe(this, Observer { observerSaveUser(it) })
         ccpPicker = CountryCodePicker(context)
         ccpPicker.setAutoDetectedCountry(true)
         ccpPicker.setDefaultCountryUsingNameCode("lk")
@@ -107,37 +110,26 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
             .start(this, RequestCodes.COUNTRY_CODE_REQUEST)
     }
 
-    private fun getResId(drawableName: String): Int {
-
-        try {
-            val res = sl.com.eightdigitz.country_picker.R.drawable::class.java
-            val field = res.getField(drawableName)
-            return field.getInt(null)
-        } catch (e: Exception) {
-            Log.e("CountryCodePicker", "Failure to get drawable id.", e)
-        }
-
-        return -1
-    }
-
     @SuppressLint("MissingPermission")
     private fun onContinue() {
         if (validateForm() && validateProPic()) {
-            val dUser = DUser(
-                fullName = et_name_sign_up.getStringTrim(),
-                email = et_sign_up_email.getStringTrim(),
-                mobileNo = (requireActivity() as AuthActivity).mobileNumber0,
-                //dob = et_birthday.getStringTrim(),
-                defaultLanguage = (requireActivity() as AuthActivity).language,
-                role = "User",
-                profilePicture = (requireActivity() as AuthActivity).avatarUrl
-            )
+            val registerRequest = RegisterRequest()
+            registerRequest.mobileNo = (requireActivity() as AuthActivity).mobileNumber0
+            registerRequest.fullName = et_name_sign_up.getStringTrim()
+            registerRequest.email = et_sign_up_email.getStringTrim()
+            registerRequest.defaultLanguage = (requireActivity() as AuthActivity).language
+            registerRequest.role = "user"
+            registerRequest.profilePicture = (requireActivity() as AuthActivity).avatarUrl
+
             if (et_sign_up_description.getStringTrim().isNotEmpty()) {
-                dUser.profileDescription = et_sign_up_description.getStringTrim()
+                registerRequest.profileDescription = et_sign_up_description.getStringTrim()
             }
 
-            hideKeyboard()
-            (requireActivity() as AuthActivity).setPostRegister(dUser)
+            activity?.withNetwork({
+                vmRegister.createAccount(registerRequest)
+            }, {
+                showAlert(message = Msg.INTERNET_ISSUE)
+            })
         }
     }
 
@@ -175,6 +167,30 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
         return true
     }
 
+
+    private fun observerSaveUser(resource: Resource<PUser>) {
+        resource.let {
+            when (it.state) {
+                ResourceState.LOADING -> {
+                    showProgress()
+                }
+                ResourceState.SUCCESS -> {
+                    hideProgress()
+                    if (!it.data?.authReference.isNullOrEmpty() && !it.data?.fullName.isNullOrEmpty()) {
+                        (requireActivity() as AuthActivity).fullName = it.data?.fullName
+                        (requireActivity() as AuthActivity).setPostRegister()
+                    } else {
+                        Msg.ERROR_COMMON.showToast(context!!)
+                    }
+                }
+                ResourceState.ERROR -> {
+                    hideProgress()
+                    showAlert(Msg.TITLE_ERROR, it.message.toString())
+                }
+            }
+        }
+    }
+
     private fun observerUploadAvatar(resource: Resource<String>) {
         resource.let {
             when (it.state) {
@@ -193,8 +209,6 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
             }
         }
     }
-
-
 
     private fun setDatePicker() {
         val date =
@@ -235,15 +249,14 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
                 when (which) {
                     0 -> {
                         ImagePicker.with(this@RegisterUser)
-                            .provider(ImageProvider.CAMERA) // Default will be ImageProvider.BOTH
-                            //.compress(1024)           //   Final image size will be less than 100KB (Optional)
+                            .provider(ImageProvider.CAMERA)
                             .compress(100)
                             .start(requestCode)
                     }
                     1 -> {
                         ImagePicker.with(this@RegisterUser)
-                            .galleryOnly() // User can only select image from Gallery(Optional)
-                            .compress(100) //   Final image size will be less than 100KB (Optional)
+                            .galleryOnly()
+                            .compress(100)
                             .start(requestCode)
                     }
                 }
@@ -289,7 +302,6 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
         setBackground(sl.com.eightdigitz.presentation.R.drawable.bg_get_otp)
         super.onResume()
     }
-
 
     companion object {
         const val TAG = "register_user"

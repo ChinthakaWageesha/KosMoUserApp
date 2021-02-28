@@ -2,6 +2,7 @@ package sl.com.eightdigitz.authentication.domain.repository
 
 import io.reactivex.Single
 import okhttp3.MultipartBody
+import sl.com.eightdigitz.client.models.AddUserPreferenceRequest
 import sl.com.eightdigitz.client.models.ContactUsRequest
 import sl.com.eightdigitz.client.models.JoinUsRequest
 import sl.com.eightdigitz.client.models.RegisterRequest
@@ -25,4 +26,6 @@ interface AuthRepository {
     fun getPreferences(): Single<ListResponse<DPreference>>
 
     fun createAccount(registerRequest: RegisterRequest): Single<DUser>
+
+    fun addUserPreference(addUserPreferenceRequest: AddUserPreferenceRequest): Single<DUserPreference>
 }

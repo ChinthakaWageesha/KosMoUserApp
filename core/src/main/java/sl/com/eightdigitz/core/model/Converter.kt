@@ -100,6 +100,28 @@ fun DeleteSearch.mapToDomain(): DDeleteSearch = DDeleteSearch(
     preferenceID = preferenceID
 )
 
+fun UserPreference.mapToDomain(): DUserPreference = DUserPreference(
+    id = id,
+    createdAt = createdAt,
+    updatedAt = updatedAt,
+    deletedAt = deletedAt,
+    userAuthRef = userAuthRef,
+    user = user?.mapToDomain(),
+    preferenceID = preferenceID,
+    preference = preference?.mapToDomain()
+)
+
+fun DUserPreference.mapToPresentation(): PUserPreference = PUserPreference(
+    id = id,
+    createdAt = createdAt,
+    updatedAt = updatedAt,
+    deletedAt = deletedAt,
+    userAuthRef = userAuthRef,
+    user = user?.mapToPresentation(),
+    preferenceID = preferenceID,
+    preference = preference?.mapToPresentation()
+)
+
 fun Preference.mapToDomain(): DPreference = DPreference(
     id = id,
     createdAt = createdAt,

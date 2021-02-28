@@ -4,6 +4,7 @@ import sl.com.eightdigitz.authentication.data.datasource.AuthDataSource
 import sl.com.eightdigitz.authentication.domain.repository.AuthRepository
 import io.reactivex.Single
 import okhttp3.MultipartBody
+import sl.com.eightdigitz.client.models.AddUserPreferenceRequest
 import sl.com.eightdigitz.client.models.ContactUsRequest
 import sl.com.eightdigitz.client.models.JoinUsRequest
 import sl.com.eightdigitz.client.models.RegisterRequest
@@ -37,5 +38,8 @@ class AuthRepositoryImpl constructor(
 
     override fun createAccount(registerRequest: RegisterRequest): Single<DUser> =
         authDataSource.createAccount(registerRequest)
+
+    override fun addUserPreference(addUserPreferenceRequest: AddUserPreferenceRequest): Single<DUserPreference> =
+        authDataSource.addUserPreference(addUserPreferenceRequest)
 
 }

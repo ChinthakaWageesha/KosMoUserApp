@@ -87,7 +87,7 @@ class SendRequest : BaseActivity(), View.OnClickListener {
             et_email_send_request.validateOnTextChange(isCheckValidateIcon = true) { s -> s.isValidEmail() }
 
         val isPhone =
-            et_phone_number_send_request.validateOnTextChange(isCheckValidateIcon = true) { s -> s.isValidPhone() }
+            et_phone_number_send_request.validateOnTextChange(isCheckValidateIcon = true) { s -> s.isValidMobile() }
 
         val isSocialMediaPlatform =
             et_social_media_platform.validateOnTextChange(isCheckValidateIcon = true) { s -> s.length > 2 }

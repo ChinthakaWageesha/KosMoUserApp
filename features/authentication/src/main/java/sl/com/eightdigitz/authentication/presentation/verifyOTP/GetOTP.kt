@@ -82,10 +82,7 @@ class GetOTP : BaseFragment(), View.OnClickListener {
                 cl_get_otp_button_container.makeVisible()
 
 
-                if (text?.length!! > 10){
-                    makeNextEnable()
-                }
-                /*if (text?.length!! > 10) {
+                if (text?.length!! > 10) {
                     et_mobile.validateOnTextChange(isCheckValidateIcon = true) { s -> ccpPicker.isValidFullNumber }
                 }
 
@@ -93,7 +90,7 @@ class GetOTP : BaseFragment(), View.OnClickListener {
                     makeNextEnable()
                 } else {
                     makeNextDisable()
-                }*/
+                }
             }
 
             override fun afterTextChanged(p0: Editable?) {

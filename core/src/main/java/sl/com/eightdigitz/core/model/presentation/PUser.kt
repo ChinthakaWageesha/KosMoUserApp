@@ -18,7 +18,7 @@ data class PUser(
     var profilePicture: String? = null,
     var profileVideo: String? = null,
     var profileBanner: String? = null,
-    var preferences: List<PPreference>? = null,
+    var preferences: List<PUserPreference>? = null,
     var authReference: String? = null,
     var verified: Boolean? = null,
     var profileBiography: String? = null,

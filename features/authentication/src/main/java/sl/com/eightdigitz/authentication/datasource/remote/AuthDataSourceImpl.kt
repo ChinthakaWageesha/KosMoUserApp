@@ -3,7 +3,6 @@ package sl.com.eightdigitz.authentication.datasource.remote
 import android.content.SharedPreferences
 import sl.com.eightdigitz.authentication.data.datasource.AuthDataSource
 import sl.com.eightdigitz.client.apis.AuthApi
-import sl.com.eightdigitz.client.models.User
 import sl.com.eightdigitz.core.model.mapToDomain
 import sl.com.eightdigitz.network.SupportInterceptor
 import sl.com.eightdigitz.presentation.Constant
@@ -12,9 +11,7 @@ import okhttp3.MultipartBody
 import sl.com.eightdigitz.client.apis.JoinContactApi
 import sl.com.eightdigitz.client.apis.MultimediaApi
 import sl.com.eightdigitz.client.apis.PreferencesApi
-import sl.com.eightdigitz.client.models.ContactUsRequest
-import sl.com.eightdigitz.client.models.JoinUsRequest
-import sl.com.eightdigitz.client.models.RegisterRequest
+import sl.com.eightdigitz.client.models.*
 import sl.com.eightdigitz.core.model.ListResponse
 import sl.com.eightdigitz.core.model.domain.*
 import sl.com.eightdigitz.core.model.mapToApiModel
@@ -87,6 +84,14 @@ class AuthDataSourceImpl constructor(
             registerRequest = registerRequest
         ).map {
             saveUser(it.data)
+            it.data?.mapToDomain()
+        }
+
+    override fun addUserPreference(addUserPreferenceRequest: AddUserPreferenceRequest): Single<DUserPreference> =
+        preferencesApi.addUserPreference(
+            idToken = mSharedPreferences.getIdToken()!!,
+            addUserPreferenceRequest = addUserPreferenceRequest
+        ).map {
             it.data?.mapToDomain()
         }
 
