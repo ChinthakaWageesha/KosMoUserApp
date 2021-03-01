@@ -17,7 +17,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".presentation.order.userOrders.OrderToProceed"></activity>
+
         <activity
             android:name=".presentation.main.MainActivity"
             android:launchMode="singleTop"
@@ -64,6 +64,16 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".presentation.order.userOrders.OrderSummary"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity
+            android:name=".presentation.order.userOrders.OrderToProceed"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
     </application>
 
 </manifest>
