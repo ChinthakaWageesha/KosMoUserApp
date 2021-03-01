@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
-    tools:context=".presentation.order.OrderInstructions">
+    tools:context=".presentation.order.addNewOrder.OrderInstructions">
 
     <ScrollView
         android:layout_width="0dp"

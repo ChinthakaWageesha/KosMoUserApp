@@ -17,7 +17,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application tools:ignore="GoogleAppIndexingWarning">
-
+        <activity android:name=".presentation.order.userOrders.OrderToProceed"></activity>
         <activity
             android:name=".presentation.main.MainActivity"
             android:launchMode="singleTop"
@@ -40,25 +40,30 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name=".presentation.order.ConfirmOrder"
+            android:name=".presentation.order.addNewOrder.ConfirmOrder"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="stateHidden|adjustResize"/>
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name=".presentation.order.PaymentCheckout"
+            android:name=".presentation.order.addNewOrder.PaymentCheckout"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="stateHidden|adjustResize"/>
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name=".presentation.order.OrderInstructions"
+            android:name=".presentation.order.addNewOrder.OrderInstructions"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="stateHidden|adjustResize"/>
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name=".presentation.order.OrderDetails"
+            android:name=".presentation.order.addNewOrder.OrderDetails"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="stateHidden|adjustResize"/>
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".presentation.order.userOrders.UserOrders"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
     </application>
 
 </manifest>

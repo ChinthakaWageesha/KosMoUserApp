@@ -24,6 +24,8 @@
     <color name="colorLightBlue">#22D3FF</color>
     <color name="colorBlue">#FF0076FF</color>
     <color name="colorDarkBlue">#001041</color>
+    <color name="colorBackgroundGray">#F9F9F9</color>
+    <color name="colorSnowGray">#FCFCFE</color>
     <color name="colorMediumDarkGray">#4D77819C</color>
     <color name="colorYellow">#FFF44F</color>
 
@@ -38,6 +40,7 @@
     <color name="colorRed">#FD003A</color>
     <color name="colorLightRed">#FF2D55</color>
     <color name="colorMediumGray">#ACB1C0</color>
+    <color name="colorOrange">#FF715B</color>
 
     <color name="colorDarkGray">#282828</color>
 </resources>

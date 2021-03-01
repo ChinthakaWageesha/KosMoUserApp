@@ -36,6 +36,7 @@ class SearchFragment : BaseFragment(), (DPreference) -> Unit, View.OnClickListen
     }
 
     private fun init() {
+        setRecentSearchAdapter(mutableListOf())
         getSearchCategories()
         getRecentSearches()
         setPeopleYouKnowAdapter()
@@ -108,6 +109,8 @@ class SearchFragment : BaseFragment(), (DPreference) -> Unit, View.OnClickListen
                 ResourceState.SUCCESS -> {
                     hideProgress()
                     rv_recent_searches.setEmptyView(tv_no_data_recent_searches, it.data!!.size)
+                    (rv_recent_searches.adapter as SearchAdapterTalents).addTalents(it.data!!.toMutableList())
+
                 }
                 ResourceState.ERROR -> {
                     hideProgress()

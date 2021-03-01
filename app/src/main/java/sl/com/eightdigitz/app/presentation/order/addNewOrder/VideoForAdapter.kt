@@ -1,4 +1,4 @@
-package sl.com.eightdigitz.app.presentation.order
+package sl.com.eightdigitz.app.presentation.order.addNewOrder
 
 import android.view.LayoutInflater
 import android.view.View

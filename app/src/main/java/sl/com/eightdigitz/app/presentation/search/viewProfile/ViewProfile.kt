@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_view_profile.*
 import sl.com.eightdigitz.app.R
-import sl.com.eightdigitz.app.presentation.order.OrderDetails
+import sl.com.eightdigitz.app.presentation.order.addNewOrder.OrderDetails
 import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.presentation.Constant

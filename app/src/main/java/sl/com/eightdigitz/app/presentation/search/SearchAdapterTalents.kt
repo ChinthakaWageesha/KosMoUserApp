@@ -29,6 +29,16 @@ class SearchAdapterTalents(
 
     override fun getItemCount(): Int = talentList.size
 
+    fun clear(){
+        talentList.clear()
+        notifyDataSetChanged()
+    }
+
+    fun addTalents(list: MutableList<DUser>){
+        talentList.addAll(list)
+        notifyDataSetChanged()
+    }
+
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun onBind(position: Int) {
 

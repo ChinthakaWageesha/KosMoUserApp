@@ -99,6 +99,17 @@
         <item name="android:stateListAnimator">@null</item>
     </style>
 
+    <style name="WhiteButtonStyle">
+        <item name="android:textAppearance">@style/TextGrayNormalStyle.Size15</item>
+        <item name="android:background">@drawable/bg_white_corner_round_8dp</item>
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:paddingLeft">6dp</item>
+        <item name="android:paddingRight">6dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:gravity">center</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
 
     <!-- - - - - - - - - - - Custom Dialog Style - - - - - - - - -  - - - -->
 
@@ -188,6 +199,13 @@
         <item name="android:fontFamily">@font/sf_ui_display_regular</item>
     </style>
 
+    <style name="OrderStagesTabTextStyle">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/sf_pro_text_regular</item>
+    </style>
+
     <style name="WhiteBoldTextStyle">
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:textStyle">bold</item>
@@ -241,6 +259,11 @@
 
     <style name="TextGrayNormalStyle">
         <item name="android:textColor">@color/colorTextGray</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="OrangeNormalTextStyle">
+        <item name="android:textColor">@color/colorOrange</item>
         <item name="android:textStyle">normal</item>
     </style>
 
@@ -362,6 +385,14 @@
 
     <style name="LightBlackNormalTextStyle.Size18">
         <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="BlackNormalStyle.Size12">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="BlackNormalStyle.Size14">
+        <item name="android:textSize">14sp</item>
     </style>
 
     <style name="BlackNormalStyle.Size15">
@@ -504,12 +535,20 @@
         <item name="android:textSize">14sp</item>
     </style>
 
+    <style name="TextGrayNormalStyle.Size15">
+        <item name="android:textSize">15sp</item>
+    </style>
+
     <style name="TextGrayNormalStyle.Size16">
         <item name="android:textSize">16sp</item>
     </style>
 
     <style name="TextGrayNormalStyle.Size17">
         <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="TextGrayNormalStyle.Size18">
+        <item name="android:textSize">18sp</item>
     </style>
 
     <style name="RedNormalTextStyle.Size12">
@@ -520,12 +559,24 @@
         <item name="android:textSize">13sp</item>
     </style>
 
+    <style name="OrangeNormalTextStyle.Size8">
+        <item name="android:textSize">8sp</item>
+    </style>
+
+    <style name="OrangeNormalTextStyle.Size14">
+        <item name="android:textSize">14sp</item>
+    </style>
+
     <style name="AnyColorNormalStyle.Size8">
         <item name="android:textSize">8sp</item>
     </style>
 
     <style name="AnyColorNormalStyle.Size9">
         <item name="android:textSize">9sp</item>
+    </style>
+
+    <style name="AnyColorNormalStyle.Size10">
+        <item name="android:textSize">10sp</item>
     </style>
 
     <style name="AnyColorNormalStyle.Size12">

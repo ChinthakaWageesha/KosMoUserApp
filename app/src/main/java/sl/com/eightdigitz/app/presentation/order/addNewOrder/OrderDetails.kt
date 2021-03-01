@@ -1,4 +1,4 @@
-package sl.com.eightdigitz.app.presentation.order
+package sl.com.eightdigitz.app.presentation.order.addNewOrder
 
 import android.os.Bundle
 import android.text.Editable

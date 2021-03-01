@@ -147,4 +147,16 @@
     <string name="title_name_on_card">Name on Card</string>
     <string name="message_confirm_order_description">By booking, you agree to Hello’s Terms of Service, including Additional Terms and Privacy Policy.</string>
     <string name="btn_place_order">Place Order</string>
+
+    <!--User Orders-->
+    <string name="title_your_orders">Your Orders</string>
+    <string name="title_user_orders">All your order information can be viewed here</string>
+
+    <!--Order proceed -->
+    <string name="title_order_summary">Order Summary</string>
+    <string name="title_review_order_to_continue">Please review order status to continue</string>
+    <string name="message_instructions_for">Your instructions for Nadia Ismail are</string>
+    <string name="message_its_for">It\'s for</string>
+    <string name="btn_decline_order">Decline</string>
+    <string name="btn_proceed_order">Proceed</string>
 </resources>
