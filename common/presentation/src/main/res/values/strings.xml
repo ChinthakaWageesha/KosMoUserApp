@@ -105,6 +105,7 @@
     <string name="title_recent_searches">Recent Searches</string>
     <string name="title_people_you_know">People you may know</string>
     <string name="title_recommended">Recommended</string>
+    <string name="message_no_data_talent_preferences">You have no talents by this category!</string>
 
     <!--Recent searches-->
     <string name="hint_search">Search</string>

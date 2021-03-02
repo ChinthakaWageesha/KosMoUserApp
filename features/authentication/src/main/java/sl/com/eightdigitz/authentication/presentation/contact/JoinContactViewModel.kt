@@ -7,8 +7,8 @@ import io.reactivex.schedulers.Schedulers
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import sl.com.eightdigitz.authentication.domain.usecase.AuthUseCase
-import sl.com.eightdigitz.client.models.ContactUsRequest
-import sl.com.eightdigitz.client.models.JoinUsRequest
+import sl.com.eightdigitz.client.apiSupports.requests.ContactUsRequest
+import sl.com.eightdigitz.client.apiSupports.requests.JoinUsRequest
 import sl.com.eightdigitz.core.model.domain.DContactUs
 import sl.com.eightdigitz.core.model.domain.DJoinUs
 import sl.com.eightdigitz.network.ErrorHandler
@@ -74,4 +74,9 @@ data class JoinContactViewModel constructor(private val authUseCase: AuthUseCase
                     liveDataContact.setError(it.message)
                 })
         )
+
+    override fun onCleared() {
+        compositeDisposable.dispose()
+        super.onCleared()
+    }
 }

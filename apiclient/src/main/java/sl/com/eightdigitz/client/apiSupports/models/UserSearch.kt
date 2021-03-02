@@ -1,8 +1,8 @@
-package sl.com.eightdigitz.client.models
+package sl.com.eightdigitz.client.apiSupports.models
 
 import com.squareup.moshi.Json
 
-data class DeleteSearch(
+data class UserSearch(
     @Json(name = "ID") @field:Json(name = "ID") var id: String? = null,
     @Json(name = "CreatedAt") @field:Json(name = "CreatedAt") var createdAt: String? = null,
     @Json(name = "UpdatedAt") @field:Json(name = "UpdatedAt") var updatedAt: String? = null,

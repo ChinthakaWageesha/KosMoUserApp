@@ -11,7 +11,7 @@ import com.github.dhaval2404.imagepicker.constant.ImageProvider
 import kotlinx.android.synthetic.main.activity_contact_support.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.authentication.R
-import sl.com.eightdigitz.client.models.ContactUsRequest
+import sl.com.eightdigitz.client.apiSupports.requests.ContactUsRequest
 import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.core.model.domain.DContactUs
 import sl.com.eightdigitz.presentation.Msg

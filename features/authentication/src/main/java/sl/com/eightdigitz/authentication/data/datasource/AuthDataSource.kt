@@ -2,10 +2,10 @@ package sl.com.eightdigitz.authentication.data.datasource
 
 import io.reactivex.Single
 import okhttp3.MultipartBody
-import sl.com.eightdigitz.client.models.AddUserPreferenceRequest
-import sl.com.eightdigitz.client.models.ContactUsRequest
-import sl.com.eightdigitz.client.models.JoinUsRequest
-import sl.com.eightdigitz.client.models.RegisterRequest
+import sl.com.eightdigitz.client.apiSupports.requests.AddUserPreferenceRequest
+import sl.com.eightdigitz.client.apiSupports.requests.ContactUsRequest
+import sl.com.eightdigitz.client.apiSupports.requests.JoinUsRequest
+import sl.com.eightdigitz.client.apiSupports.requests.RegisterRequest
 import sl.com.eightdigitz.core.model.ListResponse
 import sl.com.eightdigitz.core.model.domain.*
 

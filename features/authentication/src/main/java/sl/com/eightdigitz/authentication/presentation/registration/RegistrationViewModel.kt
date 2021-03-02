@@ -11,8 +11,8 @@ import sl.com.eightdigitz.presentation.setLoading
 import sl.com.eightdigitz.presentation.setSuccess
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import sl.com.eightdigitz.client.models.AddUserPreferenceRequest
-import sl.com.eightdigitz.client.models.RegisterRequest
+import sl.com.eightdigitz.client.apiSupports.requests.AddUserPreferenceRequest
+import sl.com.eightdigitz.client.apiSupports.requests.RegisterRequest
 import sl.com.eightdigitz.core.model.domain.DPreference
 import sl.com.eightdigitz.core.model.domain.DUserPreference
 import sl.com.eightdigitz.network.ErrorHandler

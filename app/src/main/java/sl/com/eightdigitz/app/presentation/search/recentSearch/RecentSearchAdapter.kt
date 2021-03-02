@@ -29,6 +29,16 @@ class RecentSearchAdapter(
 
     override fun getItemCount(): Int = talentList.size
 
+    fun addTalentList(list: MutableList<DUser>){
+        talentList.addAll(list)
+        notifyDataSetChanged()
+    }
+
+    fun clear(){
+        talentList.clear()
+        notifyDataSetChanged()
+    }
+
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun onBind(position: Int) {
 

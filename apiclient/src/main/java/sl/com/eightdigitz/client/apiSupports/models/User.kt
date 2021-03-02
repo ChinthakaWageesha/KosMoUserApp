@@ -4,10 +4,9 @@
  * More info on this tool is available on https://github.com/Yelp/swagger-gradle-codegen
  */
 
-package sl.com.eightdigitz.client.models
+package sl.com.eightdigitz.client.apiSupports.models
 
 import com.squareup.moshi.Json
-import java.math.BigDecimal
 
 data class User(
     @Json(name = "ID") @field:Json(name = "ID") var id: String? = null,

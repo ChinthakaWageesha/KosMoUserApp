@@ -7,11 +7,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.github.dhaval2404.imagepicker.ImagePicker
@@ -23,9 +21,8 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.authentication.R
 import sl.com.eightdigitz.authentication.presentation.AuthActivity
 import sl.com.eightdigitz.authentication.presentation.contact.JoinContactViewModel
-import sl.com.eightdigitz.client.models.RegisterRequest
+import sl.com.eightdigitz.client.apiSupports.requests.RegisterRequest
 import sl.com.eightdigitz.core.base.BaseFragment
-import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.core.model.presentation.PUser
 import sl.com.eightdigitz.country_picker.presentation.country_picker.CountryPickerBuilder
 import sl.com.eightdigitz.country_picker.presentation.models.PCountry

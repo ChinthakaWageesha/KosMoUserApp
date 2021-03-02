@@ -41,6 +41,7 @@ object LanguageType {
 
 object SearchType {
     const val PROFILE_SEARCH = "profile-view"
+    const val PREFERENCE_SEARCH = "preference"
 }
 
 object AppInformationType{

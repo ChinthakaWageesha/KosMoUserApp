@@ -19,12 +19,15 @@ import sl.com.eightdigitz.presentation.Constant.ACTION_UNAUTH
 import sl.com.eightdigitz.presentation.Msg
 import sl.com.eightdigitz.presentation.extensions.*
 import org.koin.android.ext.android.inject
+import sl.com.eightdigitz.core.model.domain.DUser
+import sl.com.eightdigitz.core.model.presentation.PUser
 
 abstract class BaseActivity : AppCompatActivity() {
 
     private var progress: Dialog? = null
     private val mNetworkSupportInterceptor by inject<SupportInterceptor>()
     private val mSharedPreferences by inject<SharedPreferences>()
+    var currentLoggedUser: DUser? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,7 +59,7 @@ abstract class BaseActivity : AppCompatActivity() {
             mNetworkSupportInterceptor.idToken = mSharedPreferences.getIdToken()
         }
 
-
+        currentLoggedUser = mSharedPreferences.getUserString()?.jsonStringMapTo()
     }
 
     private fun handleResponse() {

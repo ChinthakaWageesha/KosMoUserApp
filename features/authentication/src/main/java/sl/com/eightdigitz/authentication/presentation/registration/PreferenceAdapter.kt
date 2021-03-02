@@ -3,14 +3,12 @@ package sl.com.eightdigitz.authentication.presentation.registration
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_preferences.view.*
 import sl.com.eightdigitz.authentication.R
-import sl.com.eightdigitz.client.models.Preference
+import sl.com.eightdigitz.client.apiSupports.models.Preference
 import sl.com.eightdigitz.core.model.domain.DPreference
 import sl.com.eightdigitz.core.model.mapToApiModel
-import sl.com.eightdigitz.presentation.extensions.showToast
 
 class PreferenceAdapter(
     private val preferenceList: MutableList<DPreference>,

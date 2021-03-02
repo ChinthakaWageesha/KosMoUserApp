@@ -3,10 +3,10 @@ package sl.com.eightdigitz.client.apis
 import io.reactivex.Single
 import retrofit2.http.Headers
 import retrofit2.http.POST
-import sl.com.eightdigitz.client.models.ContactUsRequest
-import sl.com.eightdigitz.client.models.ContactUsResponse
-import sl.com.eightdigitz.client.models.JoinUsRequest
-import sl.com.eightdigitz.client.models.JoinUsResponse
+import sl.com.eightdigitz.client.apiSupports.requests.ContactUsRequest
+import sl.com.eightdigitz.client.apiSupports.responses.ContactUsResponse
+import sl.com.eightdigitz.client.apiSupports.requests.JoinUsRequest
+import sl.com.eightdigitz.client.apiSupports.responses.JoinUsResponse
 
 @JvmSuppressWildcards
 interface JoinContactApi {

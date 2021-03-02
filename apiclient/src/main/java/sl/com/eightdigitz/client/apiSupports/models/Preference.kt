@@ -1,4 +1,4 @@
-package sl.com.eightdigitz.client.models
+package sl.com.eightdigitz.client.apiSupports.models
 
 import com.squareup.moshi.Json
 

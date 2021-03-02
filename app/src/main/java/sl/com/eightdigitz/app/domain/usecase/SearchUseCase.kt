@@ -1,12 +1,19 @@
 package sl.com.eightdigitz.app.domain.usecase
 
 import sl.com.eightdigitz.app.domain.repository.SearchRepository
+import sl.com.eightdigitz.client.apiSupports.requests.LogSearchRequest
 
 class SearchUseCase(private val searchRepository: SearchRepository) {
 
     fun getSearchCategories() = searchRepository.getPreferenceCategories()
 
     fun getRecentSearchedTalents() = searchRepository.getRecentSearchedTalents()
+
+    fun getTalentsByPreference(preferenceId: String) =
+        searchRepository.getTalentsByPreference(preferenceId)
+
+    fun logPreferenceSearch(logSearchRequest: LogSearchRequest) =
+        searchRepository.logPreferenceSearch(logSearchRequest)
 
     fun removeRecentViewedProfile(
         ownerId: String,
@@ -15,7 +22,4 @@ class SearchUseCase(private val searchRepository: SearchRepository) {
         ownerId = ownerId,
         searchType = searchType
     )
-
-    fun getTalentsByPreference(preferenceId: String) =
-        searchRepository.getTalentsByPreference(preferenceId)
 }

@@ -5,7 +5,8 @@ import androidx.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import sl.com.eightdigitz.app.domain.usecase.SearchUseCase
-import sl.com.eightdigitz.core.model.domain.DDeleteSearch
+import sl.com.eightdigitz.client.apiSupports.requests.LogSearchRequest
+import sl.com.eightdigitz.core.model.domain.DUserSearch
 import sl.com.eightdigitz.core.model.domain.DPreference
 import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.network.ErrorHandler
@@ -20,7 +21,7 @@ class SearchViewModel(
 
     val liveDataCategories = MutableLiveData<Resource<List<DPreference>>>()
     val liveDataRecentSearches = MutableLiveData<Resource<List<DUser>>>()
-    val liveDataRemoveRecent = MutableLiveData<Resource<DDeleteSearch>>()
+    val liveDataRemoveRecent = MutableLiveData<Resource<DUserSearch>>()
     val liveDataTalentByPreferences = MutableLiveData<Resource<List<DUser>>>()
     private val compositeDisposable = CompositeDisposable()
 
@@ -52,6 +53,20 @@ class SearchViewModel(
         )
     }
 
+    fun getTalentsByPreference(preferenceId: String) {
+        liveDataTalentByPreferences.setLoading()
+        compositeDisposable.add(
+            searchUseCase.getTalentsByPreference(preferenceId)
+                .subscribeOn(Schedulers.io())
+                .map { it.data }
+                .subscribe({
+                    liveDataTalentByPreferences.setSuccess(it!!, null)
+                }, {
+                    liveDataTalentByPreferences.setError(ErrorHandler.getApiErrorMessage(it))
+                })
+        )
+    }
+
     fun removeRecentlyViewedProfile(ownerId: String, searchType: String) {
         compositeDisposable.add(
             searchUseCase.removeRecentViewedProfile(
@@ -68,17 +83,8 @@ class SearchViewModel(
         )
     }
 
-    fun getTalentsByPreference(preferenceId: String) {
-        liveDataTalentByPreferences.setLoading()
-        compositeDisposable.add(
-            searchUseCase.getTalentsByPreference(preferenceId)
-                .subscribeOn(Schedulers.io())
-                .map { it.data }
-                .subscribe({
-                    liveDataTalentByPreferences.setSuccess(it!!, null)
-                }, {
-                    liveDataTalentByPreferences.setError(ErrorHandler.getApiErrorMessage(it))
-                })
-        )
+    override fun onCleared() {
+        compositeDisposable.dispose()
+        super.onCleared()
     }
 }

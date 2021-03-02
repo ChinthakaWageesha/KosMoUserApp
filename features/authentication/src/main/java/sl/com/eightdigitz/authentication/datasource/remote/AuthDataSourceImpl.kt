@@ -4,17 +4,19 @@ import android.content.SharedPreferences
 import sl.com.eightdigitz.authentication.data.datasource.AuthDataSource
 import sl.com.eightdigitz.client.apis.AuthApi
 import sl.com.eightdigitz.core.model.mapToDomain
-import sl.com.eightdigitz.network.SupportInterceptor
 import sl.com.eightdigitz.presentation.Constant
 import io.reactivex.Single
 import okhttp3.MultipartBody
 import sl.com.eightdigitz.client.apis.JoinContactApi
 import sl.com.eightdigitz.client.apis.MultimediaApi
 import sl.com.eightdigitz.client.apis.PreferencesApi
-import sl.com.eightdigitz.client.models.*
+import sl.com.eightdigitz.client.apiSupports.models.User
+import sl.com.eightdigitz.client.apiSupports.requests.AddUserPreferenceRequest
+import sl.com.eightdigitz.client.apiSupports.requests.ContactUsRequest
+import sl.com.eightdigitz.client.apiSupports.requests.JoinUsRequest
+import sl.com.eightdigitz.client.apiSupports.requests.RegisterRequest
 import sl.com.eightdigitz.core.model.ListResponse
 import sl.com.eightdigitz.core.model.domain.*
-import sl.com.eightdigitz.core.model.mapToApiModel
 import sl.com.eightdigitz.presentation.extensions.*
 
 class AuthDataSourceImpl constructor(

@@ -1,6 +1,7 @@
 package sl.com.eightdigitz.core.model
 
-import sl.com.eightdigitz.client.models.*
+import sl.com.eightdigitz.client.apiSupports.models.*
+import sl.com.eightdigitz.client.apiSupports.responses.*
 import sl.com.eightdigitz.core.model.domain.*
 import sl.com.eightdigitz.core.model.presentation.*
 import sl.com.eightdigitz.models.Success
@@ -88,7 +89,7 @@ fun UserListResponse.mapToDomain(): ListResponse<DUser> = ListResponse(
     data = data?.map { it.mapToDomain() }
 )
 
-fun DeleteSearch.mapToDomain(): DDeleteSearch = DDeleteSearch(
+fun UserSearch.mapToDomain(): DUserSearch = DUserSearch(
     id = id,
     createdAt = createdAt,
     updatedAt = updatedAt,

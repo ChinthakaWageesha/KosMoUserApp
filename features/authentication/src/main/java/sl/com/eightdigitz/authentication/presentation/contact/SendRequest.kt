@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.activity_contact_support.*
 import kotlinx.android.synthetic.main.activity_send_request.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.authentication.R
-import sl.com.eightdigitz.client.models.JoinUsRequest
+import sl.com.eightdigitz.client.apiSupports.requests.JoinUsRequest
 import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.core.model.domain.DJoinUs
 import sl.com.eightdigitz.presentation.Msg

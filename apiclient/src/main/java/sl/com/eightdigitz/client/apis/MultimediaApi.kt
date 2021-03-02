@@ -3,7 +3,7 @@ package sl.com.eightdigitz.client.apis
 import io.reactivex.Single
 import okhttp3.MultipartBody
 import retrofit2.http.POST
-import sl.com.eightdigitz.client.models.UploadBigDataResponse
+import sl.com.eightdigitz.client.apiSupports.responses.UploadBigDataResponse
 
 @JvmSuppressWildcards
 interface MultimediaApi {

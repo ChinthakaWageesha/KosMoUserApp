@@ -1,6 +1,7 @@
-package sl.com.eightdigitz.client.models
+package sl.com.eightdigitz.client.apiSupports.requests
 
 import com.squareup.moshi.Json
+import sl.com.eightdigitz.client.apiSupports.models.Preference
 
 data class RegisterRequest(
     @Json(name = "MobileNo") @field:Json(name = "MobileNo") var mobileNo: String? = null,

@@ -1,6 +1,6 @@
 package sl.com.eightdigitz.core.model
 
-import sl.com.eightdigitz.client.models.Message
+import sl.com.eightdigitz.client.apiSupports.models.Message
 
 
 class ListResponse<T>(

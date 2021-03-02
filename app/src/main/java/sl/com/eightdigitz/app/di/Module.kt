@@ -11,6 +11,7 @@ import sl.com.eightdigitz.app.domain.repository.SearchRepository
 import sl.com.eightdigitz.app.domain.usecase.SearchUseCase
 import sl.com.eightdigitz.app.presentation.search.SearchViewModel
 import sl.com.eightdigitz.app.presentation.main.MainViewModel
+import sl.com.eightdigitz.app.presentation.search.LogSearchViewModel
 
 fun injectFeature() = loadFeature
 
@@ -34,6 +35,12 @@ val viewModelModule: Module = module {
     }
     viewModel {
         SearchViewModel(
+            searchUseCase = get()
+        )
+    }
+
+    viewModel {
+        LogSearchViewModel(
             searchUseCase = get()
         )
     }

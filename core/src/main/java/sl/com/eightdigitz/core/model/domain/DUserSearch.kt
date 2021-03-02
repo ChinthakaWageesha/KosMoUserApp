@@ -1,6 +1,6 @@
 package sl.com.eightdigitz.core.model.domain
 
-data class DDeleteSearch(
+data class DUserSearch(
     var id: String? = null,
     var createdAt: String? = null,
     var updatedAt: String? = null,

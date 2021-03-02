@@ -14,7 +14,6 @@ import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.app.presentation.search.preferenceSearch.SearchTalentByPreference
 import sl.com.eightdigitz.app.presentation.search.recentSearch.RecentSearches
 import sl.com.eightdigitz.core.base.BaseFragment
-import sl.com.eightdigitz.core.model.domain.DDeleteSearch
 import sl.com.eightdigitz.core.model.domain.DPreference
 import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.presentation.*
@@ -75,7 +74,7 @@ class SearchFragment : BaseFragment(), (DPreference) -> Unit, View.OnClickListen
     }
 
     private fun setPeopleYouKnowAdapter() {
-        rv_people_you_know.adapter = TempAdapter(Constant.USER_IMAGE_PAUL_WALKER)
+        rv_people_you_know.adapter = TempAdapter(Constant.USER_IMAGE_AQUAMAN)
         rv_people_you_know.layoutManager =
             LinearLayoutManager(context!!, LinearLayoutManager.HORIZONTAL, false)
     }

@@ -7,12 +7,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.fragment_post_register.*
-import kotlinx.android.synthetic.main.fragment_register_user.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.authentication.R
 import sl.com.eightdigitz.authentication.presentation.AuthActivity
-import sl.com.eightdigitz.client.models.AddUserPreferenceRequest
-import sl.com.eightdigitz.client.models.Preference
+import sl.com.eightdigitz.client.apiSupports.requests.AddUserPreferenceRequest
+import sl.com.eightdigitz.client.apiSupports.models.Preference
 import sl.com.eightdigitz.core.base.BaseFragment
 import sl.com.eightdigitz.core.model.domain.DPreference
 import sl.com.eightdigitz.core.model.domain.DUserPreference

@@ -10,7 +10,10 @@ import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.POST
-import sl.com.eightdigitz.client.models.*
+import sl.com.eightdigitz.client.apiSupports.requests.RegisterRequest
+import sl.com.eightdigitz.client.apiSupports.responses.OTPResponse
+import sl.com.eightdigitz.client.apiSupports.responses.OTPTokenResponse
+import sl.com.eightdigitz.client.apiSupports.responses.UserResponse
 
 @JvmSuppressWildcards
 interface AuthApi {

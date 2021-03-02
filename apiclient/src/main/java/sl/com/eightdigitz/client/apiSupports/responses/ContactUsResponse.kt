@@ -1,6 +1,8 @@
-package sl.com.eightdigitz.client.models
+package sl.com.eightdigitz.client.apiSupports.responses
 
 import com.squareup.moshi.Json
+import sl.com.eightdigitz.client.apiSupports.models.ContactUs
+import sl.com.eightdigitz.client.apiSupports.models.Message
 
 data class ContactUsResponse(
     @Json(name = "message") @field:Json(name = "message") var message: Message? = null,

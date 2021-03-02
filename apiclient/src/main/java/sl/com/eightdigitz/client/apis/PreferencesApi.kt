@@ -3,10 +3,10 @@ package sl.com.eightdigitz.client.apis
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.POST
-import sl.com.eightdigitz.client.models.AddUserPreferenceRequest
-import sl.com.eightdigitz.client.models.PreferenceListResponse
-import sl.com.eightdigitz.client.models.UserListResponse
-import sl.com.eightdigitz.client.models.UserPreferenceResponse
+import sl.com.eightdigitz.client.apiSupports.requests.AddUserPreferenceRequest
+import sl.com.eightdigitz.client.apiSupports.responses.PreferenceListResponse
+import sl.com.eightdigitz.client.apiSupports.responses.UserListResponse
+import sl.com.eightdigitz.client.apiSupports.responses.UserPreferenceResponse
 
 @JvmSuppressWildcards
 interface PreferencesApi {

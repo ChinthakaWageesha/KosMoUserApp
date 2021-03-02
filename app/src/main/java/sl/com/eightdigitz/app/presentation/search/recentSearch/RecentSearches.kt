@@ -11,7 +11,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.app.presentation.search.SearchViewModel
 import sl.com.eightdigitz.core.base.BaseActivity
-import sl.com.eightdigitz.core.model.domain.DDeleteSearch
+import sl.com.eightdigitz.core.model.domain.DUserSearch
 import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.presentation.*
 import sl.com.eightdigitz.presentation.extensions.*
@@ -47,6 +47,7 @@ class RecentSearches : BaseActivity(), View.OnClickListener, (DUser) -> Unit {
         vm.liveDataRemoveRecent.observe(this, Observer { observerRemoveRecentSearch(it) })
         vm.liveDataRecentSearches.observe(this, Observer { observerGetRecentSearches(it) })
         getRecentSearches()
+        setAdapter(mutableListOf())
         tv_cancel_recent_searches.setOnClickListener(this)
     }
 
@@ -73,11 +74,9 @@ class RecentSearches : BaseActivity(), View.OnClickListener, (DUser) -> Unit {
                 ResourceState.LOADING -> showProgress()
                 ResourceState.SUCCESS -> {
                     hideProgress()
-                    if (it.data?.size!! > 0) {
-                        setAdapter(it.data!!.toMutableList())
-                    } else {
-                        "No recent searches".showToast(this)
-                    }
+                    rv_recent_talent_searches.setEmptyView(tv_no_data_recently_viewed_profiles, it.data!!.size)
+                    (rv_recent_talent_searches.adapter as RecentSearchAdapter).addTalentList(it.data!!.toMutableList())
+
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
@@ -87,7 +86,7 @@ class RecentSearches : BaseActivity(), View.OnClickListener, (DUser) -> Unit {
         }
     }
 
-    private fun observerRemoveRecentSearch(resource: Resource<DDeleteSearch>) {
+    private fun observerRemoveRecentSearch(resource: Resource<DUserSearch>) {
         resource.let {
             when (it.state) {
                 ResourceState.LOADING -> showProgress()
