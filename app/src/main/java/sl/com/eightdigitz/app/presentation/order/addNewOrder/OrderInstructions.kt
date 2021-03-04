@@ -1,5 +1,6 @@
 package sl.com.eightdigitz.app.presentation.order.addNewOrder
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -8,10 +9,15 @@ import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_order_instructions.*
 import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.core.base.BaseActivity
+import sl.com.eightdigitz.core.model.domain.DOrder
+import sl.com.eightdigitz.presentation.IntentParsableConstants
 import sl.com.eightdigitz.presentation.Msg
 import sl.com.eightdigitz.presentation.extensions.*
+import javax.xml.transform.dom.DOMResult
 
 class OrderInstructions : BaseActivity(), View.OnClickListener {
+
+    var order: DOrder? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +35,12 @@ class OrderInstructions : BaseActivity(), View.OnClickListener {
     }
 
     private fun init() {
+
+        if (intent.hasExtra(IntentParsableConstants.EXTRA_NEW_ORDER) ){
+            order = intent.getParcelableExtra(IntentParsableConstants.EXTRA_NEW_ORDER)
+        }
+
+
         et_instructions.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
@@ -65,7 +77,10 @@ class OrderInstructions : BaseActivity(), View.OnClickListener {
 
     private fun onNext(){
         if(validate()){
-            startActivity<PaymentCheckout>()
+            order?.orderInstructions = et_instructions.getStringTrim()
+            val intent = Intent(this, PaymentCheckout::class.java)
+            intent.putExtra(IntentParsableConstants.EXTRA_NEW_ORDER, order)
+            startActivity(intent)
         }
     }
 

@@ -1,5 +1,6 @@
 package sl.com.eightdigitz.app.presentation.order.addNewOrder
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -8,12 +9,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_order_details.*
 import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.core.base.BaseActivity
+import sl.com.eightdigitz.core.model.domain.DOrder
+import sl.com.eightdigitz.presentation.IntentParsableConstants
 import sl.com.eightdigitz.presentation.Msg
 import sl.com.eightdigitz.presentation.extensions.*
 
 class OrderDetails : BaseActivity(), View.OnClickListener, (String) -> Unit {
 
     private var forList = mutableListOf<String>()
+    private var mVideoFor: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +47,6 @@ class OrderDetails : BaseActivity(), View.OnClickListener, (String) -> Unit {
                 } else {
                     tv_order_to_name.text = ""
                 }
-
             }
 
             override fun afterTextChanged(c: Editable?) {
@@ -67,7 +70,14 @@ class OrderDetails : BaseActivity(), View.OnClickListener, (String) -> Unit {
 
     private fun onNext() {
         if (validate()) {
-            startActivity<OrderInstructions>()
+            val order = DOrder()
+            val intent = Intent(this, OrderInstructions::class.java)
+            order.fromPronoun = mVideoFor
+            order.orderFor = et_video_to.getStringTrim()
+            order.toPronoun = et_address_person.getStringTrim()
+
+            intent.putExtra(IntentParsableConstants.EXTRA_NEW_ORDER, order)
+            startActivity(intent)
         }
     }
 
@@ -76,12 +86,17 @@ class OrderDetails : BaseActivity(), View.OnClickListener, (String) -> Unit {
             et_video_to.validateOnTextChange(isCheckValidateIcon = true) { s -> s.length > 2 }
 
         val isAddress =
-            et_address_person.validateOnTextChange(isCheckValidateIcon = true) { s -> s.length > 2 }
+            et_address_person.validateOnTextChange(isCheckValidateIcon = true) { s -> s.length >= 2 }
 
         if (!isVideoTo || !isAddress) {
             showAlert(Msg.TITLE_REQUIRED, "Please fill out the required fields.")
             return false
         }
+
+        /*if (mVideoFor.isNullOrEmpty()){
+            showAlert(Msg.TITLE_REQUIRED, "Please select to whom this video for")
+            return false
+        }*/
 
         return true
     }
@@ -99,6 +114,6 @@ class OrderDetails : BaseActivity(), View.OnClickListener, (String) -> Unit {
     }
 
     override fun invoke(videoFor: String) {
-        videoFor.showToast(this)
+        mVideoFor = videoFor
     }
 }

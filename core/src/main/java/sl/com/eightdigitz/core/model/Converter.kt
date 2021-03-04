@@ -200,5 +200,26 @@ fun AppInfo.mapToDomain(): DAppInfo = DAppInfo(
     createdBy = createdBy
 )
 
+fun Order.mapToDomain(): DOrder = DOrder(
+    id = id,
+    createdAt = createdAt,
+    updatedAt = updatedAt,
+    deletedAt = deletedAt,
+    userID = userID,
+    talentID = talentID,
+    orderFor = orderFor,
+    orderType = orderType,
+    toPronoun = toPronoun,
+    fromPronoun = fromPronoun,
+    orderInstructions = orderInstructions,
+    uploadInstructions = uploadInstructions,
+    requestedDeliveryDate = requestedDeliveryDate,
+    publicVideo = publicVideo,
+    userReviewRate = userReviewRate,
+    userComment = userComment,
+    shoutOutValidUpTo = shoutOutValidUpTo,
+    stage = stage
+)
+
 fun SuccessResponse.mapToDataSource(): Success =
     Success(message, status, payload)

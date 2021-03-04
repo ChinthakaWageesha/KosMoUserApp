@@ -156,7 +156,6 @@
     <!--Order proceed -->
     <string name="title_order_summary">Order Summary</string>
     <string name="title_review_order_to_continue">Please review order status to continue</string>
-    <string name="message_instructions_for">Your instructions for Nadia Ismail are</string>
     <string name="message_its_for">It\'s for</string>
     <string name="btn_decline_order">Decline</string>
     <string name="btn_proceed_order">Proceed</string>

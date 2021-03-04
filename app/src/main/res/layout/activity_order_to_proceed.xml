@@ -234,7 +234,7 @@
                 android:layout_marginStart="36dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/sf_pro_display_medium"
-                android:text="@string/message_instructions_for"
+                android:text="Your instructions for Nadia Ismail are"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view2" />
 

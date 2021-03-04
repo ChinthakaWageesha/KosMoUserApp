@@ -6,7 +6,9 @@ import kotlinx.android.synthetic.main.activity_order_summary.*
 import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.app.presentation.order.userOrders.adapters.OrderStagesAdapter
 import sl.com.eightdigitz.core.base.BaseActivity
+import sl.com.eightdigitz.core.model.domain.DOrder
 import sl.com.eightdigitz.presentation.Constant
+import sl.com.eightdigitz.presentation.IntentParsableConstants
 import sl.com.eightdigitz.presentation.extensions.hideKeyboard
 import sl.com.eightdigitz.presentation.extensions.setAppActionBar
 import sl.com.eightdigitz.presentation.extensions.setRoundedImage
@@ -14,6 +16,7 @@ import sl.com.eightdigitz.presentation.extensions.setRoundedImage
 class OrderSummary : BaseActivity() {
 
     private var orderStageList = mutableListOf<String>()
+    private var order: DOrder? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +34,10 @@ class OrderSummary : BaseActivity() {
     }
 
     private fun init() {
-        setData()
+        if (intent.hasExtra(IntentParsableConstants.EXTRA_NEW_ORDER)){
+            order = intent.getParcelableExtra(IntentParsableConstants.EXTRA_NEW_ORDER)
+            setData()
+        }
         setOrderSummaryAdapter()
     }
 
@@ -40,14 +46,18 @@ class OrderSummary : BaseActivity() {
             url = Constant.USER_IMAGE_AQUAMAN,
             radius = 12
         )
-        tv_order_summary_talent_name.text = "Norman Munoz"
-        tv_order_summary_talent_field.text = "Actress"
-        tv_order_summary_reference.text = "Order Reference RTX123HJ"
-        tv_order_summary_due_date.text = "Due by 16 Mar 2021, 08:08 PM"
-        tv_order_summary_for_username.text = "Nadia Ismail"
-        tv_address_as.text = "Address Nadia Ismail as"
-        tv_address_order_summary_user_as.text = "She/Her"
-        tv_order_summary_message.text = "Roast Message"
+        tv_order_summary_talent_name.text = "Oshila Gunerathne"
+        tv_order_summary_talent_field.text = "Talent"
+        tv_order_summary_reference.text = "Order Reference ${order?.id}"
+        tv_order_summary_due_date.text = "Due by ${order?.requestedDeliveryDate}"
+        tv_order_summary_for_username.text = order?.orderFor
+        tv_address_as.text = "Address ${order?.orderFor} as"
+        tv_address_order_summary_user_as.text = order?.toPronoun
+        tv_order_summary_message.text = order?.stage
+
+        tv_title_instructions.text = "Your instructions for ${order?.orderFor} are"
+        tv_order_summary_instructions.text = order?.orderInstructions
+
     }
 
     private fun setOrderSummaryAdapter() {

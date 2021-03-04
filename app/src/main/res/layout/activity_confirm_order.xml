@@ -53,9 +53,8 @@
                     style="@style/PrimaryEditTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:maxLines="1"
-                    android:background="@drawable/bg_gray_search_corner_round_10dp"
-                    android:inputType="numberSigned" />
+                    android:inputType="numberSigned"
+                    android:maxLines="1" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -100,7 +99,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/hint_card_expiry_date"
-                        android:background="@drawable/bg_gray_search_corner_round_10dp"
                         android:ellipsize="end"
                         android:inputType="numberSigned"
                         android:maxLines="1" />
@@ -150,7 +148,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/hint_cvv"
-                        android:background="@drawable/bg_gray_search_corner_round_10dp"
                         android:ellipsize="end"
                         android:inputType="numberSigned"
                         android:maxLines="1" />
@@ -191,7 +188,6 @@
                     style="@style/PrimaryEditTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bg_gray_search_corner_round_10dp"
                     android:inputType="numberSigned"
                     android:maxLines="1" />
 

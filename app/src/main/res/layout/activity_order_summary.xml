@@ -217,12 +217,13 @@
             <TextView
                 android:id="@+id/tv_title_instructions"
                 style="@style/BlackNormalStyle.Size12"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="36dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="36dp"
                 android:fontFamily="@font/sf_pro_display_medium"
-                android:text="@string/message_instructions_for"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view2" />
 
@@ -236,7 +237,6 @@
                 android:layout_marginEnd="36dp"
                 android:layout_marginBottom="40dp"
                 android:fontFamily="@font/sf_pro_display_light"
-                android:text="Whenever I am sitting beside this person I always feel happy and nervous at the same time. Happy because he is such a genius and whenever I am having a hard time doing our activities he helps me understand it and nervous because after the teacher is tired of calling him to recite, of course the teacher would look for others to answer her questions and it would always end up to be me because I’m sitting beside this genius that’s why I am visible. So maybe next time after doing the activities I need to go pee so the teacher won’t call my name anymore. Or maybe I will just distance myself and cut ties with him."
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"

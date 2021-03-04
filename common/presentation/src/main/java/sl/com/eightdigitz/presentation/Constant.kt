@@ -75,4 +75,5 @@ object IntentParsableConstants {
     const val EXTRA_PREFERENCE = "extra_preference"
     const val EXTRA_CATEGORY_ITEM_HOME = "home_category_item"
     const val EXTRA_ORDER_STAGE_ITEM = "order_stage_item"
+    const val EXTRA_NEW_ORDER = "new_order"
 }
