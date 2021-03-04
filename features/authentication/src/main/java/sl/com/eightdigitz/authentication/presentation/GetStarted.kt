@@ -1,22 +1,14 @@
 package sl.com.eightdigitz.authentication.presentation
 
-import android.graphics.Color
 import android.os.Bundle
-import android.text.Spannable
-import android.text.SpannableString
-import android.text.method.LinkMovementMethod
-import android.text.style.ClickableSpan
-import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_get_started.*
 import sl.com.eightdigitz.authentication.R
 import sl.com.eightdigitz.core.base.BaseFragment
-import sl.com.eightdigitz.core.ui.AppInformation
-import sl.com.eightdigitz.presentation.AppInformationType
+import sl.com.eightdigitz.presentation.extensions.hideKeyboard
 import sl.com.eightdigitz.presentation.extensions.setActionBar
 
 
@@ -51,7 +43,7 @@ class GetStarted : BaseFragment(), View.OnClickListener {
     }
 
     override fun onResume() {
-        hideKeyboard()
+        view?.hideKeyboard()
         setBackground(sl.com.eightdigitz.presentation.R.drawable.ic_sample_sanga)
         super.onResume()
     }

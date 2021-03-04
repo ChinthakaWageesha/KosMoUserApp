@@ -189,5 +189,16 @@ fun JoinUs.mapToDomain(): DJoinUs = DJoinUs(
     adminComment = adminComment
 )
 
+fun AppInfo.mapToDomain(): DAppInfo = DAppInfo(
+    id = id,
+    createdAt = createdAt,
+    updatedAt = updatedAt,
+    deletedAt = deletedAt,
+    countryCode = countryCode,
+    languageCode = languageCode,
+    description = description,
+    createdBy = createdBy
+)
+
 fun SuccessResponse.mapToDataSource(): Success =
     Success(message, status, payload)

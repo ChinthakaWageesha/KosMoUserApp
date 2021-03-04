@@ -4,9 +4,11 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
+import android.text.*
+import android.text.method.LinkMovementMethod
+import android.text.style.ClickableSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +26,7 @@ import sl.com.eightdigitz.authentication.presentation.contact.JoinContactViewMod
 import sl.com.eightdigitz.client.apiSupports.requests.RegisterRequest
 import sl.com.eightdigitz.core.base.BaseFragment
 import sl.com.eightdigitz.core.model.presentation.PUser
+import sl.com.eightdigitz.core.ui.HelpCenter
 import sl.com.eightdigitz.country_picker.presentation.country_picker.CountryPickerBuilder
 import sl.com.eightdigitz.country_picker.presentation.models.PCountry
 import sl.com.eightdigitz.presentation.*
@@ -68,6 +71,7 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
     private fun init() {
         vmAvatar.liveDataContactImage.observe(this, Observer { observerUploadAvatar(it) })
         vmRegister.liveDataSaveUser.observe(this, Observer { observerSaveUser(it) })
+        setSpannableContent()
         ccpPicker = CountryCodePicker(context)
         ccpPicker.setAutoDetectedCountry(true)
         ccpPicker.setDefaultCountryUsingNameCode("lk")
@@ -97,6 +101,32 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
         btn_submit_sign_up.setOnClickListener(this)
         iv_sign_up_pro_pic.setOnClickListener(this)
         et_country.setOnClickListener(this)
+    }
+
+    private fun setSpannableContent(){
+        val spannable = SpannableString("Please note that we value and respect your privacy and will only use your data for services purposes. Read the our Privacy Statement for more information. Learn all you need to know, visit our help centre.")
+
+        val clickableSpan: ClickableSpan = object : ClickableSpan() {
+            override fun onClick(textView: View) {
+                context?.startActivity<HelpCenter>()
+            }
+
+            override fun updateDrawState(ds: TextPaint) {
+                super.updateDrawState(ds)
+                ds.color = Color.WHITE
+                ds.isUnderlineText = true
+            }
+        }
+
+        spannable.setSpan(
+            clickableSpan,
+            183,
+            204,
+            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+        tv_message_sign_up_desc.text = spannable
+        tv_message_sign_up_desc.movementMethod = LinkMovementMethod.getInstance()
+        tv_message_sign_up_desc.highlightColor = Color.TRANSPARENT
     }
 
     private fun startCountryPicker() {

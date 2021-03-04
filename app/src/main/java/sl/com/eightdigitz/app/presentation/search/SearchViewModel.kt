@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import sl.com.eightdigitz.app.domain.usecase.SearchUseCase
-import sl.com.eightdigitz.client.apiSupports.requests.LogSearchRequest
 import sl.com.eightdigitz.core.model.domain.DUserSearch
 import sl.com.eightdigitz.core.model.domain.DPreference
 import sl.com.eightdigitz.core.model.domain.DUser

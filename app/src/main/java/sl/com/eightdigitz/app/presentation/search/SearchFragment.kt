@@ -141,6 +141,11 @@ class SearchFragment : BaseFragment(), (DPreference) -> Unit, View.OnClickListen
         startActivity(intent)
     }
 
+    override fun onResume() {
+        view?.hideKeyboard()
+        super.onResume()
+    }
+
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.et_search_talent_home -> {

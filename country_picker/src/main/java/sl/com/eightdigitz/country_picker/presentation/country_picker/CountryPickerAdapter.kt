@@ -10,10 +10,10 @@ import android.widget.Filterable
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import sl.com.eightdigitz.country_picker.presentation.country_picker.CountryPickerAdapter.CountryViewHolder
-import sl.com.eightdigitz.country_picker.presentation.models.PCountry
 import sl.com.eightdigitz.country_picker.utils.toCapitalizeFirstLetter
 import kotlinx.android.synthetic.main.item_country_row.view.*
 import sl.com.eightdigitz.country_picker.R
+import sl.com.eightdigitz.country_picker.presentation.models.PCountry
 import java.util.*
 
 

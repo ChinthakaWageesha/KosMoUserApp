@@ -15,6 +15,7 @@ import sl.com.eightdigitz.authentication.R
 import sl.com.eightdigitz.client.apiSupports.requests.JoinUsRequest
 import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.core.model.domain.DJoinUs
+import sl.com.eightdigitz.core.ui.HelpCenter
 import sl.com.eightdigitz.presentation.Msg
 import sl.com.eightdigitz.presentation.Resource
 import sl.com.eightdigitz.presentation.ResourceState
@@ -51,6 +52,7 @@ class SendRequest : BaseActivity(), View.OnClickListener {
         vm.liveDataContactImage.observe(this, Observer { observerUploadJoinUsImage(it)})
         showKeyboard(et_name_send_request)
         iv_talent_pro_pic.setOnClickListener(this)
+        tv_desc_send_request_three.setOnClickListener(this)
         btn_submit_send_request.setOnClickListener(this)
     }
 
@@ -207,7 +209,7 @@ class SendRequest : BaseActivity(), View.OnClickListener {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        goBack()
+        hideKeyboard()
         return super.onSupportNavigateUp()
     }
 
@@ -215,6 +217,7 @@ class SendRequest : BaseActivity(), View.OnClickListener {
         when (v?.id) {
             R.id.iv_talent_pro_pic -> cameraOptionsDialog(arrayOptions, AVATAR_IMAGE_REQ_CODE)
             R.id.btn_submit_send_request -> sendRequest()
+            R.id.tv_desc_send_request_three -> startActivity<HelpCenter>()
         }
     }
 }

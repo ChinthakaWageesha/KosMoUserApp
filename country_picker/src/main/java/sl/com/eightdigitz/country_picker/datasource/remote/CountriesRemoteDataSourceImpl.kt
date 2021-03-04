@@ -3,9 +3,9 @@ package sl.com.eightdigitz.country_picker.datasource.remote
 import android.content.Context
 import android.util.Base64
 import sl.com.eightdigitz.country_picker.data.datasource.CountriesDataSource
-import sl.com.eightdigitz.country_picker.domain.model.DCountry
 import com.google.gson.Gson
 import sl.com.eightdigitz.country_picker.R
+import sl.com.eightdigitz.country_picker.domain.model.DCountry
 import java.nio.charset.Charset
 
 class CountriesRemoteDataSourceImpl(private val mContext: Context) : CountriesDataSource {

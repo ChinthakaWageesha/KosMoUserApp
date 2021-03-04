@@ -18,7 +18,7 @@ import sl.com.eightdigitz.presentation.extensions.*
 
 class RecentSearches : BaseActivity(), View.OnClickListener, (DUser) -> Unit {
 
-    private val vm by viewModel<SearchViewModel>()
+    private val vmSearch by viewModel<SearchViewModel>()
     private var searchKey = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,8 +44,8 @@ class RecentSearches : BaseActivity(), View.OnClickListener, (DUser) -> Unit {
 
         })
 
-        vm.liveDataRemoveRecent.observe(this, Observer { observerRemoveRecentSearch(it) })
-        vm.liveDataRecentSearches.observe(this, Observer { observerGetRecentSearches(it) })
+        vmSearch.liveDataRemoveRecent.observe(this, Observer { observerRemoveRecentSearch(it) })
+        vmSearch.liveDataRecentSearches.observe(this, Observer { observerGetRecentSearches(it) })
         getRecentSearches()
         setAdapter(mutableListOf())
         tv_cancel_recent_searches.setOnClickListener(this)
@@ -53,7 +53,7 @@ class RecentSearches : BaseActivity(), View.OnClickListener, (DUser) -> Unit {
 
     private fun getRecentSearches() {
         withNetwork({
-            vm.getRecentSearches()
+            vmSearch.getRecentSearches()
         }, {
             showAlert(message = Msg.INTERNET_ISSUE)
         })
@@ -61,7 +61,7 @@ class RecentSearches : BaseActivity(), View.OnClickListener, (DUser) -> Unit {
 
     private fun removeRecentSearchProfile(ownerId: String, searchType: String) {
         withNetwork({
-            vm.removeRecentlyViewedProfile(ownerId, searchType)
+            vmSearch.removeRecentlyViewedProfile(ownerId, searchType)
         }, {
             showAlert(message = Msg.INTERNET_ISSUE)
         })
@@ -109,18 +109,14 @@ class RecentSearches : BaseActivity(), View.OnClickListener, (DUser) -> Unit {
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return super.onSupportNavigateUp()
-    }
-
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.tv_cancel_recent_searches -> {
                 if (searchKey.isNotEmpty()) {
                     et_recent_searches.clearText()
                 } else {
-                    goBack()
+                    hideKeyboard()
+                    onBackPressed()
                 }
             }
         }

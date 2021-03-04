@@ -93,7 +93,8 @@ class OrderDetails : BaseActivity(), View.OnClickListener, (String) -> Unit {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        goBack()
+        hideKeyboard()
+        onBackPressed()
         return super.onSupportNavigateUp()
     }
 

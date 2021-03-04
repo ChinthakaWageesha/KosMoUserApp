@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import sl.com.eightdigitz.country_picker.datasource.model.mapToPresenter
 import sl.com.eightdigitz.country_picker.domain.usecase.CountriesUseCase
-import sl.com.eightdigitz.country_picker.presentation.models.PCountry
 import sl.com.eightdigitz.country_picker.presentation.utils.Resources
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -12,6 +11,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import setError
 import setLoading
 import setSuccess
+import sl.com.eightdigitz.country_picker.presentation.models.PCountry
 
 class CountriesViewModel(private val mCountriesUseCase: CountriesUseCase) : ViewModel() {
 

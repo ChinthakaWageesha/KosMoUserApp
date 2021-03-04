@@ -139,7 +139,8 @@ class SearchTalentByPreference : BaseActivity(), View.OnClickListener {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        goBack()
+        hideKeyboard()
+        onBackPressed()
         return true
     }
 

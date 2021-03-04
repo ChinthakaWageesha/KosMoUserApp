@@ -75,10 +75,14 @@ android {
 
 dependencies {
 
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation project(Modules.network)
     implementation project(Modules.apiclient)
     implementation project(Modules.navigation)
     implementation project(Modules.presentation)
+    implementation project(Modules.country_picker)
 
     implementation AndroidX.kotlin
     implementation AndroidX.ktx
@@ -86,6 +90,9 @@ dependencies {
     implementation Libraries.koinAndroid
     implementation Libraries.koinViewModel
     implementation Libraries.koinExt
+
+    implementation Libraries.rxjava
+    implementation Libraries.rxkotlin
 
     implementation SupportLibraries.constraintLayout
     implementation SupportLibraries.design

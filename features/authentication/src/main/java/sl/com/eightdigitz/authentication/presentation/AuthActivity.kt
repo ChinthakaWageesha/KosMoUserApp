@@ -8,7 +8,6 @@ import sl.com.eightdigitz.authentication.presentation.registration.RegisterUser
 import sl.com.eightdigitz.authentication.presentation.verifyOTP.GetOTP
 import sl.com.eightdigitz.authentication.presentation.verifyOTP.VerifyOTP
 import sl.com.eightdigitz.core.base.BaseActivity
-import sl.com.eightdigitz.core.model.presentation.PUser
 import sl.com.eightdigitz.navigation.features.ResultCode
 import sl.com.eightdigitz.presentation.extensions.currentFragment
 import sl.com.eightdigitz.presentation.extensions.hideKeyboard
@@ -30,14 +29,12 @@ class AuthActivity : BaseActivity() {
     }
 
     fun authSuccess(){
-        hideKeyboard()
         setResult(ResultCode.RESULT_NAV_MAIN).also {
             finish()
         }
     }
 
     private fun setChooseLanguage(){
-        hideKeyboard()
         supportFragmentManager.replaceFragment(
             R.id.fl_auth,
             ChooseLanguage.newInstance(),
@@ -46,7 +43,6 @@ class AuthActivity : BaseActivity() {
     }
 
     fun setGetStarted(){
-        hideKeyboard()
         supportFragmentManager.replaceFragment(
             R.id.fl_auth,
             GetStarted.newInstance(),
@@ -79,7 +75,6 @@ class AuthActivity : BaseActivity() {
     }
     
     fun setPostRegister(){
-        hideKeyboard()
         supportFragmentManager.replaceFragment(
             R.id.fl_auth,
             PostRegister.newInstance(),
@@ -91,7 +86,7 @@ class AuthActivity : BaseActivity() {
         if (supportFragmentManager.currentFragment(R.id.fl_auth) is ChooseLanguage){
             finishAffinity()
         } else {
-            goBack()
+            hideKeyboard()
             super.onBackPressed()
         }
     }

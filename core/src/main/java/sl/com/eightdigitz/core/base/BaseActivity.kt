@@ -59,7 +59,9 @@ abstract class BaseActivity : AppCompatActivity() {
             mNetworkSupportInterceptor.idToken = mSharedPreferences.getIdToken()
         }
 
-        currentLoggedUser = mSharedPreferences.getUserString()?.jsonStringMapTo()
+        if(!mSharedPreferences.getUserString().isNullOrEmpty()){
+            currentLoggedUser = mSharedPreferences.getUserString()?.jsonStringMapTo()
+        }
     }
 
     private fun handleResponse() {
@@ -101,18 +103,6 @@ abstract class BaseActivity : AppCompatActivity() {
                 drawableId
             )
         )
-    }
-
-    fun goBack(){
-        hideKeyboard()
-        onBackPressed()
-    }
-
-    fun showKeyboard(editText: EditText) {
-        val imgr: InputMethodManager =
-            getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imgr.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
-        editText.requestFocus()
     }
 
     override fun onDestroy() {

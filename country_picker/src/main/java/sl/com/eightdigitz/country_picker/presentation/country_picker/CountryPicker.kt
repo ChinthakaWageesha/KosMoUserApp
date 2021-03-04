@@ -14,7 +14,6 @@ import android.text.Spannable
 import android.text.SpannableString
 import android.text.TextWatcher
 import android.text.style.ForegroundColorSpan
-import android.util.Log
 import android.util.TypedValue
 import android.view.View
 import android.widget.Toast
@@ -24,13 +23,13 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import sl.com.eightdigitz.country_picker.injectFeature
-import sl.com.eightdigitz.country_picker.presentation.models.PCountry
 import sl.com.eightdigitz.country_picker.presentation.utils.Resources
 import sl.com.eightdigitz.country_picker.presentation.utils.ResourcesState
 import kotlinx.android.synthetic.main.activity_country_picker.*
 import kotlinx.android.synthetic.main.partial_toolbar.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.country_picker.R
+import sl.com.eightdigitz.country_picker.presentation.models.PCountry
 import java.util.*
 
 

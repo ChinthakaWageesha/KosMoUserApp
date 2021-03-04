@@ -9,6 +9,7 @@ import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.presentation.Constant
 import sl.com.eightdigitz.presentation.IntentParsableConstants
+import sl.com.eightdigitz.presentation.extensions.hideKeyboard
 import sl.com.eightdigitz.presentation.extensions.setRoundedImage
 import sl.com.eightdigitz.presentation.extensions.startActivity
 
@@ -58,13 +59,17 @@ class ViewProfile : BaseActivity(), View.OnClickListener {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        goBack()
+        hideKeyboard()
+        onBackPressed()
         return super.onSupportNavigateUp()
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.iv_close_profile_view -> goBack()
+            R.id.iv_close_profile_view -> {
+                hideKeyboard()
+                onBackPressed()
+            }
             R.id.btn_request_now -> startActivity<OrderDetails>()
         }
     }

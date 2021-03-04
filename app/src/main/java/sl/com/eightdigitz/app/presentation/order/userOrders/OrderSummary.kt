@@ -7,6 +7,7 @@ import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.app.presentation.order.userOrders.adapters.OrderStagesAdapter
 import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.presentation.Constant
+import sl.com.eightdigitz.presentation.extensions.hideKeyboard
 import sl.com.eightdigitz.presentation.extensions.setAppActionBar
 import sl.com.eightdigitz.presentation.extensions.setRoundedImage
 
@@ -62,7 +63,8 @@ class OrderSummary : BaseActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        goBack()
+        hideKeyboard()
+        onBackPressed()
         return super.onSupportNavigateUp()
     }
 }

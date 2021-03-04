@@ -3,7 +3,13 @@ package sl.com.eightdigitz.authentication.presentation.contact
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.TextPaint
+import android.text.method.LinkMovementMethod
+import android.text.style.ClickableSpan
 import android.view.View
 import androidx.lifecycle.Observer
 import com.github.dhaval2404.imagepicker.ImagePicker
@@ -14,6 +20,7 @@ import sl.com.eightdigitz.authentication.R
 import sl.com.eightdigitz.client.apiSupports.requests.ContactUsRequest
 import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.core.model.domain.DContactUs
+import sl.com.eightdigitz.core.ui.HelpCenter
 import sl.com.eightdigitz.presentation.Msg
 import sl.com.eightdigitz.presentation.Resource
 import sl.com.eightdigitz.presentation.ResourceState
@@ -21,6 +28,7 @@ import sl.com.eightdigitz.presentation.cropper.CropImageActivity
 import sl.com.eightdigitz.presentation.extensions.*
 import sl.com.eightdigitz.presentation.utile.AppDialog
 import java.io.File
+
 
 class ContactSupport : BaseActivity(), View.OnClickListener {
 
@@ -47,10 +55,37 @@ class ContactSupport : BaseActivity(), View.OnClickListener {
 
     private fun init(){
         showKeyboard(et_name)
+        setSpannableContent()
         vm.liveDataContact.observe(this, Observer { observerContactSupport(it) })
         vm.liveDataContactImage.observe(this, Observer { observerUploadContactImage(it) })
         iv_upload_contact_us_photo.setOnClickListener(this)
         btn_submit_contact_us.setOnClickListener(this)
+    }
+
+    private fun setSpannableContent(){
+        val spannable = SpannableString("Please note that we value and respect your privacy and will only use your data for " +
+                "services purposes and will not share it with third parties. Please read the our Privacy Statement for more information.")
+        val clickableSpan: ClickableSpan = object : ClickableSpan() {
+            override fun onClick(textView: View) {
+                startActivity<HelpCenter>()
+            }
+
+            override fun updateDrawState(ds: TextPaint) {
+                super.updateDrawState(ds)
+                ds.color = Color.WHITE
+                ds.isUnderlineText = true
+            }
+        }
+
+        spannable.setSpan(
+            clickableSpan,
+            163,
+            180,
+            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+        tv_desc_contact_us.text = spannable
+        tv_desc_contact_us.movementMethod = LinkMovementMethod.getInstance()
+        tv_desc_contact_us.highlightColor = Color.TRANSPARENT
     }
 
     private fun cameraOptionsDialog(
@@ -120,7 +155,7 @@ class ContactSupport : BaseActivity(), View.OnClickListener {
 
             withNetwork({
                 vm.contactSupport(contactTalentRequest)
-            },{
+            }, {
                 showAlert(Msg.TITLE_ERROR, Msg.INTERNET_ISSUE)
             })
         }
@@ -196,13 +231,16 @@ class ContactSupport : BaseActivity(), View.OnClickListener {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        goBack()
+        hideKeyboard()
         return super.onSupportNavigateUp()
     }
 
     override fun onClick(v: View?) {
         when(v?.id){
-            R.id.iv_upload_contact_us_photo -> cameraOptionsDialog(arrayOptions,AVATAR_IMAGE_REQ_CODE)
+            R.id.iv_upload_contact_us_photo -> cameraOptionsDialog(
+                arrayOptions,
+                AVATAR_IMAGE_REQ_CODE
+            )
             R.id.btn_submit_contact_us -> contactRequest()
         }
     }

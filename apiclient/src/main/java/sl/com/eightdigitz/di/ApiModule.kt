@@ -25,6 +25,7 @@ val apiModule: Module = module {
     single { searchHistoryApi }
     single { joinContactApi }
     single { multimediaApi }
+    single { helpCenterApi }
 }
 
 private val authApi: AuthApi = retrofit.create(AuthApi::class.java)
@@ -36,3 +37,5 @@ private val searchHistoryApi: SearchHistoryApi = retrofit.create(SearchHistoryAp
 private val joinContactApi: JoinContactApi = retrofit.create(JoinContactApi::class.java)
 
 private val multimediaApi: MultimediaApi = retrofit.create(MultimediaApi::class.java)
+
+private val helpCenterApi: HelpCenterApi = retrofit.create(HelpCenterApi::class.java)

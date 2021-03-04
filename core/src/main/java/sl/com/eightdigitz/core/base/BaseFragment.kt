@@ -44,19 +44,6 @@ abstract class BaseFragment : Fragment() {
 
     private fun getBaseActivity() = parentActivity
 
-    fun showKeyboard(editText: EditText) {
-        val imgr: InputMethodManager =
-            activity!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imgr.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
-        editText.requestFocus()
-    }
-
-
-    fun hideKeyboard() {
-        val imm = activity!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(view!!.windowToken, 0)
-    }
-
     fun setBackground(drawableId: Int) {
         activity!!.window.setBackgroundDrawable(
             ContextCompat.getDrawable(

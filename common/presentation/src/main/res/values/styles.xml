@@ -399,6 +399,10 @@
         <item name="android:textSize">15sp</item>
     </style>
 
+    <style name="BlackNormalStyle.Size16">
+        <item name="android:textSize">16sp</item>
+    </style>
+
     <style name="BlackOp80NormalTextStyle.Size13">
         <item name="android:textSize">13sp</item>
     </style>
@@ -549,6 +553,10 @@
 
     <style name="TextGrayNormalStyle.Size18">
         <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextGrayNormalStyle.Size20">
+        <item name="android:textSize">20sp</item>
     </style>
 
     <style name="RedNormalTextStyle.Size12">

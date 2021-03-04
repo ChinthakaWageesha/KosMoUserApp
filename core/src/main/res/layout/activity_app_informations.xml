@@ -3,123 +3,158 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <ImageView
-        android:id="@+id/iv_back_app_info"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_back_pink" />
-
-    <TextView
-        android:id="@+id/tv_title_terms"
-        style="@style/DarkPinkNormalTextStyle.Size16"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:fontFamily="@font/sf_pro_display_semibold"
-        android:text="Terms of use"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_back_app_info"
-        app:layout_constraintEnd_toStartOf="@+id/tv_pp"
-        app:layout_constraintStart_toEndOf="@+id/iv_back_app_info"
-        app:layout_constraintTop_toTopOf="@+id/iv_back_app_info" />
-
-    <TextView
-        android:id="@+id/tv_pp"
-        style="@style/DarkPinkOp30NormalTextStyle.Size16"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:text="Privacy Policy"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_title_terms"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tv_title_terms"
-        app:layout_constraintTop_toTopOf="@+id/tv_title_terms" />
+    android:layout_height="match_parent"
+    android:background="#F4F4F4">
 
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fillViewport="true"
+        android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title_terms">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tv_general_terms"
-                style="@style/LightBlackNormalTextStyle.Size18"
-                android:fontFamily="@font/sf_pro_display_bold"
-                android:layout_width="wrap_content"
+                android:id="@+id/tv_app_info_last_update"
+                style="@style/AnyColorNormalStyle.Size12"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="42dp"
-                android:text="General Terms"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:gravity="center"
+                android:textColor="#999999"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView"
-                style="@style/BlackOp80NormalTextStyle.Size13"
-                android:fontFamily="@font/sf_pro_display_regular"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="30dp"
-                android:text="Felis eget nunc lobortis mattis. Quam vulputate dign issim suspendisse in est ante in nibh. Arcu non odio euismod lacinia at. Pharetra magna ac placerat vestibulum lectus. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Enim sit amet venenatis urna cursus eget nunc. Semper viverra nam libero justo laoreet. Libero justo laoreet sit amet cursus sit amet. Sagittis vitae et leo duis ut diam quam nulla. Etiam dignissim diam quis enim lobortis scelerisque fermentum. Blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque. Tristique et egestas quis ipsum."
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_general_terms" />
-
-            <TextView
-                android:id="@+id/textView1"
-                style="@style/LightBlackNormalTextStyle.Size18"
-                android:fontFamily="@font/sf_pro_display_bold"
+                android:id="@+id/tv_title_select_country"
+                style="@style/TextGrayNormalStyle.Size14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="42dp"
-                android:text="Terms"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:text="@string/title_select_country"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_app_info_last_update" />
 
-            <TextView
-                android:id="@+id/textView2"
-                style="@style/BlackOp80NormalTextStyle.Size13"
-                android:fontFamily="@font/sf_pro_display_regular"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_spinner_country_base"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="30dp"
-                android:text="Eros donec ac odio tempor orci dapibus. Pellentesque id nibh tortor id. Pulvinar neque laoreet suspendisse interdum consectetur. Semper viverra nam libero justo. Ac odio tempor orci dapibus ultrices in iaculis nunc. Dui accumsan sit amet nulla facilisi morbi tempus iaculis urna. Vulputate ut pharetra sit amet aliquam id diam maecenas. Adipiscing diam donec adipiscing tristique risus. Sed blandit libero volutpat sed cras ornare arcu dui. Duis at consectetur lorem donec. Sagittis id consectetur purus ut faucibus pulvinar elementum integer. Etiam erat velit scelerisque in. Arcu dictum varius duis at consectetur lorem donec. Mauris cursus mattis molestie a iaculis at. Id aliquet lectus proin nibh nisl condimentum id. Faucibus in ornare quam viverra orci."
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
+                android:background="@color/colorWhite"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView1" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_title_select_country">
 
-            <Button
-                android:id="@+id/btn_agree"
-                style="@style/PinkButtonStyle"
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:paddingBottom="16dp"
+                    android:paddingTop="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_dropdown_black" />
+
+                <Spinner
+                    android:id="@+id/sp_country"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:dropDownVerticalOffset="60dp"
+                    android:gravity="center_vertical"
+                    android:popupBackground="@drawable/bg_spinner_category_popup"
+                    android:popupElevation="6dp"
+                    android:spinnerMode="dropdown"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv_title_select_language"
+                style="@style/TextGrayNormalStyle.Size14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:text="@string/label_select_language"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cl_spinner_country_base" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_spinner_language_base"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="30dp"
-                android:layout_marginBottom="32dp"
-                android:text="Agree"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
+                android:background="@color/colorWhite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title_select_language">
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:paddingBottom="16dp"
+                    android:paddingTop="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_dropdown_black" />
+
+                <Spinner
+                    android:id="@+id/sp_language"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:dropDownVerticalOffset="60dp"
+                    android:gravity="center_vertical"
+                    android:popupBackground="@drawable/bg_spinner_category_popup"
+                    android:popupElevation="6dp"
+                    android:spinnerMode="dropdown"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <WebView
+                android:id="@+id/wv_app_info"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="24dp"
+                android:background="@color/colorTransparent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintTop_toBottomOf="@+id/cl_spinner_language_base" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

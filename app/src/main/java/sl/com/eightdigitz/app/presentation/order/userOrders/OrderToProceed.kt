@@ -8,6 +8,7 @@ import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.app.presentation.order.userOrders.adapters.OrderStagesAdapter
 import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.presentation.Constant
+import sl.com.eightdigitz.presentation.extensions.hideKeyboard
 import sl.com.eightdigitz.presentation.extensions.setAppActionBar
 import sl.com.eightdigitz.presentation.extensions.setRoundedImage
 import sl.com.eightdigitz.presentation.extensions.startActivity
@@ -51,7 +52,8 @@ class OrderToProceed : BaseActivity(), View.OnClickListener {
         tv_address_as.text = "Address Nadia Ismail as"
         tv_address_proceed_order_user_as.text = "She/Her"
         tv_proceed_order_message.text = "Roast Message"
-        tv_proceed_order_remaining_hrs.text = "You have 12 hours remaining to review the order status. \n" + "By default the order will proceed."
+        tv_proceed_order_remaining_hrs.text =
+            "You have 12 hours remaining to review the order status. \n" + "By default the order will proceed."
     }
 
     private fun setOrderStageAdapter() {
@@ -64,13 +66,17 @@ class OrderToProceed : BaseActivity(), View.OnClickListener {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        goBack()
+        hideKeyboard()
+        onBackPressed()
         return super.onSupportNavigateUp()
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.btn_decline_proceed_order -> goBack()
+            R.id.btn_decline_proceed_order -> {
+                hideKeyboard()
+                onBackPressed()
+            }
             R.id.btn_proceed_order -> startActivity<OrderSummary>()
         }
     }

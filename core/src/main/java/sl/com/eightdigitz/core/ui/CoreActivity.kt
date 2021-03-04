@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import sl.com.eightdigitz.navigation.features.AuthenticationNavigation
 import sl.com.eightdigitz.navigation.features.MainNavigation
 import org.koin.android.ext.android.inject
+import sl.com.eightdigitz.core.injectFeature
 import sl.com.eightdigitz.navigation.features.RequestCodes.AUTH
 import sl.com.eightdigitz.navigation.features.RequestCodes.MAIN
 import sl.com.eightdigitz.navigation.features.RequestCodes.SPLASH
@@ -24,8 +25,9 @@ class CoreActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //startMain()
-        handleLogin()
+        injectFeature()
+        startLogin()
+        //handleLogin()
     }
 
     private fun handleLogin() {

@@ -88,12 +88,14 @@ class ChooseLanguage : BaseFragment(), View.OnClickListener {
                     language = LanguageType.HINDI
                 }
                 (requireActivity() as AuthActivity).language = language
-                (requireActivity() as AuthActivity).setGetOTP()
+                //(requireActivity() as AuthActivity).setGetOTP()
+                (requireActivity() as AuthActivity).setRegister()
             }
         }
     }
 
     override fun onResume() {
+        view?.hideKeyboard()
         setBackground(sl.com.eightdigitz.presentation.R.drawable.bg_choose_language)
         super.onResume()
     }

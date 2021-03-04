@@ -16,13 +16,23 @@
     </dist:module>
 
     <application tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".presentation.contact.SendRequest"></activity>
-        <activity android:name=".presentation.contact.ContactSupport" />
+
         <activity
             android:name=".presentation.AuthActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <activity
+            android:name=".presentation.contact.SendRequest"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity
+            android:name=".presentation.contact.ContactSupport"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustResize"/>
     </application>
 
 </manifest>

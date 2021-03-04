@@ -6,6 +6,7 @@ import kotlinx.android.synthetic.main.activity_user_orders.*
 import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.app.presentation.order.userOrders.adapters.OrderStageViewPagerAdapter
 import sl.com.eightdigitz.core.base.BaseActivity
+import sl.com.eightdigitz.presentation.extensions.hideKeyboard
 import sl.com.eightdigitz.presentation.extensions.setAppActionBar
 
 class UserOrders : BaseActivity() {
@@ -46,7 +47,8 @@ class UserOrders : BaseActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        goBack()
+        hideKeyboard()
+        onBackPressed()
         return super.onSupportNavigateUp()
     }
 }

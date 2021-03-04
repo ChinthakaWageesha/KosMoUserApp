@@ -2,7 +2,6 @@ package sl.com.eightdigitz.authentication.presentation.verifyOTP
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -11,13 +10,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.auth0.android.Auth0
-import com.auth0.android.provider.AuthenticationActivity
 import com.hbb20.CountryCodePicker
 import kotlinx.android.synthetic.main.fragment_get_otp.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -50,7 +46,6 @@ class GetOTP : BaseFragment(), View.OnClickListener {
     override fun onViewCreated() {
         setToolbar()
         init()
-        hideKeyboard()
     }
 
     private fun setToolbar() {

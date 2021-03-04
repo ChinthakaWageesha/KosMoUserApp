@@ -3,8 +3,7 @@
     xmlns:dist="http://schemas.android.com/apk/distribution"
     xmlns:tools="http://schemas.android.com/tools"
     package="sl.com.eightdigitz.core">
-
-    <!--Instant enabled app bundle-->
+    <!-- Instant enabled app bundle -->
     <dist:module dist:instant="true" />
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -24,7 +23,7 @@
         tools:replace="android:allowBackup">
 
         <activity
-            android:name="sl.com.eightdigitz.core.ui.CoreActivity"
+            android:name=".ui.CoreActivity"
             android:theme="@style/AppTheme.SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,14 +32,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name="sl.com.eightdigitz.core.ui.AppInformation"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden"
-            android:screenOrientation="portrait">
-        </activity>
-
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity
+            android:name="sl.com.eightdigitz.core.ui.HelpCenter"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
     </application>
 
 </manifest>
