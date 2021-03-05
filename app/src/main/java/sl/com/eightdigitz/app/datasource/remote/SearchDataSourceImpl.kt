@@ -39,7 +39,8 @@ class SearchDataSourceImpl(
     override fun getTalentsByPreference(preferenceId: String): Single<ListResponse<DUser>> =
         preferencesApi.getTalentsByPreference(
             idToken = mSharedPreferences.getIdToken()!!,
-            preferenceId = preferenceId
+            preferenceId = preferenceId,
+            role = "talent"
         ).map {
             it.mapToDomain()
         }

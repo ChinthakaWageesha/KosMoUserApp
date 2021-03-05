@@ -7,8 +7,7 @@ import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.app.di.injectFeature
 import sl.com.eightdigitz.core.base.BaseActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import sl.com.eightdigitz.app.presentation.activity.ActivityFragment
-import sl.com.eightdigitz.app.presentation.explore.ExploreFragment
+import sl.com.eightdigitz.app.presentation.explore.Explore
 import sl.com.eightdigitz.app.presentation.home.HomeFragment
 import sl.com.eightdigitz.app.presentation.order.userOrders.UserOrders
 import sl.com.eightdigitz.app.presentation.profile.ProfileFragment
@@ -58,13 +57,7 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
                 }
             }
             R.id.nav_explore -> {
-                if (getCurrentFragment() !is ExploreFragment) {
-                    supportFragmentManager.replaceFragment(
-                        R.id.fl_main,
-                        ExploreFragment.newInstance(),
-                        ExploreFragment.TAG
-                    )
-                }
+                startActivity<Explore>()
             }
             R.id.nav_activity -> {
                 startActivity<UserOrders>()

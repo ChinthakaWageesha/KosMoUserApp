@@ -88,8 +88,7 @@ class ChooseLanguage : BaseFragment(), View.OnClickListener {
                     language = LanguageType.HINDI
                 }
                 (requireActivity() as AuthActivity).language = language
-                //(requireActivity() as AuthActivity).setGetOTP()
-                (requireActivity() as AuthActivity).setRegister()
+                (requireActivity() as AuthActivity).setGetOTP()
             }
         }
     }

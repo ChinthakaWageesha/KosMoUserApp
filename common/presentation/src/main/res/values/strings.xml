@@ -173,4 +173,7 @@
     <!--App Information-->
     <string name="title_select_country">Select Country</string>
     <string name="label_select_language">Select Language</string>
+
+    <!--Explore-->
+    <string name="title_view_profile">View Profile</string>
 </resources>
