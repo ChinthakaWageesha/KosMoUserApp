@@ -34,7 +34,7 @@ class RegistrationViewModel constructor(private val authUseCase: AuthUseCase) : 
                 .subscribe({
                     liveDataCategories.setSuccess(it!!, null)
                 }, {
-                    liveDataCategories.setError(ErrorHandler.getApiErrorMessage(it))
+                    liveDataCategories.setError(ErrorHandler.getApiErrorMessage(it).mapToPresentation())
                 })
         )
     }
@@ -48,7 +48,7 @@ class RegistrationViewModel constructor(private val authUseCase: AuthUseCase) : 
             .map { it.mapToPresentation() }
             .subscribe(
                 { liveDataSaveUser.setSuccess(it) },
-                { liveDataSaveUser.setError(ErrorHandler.getApiErrorMessage(it))}
+                { liveDataSaveUser.setError(ErrorHandler.getApiErrorMessage(it).mapToPresentation())}
             )
     )
 
@@ -61,7 +61,7 @@ class RegistrationViewModel constructor(private val authUseCase: AuthUseCase) : 
                 .subscribe({
                     liveDataPreference.setSuccess(it, null)
                 },{
-                    liveDataPreference.setError(ErrorHandler.getApiErrorMessage(it))
+                    liveDataPreference.setError(ErrorHandler.getApiErrorMessage(it).mapToPresentation())
                 })
         )
     }

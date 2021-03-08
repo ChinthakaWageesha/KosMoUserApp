@@ -5,6 +5,8 @@ import sl.com.eightdigitz.client.apiSupports.responses.*
 import sl.com.eightdigitz.core.model.domain.*
 import sl.com.eightdigitz.core.model.presentation.*
 import sl.com.eightdigitz.models.Success
+import sl.com.eightdigitz.network.NMessage
+import sl.com.eightdigitz.presentation.PMessage
 
 fun User.mapToDomain(): DUser =
     DUser(
@@ -220,6 +222,11 @@ fun Order.mapToDomain(): DOrder = DOrder(
     shoutOutValidUpTo = shoutOutValidUpTo,
     stage = stage
 )
+
+fun NMessage.mapToPresentation(): PMessage = PMessage(
+    error = error
+)
+
 
 fun SuccessResponse.mapToDataSource(): Success =
     Success(message, status, payload)

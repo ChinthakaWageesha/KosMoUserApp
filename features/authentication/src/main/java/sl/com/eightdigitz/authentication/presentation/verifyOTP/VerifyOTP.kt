@@ -206,7 +206,7 @@ class VerifyOTP : BaseFragment(), View.OnClickListener {
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
-                    if (it.message.toString() == "{\"error\":\"No records found\"}") {
+                    if (it.message?.error.toString() == "No records found") {
                         navigateToGetStart()
                     } else {
                         showAlert(Msg.TITLE_ERROR, it.message.toString())

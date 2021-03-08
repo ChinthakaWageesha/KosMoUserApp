@@ -2,7 +2,7 @@ package sl.com.eightdigitz.presentation
 
 import androidx.lifecycle.MutableLiveData
 
-fun <T> MutableLiveData<Resource<T>>.setSuccess(data: T, message: String? = null) =
+fun <T> MutableLiveData<Resource<T>>.setSuccess(data: T, message: PMessage? = null) =
     postValue(Resource(ResourceState.SUCCESS, data, message))
 
 fun <T> MutableLiveData<Resource<T>>.setLoading() =
@@ -13,7 +13,7 @@ fun <T> MutableLiveData<Resource<T>>.setLoading() =
         )
     )
 
-fun <T> MutableLiveData<Resource<T>>.setError(message: String? = null) =
+fun <T> MutableLiveData<Resource<T>>.setError(message: PMessage? = null) =
     postValue(
         Resource(
             ResourceState.ERROR,

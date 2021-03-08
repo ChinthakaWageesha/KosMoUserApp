@@ -8,6 +8,7 @@ import sl.com.eightdigitz.app.domain.usecase.SearchUseCase
 import sl.com.eightdigitz.core.model.domain.DUserSearch
 import sl.com.eightdigitz.core.model.domain.DPreference
 import sl.com.eightdigitz.core.model.domain.DUser
+import sl.com.eightdigitz.core.model.mapToPresentation
 import sl.com.eightdigitz.network.ErrorHandler
 import sl.com.eightdigitz.presentation.Resource
 import sl.com.eightdigitz.presentation.setError
@@ -33,7 +34,7 @@ class SearchViewModel(
                 .subscribe({
                     liveDataCategories.setSuccess(it!!, null)
                 }, {
-                    liveDataCategories.setError(ErrorHandler.getApiErrorMessage(it))
+                    liveDataCategories.setError(ErrorHandler.getApiErrorMessage(it).mapToPresentation())
                 })
         )
     }
@@ -47,7 +48,7 @@ class SearchViewModel(
                 .subscribe({
                     liveDataRecentSearches.setSuccess(it!!, null)
                 }, {
-                    liveDataRecentSearches.setError(ErrorHandler.getApiErrorMessage(it))
+                    liveDataRecentSearches.setError(ErrorHandler.getApiErrorMessage(it).mapToPresentation())
                 })
         )
     }
@@ -61,7 +62,7 @@ class SearchViewModel(
                 .subscribe({
                     liveDataTalentByPreferences.setSuccess(it!!, null)
                 }, {
-                    liveDataTalentByPreferences.setError(ErrorHandler.getApiErrorMessage(it))
+                    liveDataTalentByPreferences.setError(ErrorHandler.getApiErrorMessage(it).mapToPresentation())
                 })
         )
     }
@@ -77,7 +78,7 @@ class SearchViewModel(
                 .subscribe({
                     liveDataRemoveRecent.setSuccess(it, null)
                 }, {
-                    liveDataRemoveRecent.setError(ErrorHandler.getApiErrorMessage(it))
+                    liveDataRemoveRecent.setError(ErrorHandler.getApiErrorMessage(it).mapToPresentation())
                 })
         )
     }

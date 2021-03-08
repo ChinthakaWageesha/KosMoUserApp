@@ -212,7 +212,8 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
-                    showAlert(Msg.TITLE_ERROR, it.message.toString())
+                    it.message?.error.toString().showToast(context!!)
+                    /*showAlert(Msg.TITLE_ERROR, it.message.toString())*/
                 }
             }
         }
@@ -231,7 +232,7 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
-                    it.message?.showToast(context!!)
+                    it.message?.error?.showToast(context!!)
                 }
             }
         }

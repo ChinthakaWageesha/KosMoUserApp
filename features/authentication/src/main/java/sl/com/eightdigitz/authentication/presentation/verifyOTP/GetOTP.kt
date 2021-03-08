@@ -152,6 +152,7 @@ class GetOTP : BaseFragment(), View.OnClickListener {
         (requireActivity() as AuthActivity).mobileNumber0 =
             ccpPicker.fullNumberWithPlus.replace("+94", "0")
         (requireActivity() as AuthActivity).setVerifyOTP()
+        et_mobile.clearText()
     }
 
     private fun startCountryPicker() {

@@ -12,6 +12,7 @@ import io.reactivex.schedulers.Schedulers
 import sl.com.eightdigitz.core.model.domain.DOTP
 import sl.com.eightdigitz.core.model.domain.DOTPToken
 import sl.com.eightdigitz.core.model.domain.DUser
+import sl.com.eightdigitz.core.model.mapToPresentation
 import sl.com.eightdigitz.network.ErrorHandler
 
 class OTPViewModel constructor(private val authUseCase: AuthUseCase) : ViewModel() {
@@ -31,7 +32,7 @@ class OTPViewModel constructor(private val authUseCase: AuthUseCase) : ViewModel
                 .subscribe({
                     liveDataOTP.setSuccess(it, null)
                 }, {
-                    liveDataOTP.setError(ErrorHandler.getApiErrorMessage(it))
+                    liveDataOTP.setError(ErrorHandler.getApiErrorMessage(it).mapToPresentation())
                 })
         )
     }
@@ -45,7 +46,7 @@ class OTPViewModel constructor(private val authUseCase: AuthUseCase) : ViewModel
                 .subscribe({
                     liveDataOTPToken.setSuccess(it, null)
                 }, {
-                    liveDataOTPToken.setError(ErrorHandler.getApiErrorMessage(it))
+                    liveDataOTPToken.setError(ErrorHandler.getApiErrorMessage(it).mapToPresentation())
                 })
         )
     }
@@ -59,7 +60,7 @@ class OTPViewModel constructor(private val authUseCase: AuthUseCase) : ViewModel
                 .subscribe({
                     liveDataUser.setSuccess(it, null)
                 }, {
-                    liveDataUser.setError(ErrorHandler.getApiErrorMessage(it))
+                    liveDataUser.setError(ErrorHandler.getApiErrorMessage(it).mapToPresentation())
                 })
         )
     }

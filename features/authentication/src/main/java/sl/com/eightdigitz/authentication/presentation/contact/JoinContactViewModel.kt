@@ -11,6 +11,7 @@ import sl.com.eightdigitz.client.apiSupports.requests.ContactUsRequest
 import sl.com.eightdigitz.client.apiSupports.requests.JoinUsRequest
 import sl.com.eightdigitz.core.model.domain.DContactUs
 import sl.com.eightdigitz.core.model.domain.DJoinUs
+import sl.com.eightdigitz.core.model.mapToPresentation
 import sl.com.eightdigitz.network.ErrorHandler
 import sl.com.eightdigitz.presentation.Resource
 import sl.com.eightdigitz.presentation.setError
@@ -39,7 +40,9 @@ data class JoinContactViewModel constructor(private val authUseCase: AuthUseCase
                         liveDataContactImage.setSuccess(it)
                     },
                     {
-                        liveDataContactImage.setError(ErrorHandler.getApiErrorMessage(it))
+                        liveDataContactImage.setError(
+                            ErrorHandler.getApiErrorMessage(it).mapToPresentation()
+                        )
                     }
                 )
         )
@@ -56,7 +59,7 @@ data class JoinContactViewModel constructor(private val authUseCase: AuthUseCase
                 .subscribe({
                     liveDataJoinUs.setSuccess(it, null)
                 }, {
-                    liveDataJoinUs.setError(it.message)
+                    liveDataJoinUs.setError(ErrorHandler.getApiErrorMessage(it).mapToPresentation())
                 })
         )
 
@@ -71,7 +74,7 @@ data class JoinContactViewModel constructor(private val authUseCase: AuthUseCase
                 .subscribe({
                     liveDataContact.setSuccess(it, null)
                 }, {
-                    liveDataContact.setError(it.message)
+                    liveDataContact.setError(ErrorHandler.getApiErrorMessage(it).mapToPresentation())
                 })
         )
 

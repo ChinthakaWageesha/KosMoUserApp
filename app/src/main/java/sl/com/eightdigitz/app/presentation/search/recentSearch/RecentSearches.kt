@@ -80,7 +80,7 @@ class RecentSearches : BaseActivity(), View.OnClickListener, (DUser) -> Unit {
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
-                    showAlert(title = Msg.TITLE_ERROR, message = it.message!!)
+                    showAlert(title = Msg.TITLE_ERROR, message = it.message?.error!!)
                 }
             }
         }

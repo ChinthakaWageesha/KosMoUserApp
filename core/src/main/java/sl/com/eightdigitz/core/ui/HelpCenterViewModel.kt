@@ -7,6 +7,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import sl.com.eightdigitz.core.domain.usecase.HelpCenterUseCase
 import sl.com.eightdigitz.core.model.domain.DAppInfo
+import sl.com.eightdigitz.core.model.mapToPresentation
 import sl.com.eightdigitz.country_picker.domain.model.DCountry
 import sl.com.eightdigitz.network.ErrorHandler
 import sl.com.eightdigitz.presentation.Resource
@@ -27,9 +28,11 @@ class HelpCenterViewModel(private val helpCenterUseCase: HelpCenterUseCase) : Vi
                 .subscribeOn(Schedulers.newThread())
                 .map { it }
                 .subscribe({
-                    liveDataCountries.setSuccess(it, "")
+                    liveDataCountries.setSuccess(it, null)
                 }, {
-                    liveDataCountries.setError(it.message)
+                    liveDataCountries.setError(
+                        ErrorHandler.getApiErrorMessage(it).mapToPresentation()
+                    )
                 })
         )
 
@@ -45,7 +48,9 @@ class HelpCenterViewModel(private val helpCenterUseCase: HelpCenterUseCase) : Vi
                 .subscribe({
                     liveDataAppInfo.setSuccess(it, null)
                 }, {
-                    liveDataAppInfo.setError(ErrorHandler.getApiErrorMessage(it))
+                    liveDataAppInfo.setError(
+                        ErrorHandler.getApiErrorMessage(it).mapToPresentation()
+                    )
                 })
         )
     }

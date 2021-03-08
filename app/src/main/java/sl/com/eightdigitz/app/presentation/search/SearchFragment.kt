@@ -95,7 +95,7 @@ class SearchFragment : BaseFragment(), (DPreference) -> Unit, View.OnClickListen
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
-                    showAlert(title = Msg.TITLE_ERROR, message = it.message!!)
+                    showAlert(title = Msg.TITLE_ERROR, message = it.message?.error!!)
                 }
             }
         }
@@ -113,7 +113,7 @@ class SearchFragment : BaseFragment(), (DPreference) -> Unit, View.OnClickListen
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
-                    showAlert(title = Msg.TITLE_ERROR, message = it.message!!)
+                    showAlert(title = Msg.TITLE_ERROR, message = it.message?.error!!)
                 }
             }
         }

@@ -7,6 +7,7 @@ import io.reactivex.schedulers.Schedulers
 import sl.com.eightdigitz.app.domain.usecase.OrderUseCase
 import sl.com.eightdigitz.client.apiSupports.requests.NewOrderRequest
 import sl.com.eightdigitz.core.model.domain.DOrder
+import sl.com.eightdigitz.core.model.mapToPresentation
 import sl.com.eightdigitz.network.ErrorHandler
 import sl.com.eightdigitz.presentation.Resource
 import sl.com.eightdigitz.presentation.setError
@@ -29,7 +30,7 @@ class OrderViewModel(
                 .subscribe({
                     liveDataOrder.setSuccess(it, null)
                 }, {
-                    liveDataOrder.setError(ErrorHandler.getApiErrorMessage(it))
+                    liveDataOrder.setError(ErrorHandler.getApiErrorMessage(it).mapToPresentation())
                 })
         )
     }
