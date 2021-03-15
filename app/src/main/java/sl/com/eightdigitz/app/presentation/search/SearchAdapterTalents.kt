@@ -51,7 +51,7 @@ class SearchAdapterTalents(
                 )
             } else {
                 itemView.iv_talent_pro_pic.setRoundedImage(
-                    url = Constant.USER_IMAGE_AQUAMAN,
+                    url = Constant.KID_IMAGE_URL,
                     radius = 12
                 )
             }

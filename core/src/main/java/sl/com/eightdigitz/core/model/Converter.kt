@@ -31,7 +31,8 @@ fun User.mapToDomain(): DUser =
         topSocialMediaPlatform = topSocialMediaPlatform,
         socialMediaProfileLink = socialMediaProfileLink,
         subscribeMail = subscribeMail,
-        userName = userName
+        userName = userName,
+        firebaseId = firebaseID
     )
 
 fun DUser.mapToPresentation(): PUser =
@@ -57,7 +58,8 @@ fun DUser.mapToPresentation(): PUser =
         topSocialMediaPlatform = topSocialMediaPlatform,
         socialMediaProfileLink = socialMediaProfileLink,
         subscribeMail = subscribeMail,
-        userName = userName
+        userName = userName,
+        firebaseId = firebaseId
     )
 
 fun OTPResponse.mapToDomain(): DOTP = DOTP(
@@ -223,10 +225,34 @@ fun Order.mapToDomain(): DOrder = DOrder(
     stage = stage
 )
 
+fun NotificationResponse.mapToDomain(): ListResponse<DPushNotification> = ListResponse(
+    message = message,
+    result = status,
+    data = data?.map { it.mapToDomain() }
+)
+
+fun PushNotification.mapToDomain(): DPushNotification = DPushNotification(
+    id = id,
+    uuid = uuid,
+    title = title,
+    message = message,
+    badgeCount = badgeCount,
+    data = data?.mapToDomain(),
+    sentAt = sentAt,
+    sentTimeLabel = sentTimeLabel
+)
+
+fun Notification.mapToDomain(): DNotification = DNotification(
+    entityId = entityId,
+    entityTitle = entityTitle,
+    entityMessage = entityMessage,
+    thumbnailUrl = thumbnailUrl,
+    endDate = endDate
+)
+
 fun NMessage.mapToPresentation(): PMessage = PMessage(
     error = error
 )
-
 
 fun SuccessResponse.mapToDataSource(): Success =
     Success(message, status, payload)

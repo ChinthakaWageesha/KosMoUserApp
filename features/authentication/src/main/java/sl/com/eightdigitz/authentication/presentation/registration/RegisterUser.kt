@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.text.*
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +17,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.github.dhaval2404.imagepicker.constant.ImageProvider
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.iid.FirebaseInstanceId
 import com.hbb20.CountryCodePicker
 import kotlinx.android.synthetic.main.fragment_get_otp.*
 import kotlinx.android.synthetic.main.fragment_register_user.*
@@ -103,8 +106,9 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
         et_country.setOnClickListener(this)
     }
 
-    private fun setSpannableContent(){
-        val spannable = SpannableString("Please note that we value and respect your privacy and will only use your data for services purposes. Read the our Privacy Statement for more information. Learn all you need to know, visit our help centre.")
+    private fun setSpannableContent() {
+        val spannable =
+            SpannableString("Please note that we value and respect your privacy and will only use your data for services purposes. Read the our Privacy Statement for more information. Learn all you need to know, visit our help centre.")
 
         val clickableSpan: ClickableSpan = object : ClickableSpan() {
             override fun onClick(textView: View) {
@@ -138,26 +142,45 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
     }
 
     @SuppressLint("MissingPermission")
-    private fun onContinue() {
+    private fun processSignUp() {
         if (validateForm() && validateProPic()) {
-            val registerRequest = RegisterRequest()
-            registerRequest.mobileNo = (requireActivity() as AuthActivity).mobileNumber0
-            registerRequest.fullName = et_name_sign_up.getStringTrim()
-            registerRequest.email = et_sign_up_email.getStringTrim()
-            registerRequest.defaultLanguage = (requireActivity() as AuthActivity).language
-            registerRequest.role = "user"
-            registerRequest.profilePicture = (requireActivity() as AuthActivity).avatarUrl
-
-            if (et_sign_up_description.getStringTrim().isNotEmpty()) {
-                registerRequest.profileDescription = et_sign_up_description.getStringTrim()
-            }
-
             activity?.withNetwork({
-                vmRegister.createAccount(registerRequest)
+                getFcmTokenObserver()
             }, {
                 showAlert(message = Msg.INTERNET_ISSUE)
             })
         }
+    }
+
+    private fun getFcmTokenObserver() {
+        showProgress()
+        FirebaseInstanceId.getInstance().instanceId
+            .addOnCompleteListener(OnCompleteListener { task ->
+                val token = task.result?.token
+                authWithBackend(fmcToken = token)
+            })
+    }
+
+    @SuppressLint("MissingPermission")
+    private fun authWithBackend(fmcToken: String?) {
+        val registerRequest = RegisterRequest()
+        registerRequest.firebaseID = fmcToken
+        registerRequest.mobileNo = (requireActivity() as AuthActivity).mobileNumber0
+        registerRequest.fullName = et_name_sign_up.getStringTrim()
+        registerRequest.email = et_sign_up_email.getStringTrim()
+        registerRequest.defaultLanguage = (requireActivity() as AuthActivity).language
+        registerRequest.role = "user"
+        registerRequest.profilePicture = (requireActivity() as AuthActivity).avatarUrl
+
+        if (et_sign_up_description.getStringTrim().isNotEmpty()) {
+            registerRequest.profileDescription = et_sign_up_description.getStringTrim()
+        }
+
+        activity?.withNetwork({
+            vmRegister.createAccount(registerRequest)
+        }, {
+            showAlert(message = Msg.INTERNET_ISSUE)
+        })
     }
 
     private fun validateForm(): Boolean {
@@ -320,7 +343,7 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.iv_calendar -> setDatePicker()
-            R.id.btn_submit_sign_up -> onContinue()
+            R.id.btn_submit_sign_up -> processSignUp()
             R.id.et_country -> startCountryPicker()
             R.id.iv_sign_up_pro_pic -> cameraOptionsDialog(arrayOptions, AVATAR_IMAGE_REQ_CODE)
         }

@@ -29,7 +29,6 @@ class AuthDataSourceImpl constructor(
 
     override fun uploadAvatar(image: MultipartBody.Part): Single<String> =
         multimediaApi.uploadAvatar(
-            idToken = Constant.SAMPLE_X_ID_TOKEN,
             bigData = image
         ).map {
             it.data

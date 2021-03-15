@@ -10,7 +10,6 @@ import android.content.SharedPreferences
 import android.graphics.Color
 import android.media.RingtoneManager
 import android.os.Build
-import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import sl.com.eightdigitz.core.ui.CoreActivity
@@ -33,23 +32,22 @@ class FcmService : FirebaseMessagingService() {
 
     private val mSharedPreferences by inject<SharedPreferences>()
     private lateinit var mNotificationManager: NotificationManager
-    private val CHANNEL_ID = "Edroid"
+    private val channelId = "hello_user"
     private var mContent: String? = null
 
     companion object {
         private var tokenData: PublishSubject<String> = PublishSubject.create()
 
+
+        //todo call this method in Logout
         fun getObservable(): PublishSubject<String> {
             return tokenData
         }
-
-        var isCustomDataModel = false
     }
 
     override fun onNewToken(token: String) {
         super.onNewToken(token)
         tokenData.onNext(token)
-        Log.e("*****", token)
         mSharedPreferences.setValue(PREF_FCM_TOKEN, token)
         println("FCM Token $token")
     }
@@ -96,7 +94,7 @@ class FcmService : FirebaseMessagingService() {
             )
 
             val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
-            val notificationBuilder = NotificationCompat.Builder(this, CHANNEL_ID)
+            val notificationBuilder = NotificationCompat.Builder(this, channelId)
                 .setSmallIcon(sl.com.eightdigitz.core.R.drawable.ic_launcher_background)
                 .setContentTitle(message.data["title"])
                 .setContentText(message.data["message"])
@@ -119,10 +117,8 @@ class FcmService : FirebaseMessagingService() {
         val adminChannelName = "Test"
         val adminChannelDescription = "Description"
 
-        val adminChannel: NotificationChannel
-
-        adminChannel = NotificationChannel(
-            CHANNEL_ID,
+        val adminChannel = NotificationChannel(
+            channelId,
             adminChannelName,
             NotificationManager.IMPORTANCE_LOW
         )

@@ -37,7 +37,6 @@ class SearchFragment : BaseFragment(), (DPreference) -> Unit, View.OnClickListen
     private fun init() {
         setRecentSearchAdapter(mutableListOf())
         getSearchCategories()
-        getRecentSearches()
         setPeopleYouKnowAdapter()
         setRecommendedAdapter()
         et_search_talent_home.setOnClickListener(this)
@@ -108,6 +107,7 @@ class SearchFragment : BaseFragment(), (DPreference) -> Unit, View.OnClickListen
                 ResourceState.SUCCESS -> {
                     hideProgress()
                     rv_recent_searches.setEmptyView(tv_no_data_recent_searches, it.data!!.size)
+                    (rv_recent_searches.adapter as SearchAdapterTalents).clear()
                     (rv_recent_searches.adapter as SearchAdapterTalents).addTalents(it.data!!.toMutableList())
 
                 }
@@ -127,14 +127,6 @@ class SearchFragment : BaseFragment(), (DPreference) -> Unit, View.OnClickListen
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == RequestCodes.RECENT_SEARCH_REQUEST_CODE && resultCode == ResultCodes.RECENT_SEARCH_RESULT_CODE) {
-            getRecentSearches()
-        }
-        super.onActivityResult(requestCode, resultCode, data)
-
-    }
-
     override fun invoke(preference: DPreference) {
         val intent = Intent(context!!, SearchTalentByPreference::class.java)
         intent.putExtra(IntentParsableConstants.EXTRA_PREFERENCE, preference)
@@ -142,15 +134,15 @@ class SearchFragment : BaseFragment(), (DPreference) -> Unit, View.OnClickListen
     }
 
     override fun onResume() {
-        view?.hideKeyboard()
+        hideKeyboard()
+        getRecentSearches()
         super.onResume()
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.et_search_talent_home -> {
-                val intent = Intent(context, RecentSearches::class.java)
-                startActivityForResult(intent, RequestCodes.RECENT_SEARCH_REQUEST_CODE)
+                context?.startActivity<RecentSearches>()
             }
         }
     }

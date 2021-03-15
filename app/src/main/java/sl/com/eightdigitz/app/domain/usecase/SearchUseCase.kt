@@ -12,8 +12,8 @@ class SearchUseCase(private val searchRepository: SearchRepository) {
     fun getTalentsByPreference(preferenceId: String) =
         searchRepository.getTalentsByPreference(preferenceId)
 
-    fun logPreferenceSearch(logSearchRequest: LogSearchRequest) =
-        searchRepository.logPreferenceSearch(logSearchRequest)
+    fun logSearch(logSearchRequest: LogSearchRequest) =
+        searchRepository.logSearch(logSearchRequest)
 
     fun removeRecentViewedProfile(
         ownerId: String,

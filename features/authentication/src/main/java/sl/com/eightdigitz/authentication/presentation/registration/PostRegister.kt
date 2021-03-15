@@ -21,7 +21,6 @@ import sl.com.eightdigitz.presentation.extensions.*
 class PostRegister : BaseFragment(), View.OnClickListener, (Preference, Boolean) -> Unit {
 
     private val viewModel by viewModel<RegistrationViewModel>()
-   // private var selectedPreferenceList: ArrayList<Preference>? = null
     private var preferenceId: String? = null
 
     override fun onCreateView(
@@ -47,7 +46,6 @@ class PostRegister : BaseFragment(), View.OnClickListener, (Preference, Boolean)
 
     @SuppressLint("SetTextI18n")
     private fun init() {
-       // selectedPreferenceList = arrayListOf()
         viewModel.getPreferences()
         iv_post_register.loadImage((requireActivity() as AuthActivity).avatarUrl)
         tv_post_register_name.text = (requireActivity() as AuthActivity).fullName

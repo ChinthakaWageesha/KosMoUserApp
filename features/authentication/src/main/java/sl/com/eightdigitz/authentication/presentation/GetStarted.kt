@@ -43,7 +43,7 @@ class GetStarted : BaseFragment(), View.OnClickListener {
     }
 
     override fun onResume() {
-        view?.hideKeyboard()
+        hideKeyboard()
         setBackground(sl.com.eightdigitz.presentation.R.drawable.ic_sample_sanga)
         super.onResume()
     }

@@ -26,6 +26,7 @@ data class PUser(
     var topSocialMediaPlatform: String? = null,
     var socialMediaProfileLink: String? = null,
     var subscribeMail: Boolean? = null,
-    var userName: String? = null
+    var userName: String? = null,
+    var firebaseId: String? = null
 ): Parcelable
 

@@ -30,6 +30,7 @@ data class User(
     @Json(name = "TopSocialMediaPlatform") @field:Json(name = "TopSocialMediaPlatform") var topSocialMediaPlatform: String? = null,
     @Json(name = "SocialMediaProfileLink") @field:Json(name = "SocialMediaProfileLink") var socialMediaProfileLink: String? = null,
     @Json(name = "SubscribeMail") @field:Json(name = "SubscribeMail") var subscribeMail: Boolean? = null,
-    @Json(name = "UserName") @field:Json(name = "UserName") var userName: String? = null
+    @Json(name = "UserName") @field:Json(name = "UserName") var userName: String? = null,
+    @Json(name = "FirebaseID") @field:Json(name = "FirebaseID") var firebaseID: String? = null
 )
 

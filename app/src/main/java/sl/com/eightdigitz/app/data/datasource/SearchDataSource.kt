@@ -17,7 +17,7 @@ interface SearchDataSource {
         preferenceId: String
     ): Single<ListResponse<DUser>>
 
-    fun logPreferenceSearch(
+    fun logSearch(
         logSearchRequest: LogSearchRequest
     ): Single<DUserSearch>
 

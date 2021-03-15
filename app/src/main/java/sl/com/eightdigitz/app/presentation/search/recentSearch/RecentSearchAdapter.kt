@@ -54,7 +54,7 @@ class RecentSearchAdapter(
                 )
             } else {
                 itemView.iv_recent_search.setRoundedImage(
-                    url = Constant.USER_IMAGE_AQUAMAN,
+                    url = Constant.KID_IMAGE_URL,
                     radius = 12
                 )
 

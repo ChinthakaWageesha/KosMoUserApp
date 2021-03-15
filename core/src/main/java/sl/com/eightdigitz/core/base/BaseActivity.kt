@@ -1,14 +1,11 @@
 package sl.com.eightdigitz.core.base
 
 import android.app.Dialog
-import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.Window
-import android.view.inputmethod.InputMethodManager
-import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import sl.com.eightdigitz.core.ui.CoreActivity
@@ -20,7 +17,6 @@ import sl.com.eightdigitz.presentation.Msg
 import sl.com.eightdigitz.presentation.extensions.*
 import org.koin.android.ext.android.inject
 import sl.com.eightdigitz.core.model.domain.DUser
-import sl.com.eightdigitz.core.model.presentation.PUser
 
 abstract class BaseActivity : AppCompatActivity() {
 
@@ -55,13 +51,14 @@ abstract class BaseActivity : AppCompatActivity() {
             }
         })
 
-        if (!mSharedPreferences.getIdToken().isNullOrEmpty()){
-            mNetworkSupportInterceptor.idToken = mSharedPreferences.getIdToken()
-        }
 
         if(!mSharedPreferences.getUserString().isNullOrEmpty()){
             currentLoggedUser = mSharedPreferences.getUserString()?.jsonStringMapTo()
         }
+
+        /*if (!mSharedPreferences.getIdToken().isNullOrEmpty()){
+            mNetworkSupportInterceptor.idToken = mSharedPreferences.getIdToken()
+        }*/
     }
 
     private fun handleResponse() {

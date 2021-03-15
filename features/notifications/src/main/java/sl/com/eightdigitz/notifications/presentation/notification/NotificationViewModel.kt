@@ -1,34 +1,35 @@
-package sl.com.eightdigitz.app.presentation.search
+package sl.com.eightdigitz.notifications.presentation.notification
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import sl.com.eightdigitz.app.domain.usecase.SearchUseCase
-import sl.com.eightdigitz.client.apiSupports.requests.LogSearchRequest
-import sl.com.eightdigitz.core.model.domain.DUserSearch
+import sl.com.eightdigitz.core.model.domain.DPushNotification
 import sl.com.eightdigitz.core.model.mapToPresentation
 import sl.com.eightdigitz.network.ErrorHandler
+import sl.com.eightdigitz.notifications.presentation.domain.usecase.NotificationUseCase
 import sl.com.eightdigitz.presentation.Resource
 import sl.com.eightdigitz.presentation.setError
+import sl.com.eightdigitz.presentation.setLoading
 import sl.com.eightdigitz.presentation.setSuccess
 
-class LogSearchViewModel(
-    private val searchUseCase: SearchUseCase
+class NotificationViewModel(
+    private val notificationUseCase: NotificationUseCase
 ) : ViewModel() {
 
-    val liveDataPreferenceSearch = MutableLiveData<Resource<DUserSearch>>()
     private val compositeDisposable = CompositeDisposable()
+    val notificationLiveData = MutableLiveData<Resource<List<DPushNotification>>>()
 
-    fun logSearch(logSearchRequest: LogSearchRequest) {
+    fun getNotifications() {
+        notificationLiveData.setLoading()
         compositeDisposable.add(
-            searchUseCase.logSearch(logSearchRequest)
+            notificationUseCase.getNotifications()
                 .subscribeOn(Schedulers.io())
-                .map { it }
+                .map { it.data }
                 .subscribe({
-                    liveDataPreferenceSearch.setSuccess(it, null)
+                    notificationLiveData.setSuccess(it!!, null)
                 }, {
-                    liveDataPreferenceSearch.setError(
+                    notificationLiveData.setError(
                         ErrorHandler.getApiErrorMessage(it).mapToPresentation()
                     )
                 })
@@ -39,4 +40,5 @@ class LogSearchViewModel(
         compositeDisposable.dispose()
         super.onCleared()
     }
+
 }

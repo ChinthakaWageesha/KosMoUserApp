@@ -4,7 +4,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import sl.com.eightdigitz.notifications.R
-import sl.com.eightdigitz.notifications.presentation.models.PNotification
+import sl.com.eightdigitz.core.model.presentation.PNotification
 import sl.com.eightdigitz.presentation.extensions.inflate
 import kotlinx.android.synthetic.main.item_notification.view.*
 
@@ -31,8 +31,8 @@ class NotificationsAdapter(var notificationsList: MutableList<PNotification>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.onBind(position)
-        holder.itemView.tv_notification_title.text = notificationsList[position].title
-        holder.itemView.tv_notification_body.text = notificationsList[position].body
+        holder.itemView.tv_notification_title.text = notificationsList[position].entity_title
+        holder.itemView.tv_notification_body.text = notificationsList[position].entity_message
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

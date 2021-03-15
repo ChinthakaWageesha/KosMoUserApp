@@ -11,7 +11,6 @@ interface MultimediaApi {
     @retrofit2.http.Multipart
     @POST("doc-upload/public")
     fun uploadAvatar(
-        @retrofit2.http.Header("x-id-token") idToken: String,
         @retrofit2.http.Part bigData: MultipartBody.Part
     ): Single<UploadBigDataResponse>
 }

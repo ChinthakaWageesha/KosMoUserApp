@@ -90,7 +90,7 @@ class SearchTalentByPreference : BaseActivity(), View.OnClickListener {
         request.searchType = SearchType.PREFERENCE_SEARCH
         request.userID = currentLoggedUser?.id
         withNetwork({
-            vmLogSearch.logPreferenceSearch(request)
+            vmLogSearch.logSearch(request)
         }, {
             showAlert(message = Msg.INTERNET_ISSUE)
         })

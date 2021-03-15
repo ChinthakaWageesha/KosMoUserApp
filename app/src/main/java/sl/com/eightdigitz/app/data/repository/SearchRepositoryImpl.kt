@@ -24,8 +24,8 @@ class SearchRepositoryImpl constructor(
             preferenceId = preferenceId
         )
 
-    override fun logPreferenceSearch(logSearchRequest: LogSearchRequest): Single<DUserSearch> =
-        searchDataSource.logPreferenceSearch(
+    override fun logSearch(logSearchRequest: LogSearchRequest): Single<DUserSearch> =
+        searchDataSource.logSearch(
             logSearchRequest = logSearchRequest
         )
 

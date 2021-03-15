@@ -27,6 +27,7 @@ val apiModule: Module = module {
     single { multimediaApi }
     single { helpCenterApi }
     single { orderApi }
+    single { notificationApi }
 }
 
 private val authApi: AuthApi = retrofit.create(AuthApi::class.java)
@@ -42,3 +43,5 @@ private val multimediaApi: MultimediaApi = retrofit.create(MultimediaApi::class.
 private val helpCenterApi: HelpCenterApi = retrofit.create(HelpCenterApi::class.java)
 
 private val orderApi: OrderApi = retrofit.create(OrderApi::class.java)
+
+private val notificationApi = retrofit.create(NotificationApi::class.java)

@@ -15,7 +15,6 @@ import sl.com.eightdigitz.app.domain.repository.SearchRepository
 import sl.com.eightdigitz.app.domain.usecase.OrderUseCase
 import sl.com.eightdigitz.app.domain.usecase.SearchUseCase
 import sl.com.eightdigitz.app.presentation.search.SearchViewModel
-import sl.com.eightdigitz.app.presentation.main.MainViewModel
 import sl.com.eightdigitz.app.presentation.order.addNewOrder.OrderViewModel
 import sl.com.eightdigitz.app.presentation.search.LogSearchViewModel
 
@@ -33,12 +32,6 @@ private val loadFeature by lazy {
 }
 
 val viewModelModule: Module = module {
-    viewModel {
-        MainViewModel(
-            sharedPreferences = get(),
-            supportInterceptor = get()
-        )
-    }
     viewModel {
         SearchViewModel(
             searchUseCase = get()

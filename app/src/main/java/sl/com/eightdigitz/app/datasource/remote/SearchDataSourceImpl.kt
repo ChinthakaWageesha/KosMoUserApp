@@ -45,7 +45,7 @@ class SearchDataSourceImpl(
             it.mapToDomain()
         }
 
-    override fun logPreferenceSearch(logSearchRequest: LogSearchRequest): Single<DUserSearch> =
+    override fun logSearch(logSearchRequest: LogSearchRequest): Single<DUserSearch> =
         searchHistoryApi.logSearch(
             idToken = mSharedPreferences.getIdToken()!!,
             logSearchRequest = logSearchRequest

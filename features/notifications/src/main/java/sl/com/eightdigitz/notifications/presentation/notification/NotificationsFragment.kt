@@ -11,8 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import sl.com.eightdigitz.core.base.BaseFragment
 import sl.com.eightdigitz.notifications.R
-import sl.com.eightdigitz.notifications.presentation.models.PNotification
+import sl.com.eightdigitz.core.model.presentation.PNotification
 import com.google.android.material.snackbar.Snackbar
+import sl.com.eightdigitz.notifications.presentation.di.injectFeature
 
 class NotificationsFragment : BaseFragment() {
 
@@ -22,6 +23,7 @@ class NotificationsFragment : BaseFragment() {
     private lateinit var tempNotificationList: MutableList<PNotification>
     private val p = Paint()
     override fun onViewCreated() {
+        injectFeature()
         val itemTouchHelper =
             ItemTouchHelper(SwipeToDelete(context, object : SwipeToDelete.Callback {
                 override fun onSwipeRight(position: Int) {

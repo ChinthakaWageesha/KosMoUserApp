@@ -22,6 +22,7 @@ class ChooseLanguage : BaseFragment(), View.OnClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         return inflater.inflate(R.layout.fragment_choose_language, container, false)
     }
 
@@ -39,7 +40,6 @@ class ChooseLanguage : BaseFragment(), View.OnClickListener {
     }
 
     private fun init() {
-
         rg_select_language_1.setOnCheckedChangeListener { _, checkedId ->
             if (checkedId != -1) {
                 fun2();
@@ -94,7 +94,7 @@ class ChooseLanguage : BaseFragment(), View.OnClickListener {
     }
 
     override fun onResume() {
-        view?.hideKeyboard()
+        hideKeyboard()
         setBackground(sl.com.eightdigitz.presentation.R.drawable.bg_choose_language)
         super.onResume()
     }

@@ -26,7 +26,7 @@ object Constant {
     const val USER_IMAGE_AQUAMAN = "https://storage.googleapis.com/hello-app-cont/2021-02-24-hello-app-sms|6035259e3824a2f357dd0b85-aquaman.jpeg"
     const val USER_IMAGE_PAUL_WALKER = "https://storage.googleapis.com/hello-app-cont/2021-02-24-hello-app-sms|6035259e3824a2f357dd0b85-paul-walker.jpg"
     const val USER_IMAGE_TOM_HARDY = "https://storage.googleapis.com/hello-app-cont/2021-02-24-hello-app-sms|6035259e3824a2f357dd0b85-Tom_Hardy.jpg"
-    const val KID_IMAGE_URL = "https://storage.googleapis.com/hello-app-cont/2021-02-24-hello-app-sms|6035259e3824a2f357dd0b85-kid.jfif"
+    const val KID_IMAGE_URL = "https://storage.googleapis.com/hello-app-cont/2021-03-08-hello-app-sms|5fe19563be03d24dc9df5020-kid.jpg"
     const val MOVIE_IMAGE_URL = "https://storage.googleapis.com/hello-app-cont/2021-02-18-hello-app-sms|5fe19563be03d24dc9df5020-download.jfif"
     const val MOVIE_IMAGE_URL_1 = "https://storage.googleapis.com/hello-app-cont/2021-02-18-hello-app-sms|5fe19563be03d24dc9df5020-download (1).jfif"
     const val POSTER_IMAGE_URL = "https://storage.googleapis.com/hello-app-cont/2021-02-19-hello-app-sms|5fe19563be03d24dc9df5020-poster.jpg"
@@ -60,11 +60,10 @@ object ApiResponseCodes {
 
 object RequestCodes {
     const val COUNTRY_CODE_REQUEST = 1001
-    const val RECENT_SEARCH_REQUEST_CODE = 1002
 }
 
 object ResultCodes {
-    const val RECENT_SEARCH_RESULT_CODE = 2002
+
 }
 
 object IntentParsableConstants {

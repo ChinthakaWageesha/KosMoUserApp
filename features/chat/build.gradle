@@ -13,8 +13,8 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 
     implementation Libraries.gson
-    implementation FirebaseLibraries.database
-    implementation FirebaseLibraries.database_ui
+    //implementation FirebaseLibraries.database
+    //implementation FirebaseLibraries.database_ui
 
     implementation Koin.android
     implementation Koin.viewmodel

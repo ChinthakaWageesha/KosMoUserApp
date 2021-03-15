@@ -92,7 +92,6 @@ class RecentSearches : BaseActivity(), View.OnClickListener, (DUser) -> Unit {
                 ResourceState.LOADING -> showProgress()
                 ResourceState.SUCCESS -> {
                     hideProgress()
-                    setResult(ResultCodes.RECENT_SEARCH_RESULT_CODE)
                     getRecentSearches()
                 }
                 ResourceState.ERROR -> {
