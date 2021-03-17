@@ -99,7 +99,6 @@ class AuthDataSourceImpl constructor(
     private fun saveTokens(otpToken: DOTPToken) {
         mSharedPreferences.setAccessToken(otpToken.accessToken)
         mSharedPreferences.setIdToken(otpToken.idToken)
-        Constant.SAMPLE_X_ID_TOKEN = otpToken.idToken!!
     }
 
     private fun saveUser(mUser: User?) {

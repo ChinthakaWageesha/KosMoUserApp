@@ -10,7 +10,9 @@ import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.POST
+import retrofit2.http.PUT
 import sl.com.eightdigitz.client.apiSupports.requests.RegisterRequest
+import sl.com.eightdigitz.client.apiSupports.requests.UpdateUserRequest
 import sl.com.eightdigitz.client.apiSupports.responses.OTPResponse
 import sl.com.eightdigitz.client.apiSupports.responses.OTPTokenResponse
 import sl.com.eightdigitz.client.apiSupports.responses.UserResponse
@@ -49,6 +51,15 @@ interface AuthApi {
     fun authPostRegister(
         @retrofit2.http.Header("x-id-token") idToken: String,
         @retrofit2.http.Body registerRequest: RegisterRequest
+    ): Single<UserResponse>
+
+    @Headers(
+        "Content-Type: application/x-www-form-urlencoded"
+    )
+    @PUT("user")
+    fun updateUser(
+        @retrofit2.http.Header("x-id-token") idToken: String,
+        @retrofit2.http.Body updateUserRequest: UpdateUserRequest
     ): Single<UserResponse>
 
 

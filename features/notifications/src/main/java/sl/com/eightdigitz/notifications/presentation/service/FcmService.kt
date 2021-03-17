@@ -97,7 +97,7 @@ class FcmService : FirebaseMessagingService() {
             val notificationBuilder = NotificationCompat.Builder(this, channelId)
                 .setSmallIcon(sl.com.eightdigitz.core.R.drawable.ic_launcher_background)
                 .setContentTitle(message.data["title"])
-                .setContentText(message.data["message"])
+                .setContentText(message.data["description"])
                 .setAutoCancel(true)
                 .setContentIntent(pendingIntent)
                 .setSound(defaultSoundUri)

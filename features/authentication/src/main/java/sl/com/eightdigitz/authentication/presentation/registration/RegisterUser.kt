@@ -174,6 +174,7 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
 
         if (et_sign_up_description.getStringTrim().isNotEmpty()) {
             registerRequest.profileDescription = et_sign_up_description.getStringTrim()
+            registerRequest.profileBiography = et_sign_up_description.getStringTrim()
         }
 
         activity?.withNetwork({

@@ -16,6 +16,7 @@ dependencies {
     implementation project(Modules.apiclient)
     implementation project(Modules.navigation)
     implementation project(Modules.notifications)
+    implementation project(Modules.country_picker)
     //implementation project(Modules.chat)
 
     implementation SupportLibraries.design
@@ -28,6 +29,7 @@ dependencies {
     implementation Libraries.koinViewModel
     implementation Libraries.ktx
 
+
     implementation Libraries.lifecycleExtensions
 
     implementation Libraries.rxjava
@@ -38,6 +40,8 @@ dependencies {
     implementation FirebaseLibraries.messaging
 
     implementation ExternalLib.circularImageView
+    implementation ExternalLib.imagePicker
+    implementation ExternalLib.countryPick
 
     implementation Libraries.retrofit
     //implementation Libraries.retrofitJsonConverter

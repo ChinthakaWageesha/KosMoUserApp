@@ -17,7 +17,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application tools:ignore="GoogleAppIndexingWarning">
-
+        <activity android:name=".presentation.profile.UpdateMobile"></activity>
         <activity
             android:name=".presentation.main.MainActivity"
             android:launchMode="singleTop"
@@ -78,7 +78,12 @@
             android:name=".presentation.explore.Explore"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden"/>
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".presentation.profile.EditProfile"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
     </application>
 
 </manifest>

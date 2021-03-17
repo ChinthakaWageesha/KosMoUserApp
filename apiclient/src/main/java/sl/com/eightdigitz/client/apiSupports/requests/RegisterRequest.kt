@@ -12,5 +12,6 @@ data class RegisterRequest(
     @Json(name = "Role") @field:Json(name = "Role") var role: String? = null,
     @Json(name = "ProfilePicture") @field:Json(name = "ProfilePicture") var profilePicture: String? = null,
     @Json(name = "ProfileDescription") @field:Json(name = "ProfileDescription") var profileDescription: String? = null,
+    @Json(name = "ProfileBiography") @field:Json(name = "ProfileBiography") var profileBiography: String? = null,
     @Json(name = "Preferences") @field:Json(name = "Preferences") var preferences: List<Preference>? = null
 )

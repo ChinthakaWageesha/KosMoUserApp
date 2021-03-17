@@ -42,6 +42,7 @@
                 android:layout_marginEnd="24dp"
                 android:elevation="4dp"
                 android:theme="@style/EditTextTheme"
+                app:boxBackgroundMode="none"
                 app:errorEnabled="false"
                 app:hintEnabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -50,7 +51,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_card_number"
-                    style="@style/PrimaryEditTextStyle"
+                    style="@style/SecondaryEditTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="numberSigned"
@@ -85,6 +86,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:elevation="4dp"
+                    app:boxBackgroundMode="none"
                     android:theme="@style/EditTextTheme"
                     app:errorEnabled="false"
                     app:hintEnabled="false"
@@ -95,7 +97,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_expiry_date"
-                        style="@style/PrimaryEditTextStyle"
+                        style="@style/SecondaryEditTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/hint_card_expiry_date"
@@ -137,6 +139,7 @@
                     android:theme="@style/EditTextTheme"
                     app:errorEnabled="false"
                     app:hintEnabled="false"
+                    app:boxBackgroundMode="none"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -144,7 +147,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_cvv"
-                        style="@style/PrimaryEditTextStyle"
+                        style="@style/SecondaryEditTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/hint_cvv"
@@ -177,6 +180,7 @@
                 android:layout_marginEnd="24dp"
                 android:elevation="4dp"
                 android:theme="@style/EditTextTheme"
+                app:boxBackgroundMode="none"
                 app:errorEnabled="false"
                 app:hintEnabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -185,7 +189,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_name_on_card"
-                    style="@style/PrimaryEditTextStyle"
+                    style="@style/SecondaryEditTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="numberSigned"

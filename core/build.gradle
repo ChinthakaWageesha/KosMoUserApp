@@ -103,6 +103,7 @@ dependencies {
     implementation SupportLibraries.auth0
     implementation ExternalLib.circularImageView
     implementation ExternalLib.imagePicker
+    implementation ExternalLib.countryPick
 
 //  implementation Libraries.crashlytics
 

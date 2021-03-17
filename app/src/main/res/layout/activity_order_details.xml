@@ -64,6 +64,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="24dp"
                 android:elevation="4dp"
+                app:boxBackgroundMode="none"
                 android:theme="@style/EditTextTheme"
                 app:errorEnabled="false"
                 app:hintEnabled="false"
@@ -73,7 +74,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_video_to"
-                    style="@style/PrimaryEditTextStyle"
+                    style="@style/SecondaryEditTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName|textCapWords" />
@@ -115,6 +116,7 @@
                 android:elevation="4dp"
                 android:theme="@style/EditTextTheme"
                 app:errorEnabled="false"
+                app:boxBackgroundMode="none"
                 app:hintEnabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -122,7 +124,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_address_person"
-                    style="@style/PrimaryEditTextStyle"
+                    style="@style/SecondaryEditTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName|textCapWords" />

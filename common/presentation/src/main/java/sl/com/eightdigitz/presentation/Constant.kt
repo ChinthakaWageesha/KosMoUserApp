@@ -6,16 +6,6 @@ object Constant {
     const val PREF_NAME = "user_app"
 
     const val CLIENT_ID = "k4PQJsn9sjtYNw6YGQyy5WnU7JmMvYQs"
-    var SAMPLE_X_ID_TOKEN = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjhoVUNjenZpcGtuWlNOT" +
-            "2VjS0NQdCJ9.eyJuaWNrbmFtZSI6IiIsIm5hbWUiOiIiLCJwaWN0dXJlIjoiaHR0cHM6Ly9jZG4uYXV0aDAuY" +
-            "29tL2F2YXRhcnMvZGVmYXVsdC5wbmciLCJ1cGRhdGVkX2F0IjoiMjAyMS0wMi0xOVQxNzoyMTo0NC45OTZaIiw" +
-            "icGhvbmVfbnVtYmVyIjoiKzk0NzE1NzgxOTg5IiwiaXNzIjoiaHR0cHM6Ly9kZXYtYWhhbWFkLnVzLmF1dGgwL" +
-            "mNvbS8iLCJzdWIiOiJzbXN8NWZlMTk1NjNiZTAzZDI0ZGM5ZGY1MDIwIiwiYXVkIjoiazRQUUpzbjlzanRZTn" +
-            "c2WUdReXk1V25VN0ptTXZZUXMiLCJpYXQiOjE2MTM3NTUzMDUsImV4cCI6MTYxMzc5MTMwNX0.XsCu8QM-qKi" +
-            "pxtZeqfffOWctuns-JqkKIOHM2feFCcout7pWwjbEYurcfiJDQtL1qmuG3z0BQE_BSevRERulH6NSXyPiOFK2s8" +
-            "GL4fJAT-6htY8ORKcvfrnElhPJNMohlQeM_mlbTFXWrL8Jkea2692XtqnP7GHj2CYVZn1a7m035ejR2At4Vyb5s" +
-            "cq0r5pCMISGm_wE-8g8LRVXfex0Ryt1L0vvj3XUKKzAOWZ-iuaa2frFE4TnVRnWBjiqxj2UmrYchwoWIkVDI0U" +
-            "US1qL_I8O5ZUp8L-XhU7rC0n1XFiZDLDbRy6VHbxwPb4IshiW9CTV2fNbsN3Vu0mU-p6v9A"
 
     const val PREF_USER = "user_data"
     const val PREF_ACCESS_TOKEN = "access_token"
@@ -60,10 +50,13 @@ object ApiResponseCodes {
 
 object RequestCodes {
     const val COUNTRY_CODE_REQUEST = 1001
+    const val MOBILE_REQUEST_CODE = 1002
+    const val UPDATE_USER_REQUEST_CODE = 1003
 }
 
 object ResultCodes {
-
+    const val MOBILE_RESULT_CODE = 2001
+    const val UPDATE_USER_RESULT_CODE = 2002
 }
 
 object IntentParsableConstants {
@@ -75,4 +68,5 @@ object IntentParsableConstants {
     const val EXTRA_CATEGORY_ITEM_HOME = "home_category_item"
     const val EXTRA_ORDER_STAGE_ITEM = "order_stage_item"
     const val EXTRA_NEW_ORDER = "new_order"
+    const val EXTRA_MOBILE_NUMBER = "mobile number"
 }
