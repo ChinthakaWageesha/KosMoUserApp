@@ -7,7 +7,7 @@
     android:background="@color/colorWhite">
 
     <ImageView
-        android:id="@+id/iv_search_talent_by_preference"
+        android:id="@+id/iv_talent_pic_vertical"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
@@ -19,7 +19,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/tv_talent_name_search_preference"
+        android:id="@+id/tv_talent_name_vertical"
         style="@style/AnyColorNormalStyle.Size13"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -29,14 +29,14 @@
         android:fontFamily="@font/sf_pro_display_medium"
         android:maxLines="1"
         android:textColor="#414D55"
-        app:layout_constraintBottom_toTopOf="@+id/tv_talent_field_search_preference"
+        app:layout_constraintBottom_toTopOf="@+id/tv_talent_field_vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iv_search_talent_by_preference"
-        app:layout_constraintTop_toTopOf="@+id/iv_search_talent_by_preference"
+        app:layout_constraintStart_toEndOf="@+id/iv_talent_pic_vertical"
+        app:layout_constraintTop_toTopOf="@+id/iv_talent_pic_vertical"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
-        android:id="@+id/tv_talent_field_search_preference"
+        android:id="@+id/tv_talent_field_vertical"
         style="@style/AnyColorNormalStyle.Size12"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -47,8 +47,8 @@
         android:fontFamily="@font/sf_pro_display_medium"
         android:maxLines="1"
         android:textColor="#414D55"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_search_talent_by_preference"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_talent_pic_vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iv_search_talent_by_preference"
-        app:layout_constraintTop_toBottomOf="@+id/tv_talent_name_search_preference" />
+        app:layout_constraintStart_toEndOf="@+id/iv_talent_pic_vertical"
+        app:layout_constraintTop_toBottomOf="@+id/tv_talent_name_vertical" />
 </androidx.constraintlayout.widget.ConstraintLayout>

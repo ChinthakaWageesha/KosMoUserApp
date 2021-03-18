@@ -5,7 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.item_search_talent_by_preference.view.*
+import kotlinx.android.synthetic.main.item_search_talent_vertical.view.*
+import kotlinx.android.synthetic.main.item_search_talents_horizontal.view.*
 import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.app.presentation.search.viewProfile.ViewProfile
 import sl.com.eightdigitz.core.model.domain.DUser
@@ -21,7 +22,7 @@ class SearchTalentByPreferenceAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_search_talent_by_preference, parent, false)
+                .inflate(R.layout.item_search_talents_horizontal, parent, false)
         )
     }
 
@@ -47,18 +48,18 @@ class SearchTalentByPreferenceAdapter(
             val talent = talentList[position]
 
             if (!talent.profilePicture.isNullOrEmpty()) {
-                itemView.iv_search_talent_by_preference.setRoundedImage(
+                itemView.iv_talent_pic_horizontal.setRoundedImage(
                     url = talent.profilePicture!!,
                     radius = 12
                 )
             } else {
-                itemView.iv_search_talent_by_preference.setRoundedImage(
+                itemView.iv_talent_pic_horizontal.setRoundedImage(
                     url = Constant.USER_IMAGE_AQUAMAN,
                     radius = 12
                 )
             }
-            itemView.tv_talent_name_search_preference.text = talent.fullName
-            itemView.tv_talent_field_search_preference.text = talent.role
+            itemView.tv_talent_name_horizontal.text = talent.fullName
+            itemView.tv_talent_field_horizontal.text = talent.role
 
             itemView.setOnClickListener {
                 val intent = Intent(it.context, ViewProfile::class.java)
@@ -66,6 +67,5 @@ class SearchTalentByPreferenceAdapter(
                 it.context.startActivity(intent)
             }
         }
-
     }
 }

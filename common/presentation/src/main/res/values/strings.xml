@@ -194,4 +194,8 @@
     <string name="title_bio">Bio</string>
     <string name="title_update">Update</string>
     <string name="title_update_mobile">Update Number</string>
+
+    <!--Favourites-->
+    <string name="hint_favourites">Search favourite people here</string>
+    <string name="message_no_data_favourites">You have no favourites right now!</string>
 </resources>

@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_recent_searches.view.*
-import kotlinx.android.synthetic.main.item_search_talents.view.*
 import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.presentation.Constant

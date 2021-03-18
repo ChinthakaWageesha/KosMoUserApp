@@ -42,6 +42,7 @@ dependencies {
     implementation ExternalLib.circularImageView
     implementation ExternalLib.imagePicker
     implementation ExternalLib.countryPick
+    implementation ExternalLib.eventCalendar
 
     implementation Libraries.retrofit
     //implementation Libraries.retrofitJsonConverter

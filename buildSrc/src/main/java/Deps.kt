@@ -161,6 +161,7 @@ object ExternalLib {
     const val cropper = "com.isseiaoki:simplecropview:1.1.8"
     const val circularImageView = "de.hdodenhof:circleimageview:${Versions.circularImageView}"
     const val countryPick = "com.hbb20:ccp:2.4.0"
+    const val eventCalendar = "com.github.mahimrocky:EventCalender:v1.0.0"
 }
 
 object GoogleLibraries {

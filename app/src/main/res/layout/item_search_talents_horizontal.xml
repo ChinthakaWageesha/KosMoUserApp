@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/iv_talent_pro_pic"
+            android:id="@+id/iv_talent_pic_horizontal"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:scaleType="fitXY"
@@ -30,7 +30,7 @@
             app:srcCompat="@drawable/ic_sample" />
 
         <TextView
-            android:id="@+id/tv_talent_name"
+            android:id="@+id/tv_talent_name_horizontal"
             style="@style/AnyColorNormalStyle.Size9"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -40,12 +40,12 @@
             android:maxLines="1"
             android:ellipsize="end"
             android:textColor="#414D55"
-            app:layout_constraintEnd_toEndOf="@+id/iv_talent_pro_pic"
-            app:layout_constraintStart_toStartOf="@+id/iv_talent_pro_pic"
-            app:layout_constraintTop_toBottomOf="@+id/iv_talent_pro_pic" />
+            app:layout_constraintEnd_toEndOf="@+id/iv_talent_pic_horizontal"
+            app:layout_constraintStart_toStartOf="@+id/iv_talent_pic_horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/iv_talent_pic_horizontal" />
 
         <TextView
-            android:id="@+id/tv_talent_field"
+            android:id="@+id/tv_talent_field_horizontal"
             style="@style/AnyColorNormalStyle.Size8"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -56,8 +56,8 @@
             android:ellipsize="end"
             android:textColor="#414D55"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/iv_talent_pro_pic"
-            app:layout_constraintStart_toStartOf="@+id/iv_talent_pro_pic"
-            app:layout_constraintTop_toBottomOf="@+id/tv_talent_name" />
+            app:layout_constraintEnd_toEndOf="@+id/iv_talent_pic_horizontal"
+            app:layout_constraintStart_toStartOf="@+id/iv_talent_pic_horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/tv_talent_name_horizontal" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
