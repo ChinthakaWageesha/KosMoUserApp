@@ -17,8 +17,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".presentation.favourites.Favourites"></activity>
-        <activity android:name=".presentation.profile.UpdateMobile" />
+        <activity android:name=".presentation.reminder.AddNewReminder"></activity>
         <activity
             android:name=".presentation.main.MainActivity"
             android:launchMode="singleTop"
@@ -85,6 +84,21 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".presentation.reminder.Reminders"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".presentation.favourite.Favourites"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".presentation.profile.UpdateMobile"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

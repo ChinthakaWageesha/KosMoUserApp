@@ -1,4 +1,4 @@
-package sl.com.eightdigitz.app.presentation.favourites
+package sl.com.eightdigitz.app.presentation.favourite
 
 import android.content.Intent
 import android.view.LayoutInflater

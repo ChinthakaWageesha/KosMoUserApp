@@ -96,7 +96,7 @@
     <string name="title_bottom_nav_explore">Explore</string>
     <string name="title_bottom_nav_activity">Activity</string>
     <string name="title_bottom_nav_profile">Profile</string>
-    
+
     <!--Home-->
     <string name="hint_search_here">Search here</string>
 
@@ -198,4 +198,11 @@
     <!--Favourites-->
     <string name="hint_favourites">Search favourite people here</string>
     <string name="message_no_data_favourites">You have no favourites right now!</string>
+
+    <!--Reminders-->
+    <string name="title_reminder_list">Reminder List</string>
+    <string name="title_today">Today</string>
+    <string name="title_upcoming">Upcoming</string>
+    <string name="message_no_data_today_reminders">No reminders for today</string>
+    <string name="message_no_data_upcoming_reminders">You don’t have any upcoming reminders, \nTap Add + to schedule new reminders.</string>
 </resources>

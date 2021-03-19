@@ -7,8 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_profile.*
 import sl.com.eightdigitz.app.R
-import sl.com.eightdigitz.app.presentation.favourites.Favourites
+import sl.com.eightdigitz.app.presentation.favourite.Favourites
 import sl.com.eightdigitz.app.presentation.order.userOrders.UserOrders
+import sl.com.eightdigitz.app.presentation.reminder.Reminders
 import sl.com.eightdigitz.core.base.BaseFragment
 import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.presentation.Constant
@@ -79,7 +80,7 @@ class ProfileFragment : BaseFragment(), View.OnClickListener {
             }
             R.id.cl_your_favorites -> context?.startActivity<Favourites>()
             R.id.cl_orders -> context?.startActivity<UserOrders>()
-            R.id.cl_reminders -> "reminders".showToast(context!!)
+            R.id.cl_reminders -> context?.startActivity<Reminders>()
             R.id.cl_promotions -> "promotions".showToast(context!!)
             R.id.cl_settings -> "settings".showToast(context!!)
             R.id.cl_preferences -> "Preferences".showToast(context!!)

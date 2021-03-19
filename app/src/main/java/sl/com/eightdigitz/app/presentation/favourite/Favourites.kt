@@ -1,4 +1,4 @@
-package sl.com.eightdigitz.app.presentation.favourites
+package sl.com.eightdigitz.app.presentation.favourite
 
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,7 +20,7 @@ class Favourites : BaseActivity() {
     private fun setToolbar() {
         supportActionBar?.setAppActionBar(
             this,
-            title = "",
+            title = getString(sl.com.eightdigitz.presentation.R.string.title_your_favourites),
             isHomeUpEnables = true
         )
     }
