@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.registration.PostRegister">
+    tools:context=".presentation.preferences.PreferenceEdit">
 
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fillViewport="true"
+        android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,7 +21,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/tv_title_account_created"
+                android:id="@+id/tv_title_set_preferences"
                 style="@style/WhiteBoldTextStyle.Size34"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -28,14 +29,14 @@
                 android:layout_marginEnd="32dp"
                 android:fontFamily="@font/sf_pro_display_bold"
                 android:gravity="center"
-                android:text="@string/title_welcome_hello"
+                android:text="@string/tile_set_preferences"
                 android:textColor="#F0FFF0"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/iv_post_register"
+                android:id="@+id/iv_set_preference_user_image"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_marginTop="32dp"
@@ -44,10 +45,10 @@
                 app:civ_border_width="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_title_account_created" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_title_set_preferences" />
 
             <TextView
-                android:id="@+id/tv_post_register_name"
+                android:id="@+id/tv_set_preferences_user_name"
                 style="@style/WhiteNormalTextStyle.Size36"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -58,10 +59,10 @@
                 android:gravity="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iv_post_register" />
+                app:layout_constraintTop_toBottomOf="@+id/iv_set_preference_user_image" />
 
             <TextView
-                android:id="@+id/tv_post_register_desc"
+                android:id="@+id/tv_set_preferences_desc"
                 style="@style/WhiteNormalTextStyle.Size12"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -73,11 +74,11 @@
                 android:text="@string/tv_post_register_desc"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_post_register_name" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_set_preferences_user_name" />
 
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_preferences"
+                android:id="@+id/rv_set_preferences"
                 android:layout_width="0dp"
                 android:foregroundGravity="center"
                 android:layout_height="wrap_content"
@@ -86,10 +87,10 @@
                 android:layout_marginEnd="32dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_post_register_desc" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_set_preferences_desc" />
 
             <Button
-                android:id="@+id/btn_lets_do_it"
+                android:id="@+id/btn_update_preferences"
                 style="@style/PinkButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -97,15 +98,14 @@
                 android:layout_marginTop="50dp"
                 android:layout_marginEnd="30dp"
                 android:layout_marginBottom="32dp"
-                android:text="@string/btn_go_explore"
+                android:text="@string/title_update"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rv_preferences"
+                app:layout_constraintTop_toBottomOf="@+id/rv_set_preferences"
                 app:layout_constraintVertical_bias="0.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,17 +11,16 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.authentication.R
 import sl.com.eightdigitz.authentication.presentation.AuthActivity
 import sl.com.eightdigitz.client.apiSupports.requests.AddUserPreferenceRequest
-import sl.com.eightdigitz.client.apiSupports.models.Preference
 import sl.com.eightdigitz.core.base.BaseFragment
 import sl.com.eightdigitz.core.model.domain.DPreference
 import sl.com.eightdigitz.core.model.domain.DUserPreference
 import sl.com.eightdigitz.presentation.*
 import sl.com.eightdigitz.presentation.extensions.*
 
-class PostRegister : BaseFragment(), View.OnClickListener, (Preference, Boolean) -> Unit {
+class PostRegister : BaseFragment(), View.OnClickListener, (DPreference, Boolean) -> Unit {
 
     private val viewModel by viewModel<RegistrationViewModel>()
-    private var preferenceId: String? = null
+    private var selectedPreferenceIds: ArrayList<String>? = arrayListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -112,7 +111,7 @@ class PostRegister : BaseFragment(), View.OnClickListener, (Preference, Boolean)
 
     private fun setPreferences(){
         val request = AddUserPreferenceRequest()
-        request.preferenceID = preferenceId
+        request.preferenceIDs = selectedPreferenceIds
         viewModel.addUserPreferences(request)
     }
 
@@ -140,7 +139,7 @@ class PostRegister : BaseFragment(), View.OnClickListener, (Preference, Boolean)
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btn_lets_do_it -> {
-                if (!preferenceId.isNullOrEmpty()){
+                if (!selectedPreferenceIds.isNullOrEmpty()){
                     setPreferences()
                 } else {
                     navigateToMain()
@@ -157,16 +156,16 @@ class PostRegister : BaseFragment(), View.OnClickListener, (Preference, Boolean)
         }
     }
 
-    override fun invoke(preference: Preference, isChecked: Boolean) {
-        preferenceId = if (isChecked){
+    override fun invoke(preference: DPreference, isChecked: Boolean) {
+        /*preferenceId = if (isChecked){
             preference.id
         } else {
             null
-        }
-        /*if (isChecked) {
-            selectedPreferenceList?.add(preference)
-        } else {
-            selectedPreferenceList?.remove(preference)
         }*/
+        if (isChecked) {
+            selectedPreferenceIds?.add(preference.id!!)
+        } else {
+            selectedPreferenceIds?.remove(preference.id)
+        }
     }
 }

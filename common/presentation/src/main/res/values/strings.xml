@@ -45,7 +45,7 @@
     <string name="btn_verify">Verify</string>
 
     <!--Contact us for support-->
-    <string name="title_contact_us">Contact us for Support</string>
+    <string name="title_contact_us_support">Contact us for Support</string>
     <string name="subtitle_contact_us">Have questions or need to report an issue with a product or service? We’ve got you covered.</string>
     <string name="hint_name_contact_us">Name</string>
     <string name="hint_email_contact_us">Email*</string>
@@ -205,4 +205,27 @@
     <string name="title_upcoming">Upcoming</string>
     <string name="message_no_data_today_reminders">No reminders for today</string>
     <string name="message_no_data_upcoming_reminders">You don’t have any upcoming reminders, \nTap Add + to schedule new reminders.</string>
+
+    <!--Add Reminder-->
+    <string name="heading_new_reminder">New Reminder</string>
+    <string name="title_event_info">Event Information</string>
+    <string name="hint_event_name">Event Name*</string>
+    <string name="hint_date">Date*</string>
+    <string name="title_notify_me">Notify Me</string>
+    <string name="btn_add_reminder">Add Reminder</string>
+
+    <!--Settings-->
+    <string name="title_account_settings">Account Settings</string>
+    <string name="title_language">Language</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_calendar_sync">Calendar Sync</string>
+    <string name="title_logout">Logout</string>
+
+    <!--Account Services UI-->
+    <string name="title_support_inbox">Support Inbox</string>
+    <string name="title_contact_us">Contact Us</string>
+    <string name="title_request_verification">Request Verification</string>
+
+    <!--Set Preferences-->
+    <string name="tile_set_preferences">Set Preferences</string>
 </resources>

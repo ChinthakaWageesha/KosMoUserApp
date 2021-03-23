@@ -162,6 +162,7 @@ object ExternalLib {
     const val circularImageView = "de.hdodenhof:circleimageview:${Versions.circularImageView}"
     const val countryPick = "com.hbb20:ccp:2.4.0"
     const val eventCalendar = "com.github.mahimrocky:EventCalender:v1.0.0"
+    const val switchButton = "com.github.zcweng:switch-button:0.0.3"
 }
 
 object GoogleLibraries {

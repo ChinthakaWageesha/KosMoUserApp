@@ -30,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginEnd="16dp"
-        android:text="@string/action_title_cancel"
+        android:text="Cancel"
         app:layout_constraintBottom_toBottomOf="@+id/et_recent_searches"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/et_recent_searches" />

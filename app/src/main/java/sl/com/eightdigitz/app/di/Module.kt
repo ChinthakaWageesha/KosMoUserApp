@@ -21,6 +21,7 @@ import sl.com.eightdigitz.app.domain.usecase.ProfileUseCase
 import sl.com.eightdigitz.app.domain.usecase.SearchUseCase
 import sl.com.eightdigitz.app.presentation.search.SearchViewModel
 import sl.com.eightdigitz.app.presentation.order.addNewOrder.OrderViewModel
+import sl.com.eightdigitz.app.presentation.preferences.PreferencesViewModel
 import sl.com.eightdigitz.app.presentation.profile.ProfileViewModel
 import sl.com.eightdigitz.app.presentation.search.LogSearchViewModel
 
@@ -58,6 +59,12 @@ val viewModelModule: Module = module {
 
     viewModel {
         ProfileViewModel(
+            profileUseCase = get()
+        )
+    }
+
+    viewModel {
+        PreferencesViewModel(
             profileUseCase = get()
         )
     }
@@ -109,7 +116,8 @@ val dataSourceModule: Module = module(override = true) {
         ProfileDataSourceImpl(
             mSharedPreferences = get(),
             authApi = get(),
-            multimediaApi = get()
+            multimediaApi = get(),
+            preferencesApi = get()
         ) as ProfileDataSource
     }
 }

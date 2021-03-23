@@ -664,8 +664,8 @@
         <item name="android:paddingRight">12dp</item>
         <item name="android:minHeight">48dp</item>
         <item name="android:colorAccent">@color/colorTransparent</item>
-        <item name="android:fontFamily">@font/sf_pro_display_semibold</item>
-        <item name="android:background">@drawable/bg_gray_edit_text</item>
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:background">@drawable/bg_white_corner_round_7dp_edit_text</item>
         <item name="android:textCursorDrawable">@drawable/bg_cursor_color</item>
         <item name="android:stateListAnimator">@null</item>
     </style>
