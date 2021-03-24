@@ -29,6 +29,7 @@
     <color name="colorSnowGray">#FCFCFE</color>
     <color name="colorMediumDarkGray">#4D77819C</color>
     <color name="colorYellow">#FFF44F</color>
+    <color name="colorGreen">#00BE66</color>
 
     <color name="colorPink">#F1166F</color>
     <color name="colorPinkAlpha30">#D894BE</color>
@@ -45,5 +46,4 @@
     <color name="colorOrange">#FF715B</color>
 
     <color name="colorDarkGray">#282828</color>
-    <color name="colorSelectorColor">#F52789</color>
 </resources>

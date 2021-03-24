@@ -631,6 +631,10 @@
         <item name="android:textSize">18sp</item>
     </style>
 
+    <style name="AnyColorNormalStyle.Size34">
+        <item name="android:textSize">34sp</item>
+    </style>
+
     <!--PinkAlpha30 text normal sub text styles-->
 
     <style name="TextPinkAlpha30Normal.size17">

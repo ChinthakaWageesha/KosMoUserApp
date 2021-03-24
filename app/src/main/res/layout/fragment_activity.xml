@@ -7,11 +7,13 @@
     tools:context=".presentation.activity.ActivityFragment">
 
     <TextView
-        style="@style/BlackBoldTextStyle"
+        style="@style/AnyColorNormalStyle.Size34"
         android:layout_width="wrap_content"
+        android:textColor="#707070"
+        android:fontFamily="@font/sf_pro_display_medium"
         android:layout_height="wrap_content"
-        android:text="Activity"
-        android:textSize="34sp"
+        android:text="Activity \nwork in progress"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

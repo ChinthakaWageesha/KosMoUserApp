@@ -33,7 +33,7 @@
                 app:month_color="@color/colorTextGray"
                 app:off_month_day_color="#8F9BB3"
                 app:selected_day_text_color="@color/colorWhite"
-                app:selector_color="@color/colorSelectorColor"
+                app:selector_color="@color/colorDarkPink"
                 app:week_name_color="#8F9BB3" />
 
             <View

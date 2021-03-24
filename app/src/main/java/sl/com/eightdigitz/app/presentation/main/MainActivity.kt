@@ -1,15 +1,15 @@
 package sl.com.eightdigitz.app.presentation.main
 
 import android.os.Bundle
-import android.util.Log
+import android.os.Handler
 import android.view.MenuItem
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.app.di.injectFeature
+import sl.com.eightdigitz.app.presentation.activity.ActivityFragment
 import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.app.presentation.explore.Explore
 import sl.com.eightdigitz.app.presentation.home.HomeFragment
-import sl.com.eightdigitz.app.presentation.order.userOrders.UserOrders
 import sl.com.eightdigitz.app.presentation.profile.ProfileFragment
 import sl.com.eightdigitz.app.presentation.search.SearchFragment
 import sl.com.eightdigitz.core.model.presentation.PNotification
@@ -20,6 +20,7 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
 
     private lateinit var navView: BottomNavigationView
     private var pNotification: PNotification? = null
+    private var doubleBackToExitPressedOnce = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -86,14 +87,13 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
                 startActivity<Explore>()
             }
             R.id.nav_activity -> {
-                startActivity<UserOrders>()
-                /*if (getCurrentFragment() !is ActivityFragment) {
+                if (getCurrentFragment() !is ActivityFragment) {
                     supportFragmentManager.replaceFragment(
                         R.id.fl_main,
                         ActivityFragment.newInstance(),
                         ActivityFragment.TAG
                     )
-                }*/
+                }
             }
             R.id.nav_profile -> {
                 if (getCurrentFragment() !is ProfileFragment) {
@@ -111,7 +111,7 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
     override fun onBackPressed() {
         val count = supportFragmentManager.backStackEntryCount
 
-        /*if (doubleBackToExitPressedOnce) {
+        if (doubleBackToExitPressedOnce) {
           finishAffinity()
           return
         }
@@ -119,7 +119,7 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
         this.doubleBackToExitPressedOnce = true
         "Please click BACK again to exit".showToast(this)
 
-        Handler().postDelayed(Runnable { doubleBackToExitPressedOnce = false }, 2000)*/
+        Handler().postDelayed(Runnable { doubleBackToExitPressedOnce = false }, 2000)
 
         if (count == 1) {
             finishAffinity()

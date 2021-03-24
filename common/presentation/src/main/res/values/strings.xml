@@ -152,6 +152,10 @@
     <!--User Orders-->
     <string name="title_your_orders">Your Orders</string>
     <string name="title_user_orders">All your order information can be viewed here</string>
+    <string name="title_review">Review</string>
+    <string name="title_processing">Processing</string>
+    <string name="title_on_hold">On Hold</string>
+    <string name="title_refund">Refund</string>
 
     <!--Order proceed -->
     <string name="title_order_summary">Order Summary</string>
