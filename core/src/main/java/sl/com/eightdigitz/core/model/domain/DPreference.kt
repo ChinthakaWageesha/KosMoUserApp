@@ -11,5 +11,6 @@ data class DPreference(
     var deletedAt: String? = null,
     var code: String? = null,
     var name: String? = null,
-    var language: String? = null
+    var language: String? = null,
+    var isChecked: Boolean = false
 ) : Parcelable

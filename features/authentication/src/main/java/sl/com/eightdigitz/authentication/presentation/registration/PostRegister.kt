@@ -111,7 +111,7 @@ class PostRegister : BaseFragment(), View.OnClickListener, (DPreference, Boolean
 
     private fun setPreferences(){
         val request = AddUserPreferenceRequest()
-        request.preferenceIDs = selectedPreferenceIds
+        request.preferenceIDs = selectedPreferenceIds?.toTypedArray()
         viewModel.addUserPreferences(request)
     }
 

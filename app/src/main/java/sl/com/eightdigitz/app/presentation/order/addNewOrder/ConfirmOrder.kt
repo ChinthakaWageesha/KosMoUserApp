@@ -56,7 +56,7 @@ class ConfirmOrder : BaseActivity(), View.OnClickListener {
         orderRequest.stage = "New"
         orderRequest.userID = currentLoggedUser?.id
         orderRequest.talentID = "f95848cb-31a0-4a47-9dde-8eb05483c960"
-        orderRequest.orderType = "Normal"
+        orderRequest.orderType = "Default"
 
         vmOrder.placeNewOrder(orderRequest)
     }

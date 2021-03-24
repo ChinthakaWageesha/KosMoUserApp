@@ -81,6 +81,7 @@ class Reminders : BaseActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            android.R.id.home -> onBackPressed()
             sl.com.eightdigitz.presentation.R.id.add_reminder -> startActivity<AddNewReminder>()
         }
         return true

@@ -7,11 +7,14 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_set_preferences.view.*
 import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.core.model.domain.DPreference
+import sl.com.eightdigitz.core.model.domain.DUserPreference
 
 class PreferencesAdapter(
     private val preferenceList: MutableList<DPreference>,
-    val onClickPreference: (DPreference, Boolean) -> Unit
+    private val userPreferenceList: MutableList<DUserPreference>?
 ) : RecyclerView.Adapter<PreferencesAdapter.ViewHolder>() {
+
+    private var selectedIds: ArrayList<String> = arrayListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -26,13 +29,33 @@ class PreferencesAdapter(
 
     override fun getItemCount(): Int = preferenceList.size
 
+    fun getSelectedIds(): ArrayList<String>{
+        return selectedIds
+    }
+
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun onBind(position: Int) {
             val preference = preferenceList[position]
 
+            if (!userPreferenceList.isNullOrEmpty()){
+               for (i in 0 until preferenceList.size - 1){
+                   if (userPreferenceList[i].preference?.id == preference.id){
+                       itemView.chk_preferences.isChecked = true
+                       selectedIds.add(preference.id!!)
+                   } else {
+                       itemView.chk_preferences.isChecked = false
+                       selectedIds.remove(preference.id)
+                   }
+               }
+            }
+
             itemView.chk_preferences.text = preference.name
             itemView.chk_preferences.setOnCheckedChangeListener { button, isChecked ->
-                onClickPreference(preference, isChecked)
+                if (isChecked){
+                    selectedIds.add(preference.id!!)
+                } else {
+                    selectedIds.remove(preference.id)
+                }
             }
         }
     }

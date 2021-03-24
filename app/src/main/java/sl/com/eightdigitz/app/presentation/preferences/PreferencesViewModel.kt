@@ -5,7 +5,9 @@ import androidx.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import sl.com.eightdigitz.app.domain.usecase.ProfileUseCase
+import sl.com.eightdigitz.client.apiSupports.requests.AddUserPreferenceRequest
 import sl.com.eightdigitz.core.model.domain.DPreference
+import sl.com.eightdigitz.core.model.domain.DUserPreference
 import sl.com.eightdigitz.core.model.mapToPresentation
 import sl.com.eightdigitz.network.ErrorHandler
 import sl.com.eightdigitz.presentation.Resource
@@ -18,6 +20,7 @@ class PreferencesViewModel constructor(
 ) : ViewModel() {
 
     val liveDataPreferences = MutableLiveData<Resource<List<DPreference>>>()
+    val liveDataSetPreferences = MutableLiveData<Resource<DUserPreference>>()
     private val compositeDisposable = CompositeDisposable()
 
     fun getPreferences() {
@@ -28,6 +31,22 @@ class PreferencesViewModel constructor(
                 .map { it.data }
                 .subscribe({
                     liveDataPreferences.setSuccess(it!!, null)
+                }, {
+                    liveDataPreferences.setError(
+                        ErrorHandler.getApiErrorMessage(it).mapToPresentation()
+                    )
+                })
+        )
+    }
+
+    fun setPreferences(request: AddUserPreferenceRequest) {
+        liveDataSetPreferences.setLoading()
+        compositeDisposable.add(
+            profileUseCase.setPreferences(request)
+                .subscribeOn(Schedulers.io())
+                .map { it }
+                .subscribe({
+                    liveDataSetPreferences.setSuccess(it, null)
                 }, {
                     liveDataPreferences.setError(
                         ErrorHandler.getApiErrorMessage(it).mapToPresentation()

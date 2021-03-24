@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.activity_preference_edit.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.app.R
+import sl.com.eightdigitz.client.apiSupports.requests.AddUserPreferenceRequest
 import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.core.model.domain.DPreference
 import sl.com.eightdigitz.core.model.domain.DUserPreference
@@ -16,10 +17,9 @@ import sl.com.eightdigitz.presentation.Resource
 import sl.com.eightdigitz.presentation.ResourceState
 import sl.com.eightdigitz.presentation.extensions.*
 
-class PreferenceEdit : BaseActivity(), (DPreference, Boolean) -> Unit, View.OnClickListener {
+class PreferenceEdit : BaseActivity(), View.OnClickListener {
 
     private val vmPreference by viewModel<PreferencesViewModel>()
-    private var selectedPreferenceIds: ArrayList<String>? = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +28,7 @@ class PreferenceEdit : BaseActivity(), (DPreference, Boolean) -> Unit, View.OnCl
         init()
     }
 
-    private fun setToolbar(){
+    private fun setToolbar() {
         supportActionBar?.setActionBar(
             context = this,
             title = "",
@@ -36,14 +36,15 @@ class PreferenceEdit : BaseActivity(), (DPreference, Boolean) -> Unit, View.OnCl
         )
     }
 
-    private fun init(){
+    private fun init() {
         setData()
         vmPreference.getPreferences()
         vmPreference.liveDataPreferences.observe(this, Observer { observerGetPreferences(it) })
+        vmPreference.liveDataSetPreferences.observe(this, Observer { observerSetPreferences(it) })
         btn_update_preferences.setOnClickListener(this)
     }
 
-    private fun setData(){
+    private fun setData() {
         tv_set_preferences_user_name.text = currentLoggedUser?.fullName
         if (!currentLoggedUser?.profilePicture.isNullOrEmpty()) {
             iv_set_preference_user_image.loadImage(
@@ -73,9 +74,9 @@ class PreferenceEdit : BaseActivity(), (DPreference, Boolean) -> Unit, View.OnCl
         }
     }
 
-    private fun observerSetPreferences(resource: Resource<DUserPreference>){
+    private fun observerSetPreferences(resource: Resource<DUserPreference>) {
         resource.let {
-            when(it.state){
+            when (it.state) {
                 ResourceState.LOADING -> showProgress()
                 ResourceState.SUCCESS -> {
                     hideProgress()
@@ -83,28 +84,17 @@ class PreferenceEdit : BaseActivity(), (DPreference, Boolean) -> Unit, View.OnCl
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
-                    showConfirm(
-                        title = Msg.TITLE_ALERT,
-                        message = "Sorry, Error occurred!, but you can still set preferences in your profile ",
-                        positiveText = "Navigate",
-                        negativeText = "Cancel",
-                        callback = object : Callback {
-                            override fun onPositiveClicked() {
-
-                            }
-
-                            override fun onNegativeClicked() {
-
-                            }
-                        }
-                    )
+                    showAlert(Msg.TITLE_ERROR, it.message.toString())
                 }
             }
         }
     }
 
     private fun setUpPreferenceAdapter(preferenceList: MutableList<DPreference>) {
-        rv_set_preferences.adapter = PreferencesAdapter(preferenceList, this)
+        rv_set_preferences.adapter = PreferencesAdapter(
+            preferenceList,
+            currentLoggedUser?.preferences?.toMutableList()
+        )
         rv_set_preferences.layoutManager = GridLayoutManager(this, 3)
     }
 
@@ -113,17 +103,21 @@ class PreferenceEdit : BaseActivity(), (DPreference, Boolean) -> Unit, View.OnCl
         super.onResume()
     }
 
-    override fun invoke(preference: DPreference, isChecked: Boolean) {
-        if (isChecked) {
-            selectedPreferenceIds?.add(preference.id!!)
-        } else {
-            selectedPreferenceIds?.remove(preference.id)
-        }
-    }
-
     override fun onClick(v: View?) {
-        when(v?.id){
-            R.id.btn_update_preferences -> "Update".showToast(this)
+        when (v?.id) {
+            R.id.btn_update_preferences -> {
+
+                if (!(rv_set_preferences.adapter as PreferencesAdapter).getSelectedIds()
+                        .isNullOrEmpty()
+                ) {
+                    val selectedIds =
+                        (rv_set_preferences.adapter as PreferencesAdapter).getSelectedIds()
+
+                    val request = AddUserPreferenceRequest()
+                    request.preferenceIDs = selectedIds.toTypedArray()
+                    vmPreference.setPreferences(request)
+                }
+            }
         }
     }
 }

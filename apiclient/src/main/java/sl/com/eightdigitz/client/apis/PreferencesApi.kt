@@ -2,6 +2,7 @@ package sl.com.eightdigitz.client.apis
 
 import io.reactivex.Single
 import retrofit2.http.GET
+import retrofit2.http.Headers
 import retrofit2.http.POST
 import sl.com.eightdigitz.client.apiSupports.requests.AddUserPreferenceRequest
 import sl.com.eightdigitz.client.apiSupports.responses.PreferenceListResponse
@@ -17,6 +18,9 @@ interface PreferencesApi {
     ): Single<PreferenceListResponse>
 
     @POST("user/preferences")
+    @Headers(
+        "Content-Type: application/x-www-form-urlencoded"
+    )
     fun addUserPreference(
         @retrofit2.http.Header("x-id-token") idToken: String,
         @retrofit2.http.Body addUserPreferenceRequest: AddUserPreferenceRequest
