@@ -1,5 +1,6 @@
 package sl.com.eightdigitz.app.presentation.search.viewProfile
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -9,6 +10,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.app.presentation.order.addNewOrder.OrderDetails
 import sl.com.eightdigitz.app.presentation.search.LogSearchViewModel
+import sl.com.eightdigitz.client.apiSupports.models.User
 import sl.com.eightdigitz.client.apiSupports.requests.LogSearchRequest
 import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.core.model.domain.DUser
@@ -22,6 +24,7 @@ import sl.com.eightdigitz.presentation.extensions.startActivity
 class ViewProfile : BaseActivity(), View.OnClickListener {
 
     private val vmLogSearch by viewModel<LogSearchViewModel>()
+    private var talent: DUser? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,14 +37,14 @@ class ViewProfile : BaseActivity(), View.OnClickListener {
         if (intent.hasExtra(IntentParsableConstants.EXTRA_USER) &&
             intent.getParcelableExtra<DUser>(IntentParsableConstants.EXTRA_USER) != null
         ) {
-            val talent = intent.getParcelableExtra<DUser>(IntentParsableConstants.EXTRA_USER)
+            talent = intent.getParcelableExtra<DUser>(IntentParsableConstants.EXTRA_USER)
             logProfileSearch(talent?.id!!)
-            tv_profile_name.text = talent.fullName
-            tv_profile_field.text = talent.role
+            tv_profile_name.text = talent?.fullName
+            tv_profile_field.text = talent?.role
 
-            if (!talent.profilePicture.isNullOrEmpty()) {
+            if (!talent?.profilePicture.isNullOrEmpty()) {
                 iv_profile_image.setRoundedImage(
-                    url = talent.profilePicture!!,
+                    url = talent?.profilePicture!!,
                     radius = 10
                 )
             } else {
@@ -98,7 +101,13 @@ class ViewProfile : BaseActivity(), View.OnClickListener {
                 hideKeyboard()
                 onBackPressed()
             }
-            R.id.btn_request_now -> startActivity<OrderDetails>()
+            R.id.btn_request_now -> {
+                if (talent != null){
+                    val intent = Intent(this, OrderDetails::class.java)
+                    intent.putExtra(IntentParsableConstants.EXTRA_USER, talent)
+                    startActivity(intent)
+                }
+            }
         }
     }
 }

@@ -36,7 +36,9 @@ class OrderInstructions : BaseActivity(), View.OnClickListener {
 
     private fun init() {
 
-        if (intent.hasExtra(IntentParsableConstants.EXTRA_NEW_ORDER) ){
+        if (intent.hasExtra(IntentParsableConstants.EXTRA_NEW_ORDER) &&
+            intent.getParcelableExtra<DOrder>(IntentParsableConstants.EXTRA_NEW_ORDER) != null
+        ) {
             order = intent.getParcelableExtra(IntentParsableConstants.EXTRA_NEW_ORDER)
         }
 
@@ -75,8 +77,8 @@ class OrderInstructions : BaseActivity(), View.OnClickListener {
         btn_order_instructions_next.setOnClickListener(this)
     }
 
-    private fun onNext(){
-        if(validate()){
+    private fun onNext() {
+        if (validate()) {
             order?.orderInstructions = et_instructions.getStringTrim()
             val intent = Intent(this, PaymentCheckout::class.java)
             intent.putExtra(IntentParsableConstants.EXTRA_NEW_ORDER, order)
@@ -84,8 +86,9 @@ class OrderInstructions : BaseActivity(), View.OnClickListener {
         }
     }
 
-    private fun validate(): Boolean{
-        val isInstruction = et_instructions.validateOnTextChange(isCheckValidateIcon = true) { s -> s.length > 2 }
+    private fun validate(): Boolean {
+        val isInstruction =
+            et_instructions.validateAppEditTextOnTextChange(isCheckValidateIcon = true) { s -> s.length > 2 }
 
         if (!isInstruction) {
             showAlert(Msg.TITLE_REQUIRED, "Please fill out the required fields.")

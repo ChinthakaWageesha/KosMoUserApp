@@ -12,7 +12,7 @@ import sl.com.eightdigitz.app.presentation.order.userOrders.adapters.UserOrdersA
 import sl.com.eightdigitz.core.base.BaseFragment
 import sl.com.eightdigitz.presentation.extensions.startActivity
 
-class OrderStageItem : BaseFragment(), (String) -> Unit {
+class ExpiredFragment : BaseFragment(){
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,20 +26,14 @@ class OrderStageItem : BaseFragment(), (String) -> Unit {
     }
 
     private fun init() {
-        rv_user_orders.adapter = UserOrdersAdapter(this)
-        rv_user_orders.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+
     }
 
     companion object {
-        const val TAG = "order_stage_item"
-
         fun newInstance(): Fragment {
-            return OrderStageItem()
+            return ExpiredFragment()
         }
     }
 
-    override fun invoke(position: String) {
-        context?.startActivity<OrderToProceed>()
-    }
+
 }

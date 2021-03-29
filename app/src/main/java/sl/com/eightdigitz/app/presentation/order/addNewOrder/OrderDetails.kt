@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.activity_order_details.*
 import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.core.model.domain.DOrder
+import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.presentation.IntentParsableConstants
 import sl.com.eightdigitz.presentation.Msg
 import sl.com.eightdigitz.presentation.extensions.*
@@ -18,6 +19,7 @@ class OrderDetails : BaseActivity(), View.OnClickListener, (String) -> Unit {
 
     private var forList = mutableListOf<String>()
     private var mVideoFor: String? = null
+    private var talentId: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +38,13 @@ class OrderDetails : BaseActivity(), View.OnClickListener, (String) -> Unit {
 
     private fun init() {
         setAdapter()
+
+        if (intent.hasExtra(IntentParsableConstants.EXTRA_USER) &&
+            intent.getParcelableExtra<DUser>(IntentParsableConstants.EXTRA_USER) != null
+        ){
+            talentId = intent.getParcelableExtra<DUser>(IntentParsableConstants.EXTRA_USER)?.id
+        }
+
         et_video_to.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
@@ -72,6 +81,7 @@ class OrderDetails : BaseActivity(), View.OnClickListener, (String) -> Unit {
         if (validate()) {
             val order = DOrder()
             val intent = Intent(this, OrderInstructions::class.java)
+            order.talentID = talentId
             order.fromPronoun = mVideoFor
             order.orderFor = et_video_to.getStringTrim()
             order.toPronoun = et_address_person.getStringTrim()
@@ -83,20 +93,20 @@ class OrderDetails : BaseActivity(), View.OnClickListener, (String) -> Unit {
 
     private fun validate(): Boolean {
         val isVideoTo =
-            et_video_to.validateOnTextChange(isCheckValidateIcon = true) { s -> s.length > 2 }
+            et_video_to.validateAppEditTextOnTextChange(isCheckValidateIcon = true) { s -> s.length > 2 }
 
         val isAddress =
-            et_address_person.validateOnTextChange(isCheckValidateIcon = true) { s -> s.length >= 2 }
+            et_address_person.validateAppEditTextOnTextChange(isCheckValidateIcon = true) { s -> s.length >= 2 }
 
         if (!isVideoTo || !isAddress) {
             showAlert(Msg.TITLE_REQUIRED, "Please fill out the required fields.")
             return false
         }
 
-        /*if (mVideoFor.isNullOrEmpty()){
+        if (mVideoFor.isNullOrEmpty()){
             showAlert(Msg.TITLE_REQUIRED, "Please select to whom this video for")
             return false
-        }*/
+        }
 
         return true
     }

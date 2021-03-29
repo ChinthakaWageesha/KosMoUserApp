@@ -20,7 +20,7 @@ import sl.com.eightdigitz.app.domain.usecase.OrderUseCase
 import sl.com.eightdigitz.app.domain.usecase.ProfileUseCase
 import sl.com.eightdigitz.app.domain.usecase.SearchUseCase
 import sl.com.eightdigitz.app.presentation.search.SearchViewModel
-import sl.com.eightdigitz.app.presentation.order.addNewOrder.OrderViewModel
+import sl.com.eightdigitz.app.presentation.order.OrderViewModel
 import sl.com.eightdigitz.app.presentation.preferences.PreferencesViewModel
 import sl.com.eightdigitz.app.presentation.profile.ProfileViewModel
 import sl.com.eightdigitz.app.presentation.search.LogSearchViewModel

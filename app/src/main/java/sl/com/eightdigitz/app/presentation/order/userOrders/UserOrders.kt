@@ -1,6 +1,7 @@
 package sl.com.eightdigitz.app.presentation.order.userOrders
 
 import android.os.Bundle
+import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_user_orders.*
 import sl.com.eightdigitz.app.R
@@ -44,6 +45,7 @@ class UserOrders : BaseActivity() {
             val mTabText = orderStageList[position]
             tab.text = mTabText
         }.attach()
+
     }
 
     override fun onSupportNavigateUp(): Boolean {

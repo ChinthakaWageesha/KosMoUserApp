@@ -93,6 +93,12 @@ fun UserListResponse.mapToDomain(): ListResponse<DUser> = ListResponse(
     data = data?.map { it.mapToDomain() }
 )
 
+fun OrderListResponse.mapToDomain(): ListResponse<DOrder> = ListResponse(
+    message = message,
+    result = status,
+    data = data?.map { it.mapToDomain() }
+)
+
 fun UserSearch.mapToDomain(): DUserSearch = DUserSearch(
     id = id,
     createdAt = createdAt,
@@ -222,7 +228,9 @@ fun Order.mapToDomain(): DOrder = DOrder(
     userReviewRate = userReviewRate,
     userComment = userComment,
     shoutOutValidUpTo = shoutOutValidUpTo,
-    stage = stage
+    stage = stage,
+    owner = owner,
+    talentName = talentName
 )
 
 fun NotificationResponse.mapToDomain(): ListResponse<DPushNotification> = ListResponse(

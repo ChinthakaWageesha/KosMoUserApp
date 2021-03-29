@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.item_video_for.view.*
 import sl.com.eightdigitz.app.R
 
 class VideoForAdapter(
-    val titleList: MutableList<String>,
+    private val titleList: MutableList<String>,
     val onClickVideoFor: (String) -> Unit
 ) : RecyclerView.Adapter<VideoForAdapter.ViewHolder>() {
 
@@ -27,7 +27,7 @@ class VideoForAdapter(
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun onBind(position: Int) {
             itemView.chk_video_for.text = titleList[position]
-            itemView.setOnClickListener { onClickVideoFor(titleList[position]) }
+            itemView.chk_video_for.setOnClickListener { onClickVideoFor(titleList[position]) }
         }
     }
 }

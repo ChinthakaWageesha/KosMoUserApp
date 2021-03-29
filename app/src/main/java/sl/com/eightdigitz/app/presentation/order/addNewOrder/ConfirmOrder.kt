@@ -7,6 +7,7 @@ import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.activity_confirm_order.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.app.R
+import sl.com.eightdigitz.app.presentation.order.OrderViewModel
 import sl.com.eightdigitz.app.presentation.order.userOrders.OrderSummary
 import sl.com.eightdigitz.client.apiSupports.requests.NewOrderRequest
 import sl.com.eightdigitz.core.base.BaseActivity
@@ -41,7 +42,7 @@ class ConfirmOrder : BaseActivity(), View.OnClickListener {
         if (intent.hasExtra(IntentParsableConstants.EXTRA_NEW_ORDER)) {
             order = intent.getParcelableExtra(IntentParsableConstants.EXTRA_NEW_ORDER)
         }
-        vmOrder.liveDataOrder.observe(this, Observer { observerNewOrder(it) })
+        vmOrder.liveDataPlaceOrder.observe(this, Observer { observerNewOrder(it) })
         btn_place_order.setOnClickListener(this)
     }
 
@@ -50,12 +51,12 @@ class ConfirmOrder : BaseActivity(), View.OnClickListener {
 
         orderRequest.orderFor = order?.orderFor
         orderRequest.toPronoun = order?.toPronoun
-        orderRequest.fromPronoun = "Someone else"
+        orderRequest.fromPronoun = order?.fromPronoun
         orderRequest.orderInstructions = order?.orderInstructions
-        orderRequest.deliveryDate = "2021-03-10"
+        orderRequest.deliveryDate = "2021-04-10"
         orderRequest.stage = "New"
         orderRequest.userID = currentLoggedUser?.id
-        orderRequest.talentID = "f95848cb-31a0-4a47-9dde-8eb05483c960"
+        orderRequest.talentID = order?.talentID
         orderRequest.orderType = "Default"
 
         vmOrder.placeNewOrder(orderRequest)
@@ -71,7 +72,7 @@ class ConfirmOrder : BaseActivity(), View.OnClickListener {
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
-                    showAlert(title = Msg.TITLE_ERROR, message = it.message.toString())
+                    showAlert(title = Msg.TITLE_ERROR, message = it.message?.error!!)
                 }
             }
         }

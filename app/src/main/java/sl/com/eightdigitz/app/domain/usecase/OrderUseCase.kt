@@ -8,4 +8,7 @@ class OrderUseCase(private val orderRepository: OrderRepository) {
     fun placeNewOrder(newOrderRequest: NewOrderRequest) =
         orderRepository.placeNewOrder(newOrderRequest)
 
+    fun getOrdersByStages(stages: String) =
+        orderRepository.getOrdersByStage(stages)
+
 }

@@ -1,11 +1,9 @@
 package sl.com.eightdigitz.app.presentation.order.userOrders.adapters
 
-import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import sl.com.eightdigitz.app.presentation.order.userOrders.OrderStageItem
-import sl.com.eightdigitz.presentation.IntentParsableConstants
+import sl.com.eightdigitz.app.presentation.order.userOrders.*
 
 class OrderStageViewPagerAdapter(
     fragmentActivity: FragmentActivity,
@@ -15,15 +13,15 @@ class OrderStageViewPagerAdapter(
     override fun getItemCount(): Int = orderStageList.size
 
     override fun createFragment(position: Int): Fragment {
-        val title = orderStageList[position]
+        var fragment = Fragment()
 
-        var fragment: Fragment? = null
-        val bundle = Bundle()
-
-
-        fragment = OrderStageItem.newInstance()
-        bundle.putString(IntentParsableConstants.EXTRA_ORDER_STAGE_ITEM, title)
-        fragment.arguments = bundle
+        when(position){
+            0 -> fragment = OngoingFragment.newInstance()
+            1 -> fragment = CompletedFragment.newInstance()
+            2 -> fragment = DeclinedFragment.newInstance()
+            3 -> fragment = RejectedFragment.newInstance()
+            4 -> fragment = ExpiredFragment.newInstance()
+        }
 
         return fragment
     }

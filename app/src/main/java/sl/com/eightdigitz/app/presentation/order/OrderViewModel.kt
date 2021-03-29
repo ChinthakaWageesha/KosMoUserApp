@@ -1,4 +1,4 @@
-package sl.com.eightdigitz.app.presentation.order.addNewOrder
+package sl.com.eightdigitz.app.presentation.order
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -18,19 +18,38 @@ class OrderViewModel(
     private val orderUseCase: OrderUseCase
 ) : ViewModel() {
 
-    val liveDataOrder = MutableLiveData<Resource<DOrder>>()
+    val liveDataPlaceOrder = MutableLiveData<Resource<DOrder>>()
+    val liveDataGetOrders = MutableLiveData<Resource<List<DOrder>>>()
     private val compositeDisposable = CompositeDisposable()
 
     fun placeNewOrder(newOrderRequest: NewOrderRequest) {
-        liveDataOrder.setLoading()
+        liveDataPlaceOrder.setLoading()
         compositeDisposable.add(
             orderUseCase.placeNewOrder(newOrderRequest)
                 .subscribeOn(Schedulers.io())
                 .map { it }
                 .subscribe({
-                    liveDataOrder.setSuccess(it, null)
+                    liveDataPlaceOrder.setSuccess(it, null)
                 }, {
-                    liveDataOrder.setError(ErrorHandler.getApiErrorMessage(it).mapToPresentation())
+                    liveDataPlaceOrder.setError(
+                        ErrorHandler.getApiErrorMessage(it).mapToPresentation()
+                    )
+                })
+        )
+    }
+
+    fun getOrdersByStages(stages: String) {
+        liveDataGetOrders.setLoading()
+        compositeDisposable.add(
+            orderUseCase.getOrdersByStages(stages)
+                .subscribeOn(Schedulers.io())
+                .map { it.data }
+                .subscribe({
+                    liveDataGetOrders.setSuccess(it!!, null)
+                }, {
+                    liveDataPlaceOrder.setError(
+                        ErrorHandler.getApiErrorMessage(it).mapToPresentation()
+                    )
                 })
         )
     }

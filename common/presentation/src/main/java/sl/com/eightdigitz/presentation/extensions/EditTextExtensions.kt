@@ -116,14 +116,28 @@ private fun EditText.backGroundRunTime(
     }
 }
 
-fun EditText.validateWithTextWatcher(
-    mTextInputLayout: TextInputLayout,
-    message: String,
+fun EditText.validateAppEditTextOnTextChange(
+    message: String? = "error",
+    isCheckValidateIcon: Boolean = false,
     validator: (String) -> Boolean
 ): Boolean {
     this.onTextChanged {
-        mTextInputLayout.error = if (validator(it)) {
-            this.setBackgroundResource(R.drawable.bg_white_corner_round_5dp)
+        val errorMessage = if (validator(it)) null else message
+        backGroundRunTimeAppET(errorMessage, isCheckValidateIcon)
+    }
+    val errorMessage = if (validator(this.getString())) null else message
+    backGroundRunTimeAppET(errorMessage, isCheckValidateIcon)
+
+    return validator(this.getString())
+}
+
+private fun EditText.backGroundRunTimeAppET(
+    errorMessage: String?,
+    isCheckValidateIcon: Boolean
+) {
+
+    if (isCheckValidateIcon) {
+        if (errorMessage == null) {
             this.setCompoundDrawablesWithIntrinsicBounds(
                 null,
                 null,
@@ -131,10 +145,8 @@ fun EditText.validateWithTextWatcher(
                 null
             )
             this.compoundDrawablePadding = 8
-            this.setTextColor(ContextCompat.getColor(this.context, R.color.colorTextBlack))
-            null
+            this.setBackgroundResource(R.drawable.bg_white_corner_round_7dp_edit_text)
         } else {
-            this.setBackgroundResource(R.drawable.bg_white_corner_round_5dp)
             this.setCompoundDrawablesWithIntrinsicBounds(
                 null,
                 null,
@@ -142,36 +154,29 @@ fun EditText.validateWithTextWatcher(
                 null
             )
             this.compoundDrawablePadding = 8
-            this.setTextColor(ContextCompat.getColor(this.context, R.color.colorTextBlack))
-            message
+            this.setBackgroundResource(R.drawable.bg_white_corner_round_7dp_edit_text)
+        }
+    } else {
+        if (errorMessage == null) {
+            this.setCompoundDrawablesWithIntrinsicBounds(
+                null,
+                null,
+                null,
+                null
+            )
+        } else {
+            this.setCompoundDrawablesWithIntrinsicBounds(
+                null,
+                null,
+                null,
+                null
+            )
+            this.setBackgroundResource(R.drawable.bg_white_corner_round_7dp_edit_text)
         }
     }
-    mTextInputLayout.error = if (validator(this.getStringTrim())) {
-        this.setBackgroundResource(R.drawable.bg_white_corner_round_5dp)
-        this.setCompoundDrawablesWithIntrinsicBounds(
-            null,
-            null,
-            this.context.getCompatDrawable(R.drawable.ic_text_field_check),
-            null
-        )
-        this.compoundDrawablePadding = 8
-        this.setTextColor(ContextCompat.getColor(this.context, R.color.colorTextBlack))
-        null
-    } else {
-        this.setBackgroundResource(R.drawable.bg_white_corner_round_5dp)
-        this.setCompoundDrawablesWithIntrinsicBounds(
-            null,
-            null,
-            this.context.getCompatDrawable(R.drawable.ic_error),
-            null
-        )
-        this.compoundDrawablePadding = 8
-        this.setTextColor(ContextCompat.getColor(this.context, R.color.colorTextBlack))
-        message
-    }
-
-    return validator(this.getStringTrim())
 }
+
+
 
 
 

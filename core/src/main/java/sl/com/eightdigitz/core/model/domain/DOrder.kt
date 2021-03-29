@@ -22,5 +22,7 @@ data class DOrder(
     var userReviewRate: Int? = null,
     var userComment: String? = null,
     var shoutOutValidUpTo: String? = null,
-    var stage: String? = null
+    var stage: String? = null,
+    var owner: String? = null,
+    var talentName: String? = null
 ) : Parcelable

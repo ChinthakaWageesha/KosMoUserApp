@@ -7,9 +7,11 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_user_orders.view.*
 import sl.com.eightdigitz.app.R
+import sl.com.eightdigitz.core.model.domain.DOrder
 
 class UserOrdersAdapter(
-    val onClickOrder: (String) -> Unit
+    private val orderList: List<DOrder>,
+    val onClickOrder: (DOrder) -> Unit
 ) : RecyclerView.Adapter<UserOrdersAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -22,14 +24,23 @@ class UserOrdersAdapter(
         onBind(position)
     }
 
-    override fun getItemCount(): Int = 6
+    override fun getItemCount(): Int = orderList.size
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun onBind(position: Int) {
-            itemView.tv_order_reference.text = "Reference RTX123HJ"
-            itemView.tv_user_order_type.text = "Birthday Wish"
-            itemView.tv_order_for.text = "by Sanga"
-            itemView.tv_order_date.text = "16 Mar 2021, 08:08 PM"
+
+            val order = orderList[position]
+
+            itemView.tv_order_reference.text = "Reference ${order.id}"
+            itemView.tv_user_order_type.text = "${order.orderType} Wish"
+
+            if (!order.talentName.isNullOrEmpty()){
+                itemView.tv_order_for.text = "by ${order.talentName}"
+            } else {
+                itemView.tv_order_for.text = "by N?A"
+            }
+
+            itemView.tv_order_date.text = order.requestedDeliveryDate
 
             itemView.btn_order.text = "Review Order"
             itemView.btn_order.setTextColor(
@@ -39,7 +50,7 @@ class UserOrdersAdapter(
                 )
             )
 
-            itemView.btn_order.setOnClickListener { onClickOrder(position.toString()) }
+            itemView.btn_order.setOnClickListener { onClickOrder(order) }
         }
     }
 }
