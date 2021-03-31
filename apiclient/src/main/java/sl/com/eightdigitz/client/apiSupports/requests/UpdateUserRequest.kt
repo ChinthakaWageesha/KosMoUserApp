@@ -4,6 +4,7 @@ import com.squareup.moshi.Json
 
 data class UpdateUserRequest (
     @Json(name = "ID") @field:Json(name = "ID") var id: String? = null,
+    @Json(name = "Auth0Ref") @field:Json(name = "Auth0Ref") var auth0Ref: String? = null,
     @Json(name = "MobileNo") @field:Json(name = "MobileNo") var mobileNo: String? = null,
     @Json(name = "FullName") @field:Json(name = "FullName") var fullName: String? = null,
     @Json(name = "Email") @field:Json(name = "Email") var email: String? = null,

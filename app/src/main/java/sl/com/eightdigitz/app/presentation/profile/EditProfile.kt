@@ -115,6 +115,7 @@ class EditProfile : BaseActivity(), View.OnClickListener {
     private fun updateUser() {
         val request = UpdateUserRequest()
         request.id = currentLoggedUser?.id
+        request.auth0Ref = currentLoggedUser?.authReference
         request.fullName = et_edit_profile_name.getStringTrim()
         request.email = et_edit_profile_email.getStringTrim()
         request.mobileNo = et_edit_profile_mobile.getStringTrim()
@@ -138,6 +139,7 @@ class EditProfile : BaseActivity(), View.OnClickListener {
                     hideProgress()
                     profileImageUrl = it.data.toString()
                     iv_edit_profile_user_image.loadImageRound(file?.absolutePath!!)
+                    updateUser()
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
@@ -157,6 +159,7 @@ class EditProfile : BaseActivity(), View.OnClickListener {
                     val intent = intent
                     intent.putExtra(IntentParsableConstants.EXTRA_USER, it.data)
                     setResult(ResultCodes.UPDATE_USER_RESULT_CODE, intent)
+                    "Profile Data saved Successfully".showToast(this)
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
