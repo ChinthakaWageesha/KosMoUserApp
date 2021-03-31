@@ -7,7 +7,7 @@ import retrofit2.http.POST
 import sl.com.eightdigitz.client.apiSupports.requests.AddUserPreferenceRequest
 import sl.com.eightdigitz.client.apiSupports.responses.PreferenceListResponse
 import sl.com.eightdigitz.client.apiSupports.responses.UserListResponse
-import sl.com.eightdigitz.client.apiSupports.responses.UserPreferenceResponse
+import sl.com.eightdigitz.client.apiSupports.responses.UserResponse
 
 @JvmSuppressWildcards
 interface PreferencesApi {
@@ -24,7 +24,7 @@ interface PreferencesApi {
     fun addUserPreference(
         @retrofit2.http.Header("x-id-token") idToken: String,
         @retrofit2.http.Body addUserPreferenceRequest: AddUserPreferenceRequest
-    ): Single<UserPreferenceResponse>
+    ): Single<UserResponse>
 
 
     @GET("user/get-profile-list-by-preference")

@@ -13,7 +13,7 @@ import sl.com.eightdigitz.authentication.presentation.AuthActivity
 import sl.com.eightdigitz.client.apiSupports.requests.AddUserPreferenceRequest
 import sl.com.eightdigitz.core.base.BaseFragment
 import sl.com.eightdigitz.core.model.domain.DPreference
-import sl.com.eightdigitz.core.model.domain.DUserPreference
+import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.presentation.*
 import sl.com.eightdigitz.presentation.extensions.*
 
@@ -64,13 +64,13 @@ class PostRegister : BaseFragment(), View.OnClickListener, (DPreference, Boolean
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
-                    showAlert(Msg.TITLE_ERROR, it.message.toString())
+                    it.message?.error.toString().showToast(context!!)
                 }
             }
         }
     }
 
-    private fun observerSetPreferences(resource: Resource<DUserPreference>){
+    private fun observerSetPreferences(resource: Resource<DUser>){
         resource.let {
             when(it.state){
                 ResourceState.LOADING -> showProgress()

@@ -5,6 +5,7 @@ import sl.com.eightdigitz.client.apiSupports.models.Preference
 
 data class RegisterRequest(
     @Json(name = "FirebaseID") @field:Json(name = "FirebaseID") var firebaseID: String? = null,
+    @Json(name = "Auth0RefGoogle") @field:Json(name = "Auth0RefGoogle") var auth0RefGoogle: String? = null,
     @Json(name = "MobileNo") @field:Json(name = "MobileNo") var mobileNo: String? = null,
     @Json(name = "FullName") @field:Json(name = "FullName") var fullName: String? = null,
     @Json(name = "DefaultLanguage") @field:Json(name = "DefaultLanguage") var defaultLanguage: String? = null,

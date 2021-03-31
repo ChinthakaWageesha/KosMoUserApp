@@ -88,11 +88,12 @@ class AuthDataSourceImpl constructor(
             it.data?.mapToDomain()
         }
 
-    override fun addUserPreference(addUserPreferenceRequest: AddUserPreferenceRequest): Single<DUserPreference> =
+    override fun addUserPreference(addUserPreferenceRequest: AddUserPreferenceRequest): Single<DUser> =
         preferencesApi.addUserPreference(
             idToken = mSharedPreferences.getIdToken()!!,
             addUserPreferenceRequest = addUserPreferenceRequest
         ).map {
+            saveUser(it.data)
             it.data?.mapToDomain()
         }
 

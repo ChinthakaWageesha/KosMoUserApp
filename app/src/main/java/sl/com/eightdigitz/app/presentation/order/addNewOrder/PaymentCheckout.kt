@@ -8,6 +8,8 @@ import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.core.model.domain.DOrder
 import sl.com.eightdigitz.presentation.IntentParsableConstants
+import sl.com.eightdigitz.presentation.RequestCodes
+import sl.com.eightdigitz.presentation.ResultCodes
 import sl.com.eightdigitz.presentation.extensions.setAppActionBar
 import sl.com.eightdigitz.presentation.extensions.startActivity
 
@@ -45,7 +47,16 @@ class PaymentCheckout : BaseActivity(), View.OnClickListener {
     private fun gotoConfirm(){
         val intent = Intent(this, ConfirmOrder::class.java)
         intent.putExtra(IntentParsableConstants.EXTRA_NEW_ORDER, order)
-        startActivity(intent)
+        startActivityForResult(intent, RequestCodes.NEW_ORDER_REQUEST_CODE)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == RequestCodes.NEW_ORDER_REQUEST_CODE && resultCode == ResultCodes.NEW_ORDER_RESULT_CODE){
+            setResult(ResultCodes.NEW_ORDER_RESULT_CODE).also {
+                finish()
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data)
     }
 
     override fun onClick(v: View?) {

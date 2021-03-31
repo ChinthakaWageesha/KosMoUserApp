@@ -17,6 +17,7 @@ import sl.com.eightdigitz.core.model.domain.DOrder
 import sl.com.eightdigitz.presentation.Msg
 import sl.com.eightdigitz.presentation.Resource
 import sl.com.eightdigitz.presentation.ResourceState
+import sl.com.eightdigitz.presentation.extensions.setEmptyView
 import sl.com.eightdigitz.presentation.extensions.showAlert
 import sl.com.eightdigitz.presentation.extensions.showToast
 
@@ -36,14 +37,15 @@ class OngoingFragment : BaseFragment(), (DOrder) -> Unit {
     }
 
     private fun init() {
+        setAdapter()
         vmOrder.getOrdersByStages(
             stages = "New"
         )
         vmOrder.liveDataGetOrders.observe(this, Observer { observerGetOrdersByStage(it) })
     }
 
-    private fun setAdapter(list: List<DOrder>) {
-        rv_ongoing_orders.adapter = UserOrdersAdapter(list, this)
+    private fun setAdapter() {
+        rv_ongoing_orders.adapter = UserOrdersAdapter(mutableListOf(), this)
         rv_ongoing_orders.layoutManager =
             LinearLayoutManager(context!!, LinearLayoutManager.VERTICAL, false)
     }
@@ -54,11 +56,12 @@ class OngoingFragment : BaseFragment(), (DOrder) -> Unit {
                 ResourceState.LOADING -> showProgress()
                 ResourceState.SUCCESS -> {
                     hideProgress()
-                    setAdapter(it.data!!)
+                    rv_ongoing_orders.setEmptyView(tv_no_data_ongoing_orders, it.data!!.size)
+                    (rv_ongoing_orders.adapter as UserOrdersAdapter).addOrderList(it.data!!.toMutableList())
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
-                    showAlert(title = Msg.TITLE_ERROR, message = it.message.toString())
+                    it.message?.error.toString().showToast(context!!)
                 }
             }
         }

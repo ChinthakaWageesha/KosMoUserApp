@@ -142,7 +142,7 @@ class GetOTP : BaseFragment(), View.OnClickListener {
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
-                    showAlert(Msg.TITLE_ERROR, "Invalid phone number. Check and try again.")
+                    "Invalid phone number. Check and try again.".showToast(context!!)
                 }
             }
         }

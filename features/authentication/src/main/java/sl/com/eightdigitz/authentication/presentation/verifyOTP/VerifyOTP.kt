@@ -170,7 +170,7 @@ class VerifyOTP : BaseFragment(), View.OnClickListener {
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
-                    showAlert(Msg.TITLE_ERROR, it.message.toString())
+                    it.message?.error.toString().showToast(context!!)
                 }
             }
         }
@@ -186,7 +186,7 @@ class VerifyOTP : BaseFragment(), View.OnClickListener {
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
-                    showAlert(Msg.TITLE_ERROR, it.message.toString())
+                    it.message?.error.toString().showToast(context!!)
                 }
             }
         }
@@ -206,10 +206,10 @@ class VerifyOTP : BaseFragment(), View.OnClickListener {
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
-                    if (it.message?.error.toString() == "No records found") {
+                    if (it.message?.error == "No records found") {
                         navigateToGetStart()
                     } else {
-                        showAlert(Msg.TITLE_ERROR, it.message.toString())
+                        it.message?.error.toString().showToast(context!!)
                     }
                 }
             }

@@ -14,14 +14,14 @@ import io.reactivex.schedulers.Schedulers
 import sl.com.eightdigitz.client.apiSupports.requests.AddUserPreferenceRequest
 import sl.com.eightdigitz.client.apiSupports.requests.RegisterRequest
 import sl.com.eightdigitz.core.model.domain.DPreference
-import sl.com.eightdigitz.core.model.domain.DUserPreference
+import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.network.ErrorHandler
 
 class RegistrationViewModel constructor(private val authUseCase: AuthUseCase) : ViewModel() {
 
     val liveDataSaveUser = MutableLiveData<Resource<PUser>>()
     val liveDataCategories = MutableLiveData<Resource<List<DPreference>>>()
-    val liveDataPreference = MutableLiveData<Resource<DUserPreference>>()
+    val liveDataPreference = MutableLiveData<Resource<DUser>>()
     private val compositeDisposable = CompositeDisposable()
 
 

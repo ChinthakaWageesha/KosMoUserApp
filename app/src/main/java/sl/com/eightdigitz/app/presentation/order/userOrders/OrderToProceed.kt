@@ -77,7 +77,7 @@ class OrderToProceed : BaseActivity(), View.OnClickListener {
                 hideKeyboard()
                 onBackPressed()
             }
-            R.id.btn_proceed_order -> startActivity<OrderSummary>()
+            //R.id.btn_proceed_order -> startActivity<OrderSummary>()
         }
     }
 }

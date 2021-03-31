@@ -13,6 +13,8 @@ import sl.com.eightdigitz.core.model.domain.DOrder
 import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.presentation.IntentParsableConstants
 import sl.com.eightdigitz.presentation.Msg
+import sl.com.eightdigitz.presentation.RequestCodes
+import sl.com.eightdigitz.presentation.ResultCodes
 import sl.com.eightdigitz.presentation.extensions.*
 
 class OrderDetails : BaseActivity(), View.OnClickListener, (String) -> Unit {
@@ -41,7 +43,7 @@ class OrderDetails : BaseActivity(), View.OnClickListener, (String) -> Unit {
 
         if (intent.hasExtra(IntentParsableConstants.EXTRA_USER) &&
             intent.getParcelableExtra<DUser>(IntentParsableConstants.EXTRA_USER) != null
-        ){
+        ) {
             talentId = intent.getParcelableExtra<DUser>(IntentParsableConstants.EXTRA_USER)?.id
         }
 
@@ -80,14 +82,14 @@ class OrderDetails : BaseActivity(), View.OnClickListener, (String) -> Unit {
     private fun onNext() {
         if (validate()) {
             val order = DOrder()
-            val intent = Intent(this, OrderInstructions::class.java)
             order.talentID = talentId
             order.fromPronoun = mVideoFor
             order.orderFor = et_video_to.getStringTrim()
             order.toPronoun = et_address_person.getStringTrim()
 
+            val intent = Intent(this, OrderInstructions::class.java)
             intent.putExtra(IntentParsableConstants.EXTRA_NEW_ORDER, order)
-            startActivity(intent)
+            startActivityForResult(intent, RequestCodes.NEW_ORDER_REQUEST_CODE)
         }
     }
 
@@ -103,12 +105,19 @@ class OrderDetails : BaseActivity(), View.OnClickListener, (String) -> Unit {
             return false
         }
 
-        if (mVideoFor.isNullOrEmpty()){
+        if (mVideoFor.isNullOrEmpty()) {
             showAlert(Msg.TITLE_REQUIRED, "Please select to whom this video for")
             return false
         }
 
         return true
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == RequestCodes.NEW_ORDER_REQUEST_CODE && resultCode == ResultCodes.NEW_ORDER_RESULT_CODE) {
+            onBackPressed()
+        }
+        super.onActivityResult(requestCode, resultCode, data)
     }
 
     override fun onClick(v: View?) {

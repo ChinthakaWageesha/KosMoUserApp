@@ -7,7 +7,7 @@ import io.reactivex.schedulers.Schedulers
 import sl.com.eightdigitz.app.domain.usecase.ProfileUseCase
 import sl.com.eightdigitz.client.apiSupports.requests.AddUserPreferenceRequest
 import sl.com.eightdigitz.core.model.domain.DPreference
-import sl.com.eightdigitz.core.model.domain.DUserPreference
+import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.core.model.mapToPresentation
 import sl.com.eightdigitz.network.ErrorHandler
 import sl.com.eightdigitz.presentation.Resource
@@ -20,7 +20,7 @@ class PreferencesViewModel constructor(
 ) : ViewModel() {
 
     val liveDataPreferences = MutableLiveData<Resource<List<DPreference>>>()
-    val liveDataSetPreferences = MutableLiveData<Resource<DUserPreference>>()
+    val liveDataSetPreferences = MutableLiveData<Resource<DUser>>()
     private val compositeDisposable = CompositeDisposable()
 
     fun getPreferences() {

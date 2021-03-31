@@ -79,7 +79,7 @@ class AppInformation : BaseActivity() {
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
-                    showAlert(title = Msg.TITLE_ERROR, message = it.message.toString())
+                    it.message?.error.toString().showToast(this)
                 }
             }
         }

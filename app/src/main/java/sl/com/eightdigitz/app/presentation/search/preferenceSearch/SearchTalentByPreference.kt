@@ -112,7 +112,7 @@ class SearchTalentByPreference : BaseActivity(), View.OnClickListener {
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
-                    showAlert(Msg.TITLE_ERROR, it.message.toString())
+                    it.message?.error.toString().showToast(this)
                 }
             }
         }
@@ -126,7 +126,7 @@ class SearchTalentByPreference : BaseActivity(), View.OnClickListener {
                     Log.d("PREFERENCE_LOG", it.data?.id!!)
                 }
                 ResourceState.ERROR -> {
-                    showAlert(title = Msg.TITLE_ALERT, message = it.message.toString())
+                    it.message?.error.toString().showToast(this)
                 }
             }
         }

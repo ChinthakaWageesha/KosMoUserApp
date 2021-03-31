@@ -1,6 +1,7 @@
 package sl.com.eightdigitz.app.presentation.order.userOrders
 
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_order_summary.*
 import sl.com.eightdigitz.app.R
@@ -9,7 +10,7 @@ import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.core.model.domain.DOrder
 import sl.com.eightdigitz.presentation.Constant
 import sl.com.eightdigitz.presentation.IntentParsableConstants
-import sl.com.eightdigitz.presentation.extensions.hideKeyboard
+import sl.com.eightdigitz.presentation.ResultCodes
 import sl.com.eightdigitz.presentation.extensions.setAppActionBar
 import sl.com.eightdigitz.presentation.extensions.setRoundedImage
 
@@ -46,7 +47,7 @@ class OrderSummary : BaseActivity() {
             url = Constant.USER_IMAGE_AQUAMAN,
             radius = 12
         )
-        tv_order_summary_talent_name.text = "Oshila Gunerathne"
+        tv_order_summary_talent_name.text = order?.talentName
         tv_order_summary_talent_field.text = "Talent"
         tv_order_summary_reference.text = "Order Reference ${order?.id}"
         tv_order_summary_due_date.text = "Due by ${order?.requestedDeliveryDate}"
@@ -72,9 +73,15 @@ class OrderSummary : BaseActivity() {
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        hideKeyboard()
-        onBackPressed()
-        return super.onSupportNavigateUp()
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                setResult(ResultCodes.NEW_ORDER_RESULT_CODE).also {
+                    onBackPressed()
+                }
+                return true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }

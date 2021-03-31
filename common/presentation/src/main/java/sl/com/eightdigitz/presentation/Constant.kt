@@ -52,11 +52,13 @@ object RequestCodes {
     const val COUNTRY_CODE_REQUEST = 1001
     const val MOBILE_REQUEST_CODE = 1002
     const val UPDATE_USER_REQUEST_CODE = 1003
+    const val NEW_ORDER_REQUEST_CODE = 1004
 }
 
 object ResultCodes {
     const val MOBILE_RESULT_CODE = 2001
     const val UPDATE_USER_RESULT_CODE = 2002
+    const val NEW_ORDER_RESULT_CODE = 2003
 }
 
 object IntentParsableConstants {
@@ -66,7 +68,6 @@ object IntentParsableConstants {
     const val COUNTRY_SELECTION = "COUNTRY_SELECTION"
     const val EXTRA_PREFERENCE = "extra_preference"
     const val EXTRA_CATEGORY_ITEM_HOME = "home_category_item"
-    const val EXTRA_ORDER_STAGE_ITEM = "order_stage_item"
     const val EXTRA_NEW_ORDER = "new_order"
     const val EXTRA_MOBILE_NUMBER = "mobile number"
 }

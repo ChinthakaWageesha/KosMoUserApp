@@ -47,7 +47,7 @@ class RecentSearches : BaseActivity(), View.OnClickListener, (DUser) -> Unit {
         vmSearch.liveDataRemoveRecent.observe(this, Observer { observerRemoveRecentSearch(it) })
         vmSearch.liveDataRecentSearches.observe(this, Observer { observerGetRecentSearches(it) })
         getRecentSearches()
-        setAdapter(mutableListOf())
+        setAdapter()
         tv_cancel_recent_searches.setOnClickListener(this)
     }
 
@@ -74,13 +74,14 @@ class RecentSearches : BaseActivity(), View.OnClickListener, (DUser) -> Unit {
                 ResourceState.LOADING -> showProgress()
                 ResourceState.SUCCESS -> {
                     hideProgress()
+                    (rv_recent_talent_searches.adapter as RecentSearchAdapter).clear()
                     rv_recent_talent_searches.setEmptyView(tv_no_data_recently_viewed_profiles, it.data!!.size)
                     (rv_recent_talent_searches.adapter as RecentSearchAdapter).addTalentList(it.data!!.toMutableList())
 
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
-                    showAlert(title = Msg.TITLE_ERROR, message = it.message?.error!!)
+                    it.message?.error.toString().showToast(this)
                 }
             }
         }
@@ -96,14 +97,14 @@ class RecentSearches : BaseActivity(), View.OnClickListener, (DUser) -> Unit {
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
-                    showAlert(Msg.TITLE_ERROR, it.message.toString())
+                    it.message?.error.toString().showToast(this)
                 }
             }
         }
     }
 
-    private fun setAdapter(recentVisitedProfileList: MutableList<DUser>) {
-        rv_recent_talent_searches.adapter = RecentSearchAdapter(recentVisitedProfileList, this)
+    private fun setAdapter() {
+        rv_recent_talent_searches.adapter = RecentSearchAdapter(mutableListOf(), this)
         rv_recent_talent_searches.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
     }

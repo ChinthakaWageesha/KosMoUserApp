@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_profile.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.app.presentation.favourite.Favourites
 import sl.com.eightdigitz.app.presentation.order.userOrders.UserOrders
@@ -24,6 +25,8 @@ import sl.com.eightdigitz.presentation.extensions.showToast
 import sl.com.eightdigitz.presentation.extensions.startActivity
 
 class ProfileFragment : BaseFragment(), View.OnClickListener {
+
+    private val vm by viewModel<ProfileViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,

@@ -52,11 +52,12 @@ class ProfileDataSourceImpl(
         }
 
 
-    override fun setPreference(addUserPreferenceRequest: AddUserPreferenceRequest): Single<DUserPreference> =
+    override fun setPreference(addUserPreferenceRequest: AddUserPreferenceRequest): Single<DUser> =
         preferencesApi.addUserPreference(
             idToken = mSharedPreferences.getIdToken()!!,
             addUserPreferenceRequest = addUserPreferenceRequest
         ).map {
+            saveUser(it.data!!)
             it.data?.mapToDomain()
         }
 

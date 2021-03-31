@@ -172,7 +172,7 @@ class ContactSupport : BaseActivity(), View.OnClickListener {
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
-                    showAlert(Msg.TITLE_ERROR, it.message.toString())
+                    it.message?.error.toString().showToast(this)
                 }
             }
         }
@@ -200,7 +200,7 @@ class ContactSupport : BaseActivity(), View.OnClickListener {
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
-                    showAlert(Msg.TITLE_ERROR, it.message.toString())
+                    it.message?.error.toString().showToast(this)
                 }
             }
         }

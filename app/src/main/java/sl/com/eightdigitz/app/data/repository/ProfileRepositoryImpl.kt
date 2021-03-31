@@ -25,7 +25,7 @@ class ProfileRepositoryImpl constructor(
     override fun getPreferences(): Single<ListResponse<DPreference>> =
         profileDataSource.getPreferences()
 
-    override fun setPreference(addUserPreferenceRequest: AddUserPreferenceRequest): Single<DUserPreference> =
+    override fun setPreference(addUserPreferenceRequest: AddUserPreferenceRequest): Single<DUser> =
         profileDataSource.setPreference(addUserPreferenceRequest)
 
 }

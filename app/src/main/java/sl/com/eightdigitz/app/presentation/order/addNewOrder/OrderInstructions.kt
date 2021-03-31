@@ -12,6 +12,8 @@ import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.core.model.domain.DOrder
 import sl.com.eightdigitz.presentation.IntentParsableConstants
 import sl.com.eightdigitz.presentation.Msg
+import sl.com.eightdigitz.presentation.RequestCodes
+import sl.com.eightdigitz.presentation.ResultCodes
 import sl.com.eightdigitz.presentation.extensions.*
 import javax.xml.transform.dom.DOMResult
 
@@ -82,7 +84,7 @@ class OrderInstructions : BaseActivity(), View.OnClickListener {
             order?.orderInstructions = et_instructions.getStringTrim()
             val intent = Intent(this, PaymentCheckout::class.java)
             intent.putExtra(IntentParsableConstants.EXTRA_NEW_ORDER, order)
-            startActivity(intent)
+            startActivityForResult(intent, RequestCodes.NEW_ORDER_REQUEST_CODE)
         }
     }
 
@@ -95,6 +97,15 @@ class OrderInstructions : BaseActivity(), View.OnClickListener {
             return false
         }
         return true
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == RequestCodes.NEW_ORDER_REQUEST_CODE && resultCode == ResultCodes.NEW_ORDER_RESULT_CODE){
+            setResult(ResultCodes.NEW_ORDER_RESULT_CODE).also {
+                finish()
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data)
     }
 
     override fun onClick(v: View?) {

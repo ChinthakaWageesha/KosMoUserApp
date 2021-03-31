@@ -10,7 +10,7 @@ import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.core.model.domain.DOrder
 
 class UserOrdersAdapter(
-    private val orderList: List<DOrder>,
+    private val orderList: MutableList<DOrder>,
     val onClickOrder: (DOrder) -> Unit
 ) : RecyclerView.Adapter<UserOrdersAdapter.ViewHolder>() {
 
@@ -26,6 +26,16 @@ class UserOrdersAdapter(
 
     override fun getItemCount(): Int = orderList.size
 
+    fun addOrderList(list: MutableList<DOrder>) {
+        orderList.addAll(list)
+        notifyDataSetChanged()
+    }
+
+    fun clear() {
+        orderList.clear()
+        notifyDataSetChanged()
+    }
+
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun onBind(position: Int) {
 
@@ -34,7 +44,7 @@ class UserOrdersAdapter(
             itemView.tv_order_reference.text = "Reference ${order.id}"
             itemView.tv_user_order_type.text = "${order.orderType} Wish"
 
-            if (!order.talentName.isNullOrEmpty()){
+            if (!order.talentName.isNullOrEmpty()) {
                 itemView.tv_order_for.text = "by ${order.talentName}"
             } else {
                 itemView.tv_order_for.text = "by N?A"

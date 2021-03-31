@@ -32,7 +32,8 @@ fun User.mapToDomain(): DUser =
         socialMediaProfileLink = socialMediaProfileLink,
         subscribeMail = subscribeMail,
         userName = userName,
-        firebaseId = firebaseID
+        firebaseId = firebaseID,
+        auth0RefGoogle = auth0RefGoogle
     )
 
 fun DUser.mapToPresentation(): PUser =
@@ -59,7 +60,8 @@ fun DUser.mapToPresentation(): PUser =
         socialMediaProfileLink = socialMediaProfileLink,
         subscribeMail = subscribeMail,
         userName = userName,
-        firebaseId = firebaseId
+        firebaseId = firebaseId,
+        auth0RefGoogle = auth0RefGoogle
     )
 
 fun OTPResponse.mapToDomain(): DOTP = DOTP(

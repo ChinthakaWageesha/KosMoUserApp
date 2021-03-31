@@ -12,10 +12,7 @@ import sl.com.eightdigitz.app.presentation.order.userOrders.OrderSummary
 import sl.com.eightdigitz.client.apiSupports.requests.NewOrderRequest
 import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.core.model.domain.DOrder
-import sl.com.eightdigitz.presentation.IntentParsableConstants
-import sl.com.eightdigitz.presentation.Msg
-import sl.com.eightdigitz.presentation.Resource
-import sl.com.eightdigitz.presentation.ResourceState
+import sl.com.eightdigitz.presentation.*
 import sl.com.eightdigitz.presentation.extensions.*
 
 class ConfirmOrder : BaseActivity(), View.OnClickListener {
@@ -72,7 +69,7 @@ class ConfirmOrder : BaseActivity(), View.OnClickListener {
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
-                    showAlert(title = Msg.TITLE_ERROR, message = it.message?.error!!)
+                    it.message?.error.toString().showToast(this)
                 }
             }
         }
@@ -88,7 +85,7 @@ class ConfirmOrder : BaseActivity(), View.OnClickListener {
                 override fun onPositiveClicked() {
                     val intent = Intent(this@ConfirmOrder, OrderSummary::class.java)
                     intent.putExtra(IntentParsableConstants.EXTRA_NEW_ORDER, order)
-                    startActivity(intent)
+                    startActivityForResult(intent, RequestCodes.NEW_ORDER_REQUEST_CODE)
                 }
 
                 override fun onNegativeClicked() {
@@ -96,6 +93,15 @@ class ConfirmOrder : BaseActivity(), View.OnClickListener {
                 }
             }
         )
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == RequestCodes.NEW_ORDER_REQUEST_CODE && resultCode == ResultCodes.NEW_ORDER_RESULT_CODE){
+            setResult(ResultCodes.NEW_ORDER_RESULT_CODE).also {
+                finish()
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data)
     }
 
     override fun onSupportNavigateUp(): Boolean {

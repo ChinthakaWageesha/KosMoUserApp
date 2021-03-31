@@ -17,6 +17,6 @@ interface ProfileRepository {
 
     fun getPreferences(): Single<ListResponse<DPreference>>
 
-    fun setPreference(addUserPreferenceRequest: AddUserPreferenceRequest): Single<DUserPreference>
+    fun setPreference(addUserPreferenceRequest: AddUserPreferenceRequest): Single<DUser>
 
 }

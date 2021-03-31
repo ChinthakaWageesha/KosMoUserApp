@@ -27,6 +27,6 @@ interface AuthDataSource {
 
     fun createAccount(registerRequest: RegisterRequest): Single<DUser>
 
-    fun addUserPreference(addUserPreferenceRequest: AddUserPreferenceRequest): Single<DUserPreference>
+    fun addUserPreference(addUserPreferenceRequest: AddUserPreferenceRequest): Single<DUser>
 
 }

@@ -11,7 +11,7 @@ fun String.isValidEmail(): Boolean = this.isNotEmpty() &&
 /**
  * validate mobile
  */
-fun String.isValidPhone(): Boolean = this.length == 9 &&
+fun String.isValidPhone(): Boolean = this.length == 10 &&
         Patterns.PHONE.matcher(this.trim()).matches()
 
 fun String.isValidMobile(): Boolean = this.length == 10 &&

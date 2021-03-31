@@ -39,7 +39,7 @@ class AuthRepositoryImpl constructor(
     override fun createAccount(registerRequest: RegisterRequest): Single<DUser> =
         authDataSource.createAccount(registerRequest)
 
-    override fun addUserPreference(addUserPreferenceRequest: AddUserPreferenceRequest): Single<DUserPreference> =
+    override fun addUserPreference(addUserPreferenceRequest: AddUserPreferenceRequest): Single<DUser> =
         authDataSource.addUserPreference(addUserPreferenceRequest)
 
 }

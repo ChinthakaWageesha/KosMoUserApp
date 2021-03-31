@@ -31,6 +31,6 @@ class AuthUseCase constructor(private val authRepository: AuthRepository) {
     fun createAccount(request: RegisterRequest): Single<DUser> =
         authRepository.createAccount(request)
 
-    fun addUserPreference(request: AddUserPreferenceRequest): Single<DUserPreference> =
+    fun addUserPreference(request: AddUserPreferenceRequest): Single<DUser> =
         authRepository.addUserPreference(request)
 }

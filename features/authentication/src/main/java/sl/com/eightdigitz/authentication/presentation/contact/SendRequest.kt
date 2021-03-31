@@ -150,7 +150,7 @@ class SendRequest : BaseActivity(), View.OnClickListener {
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
-                    showAlert(Msg.TITLE_ERROR, it.message.toString())
+                    it.message?.error.toString().showToast(this)
                 }
             }
         }
@@ -178,7 +178,7 @@ class SendRequest : BaseActivity(), View.OnClickListener {
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
-                    showAlert(Msg.TITLE_ERROR, it.message.toString())
+                    it.message?.error.toString().showToast(this)
                 }
             }
         }

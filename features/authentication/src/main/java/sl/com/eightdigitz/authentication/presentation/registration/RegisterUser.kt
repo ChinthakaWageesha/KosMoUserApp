@@ -165,6 +165,7 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
     private fun authWithBackend(fmcToken: String?) {
         val registerRequest = RegisterRequest()
         registerRequest.firebaseID = fmcToken
+        registerRequest.auth0RefGoogle = et_name_sign_up.getStringTrim()
         registerRequest.mobileNo = (requireActivity() as AuthActivity).mobileNumber0
         registerRequest.fullName = et_name_sign_up.getStringTrim()
         registerRequest.email = et_sign_up_email.getStringTrim()
@@ -237,7 +238,6 @@ class RegisterUser : BaseFragment(), View.OnClickListener {
                 ResourceState.ERROR -> {
                     hideProgress()
                     it.message?.error.toString().showToast(context!!)
-                    /*showAlert(Msg.TITLE_ERROR, it.message.toString())*/
                 }
             }
         }
