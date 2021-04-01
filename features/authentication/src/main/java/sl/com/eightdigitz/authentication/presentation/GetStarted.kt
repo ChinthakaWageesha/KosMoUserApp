@@ -1,58 +1,57 @@
 package sl.com.eightdigitz.authentication.presentation
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.fragment_get_started.*
+import kotlinx.android.synthetic.main.activity_get_started.*
 import sl.com.eightdigitz.authentication.R
-import sl.com.eightdigitz.core.base.BaseFragment
+import sl.com.eightdigitz.authentication.presentation.registration.RegisterUser
+import sl.com.eightdigitz.core.base.BaseActivity
+import sl.com.eightdigitz.core.model.domain.DUserRegister
+import sl.com.eightdigitz.presentation.IntentParsableConstants
+import sl.com.eightdigitz.presentation.RequestCodes
+import sl.com.eightdigitz.presentation.ResultCodes
 import sl.com.eightdigitz.presentation.extensions.hideKeyboard
-import sl.com.eightdigitz.presentation.extensions.setActionBar
 
+class GetStarted : BaseActivity(), View.OnClickListener {
 
-class GetStarted : BaseFragment(), View.OnClickListener {
+    private var userRequest: DUserRegister? = null
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_get_started, container, false)
-    }
-
-    override fun onViewCreated() {
-        setToolbar()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_get_started)
+        getData()
         btn_get_started.setOnClickListener(this)
     }
 
-    private fun setToolbar() {
-        (requireActivity() as AuthActivity).supportActionBar?.setActionBar(
-            context!!,
-            "",
-            isHomeUpEnables = false
-        )
+    private fun getData(){
+        if (intent.hasExtra(IntentParsableConstants.EXTRA_REGISTER_USER)) {
+            userRequest = intent.getParcelableExtra(IntentParsableConstants.EXTRA_REGISTER_USER)
+        }
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btn_get_started -> {
-                (requireActivity() as AuthActivity).setRegister()
+                val intent = Intent(this, RegisterUser::class.java)
+                intent.putExtra(IntentParsableConstants.EXTRA_REGISTER_USER, userRequest)
+                startActivityForResult(intent, RequestCodes.CREATE_USER_REQUEST_CODE)
             }
         }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == RequestCodes.CREATE_USER_REQUEST_CODE && resultCode == ResultCodes.CREATE_USER_RESULT_CODE){
+            setResult(ResultCodes.CREATE_USER_RESULT_CODE).also {
+                finish()
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data)
     }
 
     override fun onResume() {
         hideKeyboard()
         setBackground(sl.com.eightdigitz.presentation.R.drawable.ic_sample_sanga)
         super.onResume()
-    }
-
-    companion object {
-        const val TAG = "get_started"
-
-        fun newInstance(): Fragment {
-            return GetStarted()
-        }
     }
 }

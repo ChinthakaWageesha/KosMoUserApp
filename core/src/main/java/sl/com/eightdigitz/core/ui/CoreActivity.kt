@@ -53,6 +53,9 @@ class CoreActivity : AppCompatActivity() {
     private fun checkIsLoggedIn() {
         if (!sharedPreferences.getIdToken().isNullOrEmpty()) {
             tokenAuthenticator.idToken = sharedPreferences.getIdToken()
+        }
+
+        if (!sharedPreferences.getAuthReference().isNullOrEmpty()) {
             startMain()
         } else {
             startLogin()

@@ -2,6 +2,7 @@ package sl.com.eightdigitz.app.presentation.order
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.bumptech.glide.load.HttpException
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import sl.com.eightdigitz.app.domain.usecase.OrderUseCase
@@ -47,6 +48,10 @@ class OrderViewModel(
                 .subscribe({
                     liveDataGetOrders.setSuccess(it!!, null)
                 }, {
+                    /*if ((it as retrofit2.HttpException).code() == 404){
+
+                    }*/
+
                     liveDataPlaceOrder.setError(
                         ErrorHandler.getApiErrorMessage(it).mapToPresentation()
                     )

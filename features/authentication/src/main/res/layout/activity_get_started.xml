@@ -48,6 +48,4 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_get_started_desc" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -51,19 +51,22 @@ object ApiResponseCodes {
 object RequestCodes {
     const val COUNTRY_CODE_REQUEST = 1001
     const val MOBILE_REQUEST_CODE = 1002
-    const val UPDATE_USER_REQUEST_CODE = 1003
-    const val NEW_ORDER_REQUEST_CODE = 1004
+    const val CREATE_USER_REQUEST_CODE = 1003
+    const val UPDATE_USER_REQUEST_CODE = 1004
+    const val NEW_ORDER_REQUEST_CODE = 1005
 }
 
 object ResultCodes {
     const val MOBILE_RESULT_CODE = 2001
     const val UPDATE_USER_RESULT_CODE = 2002
-    const val NEW_ORDER_RESULT_CODE = 2003
+    const val CREATE_USER_RESULT_CODE = 2003
+    const val NEW_ORDER_RESULT_CODE = 2004
 }
 
 object IntentParsableConstants {
     const val EXTRA_NOTIFICATION = "extra_notification"
     const val EXTRA_NOTIFICATION_DATA = "extra_notification_data"
+    const val EXTRA_REGISTER_USER = "EXTRA_REGISTER_USER"
     const val EXTRA_USER = "EXTRA_USER"
     const val COUNTRY_SELECTION = "COUNTRY_SELECTION"
     const val EXTRA_PREFERENCE = "extra_preference"

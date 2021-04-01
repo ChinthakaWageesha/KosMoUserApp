@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.fragment_expired.*
 import kotlinx.android.synthetic.main.fragment_ongoing.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.app.R
@@ -39,7 +40,7 @@ class OngoingFragment : BaseFragment(), (DOrder) -> Unit {
     private fun init() {
         setAdapter()
         vmOrder.getOrdersByStages(
-            stages = "New"
+            stages = "New,OrderAccepted,TalentAccepted,TalentDelivered,OrderReviewRejected"
         )
         vmOrder.liveDataGetOrders.observe(this, Observer { observerGetOrdersByStage(it) })
     }
@@ -56,6 +57,7 @@ class OngoingFragment : BaseFragment(), (DOrder) -> Unit {
                 ResourceState.LOADING -> showProgress()
                 ResourceState.SUCCESS -> {
                     hideProgress()
+                    (rv_ongoing_orders.adapter as UserOrdersAdapter).clear()
                     rv_ongoing_orders.setEmptyView(tv_no_data_ongoing_orders, it.data!!.size)
                     (rv_ongoing_orders.adapter as UserOrdersAdapter).addOrderList(it.data!!.toMutableList())
                 }

@@ -56,6 +56,7 @@ class ExpiredFragment : BaseFragment(), (DOrder) -> Unit {
                 ResourceState.LOADING -> showProgress()
                 ResourceState.SUCCESS -> {
                     hideProgress()
+                    (rv_expired_orders.adapter as UserOrdersAdapter).clear()
                     rv_expired_orders.setEmptyView(tv_no_data_expired_orders, it.data!!.size)
                     (rv_expired_orders.adapter as UserOrdersAdapter).addOrderList(it.data!!.toMutableList())
                 }

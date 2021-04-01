@@ -1,56 +1,52 @@
 package sl.com.eightdigitz.authentication.presentation.verifyOTP
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.text.Editable
 import android.text.TextWatcher
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
-import kotlinx.android.synthetic.main.fragment_verify_otp.*
+import kotlinx.android.synthetic.main.activity_verify_otp.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.authentication.R
-import sl.com.eightdigitz.authentication.presentation.AuthActivity
 import sl.com.eightdigitz.authentication.presentation.GetStarted
-import sl.com.eightdigitz.core.base.BaseFragment
+import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.core.model.domain.DOTP
 import sl.com.eightdigitz.core.model.domain.DOTPToken
 import sl.com.eightdigitz.core.model.domain.DUser
-import sl.com.eightdigitz.navigation.features.ResultCode
-import sl.com.eightdigitz.presentation.Msg
-import sl.com.eightdigitz.presentation.Resource
-import sl.com.eightdigitz.presentation.ResourceState
+import sl.com.eightdigitz.core.model.domain.DUserRegister
+import sl.com.eightdigitz.presentation.*
 import sl.com.eightdigitz.presentation.extensions.*
 
+class VerifyOTP : BaseActivity(), View.OnClickListener {
 
-class VerifyOTP : BaseFragment(), View.OnClickListener {
-
+    private var userRequest: DUserRegister? = null
     private val vmOTPToken by viewModel<OTPViewModel>()
     private var isVerifyEnable = false
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_verify_otp, container, false)
-    }
-
-    override fun onViewCreated() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_verify_otp)
         setToolbar()
+        getData()
         init()
-        showKeyboard(et_verify_code)
     }
 
     private fun setToolbar() {
-        (requireActivity() as AuthActivity).supportActionBar?.setActionBar(
-            context!!,
+        supportActionBar?.setActionBar(
+            this,
             "",
             isHomeUpEnables = true
         )
+    }
+
+    private fun getData() {
+        if (intent.hasExtra(IntentParsableConstants.EXTRA_REGISTER_USER)) {
+            userRequest = intent.getParcelableExtra(IntentParsableConstants.EXTRA_REGISTER_USER)
+        }
     }
 
     private fun init() {
@@ -88,7 +84,7 @@ class VerifyOTP : BaseFragment(), View.OnClickListener {
         ibtn_verify.setEnable()
         tv_verify.setTextColor(
             ContextCompat.getColor(
-                context!!,
+                this,
                 sl.com.eightdigitz.presentation.R.color.colorWhite
             )
         )
@@ -99,7 +95,7 @@ class VerifyOTP : BaseFragment(), View.OnClickListener {
         ibtn_verify.setDisable()
         tv_verify.setTextColor(
             ContextCompat.getColor(
-                context!!,
+                this,
                 sl.com.eightdigitz.presentation.R.color.colorPinkAlpha30
             )
         )
@@ -141,8 +137,8 @@ class VerifyOTP : BaseFragment(), View.OnClickListener {
     @SuppressLint("MissingPermission")
     private fun resendCode() {
         et_verify_code.requestFocus()
-        activity?.withNetwork({
-            vmOTPToken.getOTP((requireActivity() as AuthActivity).mobileNumber94!!)
+        withNetwork({
+            vmOTPToken.getOTP(userRequest?.mobileNo94!!)
         }, {
             showAlert(Msg.TITLE_ERROR, Msg.INTERNET_ISSUE)
         })
@@ -150,11 +146,8 @@ class VerifyOTP : BaseFragment(), View.OnClickListener {
 
     @SuppressLint("MissingPermission")
     private fun verifyCode() {
-        activity?.withNetwork({
-            vmOTPToken.getOTPToken(
-                (requireActivity() as AuthActivity).mobileNumber94!!,
-                et_verify_code.getStringTrim()
-            )
+        withNetwork({
+            vmOTPToken.getOTPToken(userRequest?.mobileNo94!!, et_verify_code.getStringTrim())
         }, {
             showAlert(Msg.TITLE_ERROR, Msg.INTERNET_ISSUE)
         })
@@ -170,7 +163,7 @@ class VerifyOTP : BaseFragment(), View.OnClickListener {
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
-                    it.message?.error.toString().showToast(context!!)
+                    it.message?.error.toString().showToast(this)
                 }
             }
         }
@@ -186,7 +179,7 @@ class VerifyOTP : BaseFragment(), View.OnClickListener {
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
-                    it.message?.error.toString().showToast(context!!)
+                    it.message?.error.toString().showToast(this)
                 }
             }
         }
@@ -209,7 +202,7 @@ class VerifyOTP : BaseFragment(), View.OnClickListener {
                     if (it.message?.error == "No records found") {
                         navigateToGetStart()
                     } else {
-                        it.message?.error.toString().showToast(context!!)
+                        it.message?.error.toString().showToast(this)
                     }
                 }
             }
@@ -217,11 +210,15 @@ class VerifyOTP : BaseFragment(), View.OnClickListener {
     }
 
     private fun navigateToGetStart() {
-        (requireActivity() as AuthActivity).setGetStarted()
+        val intent = Intent(this, GetStarted::class.java)
+        intent.putExtra(IntentParsableConstants.EXTRA_REGISTER_USER, userRequest)
+        startActivityForResult(intent, RequestCodes.CREATE_USER_REQUEST_CODE)
     }
 
     private fun navigateToSuccess() {
-        (requireActivity() as AuthActivity).authSuccess()
+        setResult(ResultCodes.CREATE_USER_RESULT_CODE).also {
+            finish()
+        }
     }
 
     override fun onClick(v: View?) {
@@ -236,17 +233,23 @@ class VerifyOTP : BaseFragment(), View.OnClickListener {
         }
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == RequestCodes.CREATE_USER_REQUEST_CODE && resultCode == ResultCodes.CREATE_USER_RESULT_CODE){
+            setResult(ResultCodes.CREATE_USER_RESULT_CODE).also {
+                finish()
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data)
+    }
+
     override fun onResume() {
         countDownTimer()
         setBackground(sl.com.eightdigitz.presentation.R.drawable.bg_gradient_brown_pink_purple)
         super.onResume()
     }
 
-    companion object {
-        const val TAG = "verify_otp"
-
-        fun newInstance(): Fragment {
-            return VerifyOTP()
-        }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 }

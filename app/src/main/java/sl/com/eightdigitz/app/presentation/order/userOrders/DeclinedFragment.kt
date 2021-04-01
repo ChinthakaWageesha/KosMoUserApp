@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_declined.*
+import kotlinx.android.synthetic.main.fragment_expired.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.app.presentation.order.OrderViewModel
@@ -39,7 +40,7 @@ class DeclinedFragment : BaseFragment(), (DOrder) -> Unit {
     private fun init(){
         setAdapter()
         vmOrder.getOrdersByStages(
-            stages = "OrderRejected,TalentRejected"
+            stages = "UserDeclined"
         )
         vmOrder.liveDataGetOrders.observe(this, Observer { observerGetOrdersByStage(it) })
     }
@@ -56,6 +57,7 @@ class DeclinedFragment : BaseFragment(), (DOrder) -> Unit {
                 ResourceState.LOADING -> showProgress()
                 ResourceState.SUCCESS -> {
                     hideProgress()
+                    (rv_declined_orders.adapter as UserOrdersAdapter).clear()
                     rv_declined_orders.setEmptyView(tv_no_data_declined_orders, it.data!!.size)
                     (rv_declined_orders.adapter as UserOrdersAdapter).addOrderList(it.data!!.toMutableList())
                 }

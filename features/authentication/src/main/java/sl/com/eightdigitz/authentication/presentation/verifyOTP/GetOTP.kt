@@ -7,60 +7,59 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.auth0.android.Auth0
 import com.hbb20.CountryCodePicker
-import kotlinx.android.synthetic.main.fragment_get_otp.*
+import kotlinx.android.synthetic.main.activity_get_otp.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.authentication.R
-import sl.com.eightdigitz.authentication.presentation.AuthActivity
 import sl.com.eightdigitz.authentication.presentation.contact.SendRequest
-import sl.com.eightdigitz.core.base.BaseFragment
+import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.core.model.domain.DOTP
+import sl.com.eightdigitz.core.model.domain.DUserRegister
 import sl.com.eightdigitz.country_picker.presentation.country_picker.CountryPickerBuilder
 import sl.com.eightdigitz.country_picker.presentation.models.PCountry
 import sl.com.eightdigitz.presentation.*
 import sl.com.eightdigitz.presentation.extensions.*
 import java.util.*
 
-
-class GetOTP : BaseFragment(), View.OnClickListener {
+class GetOTP : BaseActivity(), View.OnClickListener {
 
     private lateinit var ccpPicker: CountryCodePicker
     private var auth0: Auth0? = null
+    private var userRequest: DUserRegister? = null
     private val vmOTP by viewModel<OTPViewModel>()
     private var isNextClickable = false
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_get_otp, container, false)
-    }
-
-    override fun onViewCreated() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_get_otp)
         setToolbar()
+        getData()
         init()
     }
 
     private fun setToolbar() {
-        (requireActivity() as AuthActivity).supportActionBar?.setActionBar(
-            context!!,
+        supportActionBar?.setActionBar(
+            this,
             "",
             isHomeUpEnables = true
         )
     }
 
+    private fun getData() {
+        if (intent.hasExtra(IntentParsableConstants.EXTRA_REGISTER_USER)){
+            userRequest = intent.getParcelableExtra(IntentParsableConstants.EXTRA_REGISTER_USER)
+        }
+    }
+
     private fun init() {
-        auth0 = Auth0(context!!)
+        auth0 = Auth0(this)
         auth0?.isOIDCConformant = true
         vmOTP.liveDataOTP.observe(this, Observer { observerGetOTP(it) })
-        ccpPicker = CountryCodePicker(context)
+        ccpPicker = CountryCodePicker(this)
         ccpPicker.setAutoDetectedCountry(true)
         ccpPicker.setDefaultCountryUsingNameCode("lk")
         ccpPicker.registerCarrierNumberEditText(et_mobile)
@@ -102,7 +101,7 @@ class GetOTP : BaseFragment(), View.OnClickListener {
         ibtn_goto_verify.setEnable()
         tv_next.setTextColor(
             ContextCompat.getColor(
-                context!!,
+                this,
                 sl.com.eightdigitz.presentation.R.color.colorWhite
             )
         )
@@ -113,7 +112,7 @@ class GetOTP : BaseFragment(), View.OnClickListener {
         ibtn_goto_verify.setDisable()
         tv_next.setTextColor(
             ContextCompat.getColor(
-                context!!,
+                this,
                 sl.com.eightdigitz.presentation.R.color.colorPinkAlpha30
             )
         )
@@ -123,8 +122,8 @@ class GetOTP : BaseFragment(), View.OnClickListener {
     @SuppressLint("MissingPermission")
     private fun getOtp() {
         if (isNextClickable) {
-            activity?.withNetwork({
-                (requireActivity() as AuthActivity).mobileNumber94 = ccpPicker.fullNumberWithPlus
+            withNetwork({
+                userRequest?.mobileNo94 = ccpPicker.fullNumberWithPlus
                 vmOTP.getOTP(ccpPicker.fullNumberWithPlus)
             }, {
                 showAlert(Msg.TITLE_ERROR, Msg.INTERNET_ISSUE)
@@ -142,16 +141,17 @@ class GetOTP : BaseFragment(), View.OnClickListener {
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
-                    "Invalid phone number. Check and try again.".showToast(context!!)
+                    "Invalid phone number. Check and try again.".showToast(this)
                 }
             }
         }
     }
 
     private fun navigateToVerify() {
-        (requireActivity() as AuthActivity).mobileNumber0 =
-            ccpPicker.fullNumberWithPlus.replace("+94", "0")
-        (requireActivity() as AuthActivity).setVerifyOTP()
+        userRequest?.mobileNo0 = ccpPicker.fullNumberWithPlus.replace("+94", "0")
+        val intent = Intent(this, VerifyOTP::class.java)
+        intent.putExtra(IntentParsableConstants.EXTRA_REGISTER_USER, userRequest)
+        startActivityForResult(intent, RequestCodes.CREATE_USER_REQUEST_CODE)
         et_mobile.clearText()
     }
 
@@ -186,33 +186,37 @@ class GetOTP : BaseFragment(), View.OnClickListener {
                     val flagCode = mCountry?.code?.toLowerCase(Locale.ENGLISH)
                     val drawableName = "flag_$flagCode"
                     iv_flag.setImageDrawable(
-                        ContextCompat.getDrawable(context!!, getResId(drawableName))
+                        ContextCompat.getDrawable(this, getResId(drawableName))
                     )
                     et_mobile_code.setText(mCountry?.dialCode.toString().trim())
                     ccpPicker.setCountryForNameCode(mCountry?.code)
                 }
             }
+            RequestCodes.CREATE_USER_REQUEST_CODE -> {
+                if (resultCode == ResultCodes.CREATE_USER_RESULT_CODE){
+                    setResult(ResultCodes.CREATE_USER_RESULT_CODE).also {
+                        finish()
+                    }
+                }
+            }
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.cl_next -> getOtp()
             R.id.et_mobile_code -> startCountryPicker()
-            R.id.tv_send_request -> context?.startActivity<SendRequest>()
+            R.id.tv_send_request -> startActivity<SendRequest>()
         }
     }
 
     override fun onResume() {
         setBackground(sl.com.eightdigitz.presentation.R.drawable.bg_get_otp)
         super.onResume()
-    }
-
-    companion object {
-        const val TAG = "get_otp"
-
-        fun newInstance(): Fragment {
-            return GetOTP()
-        }
     }
 }

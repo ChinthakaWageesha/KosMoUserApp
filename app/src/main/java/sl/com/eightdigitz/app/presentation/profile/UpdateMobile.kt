@@ -32,7 +32,7 @@ class UpdateMobile : BaseActivity(), View.OnClickListener {
         init()
     }
 
-    private fun setToolbar(){
+    private fun setToolbar() {
         supportActionBar?.setActionBar(
             this,
             title = "",
@@ -40,7 +40,7 @@ class UpdateMobile : BaseActivity(), View.OnClickListener {
         )
     }
 
-    private fun init(){
+    private fun init() {
         ccpPicker = CountryCodePicker(this)
         ccpPicker.setAutoDetectedCountry(true)
         ccpPicker.setDefaultCountryUsingNameCode("lk")
@@ -116,11 +116,16 @@ class UpdateMobile : BaseActivity(), View.OnClickListener {
         return -1
     }
 
-    private fun setMobileNumber(){
-        val intent = intent
-        intent.putExtra(IntentParsableConstants.EXTRA_MOBILE_NUMBER, ccpPicker.fullNumberWithPlus)
-        setResult(ResultCodes.MOBILE_RESULT_CODE, intent).also {
-            finish()
+    private fun setMobileNumber() {
+        if (isUpdateClickable) {
+            val intent = intent
+            intent.putExtra(
+                IntentParsableConstants.EXTRA_MOBILE_NUMBER,
+                ccpPicker.fullNumberWithPlus
+            )
+            setResult(ResultCodes.MOBILE_RESULT_CODE, intent).also {
+                finish()
+            }
         }
     }
 
@@ -154,7 +159,7 @@ class UpdateMobile : BaseActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        when(v?.id){
+        when (v?.id) {
             R.id.et_mobile_code -> startCountryPicker()
             R.id.cl_update -> setMobileNumber()
         }

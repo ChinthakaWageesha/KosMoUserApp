@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorTransparent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.registration.RegisterUser">
 
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:scrollbars="none"
         android:fillViewport="true"
+        android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -262,11 +262,11 @@
                     style="@style/PrimaryEditTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="start"
-                    android:inputType="none"
-                    android:focusable="true"
                     android:clickable="true"
-                    android:editable="false"/>
+                    android:editable="false"
+                    android:focusable="true"
+                    android:gravity="start"
+                    android:inputType="none" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -334,7 +334,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_message_sign_up_desc" />
-
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

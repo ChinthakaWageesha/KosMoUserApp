@@ -2,52 +2,55 @@ package sl.com.eightdigitz.authentication.presentation.registration
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.*
-import androidx.fragment.app.Fragment
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
-import kotlinx.android.synthetic.main.fragment_post_register.*
+import kotlinx.android.synthetic.main.activity_post_register.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.authentication.R
-import sl.com.eightdigitz.authentication.presentation.AuthActivity
 import sl.com.eightdigitz.client.apiSupports.requests.AddUserPreferenceRequest
-import sl.com.eightdigitz.core.base.BaseFragment
+import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.core.model.domain.DPreference
 import sl.com.eightdigitz.core.model.domain.DUser
+import sl.com.eightdigitz.core.model.domain.DUserRegister
 import sl.com.eightdigitz.presentation.*
 import sl.com.eightdigitz.presentation.extensions.*
 
-class PostRegister : BaseFragment(), View.OnClickListener, (DPreference, Boolean) -> Unit {
+class PostRegister : BaseActivity(), View.OnClickListener, (DPreference, Boolean) -> Unit {
 
     private val viewModel by viewModel<RegistrationViewModel>()
+    private var userRequest: DUserRegister? = null
     private var selectedPreferenceIds: ArrayList<String>? = arrayListOf()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_post_register, container, false)
-    }
-
-    override fun onViewCreated() {
-        init()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_post_register)
         setToolbar()
+        getData()
+        init()
     }
 
-    private fun setToolbar() {
-        (requireActivity() as AuthActivity).supportActionBar?.setActionBar(
-            context!!,
+    private fun setToolbar(){
+        supportActionBar?.setActionBar(
+            this,
             "",
             isHomeUpEnables = false
         )
-        setHasOptionsMenu(true)
+    }
+
+    private fun getData(){
+        if (intent.hasExtra(IntentParsableConstants.EXTRA_REGISTER_USER)) {
+            userRequest = intent.getParcelableExtra(IntentParsableConstants.EXTRA_REGISTER_USER)
+        }
     }
 
     @SuppressLint("SetTextI18n")
     private fun init() {
         viewModel.getPreferences()
-        iv_post_register.loadImage((requireActivity() as AuthActivity).avatarUrl)
-        tv_post_register_name.text = (requireActivity() as AuthActivity).fullName
+        iv_post_register.loadImage(userRequest?.profilePicture)
+        tv_post_register_name.text = userRequest?.fullName
 
         viewModel.liveDataCategories.observe(this, Observer { observerGetPreferences(it) })
         viewModel.liveDataPreference.observe(this, Observer { observerSetPreferences(it)})
@@ -64,7 +67,7 @@ class PostRegister : BaseFragment(), View.OnClickListener, (DPreference, Boolean
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
-                    it.message?.error.toString().showToast(context!!)
+                    it.message?.error.toString().showToast(this)
                 }
             }
         }
@@ -102,11 +105,13 @@ class PostRegister : BaseFragment(), View.OnClickListener, (DPreference, Boolean
 
     private fun setUpPreferenceAdapter(preferenceList: MutableList<DPreference>) {
         rv_preferences.adapter = PreferenceAdapter(preferenceList, this)
-        rv_preferences.layoutManager = GridLayoutManager(context!!, 3)
+        rv_preferences.layoutManager = GridLayoutManager(this, 3)
     }
 
     private fun navigateToMain(){
-        (requireActivity() as AuthActivity).authSuccess()
+        setResult(ResultCodes.CREATE_USER_RESULT_CODE).also {
+            finish()
+        }
     }
 
     private fun setPreferences(){
@@ -121,9 +126,9 @@ class PostRegister : BaseFragment(), View.OnClickListener, (DPreference, Boolean
         super.onResume()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(sl.com.eightdigitz.presentation.R.menu.menu_skip, menu)
-        super.onCreateOptionsMenu(menu, inflater)
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(sl.com.eightdigitz.presentation.R.menu.menu_skip, menu)
+        return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -145,14 +150,6 @@ class PostRegister : BaseFragment(), View.OnClickListener, (DPreference, Boolean
                     navigateToMain()
                 }
             }
-        }
-    }
-
-    companion object {
-        const val TAG = "post_register"
-
-        fun newInstance(): Fragment {
-            return PostRegister()
         }
     }
 

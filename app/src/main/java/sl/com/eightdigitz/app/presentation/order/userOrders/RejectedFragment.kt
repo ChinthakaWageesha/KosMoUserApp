@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.fragment_expired.*
 import kotlinx.android.synthetic.main.fragment_rejected.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.app.R
@@ -40,7 +41,7 @@ class RejectedFragment : BaseFragment(), (DOrder) -> Unit {
     private fun init() {
         setAdapter()
         vmOrder.getOrdersByStages(
-            stages = "OrderReviewRejected"
+            stages = "OrderRejected,TalentRejected"
         )
         vmOrder.liveDataGetOrders.observe(this, Observer { observerGetOrdersByStage(it) })
     }
