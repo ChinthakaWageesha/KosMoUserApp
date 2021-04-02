@@ -21,3 +21,13 @@ fun <T> MutableLiveData<Resource<T>>.setError(message: PMessage? = null) =
             message
         )
     )
+
+fun <T> MutableLiveData<Resource<T>>.setError(errorCode: Int? = null) =
+    postValue(
+        Resource(
+            ResourceState.ERROR,
+            value?.data,
+            null,
+            errorCode
+        )
+    )

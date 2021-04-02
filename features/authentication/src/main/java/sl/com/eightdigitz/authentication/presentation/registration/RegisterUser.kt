@@ -22,6 +22,7 @@ import sl.com.eightdigitz.authentication.R
 import sl.com.eightdigitz.authentication.presentation.contact.JoinContactViewModel
 import sl.com.eightdigitz.client.apiSupports.requests.RegisterRequest
 import sl.com.eightdigitz.core.base.BaseActivity
+import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.core.model.domain.DUserRegister
 import sl.com.eightdigitz.core.model.presentation.PUser
 import sl.com.eightdigitz.core.ui.HelpCenter
@@ -227,7 +228,7 @@ class RegisterUser : BaseActivity(), View.OnClickListener {
                     hideProgress()
                     if (!it.data?.authReference.isNullOrEmpty() && !it.data?.fullName.isNullOrEmpty()) {
                         userRequest?.fullName = it.data?.fullName
-                        navigateToPostRegister()
+                        navigateToPostRegister(it.data!!)
                     } else {
                         Msg.ERROR_COMMON.showToast(this)
                     }
@@ -313,9 +314,9 @@ class RegisterUser : BaseActivity(), View.OnClickListener {
         }, "", arrayOption)
     }
 
-    private fun navigateToPostRegister(){
+    private fun navigateToPostRegister(user: PUser){
         val intent = Intent(this, PostRegister::class.java)
-        intent.putExtra(IntentParsableConstants.EXTRA_REGISTER_USER, userRequest)
+        intent.putExtra(IntentParsableConstants.EXTRA_REGISTER_USER, user)
         startActivityForResult(intent, RequestCodes.CREATE_USER_REQUEST_CODE)
     }
 

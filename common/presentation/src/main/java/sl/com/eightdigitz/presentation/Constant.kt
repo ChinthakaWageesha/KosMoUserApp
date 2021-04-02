@@ -29,6 +29,11 @@ object LanguageType {
     const val HINDI = "hi"
 }
 
+object NavigationTypes {
+    const val NAVIGATE_TO_ORDER_SUMMARY = "navigate_Order_summary"
+    const val NAVIGATE_TO_REVIEW_ORDER = "navigate_Review_Order"
+}
+
 object SearchType {
     const val PROFILE_SEARCH = "profile-view"
     const val PREFERENCE_SEARCH = "preference"
@@ -54,6 +59,7 @@ object RequestCodes {
     const val CREATE_USER_REQUEST_CODE = 1003
     const val UPDATE_USER_REQUEST_CODE = 1004
     const val NEW_ORDER_REQUEST_CODE = 1005
+    const val DECLINE_ORDER_REQUEST_CODE = 1006
 }
 
 object ResultCodes {
@@ -61,6 +67,7 @@ object ResultCodes {
     const val UPDATE_USER_RESULT_CODE = 2002
     const val CREATE_USER_RESULT_CODE = 2003
     const val NEW_ORDER_RESULT_CODE = 2004
+    const val DECLINE_ORDER_RESULT_CODE = 2005
 }
 
 object IntentParsableConstants {

@@ -11,8 +11,10 @@ import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.POST
 import retrofit2.http.PUT
+import sl.com.eightdigitz.client.apiSupports.models.FirebaseToken
 import sl.com.eightdigitz.client.apiSupports.requests.RegisterRequest
 import sl.com.eightdigitz.client.apiSupports.requests.UpdateUserRequest
+import sl.com.eightdigitz.client.apiSupports.responses.FirebaseTokenResponse
 import sl.com.eightdigitz.client.apiSupports.responses.OTPResponse
 import sl.com.eightdigitz.client.apiSupports.responses.OTPTokenResponse
 import sl.com.eightdigitz.client.apiSupports.responses.UserResponse
@@ -62,5 +64,12 @@ interface AuthApi {
         @retrofit2.http.Body updateUserRequest: UpdateUserRequest
     ): Single<UserResponse>
 
+    @Headers(
+        "Content-Type: application/x-www-form-urlencoded"
+    )
+    @POST("firebase-device-token")
+    fun registerFirebaseToken(
+        @retrofit2.http.Body request: FirebaseToken
+    ): Single<FirebaseTokenResponse>
 
 }

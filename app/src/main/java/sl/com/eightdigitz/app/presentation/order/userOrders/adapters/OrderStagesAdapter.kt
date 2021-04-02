@@ -30,6 +30,41 @@ class OrderStagesAdapter(
             val orderStage = orderStageList[position]
 
             itemView.tv_order_stages.text = orderStage
+            if (orderStage == "Reviewing"){
+                itemView.cv_order_stages.setBackgroundResource(
+                    sl.com.eightdigitz.presentation.R.drawable.bg_pink_oval
+                )
+            }
+
+            if (orderStage == "Processing"){
+                itemView.cv_order_stages.setBackgroundResource(
+                    sl.com.eightdigitz.presentation.R.drawable.bg_dark_blue_oval
+                )
+            }
+
+            if (orderStage == "On Hold"){
+                itemView.cv_order_stages.setBackgroundResource(
+                    sl.com.eightdigitz.presentation.R.drawable.bg_orange_oval
+                )
+            }
+
+            if (orderStage == "Approved"){
+                itemView.cv_order_stages.setBackgroundResource(
+                    sl.com.eightdigitz.presentation.R.drawable.bg_pink_oval
+                )
+            }
+
+            if (orderStage == "Expired"){
+                itemView.cv_order_stages.setBackgroundResource(
+                    sl.com.eightdigitz.presentation.R.drawable.bg_gray_oval
+                )
+            }
+
+            if (orderStage == "Refund"){
+                itemView.cv_order_stages.setBackgroundResource(
+                    sl.com.eightdigitz.presentation.R.drawable.bg_light_green_oval
+                )
+            }
         }
     }
 }

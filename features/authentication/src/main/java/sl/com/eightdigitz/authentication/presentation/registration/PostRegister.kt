@@ -15,13 +15,14 @@ import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.core.model.domain.DPreference
 import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.core.model.domain.DUserRegister
+import sl.com.eightdigitz.core.model.presentation.PUser
 import sl.com.eightdigitz.presentation.*
 import sl.com.eightdigitz.presentation.extensions.*
 
 class PostRegister : BaseActivity(), View.OnClickListener, (DPreference, Boolean) -> Unit {
 
     private val viewModel by viewModel<RegistrationViewModel>()
-    private var userRequest: DUserRegister? = null
+    private var user: PUser? = null
     private var selectedPreferenceIds: ArrayList<String>? = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,19 +43,20 @@ class PostRegister : BaseActivity(), View.OnClickListener, (DPreference, Boolean
 
     private fun getData(){
         if (intent.hasExtra(IntentParsableConstants.EXTRA_REGISTER_USER)) {
-            userRequest = intent.getParcelableExtra(IntentParsableConstants.EXTRA_REGISTER_USER)
+            user = intent.getParcelableExtra(IntentParsableConstants.EXTRA_REGISTER_USER)
         }
     }
 
     @SuppressLint("SetTextI18n")
     private fun init() {
         viewModel.getPreferences()
-        iv_post_register.loadImage(userRequest?.profilePicture)
-        tv_post_register_name.text = userRequest?.fullName
+        iv_post_register.loadImage(user?.profilePicture)
+        tv_post_register_name.text = user?.fullName
 
         viewModel.liveDataCategories.observe(this, Observer { observerGetPreferences(it) })
         viewModel.liveDataPreference.observe(this, Observer { observerSetPreferences(it)})
         btn_lets_do_it.setOnClickListener(this)
+        getDeviceType()
     }
 
     private fun observerGetPreferences(resource: Resource<List<DPreference>>) {

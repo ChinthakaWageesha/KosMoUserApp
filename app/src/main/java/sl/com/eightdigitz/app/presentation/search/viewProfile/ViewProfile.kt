@@ -19,7 +19,7 @@ import sl.com.eightdigitz.presentation.*
 import sl.com.eightdigitz.presentation.extensions.hideKeyboard
 import sl.com.eightdigitz.presentation.extensions.setRoundedImage
 import sl.com.eightdigitz.presentation.extensions.showAlert
-import sl.com.eightdigitz.presentation.extensions.startActivity
+import sl.com.eightdigitz.presentation.extensions.showToast
 
 class ViewProfile : BaseActivity(), View.OnClickListener {
 
@@ -84,7 +84,7 @@ class ViewProfile : BaseActivity(), View.OnClickListener {
                     Log.d("PROFILE_SEARCH_LOG", it.data?.id!!)
                 }
                 ResourceState.ERROR -> {
-                    showAlert(title = Msg.TITLE_ALERT, message = it.message?.error!!)
+                    it.message?.error!!.showToast(this)
                 }
             }
         }

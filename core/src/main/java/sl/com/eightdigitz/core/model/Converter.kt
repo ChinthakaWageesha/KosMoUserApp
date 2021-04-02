@@ -155,14 +155,16 @@ fun DPreference.mapToPresentation(): PPreference = PPreference(
     language = language
 )
 
-fun DPreference.mapToApiModel(): Preference = Preference(
+fun UpdateOrderStatus.mapToDomain(): DUpdateOrderStatus = DUpdateOrderStatus(
     id = id,
     createdAt = createdAt,
     updatedAt = updatedAt,
     deletedAt = deletedAt,
-    code = code,
-    name = name,
-    language = language
+    orderId = orderId,
+    stage = stage,
+    updatedBy = updatedBy,
+    updatedDate = updatedDate,
+    userComment = userComment
 )
 
 fun ContactUs.mapToDomain(): DContactUs = DContactUs(

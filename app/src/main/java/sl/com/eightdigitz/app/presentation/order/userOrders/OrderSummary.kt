@@ -2,21 +2,25 @@ package sl.com.eightdigitz.app.presentation.order.userOrders
 
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_order_summary.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.app.R
+import sl.com.eightdigitz.app.presentation.order.OrderViewModel
 import sl.com.eightdigitz.app.presentation.order.userOrders.adapters.OrderStagesAdapter
 import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.core.model.domain.DOrder
-import sl.com.eightdigitz.presentation.Constant
-import sl.com.eightdigitz.presentation.IntentParsableConstants
-import sl.com.eightdigitz.presentation.ResultCodes
+import sl.com.eightdigitz.core.model.domain.DUser
+import sl.com.eightdigitz.presentation.*
 import sl.com.eightdigitz.presentation.extensions.setAppActionBar
 import sl.com.eightdigitz.presentation.extensions.setRoundedImage
+import sl.com.eightdigitz.presentation.extensions.showToast
 
 class OrderSummary : BaseActivity() {
 
     private var orderStageList = mutableListOf<String>()
+    private val vmOrder by viewModel<OrderViewModel>()
     private var order: DOrder? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,30 +39,12 @@ class OrderSummary : BaseActivity() {
     }
 
     private fun init() {
-        if (intent.hasExtra(IntentParsableConstants.EXTRA_NEW_ORDER)){
-            order = intent.getParcelableExtra(IntentParsableConstants.EXTRA_NEW_ORDER)
-            setData()
-        }
         setOrderSummaryAdapter()
-    }
-
-    private fun setData() {
-        iv_order_summary_talent_image.setRoundedImage(
-            url = Constant.USER_IMAGE_AQUAMAN,
-            radius = 12
-        )
-        tv_order_summary_talent_name.text = order?.talentName
-        tv_order_summary_talent_field.text = "Talent"
-        tv_order_summary_reference.text = "Order Reference ${order?.id}"
-        tv_order_summary_due_date.text = "Due by ${order?.requestedDeliveryDate}"
-        tv_order_summary_for_username.text = order?.orderFor
-        tv_address_as.text = "Address ${order?.orderFor} as"
-        tv_address_order_summary_user_as.text = order?.toPronoun
-        tv_order_summary_message.text = order?.stage
-
-        tv_title_instructions.text = "Your instructions for ${order?.orderFor} are"
-        tv_order_summary_instructions.text = order?.orderInstructions
-
+        if (intent.hasExtra(IntentParsableConstants.EXTRA_NEW_ORDER)) {
+            order = intent.getParcelableExtra(IntentParsableConstants.EXTRA_NEW_ORDER)
+            vmOrder.getTalentById(order?.talentID!!)
+        }
+        vmOrder.liveDataTalent.observe(this, Observer { observerGetTalent(it) })
     }
 
     private fun setOrderSummaryAdapter() {
@@ -71,6 +57,88 @@ class OrderSummary : BaseActivity() {
         rv_order_summary_stages.adapter = OrderStagesAdapter(orderStageList)
         rv_order_summary_stages.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+    }
+
+    private fun setDataWithoutUser(){
+        iv_order_summary_talent_image.setRoundedImage(
+            url = Constant.USER_IMAGE_AQUAMAN,
+            radius = 12
+        )
+
+        tv_order_summary_talent_name.text = "Chathurika Bandara"
+        tv_order_summary_talent_field.text = "Movies"
+        tv_order_summary_reference.text = "Order Reference ${order?.id}"
+        tv_order_summary_due_date.text = "Due by ${order?.requestedDeliveryDate}"
+        tv_order_summary_for_username.text = order?.orderFor
+        tv_address_as.text = "Address ${order?.orderFor} as"
+        tv_address_order_summary_user_as.text = order?.toPronoun
+        tv_order_summary_message.text = order?.orderType
+
+        tv_title_instructions.text = "Your instructions for ${order?.orderFor} are"
+        tv_order_summary_instructions.text = order?.orderInstructions
+    }
+
+    private fun setData(talent: DUser) {
+
+        if (!talent.profilePicture.isNullOrEmpty()){
+            iv_order_summary_talent_image.setRoundedImage(
+                url = talent.profilePicture!!,
+                radius = 12
+            )
+        } else {
+            iv_order_summary_talent_image.setRoundedImage(
+                url = Constant.USER_IMAGE_AQUAMAN,
+                radius = 12
+            )
+        }
+
+        tv_order_summary_talent_name.text = talent.fullName
+
+        if (!talent.preferences.isNullOrEmpty()){
+            for (i in talent.preferences!!.indices){
+                if (talent.preferences!![i].preferenceID == "44a842cd-da2e-46e6-8e21-b5f771fd76f0"){
+                    tv_order_summary_talent_field.text = "Movies"
+                }
+
+                if (talent.preferences!![i].preferenceID == "0d82f1fe-4c8f-4201-8f3c-dd4355d8e4be"){
+                    tv_order_summary_talent_field.text = "Sports"
+                }
+            }
+        } else {
+            tv_order_summary_talent_field.text = "Movies"
+        }
+
+
+        tv_order_summary_reference.text = "Order Reference ${order?.id}"
+        tv_order_summary_due_date.text = "Due by ${order?.requestedDeliveryDate}"
+        tv_order_summary_for_username.text = order?.orderFor
+        tv_address_as.text = "Address ${order?.orderFor} as"
+        tv_address_order_summary_user_as.text = order?.toPronoun
+        tv_order_summary_message.text = order?.orderType
+
+        tv_title_instructions.text = "Your instructions for ${order?.orderFor} are"
+        tv_order_summary_instructions.text = order?.orderInstructions
+
+    }
+
+    private fun observerGetTalent(resource: Resource<DUser>) {
+        resource.let {
+            when(it.state){
+                ResourceState.LOADING -> showProgress()
+                ResourceState.SUCCESS -> {
+                    hideProgress()
+                    setData(it.data!!)
+                }
+                ResourceState.ERROR -> {
+                    hideProgress()
+                    if (it.errorCode == 404){
+                        setDataWithoutUser()
+                    } else {
+                        it.message?.error.toString().showToast(this)
+                    }
+                }
+            }
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

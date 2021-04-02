@@ -56,7 +56,12 @@ class ConfirmOrder : BaseActivity(), View.OnClickListener {
         orderRequest.talentID = order?.talentID
         orderRequest.orderType = "Default"
 
-        vmOrder.placeNewOrder(orderRequest)
+        withNetwork({
+            vmOrder.placeNewOrder(orderRequest)
+        },{
+            showAlert(message = Msg.INTERNET_ISSUE)
+        })
+
     }
 
     private fun observerNewOrder(resource: Resource<DOrder>){

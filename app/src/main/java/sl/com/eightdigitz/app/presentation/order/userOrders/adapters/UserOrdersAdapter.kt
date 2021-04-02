@@ -8,10 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_user_orders.view.*
 import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.core.model.domain.DOrder
+import sl.com.eightdigitz.presentation.Constant
+import sl.com.eightdigitz.presentation.NavigationTypes
 
 class UserOrdersAdapter(
     private val orderList: MutableList<DOrder>,
-    val onClickOrder: (DOrder) -> Unit
+    val onClickOrder: (DOrder, String) -> Unit
 ) : RecyclerView.Adapter<UserOrdersAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -36,6 +38,85 @@ class UserOrdersAdapter(
         notifyDataSetChanged()
     }
 
+    private fun setReviewOrder(itemView: View, order: DOrder) {
+
+        itemView.cl_all_order_base.setBackgroundResource(
+            sl.com.eightdigitz.presentation.R.drawable.bg_snow_gray_round_corner_15dp
+        )
+
+        itemView.cv_user_order.setBackgroundResource(
+            sl.com.eightdigitz.presentation.R.drawable.bg_pink_oval
+        )
+
+        itemView.btn_order.setBackgroundResource(
+            sl.com.eightdigitz.presentation.R.drawable.bg_white_corner_round_20dp
+        )
+
+        itemView.btn_order.text = "View Order"
+
+        itemView.btn_order.setTextColor(
+            ContextCompat.getColor(
+                itemView.context,
+                sl.com.eightdigitz.presentation.R.color.colorTextGray
+            )
+        )
+
+        itemView.btn_order.setOnClickListener { onClickOrder(order, NavigationTypes.NAVIGATE_TO_ORDER_SUMMARY) }
+    }
+
+    private fun setProcessingOrder(itemView: View, order: DOrder) {
+
+        itemView.cl_all_order_base.setBackgroundResource(
+            sl.com.eightdigitz.presentation.R.drawable.bg_snow_gray_stroke_orange_corner_round_15dp
+        )
+
+        itemView.cv_user_order.setBackgroundResource(
+            sl.com.eightdigitz.presentation.R.drawable.bg_dark_blue_oval
+        )
+
+        itemView.btn_order.setBackgroundResource(
+            sl.com.eightdigitz.presentation.R.drawable.bg_white_corner_round_20dp
+        )
+
+        itemView.btn_order.text = "View Order"
+
+        itemView.btn_order.setTextColor(
+            ContextCompat.getColor(
+                itemView.context,
+                sl.com.eightdigitz.presentation.R.color.colorTextGray
+            )
+        )
+
+        itemView.btn_order.setOnClickListener { onClickOrder(order, NavigationTypes.NAVIGATE_TO_ORDER_SUMMARY) }
+    }
+
+    private fun setOnHoldOrder(itemView: View, order: DOrder) {
+
+        itemView.cl_all_order_base.setBackgroundResource(
+            sl.com.eightdigitz.presentation.R.drawable.bg_snow_gray_stroke_orange_corner_round_15dp
+        )
+
+        itemView.cv_user_order.setBackgroundResource(
+            sl.com.eightdigitz.presentation.R.drawable.bg_orange_oval
+        )
+
+        itemView.btn_order.setBackgroundResource(
+            sl.com.eightdigitz.presentation.R.drawable.bg_orange_corner_round_20dp
+        )
+
+        itemView.btn_order.text = "Review Order"
+
+        itemView.btn_order.setTextColor(
+            ContextCompat.getColor(
+                itemView.context,
+                sl.com.eightdigitz.presentation.R.color.colorWhite
+            )
+        )
+
+        itemView.btn_order.setOnClickListener { onClickOrder(order, NavigationTypes.NAVIGATE_TO_REVIEW_ORDER) }
+    }
+
+
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun onBind(position: Int) {
 
@@ -52,15 +133,13 @@ class UserOrdersAdapter(
 
             itemView.tv_order_date.text = order.requestedDeliveryDate
 
-            itemView.btn_order.text = "Review Order"
-            itemView.btn_order.setTextColor(
-                ContextCompat.getColor(
-                    itemView.context,
-                    sl.com.eightdigitz.presentation.R.color.colorWhite
-                )
-            )
-
-            itemView.btn_order.setOnClickListener { onClickOrder(order) }
+            if (order.stage.equals("OrderAccepted") || order.stage.equals("TalentAccepted")) {
+                setProcessingOrder(itemView, order)
+            } else if (order.stage.equals("TalentDelivered") || order.stage.equals("OrderReviewRejected")) {
+                setOnHoldOrder(itemView, order)
+            } else {
+                setReviewOrder(itemView, order)
+            }
         }
     }
 }

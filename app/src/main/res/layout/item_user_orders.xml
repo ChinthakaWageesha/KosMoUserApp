@@ -13,6 +13,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="2dp"
+        android:elevation="2dp"
         android:background="@drawable/bg_snow_gray_stroke_orange_corner_round_15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,9 +24,9 @@
             android:id="@+id/constraintLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btn_order"
@@ -36,7 +37,7 @@
             <TextView
                 android:id="@+id/tv_order_reference"
                 style="@style/TextGrayNormalStyle.Size12"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:fontFamily="@font/sf_pro_text_regular"
@@ -83,7 +84,6 @@
                 android:textColor="#B7B7B7"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_user_order_type"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/tv_user_order_type"
                 app:layout_constraintTop_toTopOf="@+id/tv_user_order_type" />
 
@@ -106,9 +106,9 @@
 
         <Button
             android:id="@+id/btn_order"
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="36dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="8dp"
             android:background="@drawable/bg_orange_corner_round_20dp"
             android:elevation="5dp"
             android:gravity="center"
@@ -116,7 +116,7 @@
             android:paddingRight="20dp"
             android:stateListAnimator="@null"
             android:textAllCaps="false"
-            android:textSize="12sp"
+            android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/constraintLayout"
