@@ -2,6 +2,7 @@ package sl.com.eightdigitz.authentication.presentation.registration
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -10,8 +11,10 @@ import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.activity_post_register.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.authentication.R
+import sl.com.eightdigitz.client.apiSupports.models.FirebaseToken
 import sl.com.eightdigitz.client.apiSupports.requests.AddUserPreferenceRequest
 import sl.com.eightdigitz.core.base.BaseActivity
+import sl.com.eightdigitz.core.model.domain.DFirebaseToken
 import sl.com.eightdigitz.core.model.domain.DPreference
 import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.core.model.domain.DUserRegister
@@ -49,14 +52,45 @@ class PostRegister : BaseActivity(), View.OnClickListener, (DPreference, Boolean
 
     @SuppressLint("SetTextI18n")
     private fun init() {
-        viewModel.getPreferences()
+        registerFirebaseToken()
+        getPreferences()
         iv_post_register.loadImage(user?.profilePicture)
         tv_post_register_name.text = user?.fullName
 
+        viewModel.liveDataFirebaseToken.observe(this, Observer { observerRegisterToken(it) })
         viewModel.liveDataCategories.observe(this, Observer { observerGetPreferences(it) })
         viewModel.liveDataPreference.observe(this, Observer { observerSetPreferences(it)})
         btn_lets_do_it.setOnClickListener(this)
-        getDeviceType()
+    }
+
+    private fun registerFirebaseToken(){
+        val request = FirebaseToken()
+        request.deviceType = getDeviceType()
+        request.firebaseToken = user?.firebaseId
+        request.userID = user?.id
+    }
+
+    @SuppressLint("MissingPermission")
+    private fun getPreferences(){
+        withNetwork({
+            viewModel.getPreferences()
+        },{
+            showAlert(message = Msg.INTERNET_ISSUE)
+        })
+    }
+
+    private fun observerRegisterToken(resource: Resource<DFirebaseToken>){
+        resource.let {
+            when(it.state){
+                ResourceState.LOADING -> ""
+                ResourceState.SUCCESS -> {
+                    Log.d("FirebaseToken", it.data?.firebaseToken.toString())
+                }
+                ResourceState.ERROR -> {
+                    it.message?.error?.showToast(this)
+                }
+            }
+        }
     }
 
     private fun observerGetPreferences(resource: Resource<List<DPreference>>) {

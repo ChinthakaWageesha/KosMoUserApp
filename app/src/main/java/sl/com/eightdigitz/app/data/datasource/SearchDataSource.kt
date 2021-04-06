@@ -14,7 +14,8 @@ interface SearchDataSource {
     fun getRecentSearchedTalents(): Single<ListResponse<DUser>>
 
     fun getTalentsByPreference(
-        preferenceId: String
+        preferenceId: String,
+        searchKey: String?
     ): Single<ListResponse<DUser>>
 
     fun logSearch(

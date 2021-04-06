@@ -4,6 +4,7 @@ import sl.com.eightdigitz.authentication.data.datasource.AuthDataSource
 import sl.com.eightdigitz.authentication.domain.repository.AuthRepository
 import io.reactivex.Single
 import okhttp3.MultipartBody
+import sl.com.eightdigitz.client.apiSupports.models.FirebaseToken
 import sl.com.eightdigitz.client.apiSupports.requests.AddUserPreferenceRequest
 import sl.com.eightdigitz.client.apiSupports.requests.ContactUsRequest
 import sl.com.eightdigitz.client.apiSupports.requests.JoinUsRequest
@@ -35,6 +36,9 @@ class AuthRepositoryImpl constructor(
 
     override fun getPreferences(): Single<ListResponse<DPreference>> =
         authDataSource.getPreferences()
+
+    override fun registerFirebaseToken(request: FirebaseToken): Single<DFirebaseToken> =
+        authDataSource.registerFirebaseToken(request)
 
     override fun createAccount(registerRequest: RegisterRequest): Single<DUser> =
         authDataSource.createAccount(registerRequest)

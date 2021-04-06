@@ -1,6 +1,5 @@
 package sl.com.eightdigitz.notifications.presentation.datasource.remote
 
-import android.content.Context
 import io.reactivex.Single
 import sl.com.eightdigitz.client.apis.NotificationApi
 import sl.com.eightdigitz.core.model.ListResponse

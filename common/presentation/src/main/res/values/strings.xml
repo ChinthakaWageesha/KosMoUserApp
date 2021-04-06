@@ -238,4 +238,7 @@
 
     <!--Set Preferences-->
     <string name="tile_set_preferences">Set Preferences</string>
+
+    <!--Notifications-->
+    <string name="hint_search_notifications">Search Notifications here</string>
 </resources>

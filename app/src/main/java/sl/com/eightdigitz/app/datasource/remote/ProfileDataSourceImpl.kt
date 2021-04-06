@@ -11,9 +11,7 @@ import sl.com.eightdigitz.client.apis.AuthApi
 import sl.com.eightdigitz.client.apis.MultimediaApi
 import sl.com.eightdigitz.client.apis.PreferencesApi
 import sl.com.eightdigitz.core.model.ListResponse
-import sl.com.eightdigitz.core.model.domain.DPreference
-import sl.com.eightdigitz.core.model.domain.DUser
-import sl.com.eightdigitz.core.model.domain.DUserPreference
+import sl.com.eightdigitz.core.model.domain.*
 import sl.com.eightdigitz.core.model.mapToDomain
 import sl.com.eightdigitz.presentation.Constant
 import sl.com.eightdigitz.presentation.extensions.getIdToken
@@ -59,6 +57,27 @@ class ProfileDataSourceImpl(
         ).map {
             saveUser(it.data!!)
             it.data?.mapToDomain()
+        }
+
+    override fun getOTP(phoneNumber: String): Single<DOTP> =
+        authApi.getOTP(
+            clientId = Constant.CLIENT_ID,
+            connection = "sms",
+            send = "code",
+            phoneNumber = phoneNumber
+        ).map {
+            it.mapToDomain()
+        }
+
+    override fun getOTPToken(phoneNumber: String, otp: String): Single<DOTPToken> =
+        authApi.getOTPToken(
+            clientId = Constant.CLIENT_ID,
+            grantType = "http://auth0.com/oauth/grant-type/passwordless/otp",
+            phoneNumber = phoneNumber,
+            otp = otp,
+            realm = "sms"
+        ).map {
+            it.mapToDomain()
         }
 
     private fun saveUser(user: User){

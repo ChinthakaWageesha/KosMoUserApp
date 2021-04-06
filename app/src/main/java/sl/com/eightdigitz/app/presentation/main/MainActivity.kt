@@ -6,13 +6,13 @@ import android.view.MenuItem
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.app.di.injectFeature
-import sl.com.eightdigitz.app.presentation.activity.ActivityFragment
 import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.app.presentation.explore.Explore
 import sl.com.eightdigitz.app.presentation.home.HomeFragment
 import sl.com.eightdigitz.app.presentation.profile.ProfileFragment
 import sl.com.eightdigitz.app.presentation.search.SearchFragment
 import sl.com.eightdigitz.core.model.presentation.PNotification
+import sl.com.eightdigitz.notifications.presentation.notification.NotificationsFragment
 import sl.com.eightdigitz.presentation.IntentParsableConstants
 import sl.com.eightdigitz.presentation.extensions.*
 
@@ -45,7 +45,6 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
         notificationData?.let {
             try {
 
-                // TODO if the notification has a custom data model use this (PCustomNotificationModel) to represent it
                 pNotification = it.jsonStringMapTo()
 
 
@@ -87,11 +86,11 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
                 startActivity<Explore>()
             }
             R.id.nav_activity -> {
-                if (getCurrentFragment() !is ActivityFragment) {
+                if (getCurrentFragment() !is NotificationsFragment) {
                     supportFragmentManager.replaceFragment(
                         R.id.fl_main,
-                        ActivityFragment.newInstance(),
-                        ActivityFragment.TAG
+                        NotificationsFragment.newInstance(),
+                        NotificationsFragment.TAG
                     )
                 }
             }
@@ -112,8 +111,8 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
         val count = supportFragmentManager.backStackEntryCount
 
         if (doubleBackToExitPressedOnce) {
-          finishAffinity()
-          return
+            finishAffinity()
+            return
         }
 
         this.doubleBackToExitPressedOnce = true

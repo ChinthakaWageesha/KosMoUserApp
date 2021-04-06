@@ -243,6 +243,12 @@ fun NotificationResponse.mapToDomain(): ListResponse<DPushNotification> = ListRe
     data = data?.map { it.mapToDomain() }
 )
 
+fun FirebaseToken.mapToDomain(): DFirebaseToken = DFirebaseToken(
+    userID = userID,
+    firebaseToken = firebaseToken,
+    deviceType = deviceType
+)
+
 fun PushNotification.mapToDomain(): DPushNotification = DPushNotification(
     id = id,
     uuid = uuid,

@@ -8,12 +8,19 @@ import sl.com.eightdigitz.core.model.presentation.PNotification
 import sl.com.eightdigitz.presentation.extensions.inflate
 import kotlinx.android.synthetic.main.item_notification.view.*
 
-class NotificationsAdapter(var notificationsList: MutableList<PNotification>) :
-    RecyclerView.Adapter<NotificationsAdapter.ViewHolder>() {
+class NotificationsAdapter(
+    var notificationsList: MutableList<PNotification>
+) : RecyclerView.Adapter<NotificationsAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = parent.inflate(R.layout.item_notification)
         return ViewHolder(view)
+    }
+
+    override fun getItemCount(): Int = 10
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.run {
+        onBind(position)
     }
 
     fun removeItem(position: Int) {
@@ -25,14 +32,6 @@ class NotificationsAdapter(var notificationsList: MutableList<PNotification>) :
     fun restoreItem(notifications: PNotification, position: Int) {
         notificationsList.add(position, notifications)
         notifyItemInserted(position)
-    }
-
-    override fun getItemCount(): Int = notificationsList.size
-
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.onBind(position)
-        holder.itemView.tv_notification_title.text = notificationsList[position].entity_title
-        holder.itemView.tv_notification_body.text = notificationsList[position].entity_message
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

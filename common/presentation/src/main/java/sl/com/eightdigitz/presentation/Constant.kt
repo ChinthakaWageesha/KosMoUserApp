@@ -56,18 +56,20 @@ object ApiResponseCodes {
 object RequestCodes {
     const val COUNTRY_CODE_REQUEST = 1001
     const val MOBILE_REQUEST_CODE = 1002
-    const val CREATE_USER_REQUEST_CODE = 1003
-    const val UPDATE_USER_REQUEST_CODE = 1004
-    const val NEW_ORDER_REQUEST_CODE = 1005
-    const val DECLINE_ORDER_REQUEST_CODE = 1006
+    const val OTP_REQUEST_CODE = 1003
+    const val CREATE_USER_REQUEST_CODE = 1004
+    const val UPDATE_USER_REQUEST_CODE = 1005
+    const val NEW_ORDER_REQUEST_CODE = 1006
+    const val DECLINE_ORDER_REQUEST_CODE = 1007
 }
 
 object ResultCodes {
     const val MOBILE_RESULT_CODE = 2001
-    const val UPDATE_USER_RESULT_CODE = 2002
-    const val CREATE_USER_RESULT_CODE = 2003
-    const val NEW_ORDER_RESULT_CODE = 2004
-    const val DECLINE_ORDER_RESULT_CODE = 2005
+    const val OTP_RESULT_CODE = 2002
+    const val UPDATE_USER_RESULT_CODE = 2003
+    const val CREATE_USER_RESULT_CODE = 2004
+    const val NEW_ORDER_RESULT_CODE = 2005
+    const val DECLINE_ORDER_RESULT_CODE = 2006
 }
 
 object IntentParsableConstants {

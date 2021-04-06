@@ -45,6 +45,7 @@ class EditProfile : BaseActivity(), View.OnClickListener {
         ccpPicker.registerCarrierNumberEditText(et_edit_profile_country)
         vmProfile.liveDataUploadAvatar.observe(this, Observer { observerUploadAvatar(it) })
         vmProfile.liveDataUpdateUser.observe(this, Observer { observerUpdateUser(it) })
+        et_edit_profile_country.setText("Sri Lanka")
         et_edit_profile_country.setOnClickListener(this)
         et_edit_profile_mobile.setOnClickListener(this)
         iv_edit_pro_pic.setOnClickListener(this)
@@ -149,9 +150,9 @@ class EditProfile : BaseActivity(), View.OnClickListener {
         }
     }
 
-    private fun observerUpdateUser(resource: Resource<DUser>){
+    private fun observerUpdateUser(resource: Resource<DUser>) {
         resource.let {
-            when(it.state){
+            when (it.state) {
                 ResourceState.LOADING -> showProgress()
                 ResourceState.SUCCESS -> {
                     hideProgress()
@@ -194,7 +195,10 @@ class EditProfile : BaseActivity(), View.OnClickListener {
         }
 
         if (requestCode == RequestCodes.MOBILE_REQUEST_CODE && resultCode == ResultCodes.MOBILE_RESULT_CODE) {
-            et_edit_profile_mobile.setText(data?.extras?.getString(IntentParsableConstants.EXTRA_MOBILE_NUMBER))
+            et_edit_profile_mobile.setText(
+                data?.extras?.getString(IntentParsableConstants.EXTRA_MOBILE_NUMBER)
+                    ?.replace("+94", "0")
+            )
         }
     }
 

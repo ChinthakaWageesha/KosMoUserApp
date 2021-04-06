@@ -11,8 +11,10 @@ import sl.com.eightdigitz.presentation.setLoading
 import sl.com.eightdigitz.presentation.setSuccess
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import sl.com.eightdigitz.client.apiSupports.models.FirebaseToken
 import sl.com.eightdigitz.client.apiSupports.requests.AddUserPreferenceRequest
 import sl.com.eightdigitz.client.apiSupports.requests.RegisterRequest
+import sl.com.eightdigitz.core.model.domain.DFirebaseToken
 import sl.com.eightdigitz.core.model.domain.DPreference
 import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.network.ErrorHandler
@@ -22,6 +24,7 @@ class RegistrationViewModel constructor(private val authUseCase: AuthUseCase) : 
     val liveDataSaveUser = MutableLiveData<Resource<PUser>>()
     val liveDataCategories = MutableLiveData<Resource<List<DPreference>>>()
     val liveDataPreference = MutableLiveData<Resource<DUser>>()
+    val liveDataFirebaseToken = MutableLiveData<Resource<DFirebaseToken>>()
     private val compositeDisposable = CompositeDisposable()
 
 
@@ -35,6 +38,21 @@ class RegistrationViewModel constructor(private val authUseCase: AuthUseCase) : 
                     liveDataCategories.setSuccess(it!!, null)
                 }, {
                     liveDataCategories.setError(ErrorHandler.getApiErrorMessage(it).mapToPresentation())
+                })
+        )
+    }
+
+    fun registerFirebaseToken(request: FirebaseToken){
+        compositeDisposable.add(
+            authUseCase.registerFirebaseToken(request)
+                .subscribeOn(Schedulers.io())
+                .map { it }
+                .subscribe({
+                    liveDataFirebaseToken.setSuccess(it, null)
+                },{
+                    liveDataFirebaseToken.setError(
+                        ErrorHandler.getApiErrorMessage(it).mapToPresentation()
+                    )
                 })
         )
     }

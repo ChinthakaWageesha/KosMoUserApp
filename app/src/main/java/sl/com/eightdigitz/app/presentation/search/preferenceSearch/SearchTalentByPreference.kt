@@ -49,8 +49,13 @@ class SearchTalentByPreference : BaseActivity(), View.OnClickListener {
 
             override fun onTextChanged(sequence: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 if (sequence!!.isNotEmpty()) {
+                    clearAll()
+                    vmSearch.searchedKey = et_search_talent_by_preference.getStringTrim()
+                    getTalentsByPreference()
                     tv_cancel.makeVisible()
                 } else {
+                    clearAll()
+                    getTalentsByPreference()
                     tv_cancel.makeGone()
                 }
             }
@@ -106,6 +111,7 @@ class SearchTalentByPreference : BaseActivity(), View.OnClickListener {
                         tv_no_data_talent_preference,
                         it.data!!.size
                     )
+                    (rv_search_talent_preference.adapter as SearchTalentByPreferenceAdapter).clear()
                     (rv_search_talent_preference.adapter as SearchTalentByPreferenceAdapter).addTalents(
                         it.data!!.toMutableList()
                     )
@@ -138,6 +144,11 @@ class SearchTalentByPreference : BaseActivity(), View.OnClickListener {
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
     }
 
+    private fun clearAll() {
+        (rv_search_talent_preference.adapter as SearchTalentByPreferenceAdapter).clear()
+        vmSearch.searchedKey = null
+    }
+
     override fun onSupportNavigateUp(): Boolean {
         hideKeyboard()
         onBackPressed()
@@ -146,7 +157,11 @@ class SearchTalentByPreference : BaseActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.tv_cancel -> et_search_talent_by_preference.clearText()
+            R.id.tv_cancel -> {
+                et_search_talent_by_preference.clearText()
+                clearAll()
+                getTalentsByPreference()
+            }
         }
     }
 }

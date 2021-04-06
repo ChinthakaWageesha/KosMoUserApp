@@ -19,9 +19,13 @@ class SearchRepositoryImpl constructor(
     override fun getRecentSearchedTalents(): Single<ListResponse<DUser>> =
         searchDataSource.getRecentSearchedTalents()
 
-    override fun getTalentsByPreference(preferenceId: String): Single<ListResponse<DUser>> =
+    override fun getTalentsByPreference(
+        preferenceId: String,
+        searchKey: String?
+    ): Single<ListResponse<DUser>> =
         searchDataSource.getTalentsByPreference(
-            preferenceId = preferenceId
+            preferenceId = preferenceId,
+            searchKey = searchKey
         )
 
     override fun logSearch(logSearchRequest: LogSearchRequest): Single<DUserSearch> =

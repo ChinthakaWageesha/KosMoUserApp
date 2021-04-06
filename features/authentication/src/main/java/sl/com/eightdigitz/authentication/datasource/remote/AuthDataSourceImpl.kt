@@ -7,6 +7,7 @@ import sl.com.eightdigitz.core.model.mapToDomain
 import sl.com.eightdigitz.presentation.Constant
 import io.reactivex.Single
 import okhttp3.MultipartBody
+import sl.com.eightdigitz.client.apiSupports.models.FirebaseToken
 import sl.com.eightdigitz.client.apis.JoinContactApi
 import sl.com.eightdigitz.client.apis.MultimediaApi
 import sl.com.eightdigitz.client.apis.PreferencesApi
@@ -77,6 +78,13 @@ class AuthDataSourceImpl constructor(
             language = "en"
         ).map {
             it.mapToDomain()
+        }
+
+    override fun registerFirebaseToken(request: FirebaseToken): Single<DFirebaseToken> =
+        authApi.registerFirebaseToken(
+            request = request
+        ).map {
+            it.data?.mapToDomain()
         }
 
     override fun createAccount(registerRequest: RegisterRequest): Single<DUser> =

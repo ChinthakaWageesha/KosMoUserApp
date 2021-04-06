@@ -46,6 +46,8 @@ class UpdateMobile : BaseActivity(), View.OnClickListener {
         ccpPicker.setDefaultCountryUsingNameCode("lk")
         ccpPicker.registerCarrierNumberEditText(et_mobile)
 
+        et_mobile.setText(currentLoggedUser?.mobileNo!!.split("0")[1])
+
         et_mobile.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
@@ -118,14 +120,12 @@ class UpdateMobile : BaseActivity(), View.OnClickListener {
 
     private fun setMobileNumber() {
         if (isUpdateClickable) {
-            val intent = intent
+            val intent = Intent(this, VerifyMobileOTP::class.java)
             intent.putExtra(
                 IntentParsableConstants.EXTRA_MOBILE_NUMBER,
                 ccpPicker.fullNumberWithPlus
             )
-            setResult(ResultCodes.MOBILE_RESULT_CODE, intent).also {
-                finish()
-            }
+            startActivityForResult(intent, RequestCodes.OTP_REQUEST_CODE)
         }
     }
 
@@ -143,6 +143,18 @@ class UpdateMobile : BaseActivity(), View.OnClickListener {
                     )
                     et_mobile_code.setText(mCountry?.dialCode.toString().trim())
                     ccpPicker.setCountryForNameCode(mCountry?.code)
+                }
+            }
+            RequestCodes.OTP_REQUEST_CODE -> {
+                if (resultCode == ResultCodes.OTP_RESULT_CODE) {
+                    val intent = intent
+                    intent.putExtra(
+                        IntentParsableConstants.EXTRA_MOBILE_NUMBER,
+                        ccpPicker.fullNumberWithPlus
+                    )
+                    setResult(ResultCodes.MOBILE_RESULT_CODE, intent).also {
+                        finish()
+                    }
                 }
             }
         }

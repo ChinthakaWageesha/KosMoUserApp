@@ -8,6 +8,8 @@ import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import sl.com.eightdigitz.app.domain.usecase.ProfileUseCase
 import sl.com.eightdigitz.client.apiSupports.requests.UpdateUserRequest
+import sl.com.eightdigitz.core.model.domain.DOTP
+import sl.com.eightdigitz.core.model.domain.DOTPToken
 import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.core.model.mapToPresentation
 import sl.com.eightdigitz.country_picker.domain.model.DCountry
@@ -24,6 +26,8 @@ class ProfileViewModel(
 
     val liveDataUploadAvatar = MutableLiveData<Resource<String>>()
     val liveDataUpdateUser = MutableLiveData<Resource<DUser>>()
+    val liveDataOTP = MutableLiveData<Resource<DOTP>>()
+    val liveDataOTPToken = MutableLiveData<Resource<DOTPToken>>()
 
     private val compositeDisposable = CompositeDisposable()
 
@@ -61,6 +65,34 @@ class ProfileViewModel(
                     liveDataUpdateUser.setError(
                         ErrorHandler.getApiErrorMessage(it).mapToPresentation()
                     )
+                })
+        )
+    }
+
+    fun getOTP(phoneNumber: String) {
+        liveDataOTP.setLoading()
+        compositeDisposable.add(
+            profileUseCase.getOTP(phoneNumber)
+                .subscribeOn(Schedulers.io())
+                .map { it }
+                .subscribe({
+                    liveDataOTP.setSuccess(it, null)
+                }, {
+                    liveDataOTP.setError(ErrorHandler.getApiErrorMessage(it).mapToPresentation())
+                })
+        )
+    }
+
+    fun getOTPToken(phoneNumber: String, otp: String) {
+        liveDataOTPToken.setLoading()
+        compositeDisposable.add(
+            profileUseCase.getOTPToken(phoneNumber, otp)
+                .subscribeOn(Schedulers.io())
+                .map { it }
+                .subscribe({
+                    liveDataOTPToken.setSuccess(it, null)
+                }, {
+                    liveDataOTPToken.setError(ErrorHandler.getApiErrorMessage(it).mapToPresentation())
                 })
         )
     }

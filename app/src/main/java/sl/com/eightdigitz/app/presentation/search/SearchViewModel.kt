@@ -24,6 +24,7 @@ class SearchViewModel(
     val liveDataRemoveRecent = MutableLiveData<Resource<DUserSearch>>()
     val liveDataTalentByPreferences = MutableLiveData<Resource<List<DUser>>>()
     private val compositeDisposable = CompositeDisposable()
+    var searchedKey: String? = null
 
     fun getSearchCategories() {
         liveDataCategories.setLoading()
@@ -34,7 +35,9 @@ class SearchViewModel(
                 .subscribe({
                     liveDataCategories.setSuccess(it!!, null)
                 }, {
-                    liveDataCategories.setError(ErrorHandler.getApiErrorMessage(it).mapToPresentation())
+                    liveDataCategories.setError(
+                        ErrorHandler.getApiErrorMessage(it).mapToPresentation()
+                    )
                 })
         )
     }
@@ -48,21 +51,30 @@ class SearchViewModel(
                 .subscribe({
                     liveDataRecentSearches.setSuccess(it!!, null)
                 }, {
-                    liveDataRecentSearches.setError(ErrorHandler.getApiErrorMessage(it).mapToPresentation())
+                    liveDataRecentSearches.setError(
+                        ErrorHandler.getApiErrorMessage(it).mapToPresentation()
+                    )
                 })
         )
     }
 
     fun getTalentsByPreference(preferenceId: String) {
-        liveDataTalentByPreferences.setLoading()
+        if (searchedKey.isNullOrEmpty()){
+            liveDataTalentByPreferences.setLoading()
+        }
         compositeDisposable.add(
-            searchUseCase.getTalentsByPreference(preferenceId)
+            searchUseCase.getTalentsByPreference(
+                preferenceId = preferenceId,
+                searchKey = searchedKey
+            )
                 .subscribeOn(Schedulers.io())
                 .map { it.data }
                 .subscribe({
                     liveDataTalentByPreferences.setSuccess(it!!, null)
                 }, {
-                    liveDataTalentByPreferences.setError(ErrorHandler.getApiErrorMessage(it).mapToPresentation())
+                    liveDataTalentByPreferences.setError(
+                        ErrorHandler.getApiErrorMessage(it).mapToPresentation()
+                    )
                 })
         )
     }
@@ -78,7 +90,9 @@ class SearchViewModel(
                 .subscribe({
                     liveDataRemoveRecent.setSuccess(it, null)
                 }, {
-                    liveDataRemoveRecent.setError(ErrorHandler.getApiErrorMessage(it).mapToPresentation())
+                    liveDataRemoveRecent.setError(
+                        ErrorHandler.getApiErrorMessage(it).mapToPresentation()
+                    )
                 })
         )
     }

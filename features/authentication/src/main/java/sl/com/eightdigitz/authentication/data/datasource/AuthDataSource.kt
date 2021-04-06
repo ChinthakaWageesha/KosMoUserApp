@@ -2,6 +2,7 @@ package sl.com.eightdigitz.authentication.data.datasource
 
 import io.reactivex.Single
 import okhttp3.MultipartBody
+import sl.com.eightdigitz.client.apiSupports.models.FirebaseToken
 import sl.com.eightdigitz.client.apiSupports.requests.AddUserPreferenceRequest
 import sl.com.eightdigitz.client.apiSupports.requests.ContactUsRequest
 import sl.com.eightdigitz.client.apiSupports.requests.JoinUsRequest
@@ -24,6 +25,8 @@ interface AuthDataSource {
     fun getUserByIDToken(idToken: String): Single<DUser>
 
     fun getPreferences(): Single<ListResponse<DPreference>>
+
+    fun registerFirebaseToken(request: FirebaseToken): Single<DFirebaseToken>
 
     fun createAccount(registerRequest: RegisterRequest): Single<DUser>
 

@@ -36,10 +36,14 @@ class SearchDataSourceImpl(
             it.mapToDomain()
         }
 
-    override fun getTalentsByPreference(preferenceId: String): Single<ListResponse<DUser>> =
+    override fun getTalentsByPreference(
+        preferenceId: String,
+        searchKey: String?
+    ): Single<ListResponse<DUser>> =
         preferencesApi.getTalentsByPreference(
             idToken = mSharedPreferences.getIdToken()!!,
             preferenceId = preferenceId,
+            searchKey = searchKey,
             role = "talent"
         ).map {
             it.mapToDomain()

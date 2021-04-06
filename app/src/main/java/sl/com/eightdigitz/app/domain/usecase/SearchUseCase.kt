@@ -9,8 +9,14 @@ class SearchUseCase(private val searchRepository: SearchRepository) {
 
     fun getRecentSearchedTalents() = searchRepository.getRecentSearchedTalents()
 
-    fun getTalentsByPreference(preferenceId: String) =
-        searchRepository.getTalentsByPreference(preferenceId)
+    fun getTalentsByPreference(
+        preferenceId: String,
+        searchKey: String?
+    ) =
+        searchRepository.getTalentsByPreference(
+            preferenceId = preferenceId,
+            searchKey = searchKey
+        )
 
     fun logSearch(logSearchRequest: LogSearchRequest) =
         searchRepository.logSearch(logSearchRequest)
