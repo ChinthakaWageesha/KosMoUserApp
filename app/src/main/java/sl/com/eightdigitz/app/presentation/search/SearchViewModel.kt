@@ -23,8 +23,10 @@ class SearchViewModel(
     val liveDataRecentSearches = MutableLiveData<Resource<List<DUser>>>()
     val liveDataRemoveRecent = MutableLiveData<Resource<DUserSearch>>()
     val liveDataTalentByPreferences = MutableLiveData<Resource<List<DUser>>>()
+    val liveDataTalents = MutableLiveData<Resource<List<DUser>>>()
     private val compositeDisposable = CompositeDisposable()
-    var searchedKey: String? = null
+    var searchKeyPreferenceTalents: String? = null
+    var searchKeyTalents: String? = null
 
     fun getSearchCategories() {
         liveDataCategories.setLoading()
@@ -59,13 +61,13 @@ class SearchViewModel(
     }
 
     fun getTalentsByPreference(preferenceId: String) {
-        if (searchedKey.isNullOrEmpty()){
+        if (searchKeyPreferenceTalents.isNullOrEmpty()) {
             liveDataTalentByPreferences.setLoading()
         }
         compositeDisposable.add(
             searchUseCase.getTalentsByPreference(
                 preferenceId = preferenceId,
-                searchKey = searchedKey
+                searchKey = searchKeyPreferenceTalents
             )
                 .subscribeOn(Schedulers.io())
                 .map { it.data }
@@ -91,6 +93,27 @@ class SearchViewModel(
                     liveDataRemoveRecent.setSuccess(it, null)
                 }, {
                     liveDataRemoveRecent.setError(
+                        ErrorHandler.getApiErrorMessage(it).mapToPresentation()
+                    )
+                })
+        )
+    }
+
+    fun getTalents() {
+        if (searchKeyTalents.isNullOrEmpty()) {
+            liveDataTalents.setLoading()
+        }
+
+        compositeDisposable.add(
+            searchUseCase.getTalents(
+                searchKey = searchKeyTalents
+            )
+                .subscribeOn(Schedulers.io())
+                .map { it.data }
+                .subscribe({
+                    liveDataTalents.setSuccess(it!!, null)
+                }, {
+                    liveDataTalents.setError(
                         ErrorHandler.getApiErrorMessage(it).mapToPresentation()
                     )
                 })

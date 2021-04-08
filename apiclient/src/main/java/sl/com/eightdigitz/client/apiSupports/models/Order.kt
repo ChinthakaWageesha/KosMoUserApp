@@ -22,5 +22,7 @@ data class Order(
     @Json(name = "ShoutoutValidUpto") @field:Json(name = "ShoutoutValidUpto") var shoutOutValidUpTo: String? = null,
     @Json(name = "Stage") @field:Json(name = "Stage") var stage: String? = null,
     @Json(name = "Owner") @field:Json(name = "Owner") var owner: String? = null,
-    @Json(name = "TalentName") @field:Json(name = "TalentName") var talentName: String? = null
+    @Json(name = "TalentName") @field:Json(name = "TalentName") var talentName: String? = null,
+    @Json(name = "ShoutOutURL") @field:Json(name = "ShoutOutURL") var shoutOutURL: String? = null,
+    @Json(name = "OwnerProfileURL") @field:Json(name = "OwnerProfileURL") var ownerProfileURL: String? = null
 )

@@ -24,5 +24,7 @@ data class DOrder(
     var shoutOutValidUpTo: String? = null,
     var stage: String? = null,
     var owner: String? = null,
-    var talentName: String? = null
+    var talentName: String? = null,
+    var shoutOutURL: String? = null,
+    var ownerProfileURL: String? = null
 ) : Parcelable

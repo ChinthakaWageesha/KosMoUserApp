@@ -7,9 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_search_talent_vertical.view.*
 import sl.com.eightdigitz.app.R
-import sl.com.eightdigitz.app.presentation.search.viewProfile.ViewProfile
 import sl.com.eightdigitz.presentation.extensions.setRoundedImage
-
 
 class FavouritesAdapter(
     private val imageUrl: String
@@ -39,9 +37,9 @@ class FavouritesAdapter(
             itemView.tv_talent_name_vertical.text = "Tom Hardy"
             itemView.tv_talent_field_vertical.text = "Movies"
 
-            itemView.setOnClickListener {
-                it.context.startActivity(Intent(it.context, ViewProfile::class.java))
-            }
+            /*itemView.setOnClickListener {
+                it.context.startActivity(Intent(it.context, VideoPlayer::class.java))
+            }*/
 
         }
     }

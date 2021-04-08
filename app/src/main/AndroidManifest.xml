@@ -11,13 +11,12 @@
         <dist:fusing dist:include="true" />
     </dist:module>
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".presentation.profile.VerifyMobileOTP"></activity>
         <activity
             android:name=".presentation.main.MainActivity"
             android:launchMode="singleTop"
@@ -114,6 +113,15 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".presentation.order.userOrders.ViewShoutOutVideo"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.FullScreen" />
+        <activity
+            android:name=".presentation.profile.VerifyMobileOTP"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

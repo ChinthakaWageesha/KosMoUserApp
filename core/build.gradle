@@ -106,6 +106,8 @@ dependencies {
     implementation ExternalLib.countryPick
     implementation ExternalLib.eventCalendar
     implementation ExternalLib.switchButton
+    implementation ExternalLib.videoPlayer
+    implementation ExternalLib.roundCornerProgressBar
 
 //  implementation Libraries.crashlytics
 

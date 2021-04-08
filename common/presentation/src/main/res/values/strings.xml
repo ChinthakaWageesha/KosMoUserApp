@@ -103,6 +103,7 @@
     <!--Search-->
     <string name="hint_search_talent_home">Search favourite people here</string>
     <string name="title_recent_searches">Recent Searches</string>
+    <string name="title_talent_searches">Talent Searches</string>
     <string name="title_people_you_know">People you may know</string>
     <string name="title_recommended">Recommended</string>
     <string name="message_no_data_talent_preferences">You have no talents by this category!</string>
@@ -113,6 +114,7 @@
     <string name="title_most_popular">Most Popular</string>
     <string name="message_see_all">See All</string>
     <string name="message_no_data_recent_search">You have no recent searches right now!</string>
+    <string name="message_no_data_talents">You have no talents with this name</string>
 
     <!--Profile View-->
     <string name="btn_request_now">Request Now</string>

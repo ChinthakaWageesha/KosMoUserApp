@@ -16,6 +16,7 @@ import sl.com.eightdigitz.app.presentation.settings.Settings
 import sl.com.eightdigitz.core.base.BaseFragment
 import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.core.ui.HelpCenter
+import sl.com.eightdigitz.navigation.features.ResultCode
 import sl.com.eightdigitz.presentation.Constant
 import sl.com.eightdigitz.presentation.IntentParsableConstants
 import sl.com.eightdigitz.presentation.RequestCodes
@@ -75,6 +76,9 @@ class ProfileFragment : BaseFragment(), View.OnClickListener {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == RequestCodes.UPDATE_USER_REQUEST_CODE && resultCode == ResultCodes.UPDATE_USER_RESULT_CODE){
             setData(data?.getParcelableExtra(IntentParsableConstants.EXTRA_USER))
+        } else if (requestCode == RequestCodes.SETTINGS_REQUEST_CODE && resultCode == ResultCodes.SETTINGS_RESULT_CODE){
+            activity?.setResult(ResultCode.RESULT_NAV_LOGOUT)
+                .also { activity?.finish() }
         }
     }
 
@@ -88,7 +92,10 @@ class ProfileFragment : BaseFragment(), View.OnClickListener {
             R.id.cl_orders -> context?.startActivity<UserOrders>()
             R.id.cl_reminders -> context?.startActivity<Reminders>()
             R.id.cl_promotions -> "promotions".showToast(context!!)
-            R.id.cl_settings -> context?.startActivity<Settings>()
+            R.id.cl_settings -> {
+                val intent = Intent(context!!, Settings::class.java)
+                startActivityForResult(intent, RequestCodes.SETTINGS_REQUEST_CODE)
+            }
             R.id.cl_preferences -> context?.startActivity<PreferenceEdit>()
             R.id.cl_help_centre -> context?.startActivity<HelpCenter>()
         }

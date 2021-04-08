@@ -32,6 +32,7 @@ data class User(
     @Json(name = "SubscribeMail") @field:Json(name = "SubscribeMail") var subscribeMail: Boolean? = null,
     @Json(name = "UserName") @field:Json(name = "UserName") var userName: String? = null,
     @Json(name = "FirebaseID") @field:Json(name = "FirebaseID") var firebaseID: String? = null,
-    @Json(name = "Auth0RefGoogle") @field:Json(name = "Auth0RefGoogle") var auth0RefGoogle: String? = null
+    @Json(name = "Auth0RefGoogle") @field:Json(name = "Auth0RefGoogle") var auth0RefGoogle: String? = null,
+    @Json(name = "TalentAvailability") @field:Json(name = "TalentAvailability") var talentAvailability: String? = null
 )
 

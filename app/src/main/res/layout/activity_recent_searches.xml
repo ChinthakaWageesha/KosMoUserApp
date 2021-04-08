@@ -83,13 +83,13 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_no_data_recently_viewed_profiles"
+                android:id="@+id/tv_no_data_talents"
                 style="@style/NoDataTextViewStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawablePadding="20dp"
                 android:visibility="gone"
-                android:text="@string/message_no_data_recent_search"
+                android:text="@string/message_no_data_talents"
                 app:drawableTopCompat="@drawable/iv_no_data_temp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

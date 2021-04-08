@@ -69,4 +69,12 @@ class SearchDataSourceImpl(
         ).map {
             it.data?.mapToDomain()
         }
+
+    override fun getTalents(searchKey: String?): Single<ListResponse<DUser>> =
+        searchHistoryApi.getTalents(
+            role = "talent",
+            searchKey = searchKey
+        ).map {
+            it.mapToDomain()
+        }
 }

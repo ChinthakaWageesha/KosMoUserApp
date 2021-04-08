@@ -61,6 +61,7 @@ object RequestCodes {
     const val UPDATE_USER_REQUEST_CODE = 1005
     const val NEW_ORDER_REQUEST_CODE = 1006
     const val DECLINE_ORDER_REQUEST_CODE = 1007
+    const val SETTINGS_REQUEST_CODE = 1008
 }
 
 object ResultCodes {
@@ -70,6 +71,7 @@ object ResultCodes {
     const val CREATE_USER_RESULT_CODE = 2004
     const val NEW_ORDER_RESULT_CODE = 2005
     const val DECLINE_ORDER_RESULT_CODE = 2006
+    const val SETTINGS_RESULT_CODE = 2007
 }
 
 object IntentParsableConstants {
@@ -82,4 +84,9 @@ object IntentParsableConstants {
     const val EXTRA_CATEGORY_ITEM_HOME = "home_category_item"
     const val EXTRA_NEW_ORDER = "new_order"
     const val EXTRA_MOBILE_NUMBER = "mobile number"
+}
+
+object ViewTypes {
+    const val RECENT_TALENTS = 1
+    const val TALENTS = 2
 }

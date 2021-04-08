@@ -42,4 +42,7 @@ class SearchRepositoryImpl constructor(
             searchType = searchType
         )
 
+    override fun getTalents(searchKey: String?): Single<ListResponse<DUser>> =
+        searchDataSource.getTalents(searchKey)
+
 }

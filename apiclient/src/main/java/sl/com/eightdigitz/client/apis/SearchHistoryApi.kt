@@ -29,4 +29,10 @@ interface SearchHistoryApi {
         @retrofit2.http.Query("user-uuid") userId: String,
         @retrofit2.http.Query("search-type") searchType: String
     ): Single<UserSearchResponse>
+
+    @GET("user/get-user-by-role/{role}")
+    fun getTalents(
+        @retrofit2.http.Path("role") role: String,
+        @retrofit2.http.Query("search-keyword") searchKey: String?
+    ): Single<UserListResponse>
 }

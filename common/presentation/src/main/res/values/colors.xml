@@ -44,6 +44,11 @@
     <color name="colorLightRed">#FF2D55</color>
     <color name="colorMediumGray">#ACB1C0</color>
     <color name="colorOrange">#FF715B</color>
-
     <color name="colorDarkGray">#282828</color>
+
+    <array name="progress_gradient">
+        <item>@color/colorDarkMagenta</item>
+        <item>@color/colorDarkPink</item>
+        <item>@color/colorDarkPurple</item>
+    </array>
 </resources>

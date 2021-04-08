@@ -50,7 +50,7 @@ class SearchTalentByPreference : BaseActivity(), View.OnClickListener {
             override fun onTextChanged(sequence: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 if (sequence!!.isNotEmpty()) {
                     clearAll()
-                    vmSearch.searchedKey = et_search_talent_by_preference.getStringTrim()
+                    vmSearch.searchKeyPreferenceTalents = et_search_talent_by_preference.getStringTrim()
                     getTalentsByPreference()
                     tv_cancel.makeVisible()
                 } else {
@@ -146,7 +146,7 @@ class SearchTalentByPreference : BaseActivity(), View.OnClickListener {
 
     private fun clearAll() {
         (rv_search_talent_preference.adapter as SearchTalentByPreferenceAdapter).clear()
-        vmSearch.searchedKey = null
+        vmSearch.searchKeyPreferenceTalents = null
     }
 
     override fun onSupportNavigateUp(): Boolean {

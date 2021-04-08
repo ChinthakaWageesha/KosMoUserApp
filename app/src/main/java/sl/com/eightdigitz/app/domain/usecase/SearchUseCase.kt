@@ -28,4 +28,6 @@ class SearchUseCase(private val searchRepository: SearchRepository) {
         ownerId = ownerId,
         searchType = searchType
     )
+
+    fun getTalents(searchKey: String?) = searchRepository.getTalents(searchKey)
 }

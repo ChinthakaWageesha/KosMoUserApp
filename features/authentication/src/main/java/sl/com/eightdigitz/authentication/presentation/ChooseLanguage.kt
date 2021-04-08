@@ -16,6 +16,7 @@ import sl.com.eightdigitz.presentation.LanguageType
 import sl.com.eightdigitz.presentation.RequestCodes
 import sl.com.eightdigitz.presentation.ResultCodes
 import sl.com.eightdigitz.presentation.extensions.setEnable
+import sl.com.eightdigitz.presentation.extensions.showToast
 import sl.com.eightdigitz.presentation.extensions.startActivity
 
 class ChooseLanguage : BaseActivity(), View.OnClickListener {
@@ -61,9 +62,13 @@ class ChooseLanguage : BaseActivity(), View.OnClickListener {
     }
 
     private fun navigateToGetOTP(request: DUserRegister){
-        val intent = Intent(this, GetOTP::class.java)
-        intent.putExtra(IntentParsableConstants.EXTRA_REGISTER_USER, request)
-        startActivityForResult(intent, RequestCodes.CREATE_USER_REQUEST_CODE)
+        if (request.defaultLanguage == LanguageType.ENGLISH){
+            val intent = Intent(this, GetOTP::class.java)
+            intent.putExtra(IntentParsableConstants.EXTRA_REGISTER_USER, request)
+            startActivityForResult(intent, RequestCodes.CREATE_USER_REQUEST_CODE)
+        } else {
+          "${request.defaultLanguage} is available for this stage".showToast(this)
+        }
     }
 
 

@@ -37,7 +37,7 @@ class ViewProfile : BaseActivity(), View.OnClickListener {
         if (intent.hasExtra(IntentParsableConstants.EXTRA_USER) &&
             intent.getParcelableExtra<DUser>(IntentParsableConstants.EXTRA_USER) != null
         ) {
-            talent = intent.getParcelableExtra<DUser>(IntentParsableConstants.EXTRA_USER)
+            talent = intent.getParcelableExtra(IntentParsableConstants.EXTRA_USER)
             logProfileSearch(talent?.id!!)
             tv_profile_name.text = talent?.fullName
             tv_profile_field.text = talent?.role

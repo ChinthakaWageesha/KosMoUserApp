@@ -38,15 +38,16 @@ class PreferencesAdapter(
             val preference = preferenceList[position]
 
             if (!userPreferenceList.isNullOrEmpty()){
-               for (i in 0 until preferenceList.size - 1){
-                   if (userPreferenceList[i].preference?.id == preference.id){
-                       itemView.chk_preferences.isChecked = true
-                       selectedIds.add(preference.id!!)
-                   } else {
-                       itemView.chk_preferences.isChecked = false
-                       selectedIds.remove(preference.id)
-                   }
-               }
+                for (i in 0 until preferenceList.size){
+                    for (j in 0 until userPreferenceList.size){
+                        if (userPreferenceList[j].preferenceID == preferenceList[i].id){
+                            itemView.chk_preferences.isChecked = true
+                            selectedIds.add(preferenceList[i].id!!)
+                        } else {
+                            selectedIds.remove(preference.id)
+                        }
+                    }
+                }
             }
 
             itemView.chk_preferences.text = preference.name

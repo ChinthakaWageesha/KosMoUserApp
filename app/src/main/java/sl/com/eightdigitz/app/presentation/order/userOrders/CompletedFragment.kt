@@ -92,12 +92,12 @@ class CompletedFragment : BaseFragment(), (DOrder, String) -> Unit {
     }
 
     override fun invoke(order: DOrder, navigationType: String) {
-        if (navigationType == NavigationTypes.NAVIGATE_TO_ORDER_SUMMARY) {
-            val intent = Intent(context!!, OrderSummary::class.java)
+        if (!order.shoutOutURL.isNullOrEmpty()) {
+            val intent = Intent(context!!, ViewShoutOutVideo::class.java)
             intent.putExtra(IntentParsableConstants.EXTRA_NEW_ORDER, order)
             startActivity(intent)
-        } else if (navigationType == NavigationTypes.NAVIGATE_TO_REVIEW_ORDER) {
-            val intent = Intent(context!!, OrderToProceed::class.java)
+        } else {
+            val intent = Intent(context!!, OrderSummary::class.java)
             intent.putExtra(IntentParsableConstants.EXTRA_NEW_ORDER, order)
             startActivityForResult(intent, RequestCodes.DECLINE_ORDER_REQUEST_CODE)
         }

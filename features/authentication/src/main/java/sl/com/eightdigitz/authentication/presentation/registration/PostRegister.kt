@@ -68,6 +68,7 @@ class PostRegister : BaseActivity(), View.OnClickListener, (DPreference, Boolean
         request.deviceType = getDeviceType()
         request.firebaseToken = user?.firebaseId
         request.userID = user?.id
+        viewModel.registerFirebaseToken(request)
     }
 
     @SuppressLint("MissingPermission")

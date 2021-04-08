@@ -14,10 +14,7 @@ import retrofit2.http.PUT
 import sl.com.eightdigitz.client.apiSupports.models.FirebaseToken
 import sl.com.eightdigitz.client.apiSupports.requests.RegisterRequest
 import sl.com.eightdigitz.client.apiSupports.requests.UpdateUserRequest
-import sl.com.eightdigitz.client.apiSupports.responses.FirebaseTokenResponse
-import sl.com.eightdigitz.client.apiSupports.responses.OTPResponse
-import sl.com.eightdigitz.client.apiSupports.responses.OTPTokenResponse
-import sl.com.eightdigitz.client.apiSupports.responses.UserResponse
+import sl.com.eightdigitz.client.apiSupports.responses.*
 
 @JvmSuppressWildcards
 interface AuthApi {
@@ -71,5 +68,4 @@ interface AuthApi {
     fun registerFirebaseToken(
         @retrofit2.http.Body request: FirebaseToken
     ): Single<FirebaseTokenResponse>
-
 }

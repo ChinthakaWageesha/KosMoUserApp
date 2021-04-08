@@ -57,6 +57,21 @@ class SearchAdapterTalents(
             }
 
             itemView.tv_talent_name_horizontal.text = talent.fullName
+
+            if (!talent.preferences.isNullOrEmpty()){
+                for (i in talent.preferences!!.indices){
+                    if (talent.preferences!![i].preferenceID == "44a842cd-da2e-46e6-8e21-b5f771fd76f0"){
+                        itemView.tv_talent_field_horizontal.text = "Movies"
+                    }
+
+                    if (talent.preferences!![i].preferenceID == "0d82f1fe-4c8f-4201-8f3c-dd4355d8e4be"){
+                        itemView.tv_talent_field_horizontal.text = "Sports"
+                    }
+                }
+            } else {
+                itemView.tv_talent_field_horizontal.text = "Movies"
+            }
+
             itemView.tv_talent_field_horizontal.text = talent.role
 
             itemView.setOnClickListener {

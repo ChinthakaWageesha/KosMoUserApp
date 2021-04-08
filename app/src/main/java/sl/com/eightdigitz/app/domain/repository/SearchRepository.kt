@@ -26,4 +26,8 @@ interface SearchRepository {
         ownerId: String,
         searchType: String
     ) : Single<DUserSearch>
+
+    fun getTalents(
+        searchKey: String?
+    ): Single<ListResponse<DUser>>
 }

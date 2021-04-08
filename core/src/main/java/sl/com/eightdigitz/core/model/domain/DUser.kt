@@ -28,5 +28,6 @@ data class DUser(
     var subscribeMail: Boolean? = null,
     var userName: String? = null,
     var firebaseId: String? = null,
-    var auth0RefGoogle: String? = null
+    var auth0RefGoogle: String? = null,
+    var talentAvailability: String? = null
 ): Parcelable

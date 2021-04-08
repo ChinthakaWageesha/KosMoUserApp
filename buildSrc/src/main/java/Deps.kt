@@ -163,6 +163,8 @@ object ExternalLib {
     const val countryPick = "com.hbb20:ccp:2.4.0"
     const val eventCalendar = "com.github.mahimrocky:EventCalender:v1.0.0"
     const val switchButton = "com.github.zcweng:switch-button:0.0.3"
+    const val videoPlayer =  "com.github.HamidrezaAmz:MagicalExoPlayer:1.0.16"
+    const val roundCornerProgressBar = "com.akexorcist:round-corner-progress-bar:2.1.1"
 }
 
 object GoogleLibraries {

@@ -33,7 +33,8 @@ fun User.mapToDomain(): DUser =
         subscribeMail = subscribeMail,
         userName = userName,
         firebaseId = firebaseID,
-        auth0RefGoogle = auth0RefGoogle
+        auth0RefGoogle = auth0RefGoogle,
+        talentAvailability = talentAvailability
     )
 
 fun DUser.mapToPresentation(): PUser =
@@ -61,7 +62,8 @@ fun DUser.mapToPresentation(): PUser =
         subscribeMail = subscribeMail,
         userName = userName,
         firebaseId = firebaseId,
-        auth0RefGoogle = auth0RefGoogle
+        auth0RefGoogle = auth0RefGoogle,
+        talentAvailability = talentAvailability
     )
 
 fun OTPResponse.mapToDomain(): DOTP = DOTP(
@@ -234,7 +236,9 @@ fun Order.mapToDomain(): DOrder = DOrder(
     shoutOutValidUpTo = shoutOutValidUpTo,
     stage = stage,
     owner = owner,
-    talentName = talentName
+    talentName = talentName,
+    shoutOutURL = shoutOutURL,
+    ownerProfileURL = ownerProfileURL
 )
 
 fun NotificationResponse.mapToDomain(): ListResponse<DPushNotification> = ListResponse(

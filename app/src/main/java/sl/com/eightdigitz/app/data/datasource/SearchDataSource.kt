@@ -27,6 +27,10 @@ interface SearchDataSource {
         searchType: String
     ): Single<DUserSearch>
 
+    fun getTalents(
+        searchKey: String?
+    ): Single<ListResponse<DUser>>
+
 
 
 
