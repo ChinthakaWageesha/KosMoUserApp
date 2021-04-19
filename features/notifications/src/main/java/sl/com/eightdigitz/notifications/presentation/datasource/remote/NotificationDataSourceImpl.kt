@@ -12,10 +12,7 @@ class NotificationDataSourceImpl(
 ) : NotificationDataSource {
 
     override fun getNotificationsList(): Single<ListResponse<DPushNotification>> =
-        notificationApi.notificationsGet(
-            page = 1,
-            perPage = 20
-        ).map {
+        notificationApi.notificationsGet().map {
             it.mapToDomain()
         }
 

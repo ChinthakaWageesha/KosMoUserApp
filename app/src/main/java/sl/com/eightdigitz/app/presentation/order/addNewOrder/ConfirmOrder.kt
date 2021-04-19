@@ -50,7 +50,7 @@ class ConfirmOrder : BaseActivity(), View.OnClickListener {
         orderRequest.toPronoun = order?.toPronoun
         orderRequest.fromPronoun = order?.fromPronoun
         orderRequest.orderInstructions = order?.orderInstructions
-        orderRequest.deliveryDate = "2021-04-20"
+        orderRequest.deliveryDate = "2021-04-24"
         orderRequest.stage = "New"
         orderRequest.userID = currentLoggedUser?.id
         orderRequest.talentID = order?.talentID

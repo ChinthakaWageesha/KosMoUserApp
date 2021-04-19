@@ -1,5 +1,6 @@
 package sl.com.eightdigitz.app.presentation.order.userOrders
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -49,6 +50,7 @@ class CompletedFragment : BaseFragment(), (DOrder, String) -> Unit {
             LinearLayoutManager(context!!, LinearLayoutManager.VERTICAL, false)
     }
 
+    @SuppressLint("MissingPermission")
     private fun getOrders() {
         activity?.withNetwork({
             vmOrder.getOrdersByStages("OrderReviewSuccess")

@@ -6,14 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".presentation.order.userOrders.OngoingFragment">
 
+    <include
+        android:id="@+id/layout_order_types"
+        layout="@layout/item_order_types"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_ongoing_orders"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/layout_order_types" />
 
     <TextView
         android:id="@+id/tv_no_data_ongoing_orders"
@@ -21,12 +32,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawablePadding="20dp"
-        android:visibility="gone"
         android:text="@string/message_no_data_ongoing_orders"
+        android:visibility="gone"
         app:drawableTopCompat="@drawable/iv_no_data_temp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_order_types"
         app:layout_constraintVertical_bias="0.2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

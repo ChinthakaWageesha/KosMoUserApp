@@ -36,4 +36,6 @@ class AuthUseCase constructor(private val authRepository: AuthRepository) {
 
     fun addUserPreference(request: AddUserPreferenceRequest): Single<DUser> =
         authRepository.addUserPreference(request)
+
+    fun requestWelcomeNotification(userId: String) = authRepository.requestWelcomeNotification(userId)
 }

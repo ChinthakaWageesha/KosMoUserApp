@@ -4,32 +4,19 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.loadKoinModules
 import org.koin.core.module.Module
 import org.koin.dsl.module
-import sl.com.eightdigitz.app.data.datasource.OrderDataSource
-import sl.com.eightdigitz.app.data.datasource.ProfileDataSource
-import sl.com.eightdigitz.app.data.datasource.SearchDataSource
-import sl.com.eightdigitz.app.data.datasource.SettingsDataSource
-import sl.com.eightdigitz.app.data.repository.OrderRepositoryImpl
-import sl.com.eightdigitz.app.data.repository.ProfileRepositoryImpl
-import sl.com.eightdigitz.app.data.repository.SearchRepositoryImpl
-import sl.com.eightdigitz.app.data.repository.SettingsRepositoryImpl
-import sl.com.eightdigitz.app.datasource.remote.OrderDataSourceImpl
-import sl.com.eightdigitz.app.datasource.remote.ProfileDataSourceImpl
-import sl.com.eightdigitz.app.datasource.remote.SearchDataSourceImpl
-import sl.com.eightdigitz.app.datasource.remote.SettingsDataSourceImpl
-import sl.com.eightdigitz.app.domain.repository.OrderRepository
-import sl.com.eightdigitz.app.domain.repository.ProfileRepository
-import sl.com.eightdigitz.app.domain.repository.SearchRepository
-import sl.com.eightdigitz.app.domain.repository.SettingsRepository
-import sl.com.eightdigitz.app.domain.usecase.OrderUseCase
-import sl.com.eightdigitz.app.domain.usecase.ProfileUseCase
-import sl.com.eightdigitz.app.domain.usecase.SearchUseCase
-import sl.com.eightdigitz.app.domain.usecase.SettingsUseCase
+import sl.com.eightdigitz.app.data.datasource.*
+import sl.com.eightdigitz.app.data.repository.*
+import sl.com.eightdigitz.app.datasource.remote.*
+import sl.com.eightdigitz.app.domain.repository.*
+import sl.com.eightdigitz.app.domain.usecase.*
+import sl.com.eightdigitz.app.presentation.explore.ExploreViewModel
 import sl.com.eightdigitz.app.presentation.search.SearchViewModel
 import sl.com.eightdigitz.app.presentation.order.OrderViewModel
 import sl.com.eightdigitz.app.presentation.preferences.PreferencesViewModel
 import sl.com.eightdigitz.app.presentation.profile.ProfileViewModel
 import sl.com.eightdigitz.app.presentation.search.LogSearchViewModel
 import sl.com.eightdigitz.app.presentation.settings.SettingsViewModel
+import kotlin.system.exitProcess
 
 fun injectFeature() = loadFeature
 
@@ -80,6 +67,12 @@ val viewModelModule: Module = module {
             settingsUseCase = get()
         )
     }
+
+    viewModel {
+        ExploreViewModel(
+            exploreUseCase = get()
+        )
+    }
 }
 
 val useCaseModule: Module = module(override = true) {
@@ -87,6 +80,7 @@ val useCaseModule: Module = module(override = true) {
     factory { OrderUseCase(orderRepository = get()) }
     factory { ProfileUseCase(profileRepository = get()) }
     factory { SettingsUseCase(settingsRepository = get()) }
+    factory { ExploreUseCase(exploreRepository = get()) }
 }
 
 val repositoryModule: Module = module(override = true) {
@@ -112,6 +106,12 @@ val repositoryModule: Module = module(override = true) {
         SettingsRepositoryImpl(
             settingsDataSource = get()
         ) as SettingsRepository
+    }
+
+    single {
+        ExploreRepositoryImpl(
+            exploreDataSource = get()
+        ) as ExploreRepository
     }
 }
 
@@ -145,5 +145,11 @@ val dataSourceModule: Module = module(override = true) {
             mSharedPreferences = get(),
             preferencesApi = get()
         ) as SettingsDataSource
+    }
+
+    single {
+        ExploreDataSourceImpl(
+            exploreApi = get()
+        ) as ExploreDataSource
     }
 }

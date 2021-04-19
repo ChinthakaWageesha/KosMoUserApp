@@ -8,6 +8,7 @@ import sl.com.eightdigitz.client.apiSupports.requests.UpdateOrderStatusRequest
 import sl.com.eightdigitz.client.apis.OrderApi
 import sl.com.eightdigitz.core.model.ListResponse
 import sl.com.eightdigitz.core.model.domain.DOrder
+import sl.com.eightdigitz.core.model.domain.DTalentRate
 import sl.com.eightdigitz.core.model.domain.DUpdateOrderStatus
 import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.core.model.mapToDomain
@@ -45,6 +46,14 @@ class OrderDataSourceImpl(
         orderApi.updateUserOrderStatus(
             idToken = mSharedPreferences.getIdToken()!!,
             request = request
+        ).map {
+            it.data?.mapToDomain()
+        }
+
+    override fun getTalentRate(talentId: String): Single<DTalentRate> =
+        orderApi.getTalentRates(
+            idToken = mSharedPreferences.getIdToken()!!,
+            talentID = talentId
         ).map {
             it.data?.mapToDomain()
         }

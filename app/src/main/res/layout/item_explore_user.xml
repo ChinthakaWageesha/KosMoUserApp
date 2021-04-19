@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.potyvideo.library.AndExoPlayerView
+        android:id="@+id/talent_video"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:andexo_aspect_ratio="aspect_match"
+        app:andexo_full_screen="true"
+        app:andexo_loop="infinite"
+        app:andexo_play_when_ready="true"
+        app:andexo_resize_mode="Fill"
+        app:andexo_show_controller="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@drawable/bg_gradient_white_black"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:rotationX="180"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_explore_user_image"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/ic_kid"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_explore_user_name"
+        style="@style/WhiteBoldTextStyle.Size18"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="32dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/sf_pro_display_semibold"
+        android:maxLines="1"
+        app:layout_constraintBottom_toTopOf="@+id/tv_explore_user_field"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_explore_user_image"
+        app:layout_constraintTop_toTopOf="@+id/iv_explore_user_image"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/tv_explore_user_field"
+        style="@style/WhiteBoldTextStyle.Size14"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="32dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/sf_pro_display_semibold"
+        android:maxLines="1"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_explore_user_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_explore_user_image"
+        app:layout_constraintTop_toBottomOf="@+id/tv_explore_user_name" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

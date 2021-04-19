@@ -93,7 +93,7 @@ class UserOrdersAdapter(
     private fun setOnHoldOrder(itemView: View, order: DOrder) {
 
         itemView.cl_all_order_base.setBackgroundResource(
-            sl.com.eightdigitz.presentation.R.drawable.bg_snow_gray_stroke_orange_corner_round_15dp
+            sl.com.eightdigitz.presentation.R.drawable.bg_snow_gray_round_corner_15dp
         )
 
         itemView.cv_user_order.setBackgroundResource(
@@ -110,6 +110,38 @@ class UserOrdersAdapter(
             ContextCompat.getColor(
                 itemView.context,
                 sl.com.eightdigitz.presentation.R.color.colorWhite
+            )
+        )
+
+        itemView.btn_order.setOnClickListener { onClickOrder(order, NavigationTypes.NAVIGATE_TO_REVIEW_ORDER) }
+    }
+
+    private fun setCompletedOrders(itemView: View, order: DOrder){
+        itemView.cl_all_order_base.setBackgroundResource(
+            sl.com.eightdigitz.presentation.R.drawable.bg_snow_gray_round_corner_15dp
+        )
+
+        /*itemView.cv_user_order.setBackgroundResource(
+            sl.com.eightdigitz.presentation.R.drawable.bg_orange_oval
+        )*/
+
+        itemView.cv_user_order.visibility = View.GONE
+
+        itemView.btn_order.setBackgroundResource(
+            sl.com.eightdigitz.presentation.R.drawable.bg_white_corner_round_20dp
+        )
+
+
+        if (!order.shoutOutURL.isNullOrEmpty()){
+            itemView.btn_order.text = "View ShoutOut Video"
+        } else {
+            itemView.btn_order.text = "View Order"
+        }
+
+        itemView.btn_order.setTextColor(
+            ContextCompat.getColor(
+                itemView.context,
+                sl.com.eightdigitz.presentation.R.color.colorTextGray
             )
         )
 
@@ -137,8 +169,10 @@ class UserOrdersAdapter(
                 setProcessingOrder(itemView, order)
             } else if (order.stage.equals("TalentDelivered") || order.stage.equals("OrderReviewRejected")) {
                 setOnHoldOrder(itemView, order)
-            } else {
+            } else if (order.stage.equals("TalentRejected")) {
                 setReviewOrder(itemView, order)
+            } else if (order.stage.equals("OrderReviewSuccess")){
+                setCompletedOrders(itemView, order)
             }
         }
     }

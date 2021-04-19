@@ -4,100 +4,92 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_sample"
     tools:context=".presentation.explore.Explore">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/iv_explore_user_image"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:src="@drawable/ic_kid"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_explore_base"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_explore_user"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <CheckBox
+            android:id="@+id/chk_favorite_explore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="32dp"
+
+            android:background="@drawable/bg_favorite_checkbox"
+            android:button="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_close_explore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="37dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_close_white" />
+
+        <ImageView
+            android:id="@+id/iv_mute_explore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_volume_mute" />
+
+        <ImageView
+            android:id="@+id/iv_share_explore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_share_white" />
+
+        <Button
+            android:id="@+id/btn_view_profile"
+            style="@style/WhiteButtonStyleII"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="22dp"
+            android:minWidth="170dp"
+            android:text="@string/title_view_profile"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/chk_favorite_explore"
+            app:layout_constraintStart_toEndOf="@+id/iv_share_explore" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/tv_explore_user_name"
-        style="@style/WhiteBoldTextStyle.Size18"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:fontFamily="@font/sf_pro_display_semibold"
-        android:maxLines="1"
-        android:ellipsize="end"
-        app:layout_constraintBottom_toTopOf="@+id/tv_explore_user_field"
-        app:layout_constraintEnd_toStartOf="@+id/iv_close_explore"
-        app:layout_constraintStart_toEndOf="@+id/iv_explore_user_image"
-        app:layout_constraintTop_toTopOf="@+id/iv_explore_user_image"
-        app:layout_constraintVertical_chainStyle="packed" />
-
-    <TextView
-        android:id="@+id/tv_explore_user_field"
-        style="@style/WhiteBoldTextStyle.Size14"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:fontFamily="@font/sf_pro_display_semibold"
-        android:maxLines="1"
-        android:ellipsize="end"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_explore_user_image"
-        app:layout_constraintEnd_toStartOf="@+id/iv_close_explore"
-        app:layout_constraintStart_toEndOf="@+id/iv_explore_user_image"
-        app:layout_constraintTop_toBottomOf="@+id/tv_explore_user_name" />
-
-    <ImageView
-        android:id="@+id/iv_close_explore"
+        android:id="@+id/tv_no_explore_users"
+        style="@style/NoDataTextViewStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_explore_user_image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/iv_explore_user_image"
-        app:srcCompat="@drawable/ic_close_white" />
-
-    <ImageView
-        android:id="@+id/iv_share_explore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="32dp"
+        android:visibility="gone"
+        android:text="No Talents to explore right now."
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_share_white" />
-
-    <Button
-        android:id="@+id/btn_view_profile"
-        style="@style/WhiteButtonStyleII"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="22dp"
-        android:minWidth="170dp"
-        android:text="@string/title_view_profile"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/chk_favorite_explore"
-        app:layout_constraintStart_toEndOf="@+id/iv_share_explore" />
-
-    <CheckBox
-        android:id="@+id/chk_favorite_explore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="32dp"
-        android:background="@drawable/bg_favorite_checkbox"
-        android:button="@null"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <ImageView
-        android:id="@+id/iv_mute_explore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/chk_favorite_explore"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_close_explore"
-        app:srcCompat="@drawable/ic_volume_mute" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

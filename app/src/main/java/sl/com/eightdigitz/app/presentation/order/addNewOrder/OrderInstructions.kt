@@ -6,20 +6,24 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.activity_order_instructions.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.app.R
+import sl.com.eightdigitz.app.presentation.order.OrderViewModel
 import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.core.model.domain.DOrder
-import sl.com.eightdigitz.presentation.IntentParsableConstants
-import sl.com.eightdigitz.presentation.Msg
-import sl.com.eightdigitz.presentation.RequestCodes
-import sl.com.eightdigitz.presentation.ResultCodes
+import sl.com.eightdigitz.core.model.domain.DTalentRate
+import sl.com.eightdigitz.presentation.*
 import sl.com.eightdigitz.presentation.extensions.*
 import javax.xml.transform.dom.DOMResult
 
 class OrderInstructions : BaseActivity(), View.OnClickListener {
 
-    var order: DOrder? = null
+    private var order: DOrder? = null
+    private var talentRate: DTalentRate? = null
+    private val vmOrder by viewModel<OrderViewModel>()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +48,7 @@ class OrderInstructions : BaseActivity(), View.OnClickListener {
             order = intent.getParcelableExtra(IntentParsableConstants.EXTRA_NEW_ORDER)
         }
 
-
+        getTalentRates()
         et_instructions.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
@@ -76,15 +80,46 @@ class OrderInstructions : BaseActivity(), View.OnClickListener {
             }
 
         })
+        vmOrder.liveDataTalentRates.observe(this, Observer { observerTalentRates(it) })
         btn_order_instructions_next.setOnClickListener(this)
     }
 
+    private fun getTalentRates() {
+        withNetwork({
+            vmOrder.getTalentRate(order?.talentID!!)
+        }, {
+            showAlert(message = Msg.INTERNET_ISSUE)
+        })
+    }
+
+    private fun observerTalentRates(resource: Resource<DTalentRate>){
+        resource.let {
+            when(it.state){
+                ResourceState.LOADING -> ""
+                ResourceState.SUCCESS -> {
+                    talentRate = it.data!!
+                }
+                ResourceState.ERROR -> {
+                    it.message?.error.toString().showToast(this)
+                }
+            }
+        }
+    }
+
     private fun onNext() {
-        if (validate()) {
-            order?.orderInstructions = et_instructions.getStringTrim()
-            val intent = Intent(this, PaymentCheckout::class.java)
-            intent.putExtra(IntentParsableConstants.EXTRA_NEW_ORDER, order)
-            startActivityForResult(intent, RequestCodes.NEW_ORDER_REQUEST_CODE)
+
+        if (talentRate != null){
+            if (validate()) {
+                order?.orderInstructions = et_instructions.getStringTrim()
+                val intentPC = Intent(this, PaymentCheckout::class.java)
+                intentPC.putExtra(IntentParsableConstants.EXTRA_NEW_ORDER, order)
+                intentPC.putExtra(IntentParsableConstants.EXTRA_TALENT_RATE, talentRate)
+                startActivityForResult(intentPC, RequestCodes.NEW_ORDER_REQUEST_CODE)
+            }
+        } else {
+            val intentCO = Intent(this, ConfirmOrder::class.java)
+            intentCO.putExtra(IntentParsableConstants.EXTRA_NEW_ORDER, order)
+            startActivityForResult(intentCO, RequestCodes.NEW_ORDER_REQUEST_CODE)
         }
     }
 
@@ -100,7 +135,7 @@ class OrderInstructions : BaseActivity(), View.OnClickListener {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == RequestCodes.NEW_ORDER_REQUEST_CODE && resultCode == ResultCodes.NEW_ORDER_RESULT_CODE){
+        if (requestCode == RequestCodes.NEW_ORDER_REQUEST_CODE && resultCode == ResultCodes.NEW_ORDER_RESULT_CODE) {
             setResult(ResultCodes.NEW_ORDER_RESULT_CODE).also {
                 finish()
             }

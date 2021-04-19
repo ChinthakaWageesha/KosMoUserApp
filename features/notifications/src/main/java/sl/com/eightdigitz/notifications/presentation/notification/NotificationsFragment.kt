@@ -1,23 +1,30 @@
 package sl.com.eightdigitz.notifications.presentation.notification
 
-import android.graphics.Color
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import sl.com.eightdigitz.core.base.BaseFragment
 import sl.com.eightdigitz.notifications.R
-import sl.com.eightdigitz.core.model.presentation.PNotification
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_notifications.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import sl.com.eightdigitz.core.model.domain.DPushNotification
 import sl.com.eightdigitz.notifications.presentation.di.injectFeature
+import sl.com.eightdigitz.presentation.Msg
+import sl.com.eightdigitz.presentation.Resource
+import sl.com.eightdigitz.presentation.ResourceState
+import sl.com.eightdigitz.presentation.extensions.setEmptyView
+import sl.com.eightdigitz.presentation.extensions.showAlert
+import sl.com.eightdigitz.presentation.extensions.showToast
+import sl.com.eightdigitz.presentation.extensions.withNetwork
 
-class NotificationsFragment : BaseFragment() {
+class NotificationsFragment : BaseFragment(), (DPushNotification) -> Unit {
 
-    private lateinit var tempNotificationList: MutableList<PNotification>
+    private val vmNotifications by viewModel<NotificationViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,41 +40,43 @@ class NotificationsFragment : BaseFragment() {
 
     private fun init() {
         injectFeature()
-        tempNotificationList = mutableListOf()
         setUpNotificationsAdapter()
-        setSwipeToDelete()
+        getNotifications()
+        vmNotifications.notificationLiveData.observe(this, Observer { observerGetNotifications(it) })
+    }
+
+    @SuppressLint("MissingPermission")
+    private fun getNotifications() {
+        activity?.withNetwork({
+            vmNotifications.getNotifications()
+        }, {
+            showAlert(message = Msg.INTERNET_ISSUE)
+        })
     }
 
     private fun setUpNotificationsAdapter() {
-        rv_notifications.adapter = NotificationsAdapter(tempNotificationList)
+        rv_notifications.adapter = NotificationsAdapter(mutableListOf(), this)
         rv_notifications.layoutManager =
             LinearLayoutManager(context!!, LinearLayoutManager.VERTICAL, false)
     }
 
-    private fun setSwipeToDelete(){
-        val itemTouchHelper =
-            ItemTouchHelper(SwipeToDelete(context, object : SwipeToDelete.Callback {
-                override fun onSwipeRight(position: Int) {
+    private fun observerGetNotifications(resource: Resource<List<DPushNotification>>) {
+        resource.let {
+            when (it.state) {
+                ResourceState.LOADING -> showProgress()
+                ResourceState.SUCCESS -> {
+                    hideProgress()
+                    (rv_notifications.adapter as NotificationsAdapter).clear()
+                    rv_notifications.setEmptyView(tv_no_notifications, it.data?.size!!)
+                    (rv_notifications.adapter as NotificationsAdapter).addNotifications(it.data!!.toMutableList())
+                }
+                ResourceState.ERROR -> {
+                    hideProgress()
+                    it.message?.error.toString().showToast(context!!)
                 }
 
-                override fun onSwipeLeft(position: Int) {
-                    val deletedModel = tempNotificationList[position]
-                    (rv_notifications.adapter as NotificationsAdapter).removeItem(position)
-
-                    val snackbar = Snackbar.make(
-                        activity!!.window.decorView.rootView,
-                        getString(R.string.item_removed),
-                        Snackbar.LENGTH_LONG
-                    )
-                    snackbar.setAction("UNDO") {
-                        (rv_notifications.adapter as NotificationsAdapter).restoreItem(deletedModel, position)
-                    }
-                    snackbar.setActionTextColor(Color.YELLOW)
-                    snackbar.show()
-                }
-            }))
-
-        itemTouchHelper.attachToRecyclerView(rv_notifications)
+            }
+        }
     }
 
     companion object {
@@ -76,5 +85,9 @@ class NotificationsFragment : BaseFragment() {
         }
 
         const val TAG = "Notifications"
+    }
+
+    override fun invoke(notification: DPushNotification) {
+        notification.firebaseID
     }
 }

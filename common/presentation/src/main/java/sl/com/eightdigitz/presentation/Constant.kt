@@ -84,6 +84,7 @@ object IntentParsableConstants {
     const val EXTRA_CATEGORY_ITEM_HOME = "home_category_item"
     const val EXTRA_NEW_ORDER = "new_order"
     const val EXTRA_MOBILE_NUMBER = "mobile number"
+    const val EXTRA_TALENT_RATE = "talent_rate"
 }
 
 object ViewTypes {

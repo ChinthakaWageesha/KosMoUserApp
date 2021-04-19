@@ -7,6 +7,7 @@ import sl.com.eightdigitz.client.apiSupports.requests.NewOrderRequest
 import sl.com.eightdigitz.client.apiSupports.requests.UpdateOrderStatusRequest
 import sl.com.eightdigitz.core.model.ListResponse
 import sl.com.eightdigitz.core.model.domain.DOrder
+import sl.com.eightdigitz.core.model.domain.DTalentRate
 import sl.com.eightdigitz.core.model.domain.DUpdateOrderStatus
 import sl.com.eightdigitz.core.model.domain.DUser
 
@@ -25,4 +26,7 @@ class OrderRepositoryImpl constructor(
 
     override fun updateOrderStatus(request: UpdateOrderStatusRequest): Single<DUpdateOrderStatus> =
         orderDataSource.updateOrderStatus(request)
+
+    override fun getTalentRate(talentId: String): Single<DTalentRate> =
+        orderDataSource.getTalentRate(talentId)
 }

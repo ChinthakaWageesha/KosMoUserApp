@@ -51,7 +51,8 @@ val dataSourceModule: Module = module(override = true) {
             authApi = get(),
             joinContactApi = get(),
             multimediaApi = get(),
-            preferencesApi = get()
+            preferencesApi = get(),
+            notificationApi = get()
         ) as AuthDataSource
     }
 }

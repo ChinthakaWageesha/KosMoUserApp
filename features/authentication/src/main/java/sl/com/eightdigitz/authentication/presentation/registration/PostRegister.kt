@@ -19,6 +19,7 @@ import sl.com.eightdigitz.core.model.domain.DPreference
 import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.core.model.domain.DUserRegister
 import sl.com.eightdigitz.core.model.presentation.PUser
+import sl.com.eightdigitz.models.Success
 import sl.com.eightdigitz.presentation.*
 import sl.com.eightdigitz.presentation.extensions.*
 
@@ -36,7 +37,7 @@ class PostRegister : BaseActivity(), View.OnClickListener, (DPreference, Boolean
         init()
     }
 
-    private fun setToolbar(){
+    private fun setToolbar() {
         supportActionBar?.setActionBar(
             this,
             "",
@@ -44,7 +45,7 @@ class PostRegister : BaseActivity(), View.OnClickListener, (DPreference, Boolean
         )
     }
 
-    private fun getData(){
+    private fun getData() {
         if (intent.hasExtra(IntentParsableConstants.EXTRA_REGISTER_USER)) {
             user = intent.getParcelableExtra(IntentParsableConstants.EXTRA_REGISTER_USER)
         }
@@ -59,11 +60,12 @@ class PostRegister : BaseActivity(), View.OnClickListener, (DPreference, Boolean
 
         viewModel.liveDataFirebaseToken.observe(this, Observer { observerRegisterToken(it) })
         viewModel.liveDataCategories.observe(this, Observer { observerGetPreferences(it) })
-        viewModel.liveDataPreference.observe(this, Observer { observerSetPreferences(it)})
+        viewModel.liveDataPreference.observe(this, Observer { observerSetPreferences(it) })
+        viewModel.liveDataNotification.observe(this, Observer { observerRequestNotification(it) })
         btn_lets_do_it.setOnClickListener(this)
     }
 
-    private fun registerFirebaseToken(){
+    private fun registerFirebaseToken() {
         val request = FirebaseToken()
         request.deviceType = getDeviceType()
         request.firebaseToken = user?.firebaseId
@@ -72,17 +74,26 @@ class PostRegister : BaseActivity(), View.OnClickListener, (DPreference, Boolean
     }
 
     @SuppressLint("MissingPermission")
-    private fun getPreferences(){
+    private fun getPreferences() {
         withNetwork({
             viewModel.getPreferences()
-        },{
+        }, {
             showAlert(message = Msg.INTERNET_ISSUE)
         })
     }
 
-    private fun observerRegisterToken(resource: Resource<DFirebaseToken>){
+    @SuppressLint("MissingPermission")
+    private fun requestWelcomeNotification() {
+        withNetwork({
+            viewModel.requestWelcomeNotification(user?.id!!)
+        }, {
+            showAlert(message = Msg.INTERNET_ISSUE)
+        })
+    }
+
+    private fun observerRegisterToken(resource: Resource<DFirebaseToken>) {
         resource.let {
-            when(it.state){
+            when (it.state) {
                 ResourceState.LOADING -> ""
                 ResourceState.SUCCESS -> {
                     Log.d("FirebaseToken", it.data?.firebaseToken.toString())
@@ -110,13 +121,13 @@ class PostRegister : BaseActivity(), View.OnClickListener, (DPreference, Boolean
         }
     }
 
-    private fun observerSetPreferences(resource: Resource<DUser>){
+    private fun observerSetPreferences(resource: Resource<DUser>) {
         resource.let {
-            when(it.state){
+            when (it.state) {
                 ResourceState.LOADING -> showProgress()
                 ResourceState.SUCCESS -> {
                     hideProgress()
-                    navigateToMain()
+                    requestWelcomeNotification()
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
@@ -127,7 +138,7 @@ class PostRegister : BaseActivity(), View.OnClickListener, (DPreference, Boolean
                         negativeText = "Cancel",
                         callback = object : Callback {
                             override fun onPositiveClicked() {
-                                navigateToMain()
+                                requestWelcomeNotification()
                             }
 
                             override fun onNegativeClicked() {
@@ -140,18 +151,32 @@ class PostRegister : BaseActivity(), View.OnClickListener, (DPreference, Boolean
         }
     }
 
+    private fun observerRequestNotification(resource: Resource<Success>){
+        resource.let {
+            when(it.state){
+                ResourceState.LOADING -> ""
+                ResourceState.SUCCESS -> {
+                    navigateToMain()
+                }
+                ResourceState.ERROR -> {
+                    Log.d("Error", it.message?.error.toString())
+                }
+            }
+        }
+    }
+
     private fun setUpPreferenceAdapter(preferenceList: MutableList<DPreference>) {
         rv_preferences.adapter = PreferenceAdapter(preferenceList, this)
         rv_preferences.layoutManager = GridLayoutManager(this, 3)
     }
 
-    private fun navigateToMain(){
+    private fun navigateToMain() {
         setResult(ResultCodes.CREATE_USER_RESULT_CODE).also {
             finish()
         }
     }
 
-    private fun setPreferences(){
+    private fun setPreferences() {
         val request = AddUserPreferenceRequest()
         request.preferenceIDs = selectedPreferenceIds?.toTypedArray()
         viewModel.addUserPreferences(request)
@@ -171,7 +196,7 @@ class PostRegister : BaseActivity(), View.OnClickListener, (DPreference, Boolean
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             sl.com.eightdigitz.presentation.R.id.skip -> {
-                navigateToMain()
+                requestWelcomeNotification()
             }
         }
         return super.onOptionsItemSelected(item)
@@ -181,10 +206,10 @@ class PostRegister : BaseActivity(), View.OnClickListener, (DPreference, Boolean
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btn_lets_do_it -> {
-                if (!selectedPreferenceIds.isNullOrEmpty()){
+                if (!selectedPreferenceIds.isNullOrEmpty()) {
                     setPreferences()
                 } else {
-                    navigateToMain()
+                    requestWelcomeNotification()
                 }
             }
         }

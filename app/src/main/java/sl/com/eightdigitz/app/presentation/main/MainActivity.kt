@@ -34,6 +34,7 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
         navView.setOnNavigationItemSelectedListener(this)
         navView.itemIconTintList = null
         onNavigationItemSelected(navView.menu.findItem(R.id.nav_home))
+        handleFCM()
     }
 
     private fun handleFCM() {
@@ -44,65 +45,69 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
 
         notificationData?.let {
             try {
-
                 pNotification = it.jsonStringMapTo()
-
-
             } catch (e: Exception) {
                 e.printStackTrace()
             }
         }
 
         if (isNotificationShow) {
-            pNotification?.entity_title!!.showToast(this)
-            pNotification?.entity_id.toString().showToast(this)
+            onNavigationItemSelected(navView.menu.findItem(R.id.nav_activity)).also {
+                setNotifications()
+            }
         }
     }
 
     private fun getCurrentFragment() = supportFragmentManager.currentFragment(R.id.fl_main)
 
+    private fun setHome() {
+        if (getCurrentFragment() !is HomeFragment) {
+            supportFragmentManager.replaceFragment(
+                R.id.fl_main,
+                HomeFragment.newInstance(),
+                HomeFragment.TAG
+            )
+        }
+    }
+
+    private fun setSearch() {
+        if (getCurrentFragment() !is SearchFragment) {
+            supportFragmentManager.replaceFragment(
+                R.id.fl_main,
+                SearchFragment.newInstance(),
+                SearchFragment.TAG
+            )
+        }
+    }
+
+    private fun setNotifications() {
+        if (getCurrentFragment() !is NotificationsFragment) {
+            supportFragmentManager.replaceFragment(
+                R.id.fl_main,
+                NotificationsFragment.newInstance(),
+                NotificationsFragment.TAG
+            )
+        }
+    }
+
+    private fun setProfile() {
+        if (getCurrentFragment() !is ProfileFragment) {
+            supportFragmentManager.replaceFragment(
+                R.id.fl_main,
+                ProfileFragment.newInstance(),
+                ProfileFragment.TAG
+            )
+        }
+    }
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
         when (item.itemId) {
-            R.id.nav_home -> {
-                if (getCurrentFragment() !is HomeFragment) {
-                    supportFragmentManager.replaceFragment(
-                        R.id.fl_main,
-                        HomeFragment.newInstance(),
-                        HomeFragment.TAG
-                    )
-                }
-            }
-            R.id.nav_search -> {
-                if (getCurrentFragment() !is SearchFragment) {
-                    supportFragmentManager.replaceFragment(
-                        R.id.fl_main,
-                        SearchFragment.newInstance(),
-                        SearchFragment.TAG
-                    )
-                }
-            }
-            R.id.nav_explore -> {
-                startActivity<Explore>()
-            }
-            R.id.nav_activity -> {
-                if (getCurrentFragment() !is NotificationsFragment) {
-                    supportFragmentManager.replaceFragment(
-                        R.id.fl_main,
-                        NotificationsFragment.newInstance(),
-                        NotificationsFragment.TAG
-                    )
-                }
-            }
-            R.id.nav_profile -> {
-                if (getCurrentFragment() !is ProfileFragment) {
-                    supportFragmentManager.replaceFragment(
-                        R.id.fl_main,
-                        ProfileFragment.newInstance(),
-                        ProfileFragment.TAG
-                    )
-                }
-            }
+            R.id.nav_home -> setHome()
+            R.id.nav_search -> setSearch()
+            R.id.nav_explore -> startActivity<Explore>()
+            R.id.nav_activity -> setNotifications()
+            R.id.nav_profile -> setProfile()
         }
         return true
     }

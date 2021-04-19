@@ -243,4 +243,5 @@
 
     <!--Notifications-->
     <string name="hint_search_notifications">Search Notifications here</string>
+    <string name="message_no_notifications">You have no notifications right now.</string>
 </resources>

@@ -9,6 +9,7 @@ import sl.com.eightdigitz.client.apiSupports.requests.JoinUsRequest
 import sl.com.eightdigitz.client.apiSupports.requests.RegisterRequest
 import sl.com.eightdigitz.core.model.ListResponse
 import sl.com.eightdigitz.core.model.domain.*
+import sl.com.eightdigitz.models.Success
 
 interface AuthRepository {
 
@@ -31,4 +32,6 @@ interface AuthRepository {
     fun createAccount(registerRequest: RegisterRequest): Single<DUser>
 
     fun addUserPreference(addUserPreferenceRequest: AddUserPreferenceRequest): Single<DUser>
+
+    fun requestWelcomeNotification(userId: String): Single<Success>
 }

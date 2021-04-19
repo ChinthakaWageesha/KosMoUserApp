@@ -241,40 +241,53 @@ fun Order.mapToDomain(): DOrder = DOrder(
     ownerProfileURL = ownerProfileURL
 )
 
-fun NotificationResponse.mapToDomain(): ListResponse<DPushNotification> = ListResponse(
-    message = message,
-    result = status,
-    data = data?.map { it.mapToDomain() }
-)
-
 fun FirebaseToken.mapToDomain(): DFirebaseToken = DFirebaseToken(
     userID = userID,
     firebaseToken = firebaseToken,
     deviceType = deviceType
 )
 
-fun PushNotification.mapToDomain(): DPushNotification = DPushNotification(
-    id = id,
-    uuid = uuid,
-    title = title,
+fun NotificationResponse.mapToDomain(): ListResponse<DPushNotification> = ListResponse(
     message = message,
-    badgeCount = badgeCount,
-    data = data?.mapToDomain(),
-    sentAt = sentAt,
-    sentTimeLabel = sentTimeLabel
+    result = status,
+    data = data?.map { it.mapToDomain() }
 )
 
-fun Notification.mapToDomain(): DNotification = DNotification(
-    entityId = entityId,
-    entityTitle = entityTitle,
-    entityMessage = entityMessage,
-    thumbnailUrl = thumbnailUrl,
-    endDate = endDate
+fun PushNotification.mapToDomain(): DPushNotification = DPushNotification(
+    id = id,
+    createdAt = createdAt,
+    updatedAt = updatedAt,
+    deletedAt = deletedAt,
+    userID = userID,
+    notificationType = notificationType,
+    status = status,
+    isRead = isRead,
+    title = title,
+    description = description,
+    orderID = orderID,
+    firebaseID = firebaseID,
+    talentID = talentID
 )
 
 fun NMessage.mapToPresentation(): PMessage = PMessage(
     error = error
 )
 
+fun TalentRate.mapToDomain(): DTalentRate = DTalentRate(
+    id = id,
+    createdAt = createdAt,
+    updatedAt = updatedAt,
+    deletedAt = deletedAt,
+    talentID = talentID,
+    categoryID = categoryID,
+    typeID = typeID,
+    rate = rate,
+    companyPercentage = companyPercentage,
+    talentPercentage = talentPercentage,
+    talentName = talentName,
+    orderType = orderType,
+    orderCategory = orderCategory,
+    VATPercentage = VATPercentage
+)
 fun SuccessResponse.mapToDataSource(): Success =
     Success(message, status, payload)

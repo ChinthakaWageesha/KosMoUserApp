@@ -7,6 +7,7 @@ import kotlinx.android.synthetic.main.activity_payment_checkout.*
 import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.core.model.domain.DOrder
+import sl.com.eightdigitz.core.model.domain.DTalentRate
 import sl.com.eightdigitz.presentation.IntentParsableConstants
 import sl.com.eightdigitz.presentation.RequestCodes
 import sl.com.eightdigitz.presentation.ResultCodes
@@ -16,6 +17,7 @@ import sl.com.eightdigitz.presentation.extensions.startActivity
 class PaymentCheckout : BaseActivity(), View.OnClickListener {
 
     private var order: DOrder? = null
+    private var talentRate: DTalentRate? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,10 +39,17 @@ class PaymentCheckout : BaseActivity(), View.OnClickListener {
             order = intent.getParcelableExtra(IntentParsableConstants.EXTRA_NEW_ORDER)
         }
 
-        tv_subtotal.text = "LKR 10,500"
-        tv_service_tax.text = "LKR 250"
-        tv_applied_promo_code.text = "(LKR 500)"
-        tv_total.text = "LKR 10,250"
+        if (intent.hasExtra(IntentParsableConstants.EXTRA_TALENT_RATE)){
+            talentRate = intent.getParcelableExtra(IntentParsableConstants.EXTRA_TALENT_RATE)
+
+            tv_subtotal.text = talentRate?.rate.toString()
+            tv_service_tax.text = ((talentRate?.rate?.times(talentRate?.VATPercentage!!))?.div(100)).toString()
+            //tv_applied_promo_code.text = "(LKR 500)"
+
+            tv_total.text = (talentRate?.rate?.minus((talentRate?.rate?.times(talentRate?.VATPercentage!!))?.div(100)!!)).toString()
+        }
+
+
         btn_next_checkout.setOnClickListener(this)
     }
 

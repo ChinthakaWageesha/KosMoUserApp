@@ -6,10 +6,7 @@ import retrofit2.http.Headers
 import retrofit2.http.POST
 import sl.com.eightdigitz.client.apiSupports.requests.NewOrderRequest
 import sl.com.eightdigitz.client.apiSupports.requests.UpdateOrderStatusRequest
-import sl.com.eightdigitz.client.apiSupports.responses.NewOrderResponse
-import sl.com.eightdigitz.client.apiSupports.responses.OrderListResponse
-import sl.com.eightdigitz.client.apiSupports.responses.UpdateOrderStatusResponse
-import sl.com.eightdigitz.client.apiSupports.responses.UserResponse
+import sl.com.eightdigitz.client.apiSupports.responses.*
 
 @JvmSuppressWildcards
 interface OrderApi {
@@ -42,4 +39,10 @@ interface OrderApi {
         @retrofit2.http.Header("x-id-token") idToken: String,
         @retrofit2.http.Query("stages") orderStages: String
     ): Single<OrderListResponse>
+
+    @GET("talent-rate")
+    fun getTalentRates(
+        @retrofit2.http.Header("x-id-token") idToken: String,
+        @retrofit2.http.Query("talent-id") talentID: String
+    ): Single<TalentRateResponse>
 }

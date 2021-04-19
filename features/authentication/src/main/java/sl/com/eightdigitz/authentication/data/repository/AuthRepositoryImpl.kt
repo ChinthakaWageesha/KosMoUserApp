@@ -11,6 +11,7 @@ import sl.com.eightdigitz.client.apiSupports.requests.JoinUsRequest
 import sl.com.eightdigitz.client.apiSupports.requests.RegisterRequest
 import sl.com.eightdigitz.core.model.ListResponse
 import sl.com.eightdigitz.core.model.domain.*
+import sl.com.eightdigitz.models.Success
 
 class AuthRepositoryImpl constructor(
     private val authDataSource: AuthDataSource
@@ -45,5 +46,8 @@ class AuthRepositoryImpl constructor(
 
     override fun addUserPreference(addUserPreferenceRequest: AddUserPreferenceRequest): Single<DUser> =
         authDataSource.addUserPreference(addUserPreferenceRequest)
+
+    override fun requestWelcomeNotification(userId: String): Single<Success> =
+        authDataSource.requestWelcomeNotification(userId)
 
 }

@@ -2,22 +2,21 @@ package sl.com.eightdigitz.authentication.datasource.remote
 
 import android.content.SharedPreferences
 import sl.com.eightdigitz.authentication.data.datasource.AuthDataSource
-import sl.com.eightdigitz.client.apis.AuthApi
 import sl.com.eightdigitz.core.model.mapToDomain
 import sl.com.eightdigitz.presentation.Constant
 import io.reactivex.Single
 import okhttp3.MultipartBody
 import sl.com.eightdigitz.client.apiSupports.models.FirebaseToken
-import sl.com.eightdigitz.client.apis.JoinContactApi
-import sl.com.eightdigitz.client.apis.MultimediaApi
-import sl.com.eightdigitz.client.apis.PreferencesApi
 import sl.com.eightdigitz.client.apiSupports.models.User
 import sl.com.eightdigitz.client.apiSupports.requests.AddUserPreferenceRequest
 import sl.com.eightdigitz.client.apiSupports.requests.ContactUsRequest
 import sl.com.eightdigitz.client.apiSupports.requests.JoinUsRequest
 import sl.com.eightdigitz.client.apiSupports.requests.RegisterRequest
+import sl.com.eightdigitz.client.apis.*
 import sl.com.eightdigitz.core.model.ListResponse
 import sl.com.eightdigitz.core.model.domain.*
+import sl.com.eightdigitz.core.model.mapToDataSource
+import sl.com.eightdigitz.models.Success
 import sl.com.eightdigitz.presentation.extensions.*
 
 class AuthDataSourceImpl constructor(
@@ -25,7 +24,8 @@ class AuthDataSourceImpl constructor(
     private val authApi: AuthApi,
     private val joinContactApi: JoinContactApi,
     private val multimediaApi: MultimediaApi,
-    private val preferencesApi: PreferencesApi
+    private val preferencesApi: PreferencesApi,
+    private val notificationApi: NotificationApi
 ) : AuthDataSource {
 
     override fun uploadAvatar(image: MultipartBody.Part): Single<String> =
@@ -103,6 +103,13 @@ class AuthDataSourceImpl constructor(
         ).map {
             saveUser(it.data)
             it.data?.mapToDomain()
+        }
+
+    override fun requestWelcomeNotification(userId: String): Single<Success> =
+        notificationApi.requestWelcomeNotification(
+            userId = userId
+        ).map {
+            it.mapToDataSource()
         }
 
     private fun saveTokens(otpToken: DOTPToken) {

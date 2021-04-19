@@ -81,7 +81,7 @@ class ViewShoutOutVideo : BaseActivity(), View.OnClickListener {
             if (result!!.endsWith(".mp4")){
                 "ShoutOut video already downloaded".showToast(this@ViewShoutOutVideo)
             } else {
-                result?.showToast(this@ViewShoutOutVideo)
+                result.showToast(this@ViewShoutOutVideo)
             }
         }
     }

@@ -1,4 +1,4 @@
-package sl.com.eightdigitz.app.presentation.search.viewProfile
+package sl.com.eightdigitz.app.presentation.profile
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,7 +10,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.app.presentation.order.addNewOrder.OrderDetails
 import sl.com.eightdigitz.app.presentation.search.LogSearchViewModel
-import sl.com.eightdigitz.client.apiSupports.models.User
 import sl.com.eightdigitz.client.apiSupports.requests.LogSearchRequest
 import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.core.model.domain.DUser
@@ -18,7 +17,6 @@ import sl.com.eightdigitz.core.model.domain.DUserSearch
 import sl.com.eightdigitz.presentation.*
 import sl.com.eightdigitz.presentation.extensions.hideKeyboard
 import sl.com.eightdigitz.presentation.extensions.setRoundedImage
-import sl.com.eightdigitz.presentation.extensions.showAlert
 import sl.com.eightdigitz.presentation.extensions.showToast
 
 class ViewProfile : BaseActivity(), View.OnClickListener {
@@ -54,6 +52,10 @@ class ViewProfile : BaseActivity(), View.OnClickListener {
                 )
             }
 
+            if (!talent?.profileVideo.isNullOrEmpty()) {
+                talent_video.setSource(talent?.profileVideo)
+            }
+
         } else {
             tv_profile_name.text = "Norman Munoz"
             tv_profile_field.text = "Athlete"
@@ -63,12 +65,14 @@ class ViewProfile : BaseActivity(), View.OnClickListener {
                 radius = 10
             )
         }
-        vmLogSearch.liveDataPreferenceSearch.observe(this, Observer { observerLogProfileSearch(it) })
+        vmLogSearch.liveDataPreferenceSearch.observe(
+            this,
+            Observer { observerLogProfileSearch(it) })
         iv_close_profile_view.setOnClickListener(this)
         btn_request_now.setOnClickListener(this)
     }
 
-    private fun logProfileSearch(profileOwnerId: String){
+    private fun logProfileSearch(profileOwnerId: String) {
         val logSearch = LogSearchRequest()
         logSearch.userID = currentLoggedUser?.id
         logSearch.searchType = SearchType.PROFILE_SEARCH
@@ -102,7 +106,7 @@ class ViewProfile : BaseActivity(), View.OnClickListener {
                 onBackPressed()
             }
             R.id.btn_request_now -> {
-                if (talent != null){
+                if (talent != null) {
                     val intent = Intent(this, OrderDetails::class.java)
                     intent.putExtra(IntentParsableConstants.EXTRA_USER, talent)
                     startActivity(intent)

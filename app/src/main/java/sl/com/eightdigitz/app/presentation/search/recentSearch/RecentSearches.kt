@@ -1,5 +1,6 @@
 package sl.com.eightdigitz.app.presentation.search.recentSearch
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -11,7 +12,7 @@ import kotlinx.android.synthetic.main.activity_recent_searches.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.app.presentation.search.SearchViewModel
-import sl.com.eightdigitz.app.presentation.search.viewProfile.ViewProfile
+import sl.com.eightdigitz.app.presentation.profile.ViewProfile
 import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.core.model.domain.DUserSearch
 import sl.com.eightdigitz.core.model.domain.DUser
@@ -73,6 +74,7 @@ class RecentSearches : BaseActivity(), View.OnClickListener, (DUser, Int) -> Uni
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
     }
 
+    @SuppressLint("MissingPermission")
     private fun getRecentSearches() {
         setViewType(ViewTypes.RECENT_TALENTS)
         tv_title_recent_searches.text = getString(sl.com.eightdigitz.presentation.R.string.title_recent_searches)
@@ -83,6 +85,7 @@ class RecentSearches : BaseActivity(), View.OnClickListener, (DUser, Int) -> Uni
         })
     }
 
+    @SuppressLint("MissingPermission")
     private fun getTalents() {
         setViewType(ViewTypes.TALENTS)
         tv_title_recent_searches.text = getString(sl.com.eightdigitz.presentation.R.string.title_talent_searches)
@@ -98,6 +101,7 @@ class RecentSearches : BaseActivity(), View.OnClickListener, (DUser, Int) -> Uni
         (rv_recent_talent_searches.adapter as RecentSearchAdapter).notifyDataSetChanged()
     }
 
+    @SuppressLint("MissingPermission")
     private fun removeRecentSearchProfile(ownerId: String, searchType: String) {
         withNetwork({
             vmSearch.removeRecentlyViewedProfile(ownerId, searchType)

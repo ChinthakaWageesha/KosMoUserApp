@@ -17,6 +17,7 @@ import sl.com.eightdigitz.client.apiSupports.requests.RegisterRequest
 import sl.com.eightdigitz.core.model.domain.DFirebaseToken
 import sl.com.eightdigitz.core.model.domain.DPreference
 import sl.com.eightdigitz.core.model.domain.DUser
+import sl.com.eightdigitz.models.Success
 import sl.com.eightdigitz.network.ErrorHandler
 
 class RegistrationViewModel constructor(private val authUseCase: AuthUseCase) : ViewModel() {
@@ -24,6 +25,7 @@ class RegistrationViewModel constructor(private val authUseCase: AuthUseCase) : 
     val liveDataSaveUser = MutableLiveData<Resource<PUser>>()
     val liveDataCategories = MutableLiveData<Resource<List<DPreference>>>()
     val liveDataPreference = MutableLiveData<Resource<DUser>>()
+    val liveDataNotification = MutableLiveData<Resource<Success>>()
     val liveDataFirebaseToken = MutableLiveData<Resource<DFirebaseToken>>()
     private val compositeDisposable = CompositeDisposable()
 
@@ -37,19 +39,21 @@ class RegistrationViewModel constructor(private val authUseCase: AuthUseCase) : 
                 .subscribe({
                     liveDataCategories.setSuccess(it!!, null)
                 }, {
-                    liveDataCategories.setError(ErrorHandler.getApiErrorMessage(it).mapToPresentation())
+                    liveDataCategories.setError(
+                        ErrorHandler.getApiErrorMessage(it).mapToPresentation()
+                    )
                 })
         )
     }
 
-    fun registerFirebaseToken(request: FirebaseToken){
+    fun registerFirebaseToken(request: FirebaseToken) {
         compositeDisposable.add(
             authUseCase.registerFirebaseToken(request)
                 .subscribeOn(Schedulers.io())
                 .map { it }
                 .subscribe({
                     liveDataFirebaseToken.setSuccess(it, null)
-                },{
+                }, {
                     liveDataFirebaseToken.setError(
                         ErrorHandler.getApiErrorMessage(it).mapToPresentation()
                     )
@@ -66,7 +70,11 @@ class RegistrationViewModel constructor(private val authUseCase: AuthUseCase) : 
             .map { it.mapToPresentation() }
             .subscribe(
                 { liveDataSaveUser.setSuccess(it) },
-                { liveDataSaveUser.setError(ErrorHandler.getApiErrorMessage(it).mapToPresentation())}
+                {
+                    liveDataSaveUser.setError(
+                        ErrorHandler.getApiErrorMessage(it).mapToPresentation()
+                    )
+                }
             )
     )
 
@@ -78,9 +86,25 @@ class RegistrationViewModel constructor(private val authUseCase: AuthUseCase) : 
                 .map { it }
                 .subscribe({
                     liveDataPreference.setSuccess(it, null)
-                },{
-                    liveDataPreference.setError(ErrorHandler.getApiErrorMessage(it).mapToPresentation())
+                }, {
+                    liveDataPreference.setError(
+                        ErrorHandler.getApiErrorMessage(it).mapToPresentation()
+                    )
                 })
+        )
+    }
+
+    fun requestWelcomeNotification(userId: String) {
+        compositeDisposable.add(authUseCase.requestWelcomeNotification(userId)
+            .subscribeOn(Schedulers.io())
+            .map { it }
+            .subscribe({
+                liveDataNotification.setSuccess(it, null)
+            }, {
+                liveDataNotification.setError(
+                    ErrorHandler.getApiErrorMessage(it).mapToPresentation()
+                )
+            })
         )
     }
 

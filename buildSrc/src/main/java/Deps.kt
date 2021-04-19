@@ -165,6 +165,7 @@ object ExternalLib {
     const val switchButton = "com.github.zcweng:switch-button:0.0.3"
     const val videoPlayer =  "com.github.HamidrezaAmz:MagicalExoPlayer:1.0.16"
     const val roundCornerProgressBar = "com.akexorcist:round-corner-progress-bar:2.1.1"
+
 }
 
 object GoogleLibraries {

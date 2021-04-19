@@ -18,4 +18,7 @@ class OrderUseCase(private val orderRepository: OrderRepository) {
     fun updateOrderStatus(request: UpdateOrderStatusRequest) =
         orderRepository.updateOrderStatus(request)
 
+    fun getTalentRates(talentId: String) =
+        orderRepository.getTalentRate(talentId)
+
 }

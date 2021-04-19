@@ -67,7 +67,7 @@ class ChooseLanguage : BaseActivity(), View.OnClickListener {
             intent.putExtra(IntentParsableConstants.EXTRA_REGISTER_USER, request)
             startActivityForResult(intent, RequestCodes.CREATE_USER_REQUEST_CODE)
         } else {
-          "${request.defaultLanguage} is available for this stage".showToast(this)
+          "${request.defaultLanguage} is not available for this stage".showToast(this)
         }
     }
 
