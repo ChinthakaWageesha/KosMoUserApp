@@ -4,13 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_order_to_proceed.*
 import kotlinx.android.synthetic.main.activity_order_to_proceed.tv_address_as
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.app.presentation.order.OrderViewModel
-import sl.com.eightdigitz.app.presentation.order.userOrders.adapters.OrderStagesAdapter
 import sl.com.eightdigitz.client.apiSupports.requests.UpdateOrderStatusRequest
 import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.core.model.domain.DOrder
@@ -41,7 +39,6 @@ class OrderToProceed : BaseActivity(), View.OnClickListener {
     }
 
     private fun init() {
-        setOrderStageAdapter()
         if (intent.hasExtra(IntentParsableConstants.EXTRA_NEW_ORDER)) {
             order = intent.getParcelableExtra(IntentParsableConstants.EXTRA_NEW_ORDER)
             withNetwork({
@@ -57,7 +54,6 @@ class OrderToProceed : BaseActivity(), View.OnClickListener {
     }
 
     private fun declineOrder() {
-
         val request = UpdateOrderStatusRequest()
         request.orderId = order?.id
         request.stage = "UserDeclined"
@@ -68,7 +64,7 @@ class OrderToProceed : BaseActivity(), View.OnClickListener {
             message = "Are you sure you want to decline this order?",
             negativeText = "No",
             positiveText = "Yes",
-            callback = object : Callback{
+            callback = object : Callback {
                 override fun onPositiveClicked() {
                     withNetwork({
                         vmOrder.updateOrderStatus(request)
@@ -85,25 +81,9 @@ class OrderToProceed : BaseActivity(), View.OnClickListener {
         )
     }
 
-    private fun setDataWithoutUser() {
-        iv_proceed_order_talent_image.setRoundedImage(
-            url = Constant.USER_IMAGE_AQUAMAN,
-            radius = 12
-        )
-        tv_proceed_order_talent_name.text = "Chathurika Bandara"
-        tv_proceed_order_talent_field.text = "Movies"
-        tv_proceed_order_reference.text = "Order Reference ${order?.id}"
-        tv_proceed_order_due_date.text = "Due by ${order?.requestedDeliveryDate}"
-        tv_proceed_order_for_username.text = order?.orderFor
-        tv_address_as.text = "Address ${order?.orderFor} as"
-        tv_address_proceed_order_user_as.text = order?.toPronoun
-        tv_proceed_order_message.text = order?.orderType
-        tv_instructions.text = order?.orderInstructions
-        tv_proceed_order_remaining_hrs.text =
-            "You have 24 hours remaining to review the order status. \n" + "By default the order will proceed."
-    }
-
     private fun setData(talent: DUser) {
+        cl_decline_proceed_main_base.makeVisible()
+        tv_no_talent.makeGone()
 
         if (!talent.profilePicture.isNullOrEmpty()) {
             iv_proceed_order_talent_image.setRoundedImage(
@@ -144,15 +124,6 @@ class OrderToProceed : BaseActivity(), View.OnClickListener {
             "You have 24 hours remaining to review the order status. \n" + "By default the order will proceed."
     }
 
-    private fun setOrderStageAdapter() {
-        orderStageList.add(0, "Reviewing")
-        orderStageList.add(1, "Processing")
-        orderStageList.add(2, "On Hold")
-        rv_proceed_order_stages.adapter = OrderStagesAdapter(orderStageList)
-        rv_proceed_order_stages.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-    }
-
     private fun observerGetTalent(resource: Resource<DUser>) {
         resource.let {
             when (it.state) {
@@ -164,7 +135,8 @@ class OrderToProceed : BaseActivity(), View.OnClickListener {
                 ResourceState.ERROR -> {
                     hideProgress()
                     if (it.errorCode == 404) {
-                        setDataWithoutUser()
+                        cl_decline_proceed_main_base.makeGone()
+                        tv_no_talent.makeVisible()
                     } else {
                         it.message?.error.toString().showToast(this)
                     }
@@ -173,9 +145,9 @@ class OrderToProceed : BaseActivity(), View.OnClickListener {
         }
     }
 
-    private fun observerDeclineOrder(resource: Resource<DUpdateOrderStatus>){
+    private fun observerDeclineOrder(resource: Resource<DUpdateOrderStatus>) {
         resource.let {
-            when(it.state){
+            when (it.state) {
                 ResourceState.LOADING -> showProgress()
                 ResourceState.SUCCESS -> {
                     hideProgress()

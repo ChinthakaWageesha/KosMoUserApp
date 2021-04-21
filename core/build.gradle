@@ -107,6 +107,7 @@ dependencies {
     implementation ExternalLib.eventCalendar
     implementation ExternalLib.switchButton
     implementation ExternalLib.videoPlayer
+    implementation ExternalLib.exoPlayer
     implementation ExternalLib.roundCornerProgressBar
 
 //  implementation Libraries.crashlytics
@@ -120,7 +121,7 @@ dependencies {
     implementation FirebaseLibraries.messaging
 
     implementation "life.knowledge4:k4l-video-trimmer:1.0"
-    implementation "com.google.android.exoplayer:exoplayer:2.9.5"
+    //implementation "com.google.android.exoplayer:exoplayer:2.9.5"
 }
 
 repositories {

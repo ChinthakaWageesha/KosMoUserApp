@@ -27,7 +27,7 @@ interface PreferencesApi {
     ): Single<UserResponse>
 
 
-    @GET("user/get-profile-list-by-preference")
+    @GET("talent/get-profile-list-by-category")
     fun getTalentsByPreference(
         @retrofit2.http.Header("x-id-token") idToken: String,
         @retrofit2.http.Query("preference-uuid") preferenceId: String,

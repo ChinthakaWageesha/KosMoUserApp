@@ -4,8 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_gradient_white_black"
     tools:context=".presentation.GetStarted">
+
+    <com.potyvideo.library.AndExoPlayerView
+        android:id="@+id/get_started_video"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:andexo_aspect_ratio="aspect_match"
+        app:andexo_full_screen="true"
+        app:andexo_loop="finite"
+        app:andexo_play_when_ready="true"
+        app:andexo_resize_mode="Fill"
+        app:andexo_show_controller="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_join_now_container"

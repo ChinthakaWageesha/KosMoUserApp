@@ -52,9 +52,7 @@ class PreferenceEdit : BaseActivity(), View.OnClickListener {
                 placeholder = sl.com.eightdigitz.presentation.R.drawable.ic_ph_profile_profile_picture
             )
         } else {
-            iv_set_preference_user_image.loadImage(
-                url = Constant.KID_IMAGE_URL
-            )
+            iv_set_preference_user_image.setBackgroundResource(sl.com.eightdigitz.presentation.R.drawable.ic_ph_profile_profile_picture)
         }
     }
 

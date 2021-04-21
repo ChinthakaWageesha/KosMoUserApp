@@ -52,7 +52,7 @@ class OngoingFragment : BaseFragment(), (DOrder, String) -> Unit {
 
     private fun getOrders() {
         activity?.withNetwork({
-            vmOrder.getOrdersByStages("New,OrderAccepted,TalentAccepted,TalentDelivered,OrderReviewRejected")
+            vmOrder.getOrdersByStages("New,OrderAccepted,TalentAccepted,TalentDelivered,OrderRejected,OnHold")
         }, {
             showAlert(message = Msg.INTERNET_ISSUE)
         })

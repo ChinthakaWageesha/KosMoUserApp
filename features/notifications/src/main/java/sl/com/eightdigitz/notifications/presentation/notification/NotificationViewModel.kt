@@ -20,10 +20,10 @@ class NotificationViewModel(
     private val compositeDisposable = CompositeDisposable()
     val notificationLiveData = MutableLiveData<Resource<List<DPushNotification>>>()
 
-    fun getNotifications() {
+    fun getNotifications(userId: String) {
         notificationLiveData.setLoading()
         compositeDisposable.add(
-            notificationUseCase.getNotifications()
+            notificationUseCase.getNotifications(userId)
                 .subscribeOn(Schedulers.io())
                 .map { it.data }
                 .subscribe({

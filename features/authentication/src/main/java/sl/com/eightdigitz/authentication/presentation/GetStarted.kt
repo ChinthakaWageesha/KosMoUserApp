@@ -21,6 +21,7 @@ class GetStarted : BaseActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_get_started)
         getData()
+        init()
         btn_get_started.setOnClickListener(this)
     }
 
@@ -28,6 +29,10 @@ class GetStarted : BaseActivity(), View.OnClickListener {
         if (intent.hasExtra(IntentParsableConstants.EXTRA_REGISTER_USER)) {
             userRequest = intent.getParcelableExtra(IntentParsableConstants.EXTRA_REGISTER_USER)
         }
+    }
+
+    private fun init(){
+        get_started_video.setSource("https://storage.googleapis.com/hello-app-cont/pexels-cottonbro-6965118.mp4")
     }
 
     override fun onClick(v: View?) {
@@ -50,8 +55,12 @@ class GetStarted : BaseActivity(), View.OnClickListener {
     }
 
     override fun onResume() {
-        hideKeyboard()
-        setBackground(sl.com.eightdigitz.presentation.R.drawable.ic_sample_sanga)
+        //get_started_video.setPlayWhenReady(true)
         super.onResume()
+    }
+
+    override fun onPause() {
+        //get_started_video.setPlayWhenReady(false)
+        super.onPause()
     }
 }

@@ -53,7 +53,7 @@ class CompletedFragment : BaseFragment(), (DOrder, String) -> Unit {
     @SuppressLint("MissingPermission")
     private fun getOrders() {
         activity?.withNetwork({
-            vmOrder.getOrdersByStages("OrderReviewSuccess")
+            vmOrder.getOrdersByStages("OrderReviewSuccess,Delivered")
         }, {
             showAlert(message = Msg.INTERNET_ISSUE)
         })

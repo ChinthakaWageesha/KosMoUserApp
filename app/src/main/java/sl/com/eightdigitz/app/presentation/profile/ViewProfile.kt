@@ -1,11 +1,22 @@
 package sl.com.eightdigitz.app.presentation.profile
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.CompoundButton
 import androidx.lifecycle.Observer
+import com.google.android.exoplayer2.DefaultRenderersFactory
+import com.google.android.exoplayer2.ExoPlayerFactory
+import com.google.android.exoplayer2.SimpleExoPlayer
+import com.google.android.exoplayer2.source.ExtractorMediaSource
+import com.google.android.exoplayer2.source.MediaSource
+import com.google.android.exoplayer2.upstream.DataSource
+import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
+import com.google.android.exoplayer2.util.Util.getUserAgent
 import kotlinx.android.synthetic.main.activity_view_profile.*
+import okhttp3.internal.Util
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.app.presentation.order.addNewOrder.OrderDetails
@@ -15,6 +26,7 @@ import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.core.model.domain.DUser
 import sl.com.eightdigitz.core.model.domain.DUserSearch
 import sl.com.eightdigitz.presentation.*
+import sl.com.eightdigitz.presentation.extensions.getAppFilePath
 import sl.com.eightdigitz.presentation.extensions.hideKeyboard
 import sl.com.eightdigitz.presentation.extensions.setRoundedImage
 import sl.com.eightdigitz.presentation.extensions.showToast
@@ -43,31 +55,28 @@ class ViewProfile : BaseActivity(), View.OnClickListener {
             if (!talent?.profilePicture.isNullOrEmpty()) {
                 iv_profile_image.setRoundedImage(
                     url = talent?.profilePicture!!,
-                    radius = 10
-                )
-            } else {
-                iv_profile_image.setRoundedImage(
-                    url = Constant.KID_IMAGE_URL,
+                    placeHolder = sl.com.eightdigitz.presentation.R.drawable.ic_ph_profile_profile_picture,
                     radius = 10
                 )
             }
-
-            if (!talent?.profileVideo.isNullOrEmpty()) {
-                talent_video.setSource(talent?.profileVideo)
-            }
-
-        } else {
-            tv_profile_name.text = "Norman Munoz"
-            tv_profile_field.text = "Athlete"
-
-            iv_profile_image.setRoundedImage(
-                url = Constant.USER_IMAGE_PAUL_WALKER,
-                radius = 10
-            )
         }
+
+        if (!talent?.profileVideo.isNullOrEmpty()) {
+            talent_video.setSource(talent?.profileVideo)
+        }
+
         vmLogSearch.liveDataPreferenceSearch.observe(
             this,
             Observer { observerLogProfileSearch(it) })
+
+        chk_volume.setOnCheckedChangeListener { compoundButton, isChecked ->
+            if (isChecked) {
+                talent_video.player.volume = 0f
+            } else {
+                talent_video.player.volume = 0.8f
+            }
+        }
+
         iv_close_profile_view.setOnClickListener(this)
         btn_request_now.setOnClickListener(this)
     }
@@ -92,6 +101,16 @@ class ViewProfile : BaseActivity(), View.OnClickListener {
                 }
             }
         }
+    }
+
+    override fun onResume() {
+        talent_video.setPlayWhenReady(true)
+        super.onResume()
+    }
+
+    override fun onPause() {
+        talent_video.pausePlayer()
+        super.onPause()
     }
 
     override fun onSupportNavigateUp(): Boolean {

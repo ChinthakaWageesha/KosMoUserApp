@@ -1,6 +1,7 @@
 package sl.com.eightdigitz.notifications.presentation.notification
 
 import android.annotation.SuppressLint
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,20 +12,19 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import sl.com.eightdigitz.core.base.BaseFragment
 import sl.com.eightdigitz.notifications.R
 import kotlinx.android.synthetic.main.fragment_notifications.*
+import org.koin.android.ext.android.get
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.core.model.domain.DPushNotification
 import sl.com.eightdigitz.notifications.presentation.di.injectFeature
 import sl.com.eightdigitz.presentation.Msg
 import sl.com.eightdigitz.presentation.Resource
 import sl.com.eightdigitz.presentation.ResourceState
-import sl.com.eightdigitz.presentation.extensions.setEmptyView
-import sl.com.eightdigitz.presentation.extensions.showAlert
-import sl.com.eightdigitz.presentation.extensions.showToast
-import sl.com.eightdigitz.presentation.extensions.withNetwork
+import sl.com.eightdigitz.presentation.extensions.*
 
 class NotificationsFragment : BaseFragment(), (DPushNotification) -> Unit {
 
     private val vmNotifications by viewModel<NotificationViewModel>()
+    private var mSharedPreferences: SharedPreferences? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,15 +40,18 @@ class NotificationsFragment : BaseFragment(), (DPushNotification) -> Unit {
 
     private fun init() {
         injectFeature()
+        mSharedPreferences = get()
         setUpNotificationsAdapter()
         getNotifications()
-        vmNotifications.notificationLiveData.observe(this, Observer { observerGetNotifications(it) })
+        vmNotifications.notificationLiveData.observe(
+            this,
+            Observer { observerGetNotifications(it) })
     }
 
     @SuppressLint("MissingPermission")
     private fun getNotifications() {
         activity?.withNetwork({
-            vmNotifications.getNotifications()
+            vmNotifications.getNotifications(mSharedPreferences?.getUserId()!!)
         }, {
             showAlert(message = Msg.INTERNET_ISSUE)
         })
@@ -74,7 +77,6 @@ class NotificationsFragment : BaseFragment(), (DPushNotification) -> Unit {
                     hideProgress()
                     it.message?.error.toString().showToast(context!!)
                 }
-
             }
         }
     }

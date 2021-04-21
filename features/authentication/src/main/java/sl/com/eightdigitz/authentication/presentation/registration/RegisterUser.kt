@@ -142,7 +142,15 @@ class RegisterUser : BaseActivity(), View.OnClickListener {
 
     @SuppressLint("MissingPermission")
     private fun processSignUp() {
-        if (validateForm() && validateProPic()) {
+        /*if (validateForm() && validateProPic()) {
+            withNetwork({
+                getFcmTokenObserver()
+            }, {
+                showAlert(message = Msg.INTERNET_ISSUE)
+            })
+        }*/
+
+        if (validateForm()) {
             withNetwork({
                 getFcmTokenObserver()
             }, {

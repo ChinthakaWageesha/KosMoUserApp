@@ -17,7 +17,7 @@ interface NotificationApi {
     )
     @POST("fcm-notification/welcome/{user-id}")
     fun requestWelcomeNotification(
-        @retrofit2.http.Path ("user-id") userId: String
+        @retrofit2.http.Path("user-id") userId: String
     ): Single<SuccessResponse>
 
 
@@ -25,6 +25,8 @@ interface NotificationApi {
         "Content-Type: application/x-www-form-urlencoded"
     )
     @GET("fcm-notification/all-success")
-    fun notificationsGet(): Single<NotificationResponse>
+    fun notificationsGet(
+        @retrofit2.http.Query("user-id") userId: String
+    ): Single<NotificationResponse>
 
 }

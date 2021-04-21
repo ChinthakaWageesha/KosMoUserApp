@@ -4,5 +4,5 @@ import sl.com.eightdigitz.notifications.presentation.domain.repository.Notificat
 
 class NotificationUseCase(private val notificationRepository: NotificationRepository) {
 
-    fun getNotifications() = notificationRepository.getNotificationsList()
+    fun getNotifications(userId: String) = notificationRepository.getNotificationsList(userId)
 }

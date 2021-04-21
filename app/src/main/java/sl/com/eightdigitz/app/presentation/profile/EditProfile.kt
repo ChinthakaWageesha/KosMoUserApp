@@ -62,9 +62,7 @@ class EditProfile : BaseActivity(), View.OnClickListener {
                 placeholder = sl.com.eightdigitz.presentation.R.drawable.ic_ph_profile_profile_picture
             )
         } else {
-            iv_edit_profile_user_image.loadImage(
-                url = Constant.KID_IMAGE_URL
-            )
+            iv_edit_profile_user_image.setBackgroundResource(sl.com.eightdigitz.presentation.R.drawable.ic_ph_profile_profile_picture)
         }
 
         et_edit_profile_name.setText(user?.fullName)

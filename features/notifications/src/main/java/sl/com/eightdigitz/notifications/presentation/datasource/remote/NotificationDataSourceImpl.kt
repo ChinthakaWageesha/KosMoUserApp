@@ -1,5 +1,6 @@
 package sl.com.eightdigitz.notifications.presentation.datasource.remote
 
+import android.content.SharedPreferences
 import io.reactivex.Single
 import sl.com.eightdigitz.client.apis.NotificationApi
 import sl.com.eightdigitz.core.model.ListResponse
@@ -11,8 +12,8 @@ class NotificationDataSourceImpl(
     private val notificationApi: NotificationApi
 ) : NotificationDataSource {
 
-    override fun getNotificationsList(): Single<ListResponse<DPushNotification>> =
-        notificationApi.notificationsGet().map {
+    override fun getNotificationsList(userId: String): Single<ListResponse<DPushNotification>> =
+        notificationApi.notificationsGet(userId).map {
             it.mapToDomain()
         }
 

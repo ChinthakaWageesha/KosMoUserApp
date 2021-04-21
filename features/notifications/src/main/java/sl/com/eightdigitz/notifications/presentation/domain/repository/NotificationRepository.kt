@@ -6,6 +6,6 @@ import sl.com.eightdigitz.core.model.domain.DPushNotification
 
 interface NotificationRepository {
 
-    fun getNotificationsList(): Single<ListResponse<DPushNotification>>
+    fun getNotificationsList(userId: String): Single<ListResponse<DPushNotification>>
 
 }

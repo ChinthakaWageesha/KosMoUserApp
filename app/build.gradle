@@ -45,6 +45,7 @@ dependencies {
     implementation ExternalLib.eventCalendar
     implementation ExternalLib.switchButton
     implementation ExternalLib.videoPlayer
+    implementation ExternalLib.exoPlayer
     implementation ExternalLib.roundCornerProgressBar
 
 

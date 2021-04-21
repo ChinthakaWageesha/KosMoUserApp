@@ -10,6 +10,7 @@ import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.core.model.domain.DOrder
 import sl.com.eightdigitz.presentation.Constant
 import sl.com.eightdigitz.presentation.NavigationTypes
+import sl.com.eightdigitz.presentation.extensions.makeGone
 
 class UserOrdersAdapter(
     private val orderList: MutableList<DOrder>,
@@ -61,13 +62,18 @@ class UserOrdersAdapter(
             )
         )
 
-        itemView.btn_order.setOnClickListener { onClickOrder(order, NavigationTypes.NAVIGATE_TO_ORDER_SUMMARY) }
+        itemView.btn_order.setOnClickListener {
+            onClickOrder(
+                order,
+                NavigationTypes.NAVIGATE_TO_ORDER_SUMMARY
+            )
+        }
     }
 
     private fun setProcessingOrder(itemView: View, order: DOrder) {
 
         itemView.cl_all_order_base.setBackgroundResource(
-            sl.com.eightdigitz.presentation.R.drawable.bg_snow_gray_stroke_orange_corner_round_15dp
+            sl.com.eightdigitz.presentation.R.drawable.bg_snow_gray_round_corner_15dp
         )
 
         itemView.cv_user_order.setBackgroundResource(
@@ -87,13 +93,18 @@ class UserOrdersAdapter(
             )
         )
 
-        itemView.btn_order.setOnClickListener { onClickOrder(order, NavigationTypes.NAVIGATE_TO_ORDER_SUMMARY) }
+        itemView.btn_order.setOnClickListener {
+            onClickOrder(
+                order,
+                NavigationTypes.NAVIGATE_TO_ORDER_SUMMARY
+            )
+        }
     }
 
     private fun setOnHoldOrder(itemView: View, order: DOrder) {
 
         itemView.cl_all_order_base.setBackgroundResource(
-            sl.com.eightdigitz.presentation.R.drawable.bg_snow_gray_round_corner_15dp
+            sl.com.eightdigitz.presentation.R.drawable.bg_snow_gray_stroke_orange_corner_round_15dp
         )
 
         itemView.cv_user_order.setBackgroundResource(
@@ -113,26 +124,57 @@ class UserOrdersAdapter(
             )
         )
 
-        itemView.btn_order.setOnClickListener { onClickOrder(order, NavigationTypes.NAVIGATE_TO_REVIEW_ORDER) }
+        itemView.btn_order.setOnClickListener {
+            onClickOrder(
+                order,
+                NavigationTypes.NAVIGATE_TO_REVIEW_ORDER
+            )
+        }
     }
 
-    private fun setCompletedOrders(itemView: View, order: DOrder){
+    private fun setRefundOrder(itemView: View, order: DOrder) {
         itemView.cl_all_order_base.setBackgroundResource(
             sl.com.eightdigitz.presentation.R.drawable.bg_snow_gray_round_corner_15dp
         )
 
-        /*itemView.cv_user_order.setBackgroundResource(
-            sl.com.eightdigitz.presentation.R.drawable.bg_orange_oval
-        )*/
+        itemView.cv_user_order.setBackgroundResource(
+            sl.com.eightdigitz.presentation.R.drawable.bg_light_green_oval
+        )
 
-        itemView.cv_user_order.visibility = View.GONE
+
 
         itemView.btn_order.setBackgroundResource(
             sl.com.eightdigitz.presentation.R.drawable.bg_white_corner_round_20dp
         )
 
+        if (order.stage.equals("Expired")){
+            itemView.btn_order.text = "Expired"
+        } else {
+            itemView.btn_order.text = "Declined"
+        }
 
-        if (!order.shoutOutURL.isNullOrEmpty()){
+        itemView.btn_order.setTextColor(
+            ContextCompat.getColor(
+                itemView.context,
+                sl.com.eightdigitz.presentation.R.color.colorTextGray
+            )
+        )
+
+        //itemView.btn_order.setOnClickListener { onClickOrder(order, NavigationTypes.NAVIGATE_TO_REVIEW_ORDER) }
+    }
+
+    private fun setCompletedOrder(itemView: View, order: DOrder) {
+        itemView.cl_all_order_base.setBackgroundResource(
+            sl.com.eightdigitz.presentation.R.drawable.bg_snow_gray_round_corner_15dp
+        )
+
+        itemView.cv_user_order.makeGone()
+
+        itemView.btn_order.setBackgroundResource(
+            sl.com.eightdigitz.presentation.R.drawable.bg_white_corner_round_20dp
+        )
+
+        if (!order.shoutOutURL.isNullOrEmpty()) {
             itemView.btn_order.text = "View ShoutOut Video"
         } else {
             itemView.btn_order.text = "View Order"
@@ -145,7 +187,68 @@ class UserOrdersAdapter(
             )
         )
 
-        itemView.btn_order.setOnClickListener { onClickOrder(order, NavigationTypes.NAVIGATE_TO_REVIEW_ORDER) }
+        itemView.btn_order.setOnClickListener {
+            onClickOrder(
+                order,
+                NavigationTypes.NAVIGATE_TO_REVIEW_ORDER
+            )
+        }
+    }
+
+    private fun setDeclinedOrder(itemView: View, order: DOrder) {
+        itemView.cl_all_order_base.setBackgroundResource(
+            sl.com.eightdigitz.presentation.R.drawable.bg_snow_gray_round_corner_15dp
+        )
+
+        itemView.cv_user_order.makeGone()
+
+        itemView.btn_order.setBackgroundResource(
+            sl.com.eightdigitz.presentation.R.drawable.bg_white_corner_round_20dp
+        )
+
+        itemView.btn_order.text = "View Order"
+
+        itemView.btn_order.setTextColor(
+            ContextCompat.getColor(
+                itemView.context,
+                sl.com.eightdigitz.presentation.R.color.colorTextGray
+            )
+        )
+
+        itemView.btn_order.setOnClickListener {
+            onClickOrder(
+                order,
+                NavigationTypes.NAVIGATE_TO_REVIEW_ORDER
+            )
+        }
+    }
+
+    private fun setRejectedOrder(itemView: View, order: DOrder) {
+        itemView.cl_all_order_base.setBackgroundResource(
+            sl.com.eightdigitz.presentation.R.drawable.bg_snow_gray_round_corner_15dp
+        )
+
+        itemView.cv_user_order.makeGone()
+
+        itemView.btn_order.setBackgroundResource(
+            sl.com.eightdigitz.presentation.R.drawable.bg_white_corner_round_20dp
+        )
+
+        itemView.btn_order.text = "View Order"
+
+        itemView.btn_order.setTextColor(
+            ContextCompat.getColor(
+                itemView.context,
+                sl.com.eightdigitz.presentation.R.color.colorTextGray
+            )
+        )
+
+        itemView.btn_order.setOnClickListener {
+            onClickOrder(
+                order,
+                NavigationTypes.NAVIGATE_TO_REVIEW_ORDER
+            )
+        }
     }
 
 
@@ -165,14 +268,25 @@ class UserOrdersAdapter(
 
             itemView.tv_order_date.text = order.requestedDeliveryDate
 
-            if (order.stage.equals("OrderAccepted") || order.stage.equals("TalentAccepted")) {
+            if (order.stage.equals("OrderAccepted") || order.stage.equals("TalentAccepted") || order.stage.equals(
+                    "TalentDelivered"
+                )
+            ) {
                 setProcessingOrder(itemView, order)
-            } else if (order.stage.equals("TalentDelivered") || order.stage.equals("OrderReviewRejected")) {
+            } else if (order.stage.equals("OnHold")) {
                 setOnHoldOrder(itemView, order)
-            } else if (order.stage.equals("TalentRejected")) {
+            } else if (order.stage.equals("New")) {
                 setReviewOrder(itemView, order)
-            } else if (order.stage.equals("OrderReviewSuccess")){
-                setCompletedOrders(itemView, order)
+            } else if (order.stage.equals("Expired") || order.stage.equals("TalentRejected") || order.stage.equals(
+                    "OrderReviewRejected")
+            ) {
+                setRefundOrder(itemView, order)
+            } else if (order.stage.equals("OrderReviewSuccess")) {
+                setCompletedOrder(itemView, order)
+            } else if (order.stage.equals("UserDeclined")) {
+                setDeclinedOrder(itemView, order)
+            } else if (order.stage.equals("OrderRejected")){
+                setRejectedOrder(itemView, order)
             }
         }
     }

@@ -10,6 +10,6 @@ class NotificationRepositoryImpl constructor(
     private val notificationDataSource: NotificationDataSource
 ) : NotificationRepository{
 
-    override fun getNotificationsList(): Single<ListResponse<DPushNotification>> =
-        notificationDataSource.getNotificationsList()
+    override fun getNotificationsList(userId: String): Single<ListResponse<DPushNotification>> =
+        notificationDataSource.getNotificationsList(userId)
 }

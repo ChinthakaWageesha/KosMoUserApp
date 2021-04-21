@@ -19,6 +19,7 @@ data class DUser(
     var profileVideo: String? = null,
     var profileBanner: String? = null,
     var preferences: List<DUserPreference>? = null,
+    var talentCategories: List<DUserPreference>? = null,
     var authReference: String? = null,
     var verified: Boolean? = null,
     var profileBiography: String? = null,

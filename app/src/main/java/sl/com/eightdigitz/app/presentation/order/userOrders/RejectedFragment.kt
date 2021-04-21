@@ -46,7 +46,7 @@ class RejectedFragment : BaseFragment(), (DOrder, String) -> Unit {
 
     private fun getOrders(){
         activity?.withNetwork({
-            vmOrder.getOrdersByStages("OrderRejected,TalentRejected")
+            vmOrder.getOrdersByStages("OrderRejected")
         }, {
             showAlert(message = Msg.INTERNET_ISSUE)
         })

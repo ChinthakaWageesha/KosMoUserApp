@@ -36,6 +36,8 @@ dependencies {
     implementation ExternalLib.imagePicker
     implementation ExternalLib.countryPick
 
+    implementation ExternalLib.videoPlayer
+
     implementation Libraries.butterKnife
     kapt Libraries.butterKnifeCompiler
 }

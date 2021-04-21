@@ -8,7 +8,7 @@
     tools:context=".presentation.order.userOrders.OrderSummary">
 
     <ScrollView
-        android:id="@+id/scrollView"
+        android:id="@+id/sv_order_summary"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fillViewport="true"
@@ -44,22 +44,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_order_summary_stages"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="24dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/cl_order_summary_detail_base"
-                    app:layout_constraintTop_toTopOf="parent" />
-
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/cl_order_summary_detail_base"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginEnd="16dp"
-                    app:layout_constraintEnd_toStartOf="@+id/rv_order_summary_stages"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
@@ -199,6 +188,170 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tv_address_as" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_order_summary_stage_base"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="24dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <View
+                        android:id="@+id/cv_reviewing_order"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:layout_marginStart="8dp"
+                        android:alpha="0.3"
+                        android:background="@drawable/bg_gray_oval"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_reviewing_order"
+                        style="@style/AnyColorNormalStyle.Size10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:alpha="0.3"
+                        android:fontFamily="@font/sf_pro_display_regular"
+                        android:text="@string/title_reviewing_stage"
+                        android:textColor="#414D55"
+                        app:layout_constraintBottom_toBottomOf="@+id/cv_reviewing_order"
+                        app:layout_constraintStart_toEndOf="@+id/cv_reviewing_order"
+                        app:layout_constraintTop_toTopOf="@+id/cv_reviewing_order" />
+
+                    <View
+                        android:id="@+id/cv_processing_order"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="24dp"
+                        android:alpha="0.3"
+                        android:background="@drawable/bg_gray_oval"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cv_reviewing_order" />
+
+                    <TextView
+                        android:id="@+id/tv_processing_order"
+                        style="@style/AnyColorNormalStyle.Size10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:alpha="0.3"
+                        android:fontFamily="@font/sf_pro_display_regular"
+                        android:text="@string/title_processing_stage"
+                        android:textColor="#414D55"
+                        app:layout_constraintBottom_toBottomOf="@+id/cv_processing_order"
+                        app:layout_constraintStart_toEndOf="@+id/cv_processing_order"
+                        app:layout_constraintTop_toTopOf="@+id/cv_processing_order" />
+
+                    <View
+                        android:id="@+id/cv_on_hold_order"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="24dp"
+                        android:background="@drawable/bg_gray_oval"
+                        android:alpha="0.3"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cv_processing_order" />
+
+                    <TextView
+                        android:id="@+id/tv_on_hold_order"
+                        style="@style/AnyColorNormalStyle.Size10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/sf_pro_display_regular"
+                        android:text="@string/title_on_hold_stage"
+                        android:textColor="#414D55"
+                        android:alpha="0.3"
+                        app:layout_constraintBottom_toBottomOf="@+id/cv_on_hold_order"
+                        app:layout_constraintStart_toEndOf="@+id/cv_on_hold_order"
+                        app:layout_constraintTop_toTopOf="@+id/cv_on_hold_order" />
+
+                    <View
+                        android:id="@+id/cv_approved_order"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="24dp"
+                        android:alpha="0.3"
+                        android:background="@drawable/bg_gray_oval"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cv_on_hold_order" />
+
+                    <TextView
+                        android:id="@+id/tv_approved_order"
+                        style="@style/AnyColorNormalStyle.Size10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/sf_pro_display_regular"
+                        android:text="@string/title_approved_stage"
+                        android:alpha="0.3"
+                        android:textColor="#414D55"
+                        app:layout_constraintBottom_toBottomOf="@+id/cv_approved_order"
+                        app:layout_constraintStart_toEndOf="@+id/cv_approved_order"
+                        app:layout_constraintTop_toTopOf="@+id/cv_approved_order" />
+
+                    <View
+                        android:id="@+id/cv_expired_order"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="24dp"
+                        android:alpha="0.3"
+                        android:background="@drawable/bg_gray_oval"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cv_approved_order" />
+
+                    <TextView
+                        android:id="@+id/tv_expired_order"
+                        style="@style/AnyColorNormalStyle.Size10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/sf_pro_display_regular"
+                        android:text="@string/title_expired_stage"
+                        android:alpha="0.3"
+                        android:textColor="#414D55"
+                        app:layout_constraintBottom_toBottomOf="@+id/cv_expired_order"
+                        app:layout_constraintStart_toEndOf="@+id/cv_expired_order"
+                        app:layout_constraintTop_toTopOf="@+id/cv_expired_order" />
+
+                    <View
+                        android:id="@+id/cv_refund_order"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="24dp"
+                        android:alpha="0.3"
+                        android:background="@drawable/bg_gray_oval"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cv_expired_order"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <TextView
+                        android:id="@+id/tv_refund_order"
+                        style="@style/AnyColorNormalStyle.Size10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:alpha="0.3"
+                        android:fontFamily="@font/sf_pro_display_regular"
+                        android:text="@string/title_refund_stage"
+                        android:textColor="#414D55"
+                        app:layout_constraintBottom_toBottomOf="@+id/cv_refund_order"
+                        app:layout_constraintStart_toEndOf="@+id/cv_refund_order"
+                        app:layout_constraintTop_toTopOf="@+id/cv_refund_order" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
@@ -247,5 +400,22 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/tv_no_talent_order"
+        style="@style/NoDataTextViewStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:maxLines="2"
+        android:text="@string/message_no_related_talent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

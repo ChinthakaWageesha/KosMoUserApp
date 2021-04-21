@@ -171,6 +171,13 @@
     <string name="message_its_for">It\'s for</string>
     <string name="btn_decline_order">Decline</string>
     <string name="btn_proceed_order">Proceed</string>
+    <string name="title_reviewing_stage">Reviewing</string>
+    <string name="title_processing_stage">Processing</string>
+    <string name="title_on_hold_stage">On Hold</string>
+    <string name="title_approved_stage">Approved</string>
+    <string name="title_expired_stage">Expired</string>
+    <string name="title_refund_stage">Refund</string>
+    <string name="message_no_related_talent">Sorry, The talent associate with this Order is not longer available.</string>
 
     <!--Help Center-->
     <string name="title_help">Help</string>

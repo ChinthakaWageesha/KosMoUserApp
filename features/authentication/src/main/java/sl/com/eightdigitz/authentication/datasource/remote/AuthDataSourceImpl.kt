@@ -113,11 +113,11 @@ class AuthDataSourceImpl constructor(
         }
 
     private fun saveTokens(otpToken: DOTPToken) {
-        mSharedPreferences.setAccessToken(otpToken.accessToken)
         mSharedPreferences.setIdToken(otpToken.idToken)
     }
 
     private fun saveUser(mUser: User?) {
+        mSharedPreferences.setUserId(mUser?.id)
         mSharedPreferences.setAuthReference(mUser?.authReference)
         mSharedPreferences.setValue(Constant.PREF_USER, mUser?.mapToDomain()?.toJsonString())
     }
