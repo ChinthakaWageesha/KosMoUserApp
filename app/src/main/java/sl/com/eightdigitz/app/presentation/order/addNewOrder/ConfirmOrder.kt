@@ -1,5 +1,6 @@
 package sl.com.eightdigitz.app.presentation.order.addNewOrder
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -43,6 +44,7 @@ class ConfirmOrder : BaseActivity(), View.OnClickListener {
         btn_place_order.setOnClickListener(this)
     }
 
+    @SuppressLint("MissingPermission")
     private fun placeOrder(){
         val orderRequest = NewOrderRequest()
 
@@ -50,7 +52,7 @@ class ConfirmOrder : BaseActivity(), View.OnClickListener {
         orderRequest.toPronoun = order?.toPronoun
         orderRequest.fromPronoun = order?.fromPronoun
         orderRequest.orderInstructions = order?.orderInstructions
-        orderRequest.deliveryDate = "2021-04-24"
+        orderRequest.deliveryDate = "2021-05-06"
         orderRequest.stage = "New"
         orderRequest.userID = currentLoggedUser?.id
         orderRequest.talentID = order?.talentID

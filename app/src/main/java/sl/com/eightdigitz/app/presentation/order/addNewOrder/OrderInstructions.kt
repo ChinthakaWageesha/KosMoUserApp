@@ -1,5 +1,6 @@
 package sl.com.eightdigitz.app.presentation.order.addNewOrder
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -84,6 +85,7 @@ class OrderInstructions : BaseActivity(), View.OnClickListener {
         btn_order_instructions_next.setOnClickListener(this)
     }
 
+    @SuppressLint("MissingPermission")
     private fun getTalentRates() {
         withNetwork({
             vmOrder.getTalentRate(order?.talentID!!)
@@ -107,10 +109,9 @@ class OrderInstructions : BaseActivity(), View.OnClickListener {
     }
 
     private fun onNext() {
-
+        order?.orderInstructions = et_instructions.getStringTrim()
         if (talentRate != null){
             if (validate()) {
-                order?.orderInstructions = et_instructions.getStringTrim()
                 val intentPC = Intent(this, PaymentCheckout::class.java)
                 intentPC.putExtra(IntentParsableConstants.EXTRA_NEW_ORDER, order)
                 intentPC.putExtra(IntentParsableConstants.EXTRA_TALENT_RATE, talentRate)

@@ -16,7 +16,6 @@ import sl.com.eightdigitz.app.presentation.preferences.PreferencesViewModel
 import sl.com.eightdigitz.app.presentation.profile.ProfileViewModel
 import sl.com.eightdigitz.app.presentation.search.LogSearchViewModel
 import sl.com.eightdigitz.app.presentation.settings.SettingsViewModel
-import kotlin.system.exitProcess
 
 fun injectFeature() = loadFeature
 
@@ -46,7 +45,8 @@ val viewModelModule: Module = module {
 
     viewModel {
         OrderViewModel(
-            orderUseCase = get()
+            orderUseCase = get(),
+            paymentUseCase = get()
         )
     }
 
@@ -81,6 +81,7 @@ val useCaseModule: Module = module(override = true) {
     factory { ProfileUseCase(profileRepository = get()) }
     factory { SettingsUseCase(settingsRepository = get()) }
     factory { ExploreUseCase(exploreRepository = get()) }
+    factory { PaymentUseCase(paymentRepository = get()) }
 }
 
 val repositoryModule: Module = module(override = true) {
@@ -112,6 +113,12 @@ val repositoryModule: Module = module(override = true) {
         ExploreRepositoryImpl(
             exploreDataSource = get()
         ) as ExploreRepository
+    }
+
+    single {
+        PaymentRepositoryImpl(
+            paymentDataSource = get()
+        ) as PaymentRepository
     }
 }
 
@@ -151,5 +158,11 @@ val dataSourceModule: Module = module(override = true) {
         ExploreDataSourceImpl(
             exploreApi = get()
         ) as ExploreDataSource
+    }
+
+    single {
+        PaymentDataSourceImpl(
+            paymentsApi = get()
+        ) as PaymentDataSource
     }
 }

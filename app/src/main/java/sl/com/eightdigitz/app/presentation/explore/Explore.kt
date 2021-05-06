@@ -48,8 +48,6 @@ class Explore : BaseActivity(), View.OnClickListener {
                         tv_no_explore_users.makeVisible()
                     }
                     (rv_explore_user.adapter as ExploreAdapter).addExploreUsers(it.data!!.toMutableList())
-
-
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
@@ -70,8 +68,4 @@ class Explore : BaseActivity(), View.OnClickListener {
             R.id.iv_close_explore -> onBackPressed()
         }
     }
-
-
-
-
 }

@@ -137,6 +137,7 @@
     <string name="title_promo_code">Promo Code Applied</string>
     <string name="title_total">Total</string>
     <string name="title_add_promo_code">Add Promo Code</string>
+    <string name="btn_add_promo_code">Add</string>
     <string name="hint_promo_code">Promo code here</string>
     <string name="message_payment_checkout">Your card will not be charged until the order is complete.</string>
 

@@ -39,12 +39,14 @@
                 <TextView
                     android:id="@+id/tv_payment_summary"
                     style="@style/BlackNormalTextStyle.Size14"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
                     android:fontFamily="@font/roboto_medium"
                     android:text="@string/title_payment_summary"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -53,7 +55,7 @@
                     style="@style/BlackNormalTextStyle.Size12"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="12dp"
                     android:fontFamily="@font/roboto_regular"
                     android:text="@string/title_subtotal"
@@ -66,7 +68,7 @@
                     style="@style/BlackNormalTextStyle.Size12"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="24dp"
+                    android:layout_marginEnd="16dp"
                     android:fontFamily="@font/roboto_regular"
                     android:gravity="end"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_title_subtotal"
@@ -79,7 +81,7 @@
                     style="@style/BlackNormalTextStyle.Size12"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/roboto_regular"
                     android:text="@string/title_services"
@@ -92,7 +94,7 @@
                     style="@style/BlackNormalTextStyle.Size12"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="24dp"
+                    android:layout_marginEnd="16dp"
                     android:fontFamily="@font/roboto_regular"
                     android:gravity="end"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_title_service"
@@ -133,7 +135,7 @@
                     style="@style/BlackBoldTextStyle.Size16"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="24dp"
                     android:fontFamily="@font/roboto_bold"
@@ -148,7 +150,7 @@
                     style="@style/BlackBoldTextStyle.Size16"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="24dp"
+                    android:layout_marginEnd="16dp"
                     android:fontFamily="@font/roboto_bold"
                     android:gravity="end"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_title_total"
@@ -170,38 +172,48 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cl_payment_summary_base">
 
-                <TextView
-                    android:id="@+id/tv_title_add_promo_code"
-                    style="@style/BlackNormalTextStyle.Size12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginEnd="16dp"
-                    android:fontFamily="@font/roboto_regular"
-                    android:text="@string/title_add_promo_code"
-                    app:layout_constraintBottom_toBottomOf="@+id/et_promo_code"
-                    app:layout_constraintEnd_toStartOf="@+id/et_promo_code"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/et_promo_code" />
-
-                <EditText
-                    android:id="@+id/et_promo_code"
-                    style="@style/PrimaryEditTextStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_enter_promo_code"
+                    android:background="@drawable/bg_gray_search_corner_round_10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
-                    android:layout_marginEnd="24dp"
+                    android:layout_marginEnd="16dp"
                     android:layout_marginBottom="16dp"
-                    android:background="@drawable/bg_gray_search_corner_round_10dp"
-                    android:gravity="center"
-                    android:hint="@string/hint_promo_code"
-                    android:inputType="textCapWords"
-                    android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/tv_title_add_promo_code"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <EditText
+                        android:id="@+id/et_promo_code"
+                        style="@style/PrimaryEditTextStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_gray_search_corner_round_10dp"
+                        android:gravity="center"
+                        android:hint="@string/hint_promo_code"
+                        android:inputType="textCapWords"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/btn_add_promo_code"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Button
+                        android:id="@+id/btn_add_promo_code"
+                        style="@style/TransparentButtonStyleII"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="@string/btn_add_promo_code"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/et_promo_code"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView

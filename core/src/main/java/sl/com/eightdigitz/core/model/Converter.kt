@@ -291,5 +291,11 @@ fun TalentRate.mapToDomain(): DTalentRate = DTalentRate(
     orderCategory = orderCategory,
     VATPercentage = VATPercentage
 )
+
+fun PromoCode.mapToDomain(): DPromoCode = DPromoCode(
+    discountAmount = discountAmount,
+    discountPercentage = discountPercentage
+)
+
 fun SuccessResponse.mapToDataSource(): Success =
     Success(message, status, payload)

@@ -11,7 +11,7 @@ import sl.com.eightdigitz.presentation.extensions.loadImageRound
 
 class ExploreAdapter(
     private val exploreUserList: MutableList<DUser>
-) : RecyclerView.Adapter<ExploreAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<ExploreAdapter.ViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -59,6 +59,5 @@ class ExploreAdapter(
             itemView.tv_explore_user_field.text = "Sports, Movies"
 
         }
-
     }
 }

@@ -121,22 +121,26 @@ class SendRequest : BaseActivity(), View.OnClickListener {
 
     @SuppressLint("MissingPermission")
     private fun sendRequest() {
-        if (validateForm() && validateProPic()) {
-            val joinTalentRequest = JoinUsRequest(
-                name = et_name_send_request.getStringTrim(),
-                email = et_email_send_request.getStringTrim(),
-                phoneNo = et_phone_number_send_request.getStringTrim(),
-                topSocialMediaPlatform = et_social_media_platform.getStringTrim(),
-                socialMediaProfileLink = et_social_media_link.getStringTrim(),
-                selfDescription = et_talent_description.getStringTrim(),
-                profilePicURL = uploadedImageURL
-            )
-            withNetwork({
-                vm.joinUs(joinTalentRequest)
-            }, {
-                showAlert(Msg.TITLE_ERROR, Msg.INTERNET_ISSUE)
-            })
+        val joinTalentRequest = JoinUsRequest()
+
+        if (validateForm()){
+            joinTalentRequest.name = et_name_send_request.getStringTrim()
+            joinTalentRequest.email = et_email_send_request.getStringTrim()
+            joinTalentRequest.phoneNo = et_phone_number_send_request.getStringTrim()
+            joinTalentRequest.topSocialMediaPlatform = et_social_media_platform.getStringTrim()
+            joinTalentRequest.socialMediaProfileLink = et_social_media_link.getStringTrim()
+            joinTalentRequest.selfDescription = et_talent_description.getStringTrim()
         }
+
+        if (!uploadedImageURL.isNullOrEmpty()) {
+            joinTalentRequest.profilePicURL = uploadedImageURL
+        }
+
+        withNetwork({
+            vm.joinUs(joinTalentRequest)
+        }, {
+            showAlert(Msg.TITLE_ERROR, Msg.INTERNET_ISSUE)
+        })
     }
 
     private fun observerUploadJoinUsImage(resource: Resource<String>){

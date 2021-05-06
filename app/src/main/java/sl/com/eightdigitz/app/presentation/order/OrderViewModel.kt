@@ -6,12 +6,10 @@ import com.bumptech.glide.load.HttpException
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import sl.com.eightdigitz.app.domain.usecase.OrderUseCase
+import sl.com.eightdigitz.app.domain.usecase.PaymentUseCase
 import sl.com.eightdigitz.client.apiSupports.requests.NewOrderRequest
 import sl.com.eightdigitz.client.apiSupports.requests.UpdateOrderStatusRequest
-import sl.com.eightdigitz.core.model.domain.DOrder
-import sl.com.eightdigitz.core.model.domain.DTalentRate
-import sl.com.eightdigitz.core.model.domain.DUpdateOrderStatus
-import sl.com.eightdigitz.core.model.domain.DUser
+import sl.com.eightdigitz.core.model.domain.*
 import sl.com.eightdigitz.core.model.mapToPresentation
 import sl.com.eightdigitz.network.ErrorHandler
 import sl.com.eightdigitz.presentation.Resource
@@ -20,7 +18,8 @@ import sl.com.eightdigitz.presentation.setLoading
 import sl.com.eightdigitz.presentation.setSuccess
 
 class OrderViewModel(
-    private val orderUseCase: OrderUseCase
+    private val orderUseCase: OrderUseCase,
+    private val paymentUseCase: PaymentUseCase
 ) : ViewModel() {
 
     val liveDataTalent = MutableLiveData<Resource<DUser>>()
@@ -28,6 +27,7 @@ class OrderViewModel(
     val liveDataGetOrders = MutableLiveData<Resource<List<DOrder>>>()
     val liveDataUpdateStatus = MutableLiveData<Resource<DUpdateOrderStatus>>()
     val liveDataTalentRates = MutableLiveData<Resource<DTalentRate>>()
+    val liveDataGetOffers = MutableLiveData<Resource<DPromoCode>>()
     private val compositeDisposable = CompositeDisposable()
 
     fun getTalentById(talentId: String) {
@@ -111,6 +111,22 @@ class OrderViewModel(
                     liveDataTalentRates.setSuccess(it, null)
                 }, {
                     liveDataTalentRates.setError(
+                        ErrorHandler.getApiErrorMessage(it).mapToPresentation()
+                    )
+                })
+        )
+    }
+
+    fun getOrdersByPromoCode(promoCode: String) {
+        liveDataGetOffers.setLoading()
+        compositeDisposable.add(
+            paymentUseCase.getOffersByPromoCode(promoCode)
+                .subscribeOn(Schedulers.io())
+                .map { it }
+                .subscribe({
+                    liveDataGetOffers.setSuccess(it, null)
+                }, {
+                    liveDataGetOffers.setError(
                         ErrorHandler.getApiErrorMessage(it).mapToPresentation()
                     )
                 })

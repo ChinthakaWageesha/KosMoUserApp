@@ -29,6 +29,7 @@ val apiModule: Module = module {
     single { orderApi }
     single { notificationApi }
     single { exploreApi }
+    single { paymentApi }
 }
 
 private val authApi: AuthApi = retrofit.create(AuthApi::class.java)
@@ -48,3 +49,5 @@ private val orderApi: OrderApi = retrofit.create(OrderApi::class.java)
 private val notificationApi = retrofit.create(NotificationApi::class.java)
 
 private val exploreApi: ExploreApi = retrofit.create(ExploreApi::class.java)
+
+private val paymentApi: PaymentsApi = retrofit.create(PaymentsApi::class.java)
