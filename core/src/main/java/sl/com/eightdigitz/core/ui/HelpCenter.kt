@@ -5,10 +5,9 @@ import android.view.View
 import kotlinx.android.synthetic.main.activity_help_center.*
 import sl.com.eightdigitz.core.R
 import sl.com.eightdigitz.core.base.BaseActivity
-import sl.com.eightdigitz.presentation.AppInformationType
-import sl.com.eightdigitz.presentation.Constant
 import sl.com.eightdigitz.presentation.extensions.hideKeyboard
 import sl.com.eightdigitz.presentation.extensions.setHelpCenterActionBar
+import sl.com.eightdigitz.presentation.extensions.startActivity
 
 class HelpCenter : BaseActivity(), View.OnClickListener {
 
@@ -41,10 +40,10 @@ class HelpCenter : BaseActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.cl_terms_use_base -> {
-                AppInformation.startActivity(this, AppInformationType.TNC)
+                startActivity<TermsOfUse>()
             }
             R.id.cl_privacy_policy_base -> {
-                AppInformation.startActivity(this, AppInformationType.PRIVACY_POLICY)
+                startActivity<PrivacyPolicy>()
             }
         }
     }

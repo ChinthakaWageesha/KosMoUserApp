@@ -9,6 +9,9 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.app.presentation.home.adapters.HomeCategoryViewPagerAdapter
 import sl.com.eightdigitz.core.base.BaseFragment
+import sl.com.eightdigitz.presentation.extensions.showToast
+import java.text.SimpleDateFormat
+import java.util.*
 
 class HomeFragment : BaseFragment() {
 

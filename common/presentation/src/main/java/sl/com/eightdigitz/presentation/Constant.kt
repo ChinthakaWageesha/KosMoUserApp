@@ -39,11 +39,6 @@ object SearchType {
     const val PREFERENCE_SEARCH = "preference"
 }
 
-object AppInformationType{
-    const val PRIVACY_POLICY = "Privacy Policy"
-    const val TNC = "Terms & Conditions"
-}
-
 object IntentActionConstants {
     const val ACTION_VIEW_NOTIFICATIONS = "ACTION_VIEW_NOTIFICATIONS"
 }

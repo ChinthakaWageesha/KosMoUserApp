@@ -13,6 +13,10 @@ class HelpCenterRepositoryImpl constructor(
     override fun getCountries(): MutableList<DCountry> =
         helpCenterDataSource.getCountries()
 
-    override fun getAppInfo(country: String, language: String): Single<DAppInfo> =
-        helpCenterDataSource.getAppInfo(country, language)
+    override fun getPrivacyPolicy(country: String, language: String): Single<DAppInfo> =
+        helpCenterDataSource.getPrivacyPolicy(country, language)
+
+    override fun getTermsOfUse(language: String): Single<DAppInfo> =
+        helpCenterDataSource.getTermsOfUse(language)
+
 }

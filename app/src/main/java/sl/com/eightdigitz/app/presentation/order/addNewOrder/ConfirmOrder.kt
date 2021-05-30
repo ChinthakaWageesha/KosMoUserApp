@@ -15,11 +15,15 @@ import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.core.model.domain.DOrder
 import sl.com.eightdigitz.presentation.*
 import sl.com.eightdigitz.presentation.extensions.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ConfirmOrder : BaseActivity(), View.OnClickListener {
 
     private val vmOrder by viewModel<OrderViewModel>()
     private var order: DOrder? = null
+    private lateinit var deliveryDate: Date
+    private var deliveryDateStr = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,8 +44,17 @@ class ConfirmOrder : BaseActivity(), View.OnClickListener {
         if (intent.hasExtra(IntentParsableConstants.EXTRA_NEW_ORDER)) {
             order = intent.getParcelableExtra(IntentParsableConstants.EXTRA_NEW_ORDER)
         }
+        setDeliveryDate()
         vmOrder.liveDataPlaceOrder.observe(this, Observer { observerNewOrder(it) })
         btn_place_order.setOnClickListener(this)
+    }
+
+    private fun setDeliveryDate(){
+        val calendar = Calendar.getInstance()
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.US)
+        calendar.add(Calendar.DAY_OF_YEAR, 14)
+        deliveryDate = calendar.time
+        deliveryDateStr = dateFormat.format(deliveryDate)
     }
 
     @SuppressLint("MissingPermission")
@@ -52,7 +65,7 @@ class ConfirmOrder : BaseActivity(), View.OnClickListener {
         orderRequest.toPronoun = order?.toPronoun
         orderRequest.fromPronoun = order?.fromPronoun
         orderRequest.orderInstructions = order?.orderInstructions
-        orderRequest.deliveryDate = "2021-05-06"
+        orderRequest.deliveryDate = deliveryDateStr
         orderRequest.stage = "New"
         orderRequest.userID = currentLoggedUser?.id
         orderRequest.talentID = order?.talentID

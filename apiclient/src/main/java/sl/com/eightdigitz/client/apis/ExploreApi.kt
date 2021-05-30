@@ -7,8 +7,8 @@ import sl.com.eightdigitz.client.apiSupports.responses.UserListResponse
 @JvmSuppressWildcards
 interface ExploreApi {
 
-    @GET("user/get-user-by-role/{role}")
+    @GET("talent/get-profile-list-2-explore")
     fun getTalents(
-        @retrofit2.http.Path("role") role: String
+        @retrofit2.http.Query("preference-uuid") preferenceIds: Array<String>? = null
     ): Single<UserListResponse>
 }

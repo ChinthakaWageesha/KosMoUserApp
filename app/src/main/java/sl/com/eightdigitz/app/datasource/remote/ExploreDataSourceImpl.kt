@@ -11,10 +11,8 @@ class ExploreDataSourceImpl(
     private val exploreApi: ExploreApi
 ) : ExploreDataSource {
 
-    override fun getTalents(): Single<ListResponse<DUser>> =
-        exploreApi.getTalents(
-            role = "talent"
-        ).map {
+    override fun getExploreFeed(preference:  Array<String>?): Single<ListResponse<DUser>> =
+        exploreApi.getTalents(preference).map {
             it.mapToDomain()
         }
 }

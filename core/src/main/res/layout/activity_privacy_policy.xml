@@ -21,7 +21,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tv_app_info_last_update"
+                android:id="@+id/tv_privacy_policy_last_update"
                 style="@style/AnyColorNormalStyle.Size12"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
                 android:fontFamily="@font/sf_pro_text_regular"
                 android:text="@string/title_select_country"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_app_info_last_update" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_privacy_policy_last_update" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_spinner_country_base"
@@ -142,7 +142,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <WebView
-                android:id="@+id/wv_app_info"
+                android:id="@+id/wv_privacy_policy"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="24dp"

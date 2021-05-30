@@ -1,22 +1,19 @@
 package sl.com.eightdigitz.core.ui
 
 import android.annotation.SuppressLint
-import android.content.Context
-import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.lifecycle.Observer
-import kotlinx.android.synthetic.main.activity_app_informations.*
+import kotlinx.android.synthetic.main.activity_privacy_policy.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.core.R
 import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.core.model.domain.DAppInfo
 import sl.com.eightdigitz.core.model.domain.DLanguage
 import sl.com.eightdigitz.country_picker.domain.model.DCountry
-import sl.com.eightdigitz.presentation.AppInformationType
 import sl.com.eightdigitz.presentation.Msg
 import sl.com.eightdigitz.presentation.Resource
 import sl.com.eightdigitz.presentation.ResourceState
@@ -25,30 +22,23 @@ import sl.com.eightdigitz.presentation.extensions.showAlert
 import sl.com.eightdigitz.presentation.extensions.showToast
 import sl.com.eightdigitz.presentation.extensions.withNetwork
 
-class AppInformation : BaseActivity() {
+class PrivacyPolicy : BaseActivity() {
 
     private val vmHelp by viewModel<HelpCenterViewModel>()
-    private var title: String? = null
     private var country = ""
     private var language = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_app_informations)
+        setContentView(R.layout.activity_privacy_policy)
         setToolbar()
         init()
     }
 
     private fun setToolbar() {
-        if (intent.action.equals(AppInformationType.PRIVACY_POLICY)) {
-            title = getString(sl.com.eightdigitz.presentation.R.string.title_privacy_policy)
-        } else if (intent.action.equals(AppInformationType.TNC)) {
-            title = getString(sl.com.eightdigitz.presentation.R.string.title_terms_of_use)
-        }
-
         supportActionBar?.setHelpCenterActionBar(
             this,
-            title!!,
+            getString(sl.com.eightdigitz.presentation.R.string.title_privacy_policy),
             isHomeUpEnables = true
         )
     }
@@ -56,14 +46,15 @@ class AppInformation : BaseActivity() {
     private fun init() {
         vmHelp.getCountries()
         setLanguageSpinner()
-        wv_app_info.setBackgroundColor(Color.TRANSPARENT)
+        wv_privacy_policy.setBackgroundColor(Color.TRANSPARENT)
         vmHelp.liveDataCountries.observe(this, Observer { observerGetCountries(it) })
-        vmHelp.liveDataAppInfo.observe(this, Observer { observerGetAppInfo(it) })
+        vmHelp.liveDataPrivacyPolicy.observe(this, Observer { observerGetPrivacyPolicy(it) })
     }
 
-    private fun getAppInfo() {
+    @SuppressLint("MissingPermission")
+    private fun getPrivacyPolicy() {
         withNetwork({
-            vmHelp.getAppInfo(country, language)
+            vmHelp.getPrivacyPolicy(country, language)
         }, {
             showAlert(message = Msg.INTERNET_ISSUE)
         })
@@ -85,14 +76,14 @@ class AppInformation : BaseActivity() {
         }
     }
 
-    private fun observerGetAppInfo(resource: Resource<DAppInfo>){
+    private fun observerGetPrivacyPolicy(resource: Resource<DAppInfo>){
         resource.let {
             when(it.state){
                 ResourceState.LOADING -> showProgress()
                 ResourceState.SUCCESS -> {
                     hideProgress()
                     loadDataWebView(it.data?.description!!)
-                    tv_app_info_last_update.text = it.data?.updatedAt!!.split("T")[0]
+                    tv_privacy_policy_last_update.text = it.data?.updatedAt!!.split("T")[0]
                 }
                 ResourceState.ERROR -> {
                     hideProgress()
@@ -129,7 +120,7 @@ class AppInformation : BaseActivity() {
                     id: Long
                 ) {
                     country = countryList[position].code!!
-                    getAppInfo()
+                    getPrivacyPolicy()
                 }
 
                 override fun onNothingSelected(adapterView: AdapterView<*>?) {
@@ -186,7 +177,7 @@ class AppInformation : BaseActivity() {
                     id: Long
                 ) {
                     language = languageList[position].languageCode!!
-                    getAppInfo()
+                    getPrivacyPolicy()
                 }
 
                 override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -198,21 +189,12 @@ class AppInformation : BaseActivity() {
 
     @SuppressLint("SetJavaScriptEnabled")
     private fun loadDataWebView(data: String){
-        wv_app_info.settings.javaScriptEnabled = true
-        wv_app_info.loadData(data, "text/html; charset=utf-8", "UTF-8")
+        wv_privacy_policy.settings.javaScriptEnabled = true
+        wv_privacy_policy.loadData(data, "text/html; charset=utf-8", "UTF-8")
     }
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
-    }
-
-    companion object {
-        fun startActivity(context: Context, action: String) {
-            val intent = Intent(context, AppInformation::class.java).apply {
-                this.action = action
-            }
-            context.startActivity(intent)
-        }
     }
 }

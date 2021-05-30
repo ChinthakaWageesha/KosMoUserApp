@@ -20,10 +20,10 @@ class ExploreViewModel(
     val liveDataExplore = MutableLiveData<Resource<List<DUser>>>()
     private val compositeDisposable = CompositeDisposable()
 
-    fun getTalents() {
+    fun getExploreFeed(preference:  Array<String>?) {
         liveDataExplore.setLoading()
         compositeDisposable.add(
-            exploreUseCase.getTalents()
+            exploreUseCase.getExploreFeed(preference)
                 .subscribeOn(Schedulers.io())
                 .map { it.data }
                 .subscribe({

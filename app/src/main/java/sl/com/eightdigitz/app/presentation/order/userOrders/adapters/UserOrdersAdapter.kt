@@ -5,10 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_order_to_proceed.*
 import kotlinx.android.synthetic.main.item_user_orders.view.*
 import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.core.model.domain.DOrder
-import sl.com.eightdigitz.presentation.Constant
 import sl.com.eightdigitz.presentation.NavigationTypes
 import sl.com.eightdigitz.presentation.extensions.makeGone
 
@@ -257,7 +257,12 @@ class UserOrdersAdapter(
 
             val order = orderList[position]
 
-            itemView.tv_order_reference.text = "Reference ${order.id}"
+            if (order.orderReference.isNullOrEmpty()){
+                itemView.tv_order_reference.text = "Reference ${order?.id!!.split("-")[0]}"
+            } else {
+                itemView.tv_order_reference.text = "Reference ${order?.orderReference!!}"
+            }
+
             itemView.tv_user_order_type.text = "${order.orderType} Wish"
 
             if (!order.talentName.isNullOrEmpty()) {

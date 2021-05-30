@@ -75,7 +75,12 @@ class OrderSummary : BaseActivity() {
             tv_order_summary_talent_field.text = "Movies"
         }
 
-        tv_order_summary_reference.text = "Order Reference ${order?.id}"
+        if (order?.orderReference.isNullOrEmpty()){
+            tv_order_summary_reference.text = "Order Reference ${order?.id!!.split("-")[0]}"
+        } else {
+            tv_order_summary_reference.text = "Order Reference ${order?.orderReference!!}"
+        }
+
         tv_order_summary_due_date.text = "Due by ${order?.requestedDeliveryDate}"
         tv_order_summary_for_username.text = order?.orderFor
         tv_address_as.text = "Address ${order?.orderFor} as"

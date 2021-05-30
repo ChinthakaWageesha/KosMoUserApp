@@ -18,6 +18,7 @@ import sl.com.eightdigitz.presentation.extensions.showToast
 
 class Explore : BaseActivity(), View.OnClickListener {
 
+    private var selectedPreferenceIds: ArrayList<String>? = arrayListOf()
     private val vmExplore by viewModel<ExploreViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,9 +29,21 @@ class Explore : BaseActivity(), View.OnClickListener {
 
     private fun init() {
         setExploreAdapter()
-        vmExplore.getTalents()
+        getExploreFeed()
         vmExplore.liveDataExplore.observe(this, Observer { observerGetTalents(it) })
         iv_close_explore.setOnClickListener(this)
+    }
+
+    private fun getExploreFeed(){
+        vmExplore.getExploreFeed(null)
+        /*if (currentLoggedUser?.preferences != null){
+            for (i in currentLoggedUser?.preferences!!.indices){
+                selectedPreferenceIds?.add(currentLoggedUser?.preferences!![i].preferenceID!!)
+            }
+            vmExplore.getExploreFeed(selectedPreferenceIds?.toTypedArray())
+        } else {
+            vmExplore.getExploreFeed(null)
+        }*/
     }
 
     private fun observerGetTalents(resource: Resource<List<DUser>>) {

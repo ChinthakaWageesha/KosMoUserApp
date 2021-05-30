@@ -113,7 +113,12 @@ class OrderToProceed : BaseActivity(), View.OnClickListener {
             tv_proceed_order_talent_field.text = "Movies"
         }
 
-        tv_proceed_order_reference.text = "Order Reference ${order?.id}"
+        if (order?.orderReference.isNullOrEmpty()){
+            tv_proceed_order_reference.text = "Order Reference ${order?.id!!.split("-")[0]}"
+        } else {
+            tv_proceed_order_reference.text = "Order Reference ${order?.orderReference!!}"
+        }
+
         tv_proceed_order_due_date.text = "Due by ${order?.requestedDeliveryDate}"
         tv_proceed_order_for_username.text = order?.orderFor
         tv_address_as.text = "Address ${order?.orderFor} as"

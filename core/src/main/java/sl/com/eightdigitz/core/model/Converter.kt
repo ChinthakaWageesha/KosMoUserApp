@@ -240,7 +240,8 @@ fun Order.mapToDomain(): DOrder = DOrder(
     owner = owner,
     talentName = talentName,
     shoutOutURL = shoutOutURL,
-    ownerProfileURL = ownerProfileURL
+    ownerProfileURL = ownerProfileURL,
+    orderReference = orderReference
 )
 
 fun FirebaseToken.mapToDomain(): DFirebaseToken = DFirebaseToken(

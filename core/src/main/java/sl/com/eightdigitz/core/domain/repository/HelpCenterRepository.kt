@@ -8,5 +8,8 @@ interface HelpCenterRepository {
 
     fun getCountries(): MutableList<DCountry>
 
-    fun getAppInfo(country: String, language: String): Single<DAppInfo>
+    fun getPrivacyPolicy(country: String, language: String): Single<DAppInfo>
+
+    fun getTermsOfUse(language: String): Single<DAppInfo>
+
 }

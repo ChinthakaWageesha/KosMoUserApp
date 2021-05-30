@@ -8,8 +8,13 @@ import sl.com.eightdigitz.client.apiSupports.responses.AppInfoResponse
 interface HelpCenterApi {
 
     @GET("privacy-policy")
-    fun getAppInfo(
+    fun getPrivacyPolicy(
         @retrofit2.http.Query("country") country: String,
+        @retrofit2.http.Query("language") language: String
+    ): Single<AppInfoResponse>
+
+    @GET("terms-and-condition")
+    fun getTermsOfUse(
         @retrofit2.http.Query("language") language: String
     ): Single<AppInfoResponse>
 }

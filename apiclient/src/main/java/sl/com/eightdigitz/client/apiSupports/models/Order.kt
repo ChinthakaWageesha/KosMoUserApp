@@ -24,5 +24,6 @@ data class Order(
     @Json(name = "Owner") @field:Json(name = "Owner") var owner: String? = null,
     @Json(name = "TalentName") @field:Json(name = "TalentName") var talentName: String? = null,
     @Json(name = "ShoutOutURL") @field:Json(name = "ShoutOutURL") var shoutOutURL: String? = null,
-    @Json(name = "OwnerProfileURL") @field:Json(name = "OwnerProfileURL") var ownerProfileURL: String? = null
+    @Json(name = "OwnerProfileURL") @field:Json(name = "OwnerProfileURL") var ownerProfileURL: String? = null,
+    @Json(name = "OrderReference") @field:Json(name = "OrderReference") var orderReference: String? = null
 )

@@ -10,6 +10,6 @@ class ExploreRepositoryImpl constructor(
     private val exploreDataSource: ExploreDataSource
 ) : ExploreRepository {
 
-    override fun getTalents(): Single<ListResponse<DUser>> =
-        exploreDataSource.getTalents()
+    override fun getExploreFeed(preference:  Array<String>?): Single<ListResponse<DUser>>  =
+        exploreDataSource.getExploreFeed(preference)
 }

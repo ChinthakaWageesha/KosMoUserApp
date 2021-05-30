@@ -18,7 +18,8 @@ import sl.com.eightdigitz.presentation.setSuccess
 class HelpCenterViewModel(private val helpCenterUseCase: HelpCenterUseCase) : ViewModel() {
 
     val liveDataCountries = MutableLiveData<Resource<MutableList<DCountry>>>()
-    val liveDataAppInfo = MutableLiveData<Resource<DAppInfo>>()
+    val liveDataPrivacyPolicy = MutableLiveData<Resource<DAppInfo>>()
+    val liveDataTermsOfUse = MutableLiveData<Resource<DAppInfo>>()
     private val mCompositeDisposable = CompositeDisposable()
 
     fun getCountries(): MutableList<DCountry> {
@@ -39,16 +40,32 @@ class HelpCenterViewModel(private val helpCenterUseCase: HelpCenterUseCase) : Vi
         return helpCenterUseCase.getCountries()
     }
 
-    fun getAppInfo(country: String, language: String) {
-        liveDataAppInfo.setLoading()
+    fun getPrivacyPolicy(country: String, language: String) {
+        liveDataPrivacyPolicy.setLoading()
         mCompositeDisposable.add(
-            helpCenterUseCase.getAppInfo(country, language)
+            helpCenterUseCase.getPrivacyPolicy(country, language)
                 .subscribeOn(Schedulers.io())
                 .map { it }
                 .subscribe({
-                    liveDataAppInfo.setSuccess(it, null)
+                    liveDataPrivacyPolicy.setSuccess(it, null)
                 }, {
-                    liveDataAppInfo.setError(
+                    liveDataPrivacyPolicy.setError(
+                        ErrorHandler.getApiErrorMessage(it).mapToPresentation()
+                    )
+                })
+        )
+    }
+
+    fun getTermsOfUse(language: String) {
+        liveDataTermsOfUse.setLoading()
+        mCompositeDisposable.add(
+            helpCenterUseCase.getTermsOfUse(language)
+                .subscribeOn(Schedulers.io())
+                .map { it }
+                .subscribe({
+                    liveDataTermsOfUse.setSuccess(it, null)
+                }, {
+                    liveDataTermsOfUse.setError(
                         ErrorHandler.getApiErrorMessage(it).mapToPresentation()
                     )
                 })

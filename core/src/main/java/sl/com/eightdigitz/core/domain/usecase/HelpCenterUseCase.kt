@@ -7,8 +7,14 @@ class HelpCenterUseCase(private val helpCenterRepository: HelpCenterRepository) 
 
     fun getCountries(): MutableList<DCountry> = helpCenterRepository.getCountries()
 
-    fun getAppInfo(country: String, language: String) = helpCenterRepository.getAppInfo(
+    fun getPrivacyPolicy(country: String, language: String) =
+        helpCenterRepository.getPrivacyPolicy(
         country = country,
         language = language
     )
+
+    fun getTermsOfUse(language: String) =
+        helpCenterRepository.getTermsOfUse(
+            language = language
+        )
 }

@@ -1,7 +1,6 @@
 package sl.com.eightdigitz.core.datasource.remote
 
 import android.content.Context
-import android.content.SharedPreferences
 import android.util.Base64
 import com.google.gson.Gson
 import io.reactivex.Single
@@ -11,7 +10,6 @@ import sl.com.eightdigitz.core.model.domain.DAppInfo
 import sl.com.eightdigitz.core.model.mapToDomain
 import sl.com.eightdigitz.country_picker.R
 import sl.com.eightdigitz.country_picker.domain.model.DCountry
-import sl.com.eightdigitz.presentation.extensions.getIdToken
 import java.nio.charset.Charset
 
 class HelpCenterRemoteDataSourceImpl(
@@ -25,11 +23,19 @@ class HelpCenterRemoteDataSourceImpl(
         return Gson().fromJson(decodedJson, Array<DCountry>::class.java).toMutableList()
     }
 
-    override fun getAppInfo(country: String, language: String): Single<DAppInfo> =
-        helpCenterApi.getAppInfo(
+    override fun getPrivacyPolicy(country: String, language: String): Single<DAppInfo> =
+        helpCenterApi.getPrivacyPolicy(
             country = country,
             language = language
         ).map {
             it.data?.mapToDomain()
         }
+
+    override fun getTermsOfUse(language: String): Single<DAppInfo> =
+        helpCenterApi.getTermsOfUse(
+            language = language
+        ).map {
+            it.data?.mapToDomain()
+        }
+
 }

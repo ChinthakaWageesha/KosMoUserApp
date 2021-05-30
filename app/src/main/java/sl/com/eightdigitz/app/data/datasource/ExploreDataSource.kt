@@ -6,5 +6,6 @@ import sl.com.eightdigitz.core.model.domain.DUser
 
 interface ExploreDataSource {
 
-    fun getTalents(): Single<ListResponse<DUser>>
+    fun getExploreFeed(preference:  Array<String>?): Single<ListResponse<DUser>>
+
 }
