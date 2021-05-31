@@ -9,6 +9,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.core.model.domain.DUser
+import sl.com.eightdigitz.presentation.ExploreTypes
 import sl.com.eightdigitz.presentation.Resource
 import sl.com.eightdigitz.presentation.ResourceState
 import sl.com.eightdigitz.presentation.extensions.makeGone
@@ -16,7 +17,7 @@ import sl.com.eightdigitz.presentation.extensions.makeVisible
 import sl.com.eightdigitz.presentation.extensions.showToast
 
 
-class Explore : BaseActivity(), View.OnClickListener {
+class Explore : BaseActivity(), View.OnClickListener, (DUser, Int) -> Unit {
 
     private var selectedPreferenceIds: ArrayList<String>? = arrayListOf()
     private val vmExplore by viewModel<ExploreViewModel>()
@@ -71,7 +72,7 @@ class Explore : BaseActivity(), View.OnClickListener {
     }
 
     private fun setExploreAdapter() {
-        rv_explore_user.adapter = ExploreAdapter(mutableListOf())
+        rv_explore_user.adapter = ExploreAdapter(mutableListOf(), this)
         rv_explore_user.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
     }
@@ -79,6 +80,12 @@ class Explore : BaseActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.iv_close_explore -> onBackPressed()
+        }
+    }
+
+    override fun invoke(talent: DUser, type: Int) {
+        if (type == ExploreTypes.VIEW_PROFILE){
+            talent.fullName?.showToast(this)
         }
     }
 }

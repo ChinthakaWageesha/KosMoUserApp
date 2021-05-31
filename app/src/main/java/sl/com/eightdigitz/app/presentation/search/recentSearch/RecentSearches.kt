@@ -197,7 +197,6 @@ class RecentSearches : BaseActivity(), View.OnClickListener, (DUser, Int) -> Uni
             intent.putExtra(IntentParsableConstants.EXTRA_USER, talent)
             startActivity(intent)
         }
-
     }
 }
 

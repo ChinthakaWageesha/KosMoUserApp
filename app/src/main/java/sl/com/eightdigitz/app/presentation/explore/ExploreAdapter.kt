@@ -4,14 +4,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.exoplayer2.ExoPlayer
 import kotlinx.android.synthetic.main.item_explore_user.view.*
 import sl.com.eightdigitz.app.R
 import sl.com.eightdigitz.core.model.domain.DUser
+import sl.com.eightdigitz.presentation.Constant
+import sl.com.eightdigitz.presentation.ExploreTypes
 import sl.com.eightdigitz.presentation.extensions.loadImageRound
 
 class ExploreAdapter(
-    private val exploreUserList: MutableList<DUser>
-) : RecyclerView.Adapter<ExploreAdapter.ViewHolder>(){
+    private val exploreUserList: MutableList<DUser>,
+    val exploreCallback: (DUser, Int) -> Unit
+) : RecyclerView.Adapter<ExploreAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -43,7 +47,7 @@ class ExploreAdapter(
             val talent = exploreUserList[position]
 
             if (!talent.profileVideo.isNullOrEmpty()) {
-                itemView.talent_video.setSource(talent.profileVideo)
+                itemView.explore_video.setSource(talent.profileVideo)
             }
 
             if (!talent.profilePicture.isNullOrEmpty()) {
@@ -58,6 +62,17 @@ class ExploreAdapter(
             itemView.tv_explore_user_name.text = talent.fullName
             itemView.tv_explore_user_field.text = "Sports, Movies"
 
+            itemView.chk_volume_explore.setOnCheckedChangeListener { compoundButton, isChecked ->
+                if (isChecked) {
+                    itemView.explore_video.player.volume = 0f
+                } else {
+                    itemView.explore_video.player.volume = 0.8f
+                }
+            }
+
+            itemView.btn_view_profile.setOnClickListener{
+                exploreCallback(talent, ExploreTypes.VIEW_PROFILE)
+            }
         }
     }
 }

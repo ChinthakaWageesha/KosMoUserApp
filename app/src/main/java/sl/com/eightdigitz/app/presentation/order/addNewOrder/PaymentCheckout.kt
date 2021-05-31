@@ -52,6 +52,8 @@ class PaymentCheckout : BaseActivity(), View.OnClickListener {
 
             serviceTax = subTotal?.times(talentRate?.VATPercentage!!)?.div(100)
             tv_service_tax.text = serviceTax.toString()
+
+            tv_total.text = (subTotal?.plus(serviceTax!!)).toString()
         }
 
         vmPayment.liveDataGetOffers.observe(this, Observer { observerGetOffers(it) })

@@ -104,6 +104,7 @@ class RecentSearchAdapter(
             }
 
             itemView.iv_clear_recent_search.setOnClickListener { onClearSearch(item, TYPE_RECENT_TALENT) }
+            itemView.setOnClickListener{onClearSearch(item, TYPE_TALENT)}
         }
     }
 

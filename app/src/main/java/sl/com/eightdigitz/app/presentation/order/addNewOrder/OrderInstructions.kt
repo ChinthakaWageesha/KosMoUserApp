@@ -64,6 +64,10 @@ class OrderInstructions : BaseActivity(), View.OnClickListener {
                             sl.com.eightdigitz.presentation.R.color.colorTextBlack
                         )
                     )
+                    btn_order_instructions_next.isFocusable = true
+                    btn_order_instructions_next.isClickable = true
+                    btn_order_instructions_next.isEnabled = true
+                    btn_order_instructions_next.alpha = 1f
                 } else {
                     tv_instruction_char_count.text = "250"
                     et_instructions.setTextColor(
@@ -72,6 +76,10 @@ class OrderInstructions : BaseActivity(), View.OnClickListener {
                             sl.com.eightdigitz.presentation.R.color.colorRed
                         )
                     )
+                    btn_order_instructions_next.isFocusable = false
+                    btn_order_instructions_next.isClickable = false
+                    btn_order_instructions_next.isEnabled = false
+                    btn_order_instructions_next.alpha = 0.3f
                 }
 
             }
@@ -126,7 +134,7 @@ class OrderInstructions : BaseActivity(), View.OnClickListener {
 
     private fun validate(): Boolean {
         val isInstruction =
-            et_instructions.validateAppEditTextOnTextChange(isCheckValidateIcon = true) { s -> s.length > 2 }
+            et_instructions.validateAppEditTextOnTextChange(isCheckValidateIcon = true) { s -> s.length in 3..249 }
 
         if (!isInstruction) {
             showAlert(Msg.TITLE_REQUIRED, "Please fill out the required fields.")

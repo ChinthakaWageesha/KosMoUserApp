@@ -7,6 +7,7 @@ import sl.com.eightdigitz.core.R
 import sl.com.eightdigitz.core.base.BaseActivity
 import sl.com.eightdigitz.presentation.extensions.hideKeyboard
 import sl.com.eightdigitz.presentation.extensions.setHelpCenterActionBar
+import sl.com.eightdigitz.presentation.extensions.showToast
 import sl.com.eightdigitz.presentation.extensions.startActivity
 
 class HelpCenter : BaseActivity(), View.OnClickListener {
@@ -27,8 +28,17 @@ class HelpCenter : BaseActivity(), View.OnClickListener {
     }
 
     private fun init() {
+        cl_account_services_base.setOnClickListener(this)
+        cl_copyright_base.setOnClickListener(this)
         cl_terms_use_base.setOnClickListener(this)
         cl_privacy_policy_base.setOnClickListener(this)
+        cl_software_license_base.setOnClickListener(this)
+        cl_pricing_payments_base.setOnClickListener(this)
+        cl_faq_base.setOnClickListener(this)
+    }
+
+    private fun showTempToast(){
+        "To be implemented".showToast(this)
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -39,12 +49,13 @@ class HelpCenter : BaseActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.cl_terms_use_base -> {
-                startActivity<TermsOfUse>()
-            }
-            R.id.cl_privacy_policy_base -> {
-                startActivity<PrivacyPolicy>()
-            }
+            R.id.cl_account_services_base -> showTempToast()
+            R.id.cl_copyright_base -> showTempToast()
+            R.id.cl_terms_use_base -> startActivity<TermsOfUse>()
+            R.id.cl_privacy_policy_base -> startActivity<PrivacyPolicy>()
+            R.id.cl_software_license_base -> showTempToast()
+            R.id.cl_pricing_payments_base -> showTempToast()
+            R.id.cl_faq_base -> showTempToast()
         }
     }
 }

@@ -32,6 +32,7 @@ class Settings : BaseActivity(), View.OnClickListener {
         setData(currentLoggedUser!!)
         setEventTypeSpinner()
         vmPreference.liveDataLogout.observe(this, Observer { observerLogout(it) })
+        iv_settings_back.setOnClickListener(this)
         cl_logout.setOnClickListener(this)
     }
 
@@ -49,7 +50,6 @@ class Settings : BaseActivity(), View.OnClickListener {
 
     private fun setEventTypeSpinner() {
         val eventTypes: ArrayList<String> = ArrayList()
-
         eventTypes.add("English")
         eventTypes.add("Sinhala")
         eventTypes.add("Tamil")
@@ -73,7 +73,7 @@ class Settings : BaseActivity(), View.OnClickListener {
                         view: View?, position: Int,
                         id: Long
                     ) {
-                        eventTypes[position].showToast(this@Settings)
+                        eventTypes[position]
                     }
 
                     override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -125,14 +125,10 @@ class Settings : BaseActivity(), View.OnClickListener {
         }
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return super.onSupportNavigateUp()
-    }
-
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.cl_logout -> logout()
+            R.id.iv_settings_back -> onBackPressed()
         }
     }
 }
