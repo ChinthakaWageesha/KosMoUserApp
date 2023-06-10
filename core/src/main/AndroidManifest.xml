@@ -43,11 +43,6 @@
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name=".ui.AccountServices"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"
-            android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity
             android:name=".ui.TermsOfUse"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"

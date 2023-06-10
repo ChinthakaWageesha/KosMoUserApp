@@ -1,0 +1,802 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    xmlns:dist="http://schemas.android.com/apk/distribution"
+4    package="sl.com.eightdigitz.userapp"
+5    android:versionCode="1"
+6    android:versionName="1.0" >
+7
+8    <uses-sdk
+9        android:minSdkVersion="21"
+9-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml
+10        android:targetSdkVersion="29" />
+10-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml
+11    <!-- Instant enabled app bundle -->
+12    <dist:module dist:instant="true" />
+12-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:7:5-40
+12-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:7:18-37
+13
+14    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+14-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:9:5-80
+14-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:9:22-77
+15    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+15-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:10:5-81
+15-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:10:22-78
+16    <uses-permission android:name="android.permission.INTERNET" />
+16-->[:country_picker] D:\Projects\UserApp\country_picker\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-67
+16-->[:country_picker] D:\Projects\UserApp\country_picker\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:22-64
+17
+18    <queries>
+18-->[com.auth0.android:auth0:1.30.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\d73c0b05df514764ceeb3e9b72a76078\jetified-auth0-1.30.0\AndroidManifest.xml:39:5-47:15
+19        <intent>
+19-->[com.auth0.android:auth0:1.30.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\d73c0b05df514764ceeb3e9b72a76078\jetified-auth0-1.30.0\AndroidManifest.xml:40:9-46:18
+20            <action android:name="android.intent.action.VIEW" />
+20-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:30:17-69
+20-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:30:25-66
+21
+22            <category android:name="android.intent.category.BROWSABLE" />
+22-->[com.auth0.android:auth0:1.30.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\d73c0b05df514764ceeb3e9b72a76078\jetified-auth0-1.30.0\AndroidManifest.xml:43:13-74
+22-->[com.auth0.android:auth0:1.30.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\d73c0b05df514764ceeb3e9b72a76078\jetified-auth0-1.30.0\AndroidManifest.xml:43:23-71
+23
+24            <data android:scheme="https" />
+24-->[com.auth0.android:auth0:1.30.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\d73c0b05df514764ceeb3e9b72a76078\jetified-auth0-1.30.0\AndroidManifest.xml:45:13-44
+24-->[com.auth0.android:auth0:1.30.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\d73c0b05df514764ceeb3e9b72a76078\jetified-auth0-1.30.0\AndroidManifest.xml:45:19-41
+25        </intent>
+26    </queries>
+27    <!--
+28    If Not using Camera feature, Add following line in app manifest.
+29    This will remove permission while manifest merge
+30    <uses-permission android:name="android.permission.CAMERA" tools:node="remove"/>
+31    -->
+32    <uses-permission android:name="android.permission.CAMERA" />
+32-->[com.github.dhaval2404:imagepicker:1.3] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\45496fc0da867cd5e6c6daf1d5f8fcf3\jetified-imagepicker-1.3\AndroidManifest.xml:19:5-65
+32-->[com.github.dhaval2404:imagepicker:1.3] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\45496fc0da867cd5e6c6daf1d5f8fcf3\jetified-imagepicker-1.3\AndroidManifest.xml:19:22-62
+33    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+33-->[com.google.android.gms:play-services-measurement-api:17.2.1] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\2cb4e6fc90b9956578bafe71067bc157\jetified-play-services-measurement-api-17.2.1\AndroidManifest.xml:23:5-79
+33-->[com.google.android.gms:play-services-measurement-api:17.2.1] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\2cb4e6fc90b9956578bafe71067bc157\jetified-play-services-measurement-api-17.2.1\AndroidManifest.xml:23:22-76
+34    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+34-->[com.google.android.gms:play-services-measurement-api:17.2.1] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\2cb4e6fc90b9956578bafe71067bc157\jetified-play-services-measurement-api-17.2.1\AndroidManifest.xml:24:5-68
+34-->[com.google.android.gms:play-services-measurement-api:17.2.1] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\2cb4e6fc90b9956578bafe71067bc157\jetified-play-services-measurement-api-17.2.1\AndroidManifest.xml:24:22-65
+35    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+35-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\8344175b23848f74ff3b8f6acab1fcf9\jetified-firebase-iid-20.0.2\AndroidManifest.xml:26:5-82
+35-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\8344175b23848f74ff3b8f6acab1fcf9\jetified-firebase-iid-20.0.2\AndroidManifest.xml:26:22-79
+36    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+36-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\69cb57f3eb1b2289907ab53f303ac366\jetified-play-services-measurement-17.2.1\AndroidManifest.xml:26:5-110
+36-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\69cb57f3eb1b2289907ab53f303ac366\jetified-play-services-measurement-17.2.1\AndroidManifest.xml:26:22-107
+37
+38    <application
+38-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:12:5-50:19
+39        android:name="sl.com.eightdigitz.core.App"
+39-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:13:9-28
+40        android:allowBackup="false"
+40-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:14:9-36
+41        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+41-->[androidx.core:core:1.3.1] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\6e7652655bb7b20e756592355c79b560\core-1.3.1\AndroidManifest.xml:24:18-86
+42        android:debuggable="true"
+42-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:22:18-43
+43        android:icon="@mipmap/ic_launcher"
+43-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:15:9-43
+44        android:label="@string/app_name"
+44-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:16:9-41
+45        android:networkSecurityConfig="@xml/network_security_config"
+45-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:17:9-69
+46        android:requestLegacyExternalStorage="true"
+46-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:18:9-52
+47        android:roundIcon="@mipmap/ic_launcher_round"
+47-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:19:9-54
+48        android:supportsRtl="true"
+48-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:20:9-35
+49        android:theme="@style/AppTheme" >
+49-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:21:9-40
+50        <activity
+50-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:25:9-34:20
+51            android:name="sl.com.eightdigitz.core.ui.CoreActivity"
+51-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:26:13-44
+52            android:theme="@style/AppTheme.SplashTheme" >
+52-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:27:13-56
+53            <intent-filter>
+53-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:28:13-33:29
+54                <action android:name="android.intent.action.MAIN" />
+54-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:29:17-69
+54-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:29:25-66
+55                <action android:name="android.intent.action.VIEW" />
+55-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:30:17-69
+55-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:30:25-66
+56
+57                <category android:name="android.intent.category.LAUNCHER" />
+57-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:32:17-77
+57-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:32:27-74
+58            </intent-filter>
+59        </activity>
+60        <activity
+60-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:35:9-39:63
+61            android:name="sl.com.eightdigitz.core.ui.PrivacyPolicy"
+61-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:36:13-45
+62            android:screenOrientation="portrait"
+62-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:37:13-49
+63            android:theme="@style/AppTheme"
+63-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:38:13-44
+64            android:windowSoftInputMode="stateAlwaysHidden" />
+64-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:39:13-60
+65        <activity
+65-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:40:9-44:63
+66            android:name="sl.com.eightdigitz.core.ui.HelpCenter"
+66-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:41:13-42
+67            android:screenOrientation="portrait"
+67-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:42:13-49
+68            android:theme="@style/AppTheme"
+68-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:43:13-44
+69            android:windowSoftInputMode="stateAlwaysHidden" />
+69-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:44:13-60
+70        <activity
+70-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:45:9-49:62
+71            android:name="sl.com.eightdigitz.core.ui.TermsOfUse"
+71-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:46:13-42
+72            android:screenOrientation="portrait"
+72-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:47:13-49
+73            android:theme="@style/AppTheme"
+73-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:48:13-44
+74            android:windowSoftInputMode="stateAlwaysHidden" />
+74-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:49:13-60
+75        <activity android:name="sl.com.eightdigitz.presentation.cropper.CropImageActivity" />
+75-->[:common:presentation] D:\Projects\UserApp\common\presentation\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-94
+75-->[:common:presentation] D:\Projects\UserApp\common\presentation\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:19-91
+76        <activity
+76-->[:country_picker] D:\Projects\UserApp\country_picker\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:9-20:70
+77            android:name="sl.com.eightdigitz.country_picker.presentation.country_picker.CountryPicker"
+77-->[:country_picker] D:\Projects\UserApp\country_picker\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:13-103
+78            android:launchMode="singleTop"
+78-->[:country_picker] D:\Projects\UserApp\country_picker\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:13-43
+79            android:screenOrientation="portrait"
+79-->[:country_picker] D:\Projects\UserApp\country_picker\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:13-49
+80            android:theme="@style/AppTheme"
+80-->[:country_picker] D:\Projects\UserApp\country_picker\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:13-44
+81            android:windowSoftInputMode="stateHidden|adjustResize" />
+81-->[:country_picker] D:\Projects\UserApp\country_picker\build\intermediates\library_manifest\debug\AndroidManifest.xml:20:13-67
+82        <activity
+82-->[:country_picker] D:\Projects\UserApp\country_picker\build\intermediates\library_manifest\debug\AndroidManifest.xml:21:9-26:70
+83            android:name="sl.com.eightdigitz.country_picker.presentation.validator.NumberValidator"
+83-->[:country_picker] D:\Projects\UserApp\country_picker\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:13-100
+84            android:launchMode="singleTop"
+84-->[:country_picker] D:\Projects\UserApp\country_picker\build\intermediates\library_manifest\debug\AndroidManifest.xml:23:13-43
+85            android:screenOrientation="portrait"
+85-->[:country_picker] D:\Projects\UserApp\country_picker\build\intermediates\library_manifest\debug\AndroidManifest.xml:24:13-49
+86            android:theme="@style/AppTheme"
+86-->[:country_picker] D:\Projects\UserApp\country_picker\build\intermediates\library_manifest\debug\AndroidManifest.xml:25:13-44
+87            android:windowSoftInputMode="stateHidden|adjustResize" />
+87-->[:country_picker] D:\Projects\UserApp\country_picker\build\intermediates\library_manifest\debug\AndroidManifest.xml:26:13-67
+88        <activity
+88-->[com.auth0.android:auth0:1.30.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\d73c0b05df514764ceeb3e9b72a76078\jetified-auth0-1.30.0\AndroidManifest.xml:50:9-54:75
+89            android:name="com.auth0.android.provider.AuthenticationActivity"
+89-->[com.auth0.android:auth0:1.30.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\d73c0b05df514764ceeb3e9b72a76078\jetified-auth0-1.30.0\AndroidManifest.xml:51:13-77
+90            android:exported="false"
+90-->[com.auth0.android:auth0:1.30.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\d73c0b05df514764ceeb3e9b72a76078\jetified-auth0-1.30.0\AndroidManifest.xml:52:13-37
+91            android:launchMode="singleTask"
+91-->[com.auth0.android:auth0:1.30.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\d73c0b05df514764ceeb3e9b72a76078\jetified-auth0-1.30.0\AndroidManifest.xml:53:13-44
+92            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+92-->[com.auth0.android:auth0:1.30.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\d73c0b05df514764ceeb3e9b72a76078\jetified-auth0-1.30.0\AndroidManifest.xml:54:13-72
+93        <activity
+93-->[com.auth0.android:auth0:1.30.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\d73c0b05df514764ceeb3e9b72a76078\jetified-auth0-1.30.0\AndroidManifest.xml:55:9-71:20
+94            android:name="com.auth0.android.provider.RedirectActivity"
+94-->[com.auth0.android:auth0:1.30.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\d73c0b05df514764ceeb3e9b72a76078\jetified-auth0-1.30.0\AndroidManifest.xml:56:13-71
+95            android:exported="true" >
+95-->[com.auth0.android:auth0:1.30.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\d73c0b05df514764ceeb3e9b72a76078\jetified-auth0-1.30.0\AndroidManifest.xml:57:13-36
+96            <intent-filter android:autoVerify="true" >
+96-->[com.auth0.android:auth0:1.30.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\d73c0b05df514764ceeb3e9b72a76078\jetified-auth0-1.30.0\AndroidManifest.xml:58:13-70:29
+96-->[com.auth0.android:auth0:1.30.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\d73c0b05df514764ceeb3e9b72a76078\jetified-auth0-1.30.0\AndroidManifest.xml:59:17-42
+97                <action android:name="android.intent.action.VIEW" />
+97-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:30:17-69
+97-->D:\Projects\UserApp\core\src\main\AndroidManifest.xml:30:25-66
+98
+99                <category android:name="android.intent.category.DEFAULT" />
+99-->[com.auth0.android:auth0:1.30.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\d73c0b05df514764ceeb3e9b72a76078\jetified-auth0-1.30.0\AndroidManifest.xml:63:17-76
+99-->[com.auth0.android:auth0:1.30.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\d73c0b05df514764ceeb3e9b72a76078\jetified-auth0-1.30.0\AndroidManifest.xml:63:27-73
+100                <category android:name="android.intent.category.BROWSABLE" />
+100-->[com.auth0.android:auth0:1.30.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\d73c0b05df514764ceeb3e9b72a76078\jetified-auth0-1.30.0\AndroidManifest.xml:43:13-74
+100-->[com.auth0.android:auth0:1.30.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\d73c0b05df514764ceeb3e9b72a76078\jetified-auth0-1.30.0\AndroidManifest.xml:43:23-71
+101
+102                <data
+102-->[com.auth0.android:auth0:1.30.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\d73c0b05df514764ceeb3e9b72a76078\jetified-auth0-1.30.0\AndroidManifest.xml:45:13-44
+103                    android:host="dev-ahamad.us.auth0.com"
+104                    android:pathPrefix="/android/sl.com.eightdigitz.userapp/callback"
+105                    android:scheme="demo" />
+105-->[com.auth0.android:auth0:1.30.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\d73c0b05df514764ceeb3e9b72a76078\jetified-auth0-1.30.0\AndroidManifest.xml:45:19-41
+106            </intent-filter>
+107        </activity>
+108        <activity android:name="com.auth0.android.provider.WebAuthActivity" />
+108-->[com.auth0.android:auth0:1.30.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\d73c0b05df514764ceeb3e9b72a76078\jetified-auth0-1.30.0\AndroidManifest.xml:72:9-79
+108-->[com.auth0.android:auth0:1.30.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\d73c0b05df514764ceeb3e9b72a76078\jetified-auth0-1.30.0\AndroidManifest.xml:72:19-76
+109        <activity
+109-->[com.github.dhaval2404:imagepicker:1.3] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\45496fc0da867cd5e6c6daf1d5f8fcf3\jetified-imagepicker-1.3\AndroidManifest.xml:22:9-25:68
+110            android:name="com.github.dhaval2404.imagepicker.ImagePickerActivity"
+110-->[com.github.dhaval2404:imagepicker:1.3] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\45496fc0da867cd5e6c6daf1d5f8fcf3\jetified-imagepicker-1.3\AndroidManifest.xml:23:13-81
+111            android:screenOrientation="unspecified"
+111-->[com.github.dhaval2404:imagepicker:1.3] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\45496fc0da867cd5e6c6daf1d5f8fcf3\jetified-imagepicker-1.3\AndroidManifest.xml:24:13-52
+112            android:theme="@style/Theme.Transparent.ImagePicker" />
+112-->[com.github.dhaval2404:imagepicker:1.3] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\45496fc0da867cd5e6c6daf1d5f8fcf3\jetified-imagepicker-1.3\AndroidManifest.xml:25:13-65
+113        <activity
+113-->[com.github.dhaval2404:imagepicker:1.3] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\45496fc0da867cd5e6c6daf1d5f8fcf3\jetified-imagepicker-1.3\AndroidManifest.xml:26:9-29:72
+114            android:name="com.yalantis.ucrop.UCropActivity"
+114-->[com.github.dhaval2404:imagepicker:1.3] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\45496fc0da867cd5e6c6daf1d5f8fcf3\jetified-imagepicker-1.3\AndroidManifest.xml:27:13-60
+115            android:screenOrientation="portrait"
+115-->[com.github.dhaval2404:imagepicker:1.3] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\45496fc0da867cd5e6c6daf1d5f8fcf3\jetified-imagepicker-1.3\AndroidManifest.xml:28:13-49
+116            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+116-->[com.github.dhaval2404:imagepicker:1.3] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\45496fc0da867cd5e6c6daf1d5f8fcf3\jetified-imagepicker-1.3\AndroidManifest.xml:29:13-69
+117
+118        <provider
+118-->[com.github.dhaval2404:imagepicker:1.3] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\45496fc0da867cd5e6c6daf1d5f8fcf3\jetified-imagepicker-1.3\AndroidManifest.xml:31:9-39:20
+119            android:name="androidx.core.content.FileProvider"
+119-->[com.github.dhaval2404:imagepicker:1.3] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\45496fc0da867cd5e6c6daf1d5f8fcf3\jetified-imagepicker-1.3\AndroidManifest.xml:32:13-62
+120            android:authorities="sl.com.eightdigitz.userapp.provider"
+120-->[com.github.dhaval2404:imagepicker:1.3] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\45496fc0da867cd5e6c6daf1d5f8fcf3\jetified-imagepicker-1.3\AndroidManifest.xml:33:13-60
+121            android:exported="false"
+121-->[com.github.dhaval2404:imagepicker:1.3] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\45496fc0da867cd5e6c6daf1d5f8fcf3\jetified-imagepicker-1.3\AndroidManifest.xml:34:13-37
+122            android:grantUriPermissions="true" >
+122-->[com.github.dhaval2404:imagepicker:1.3] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\45496fc0da867cd5e6c6daf1d5f8fcf3\jetified-imagepicker-1.3\AndroidManifest.xml:35:13-47
+123            <meta-data
+123-->[com.github.dhaval2404:imagepicker:1.3] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\45496fc0da867cd5e6c6daf1d5f8fcf3\jetified-imagepicker-1.3\AndroidManifest.xml:36:13-38:71
+124                android:name="android.support.FILE_PROVIDER_PATHS"
+124-->[com.github.dhaval2404:imagepicker:1.3] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\45496fc0da867cd5e6c6daf1d5f8fcf3\jetified-imagepicker-1.3\AndroidManifest.xml:37:17-67
+125                android:resource="@xml/image_picker_provider_paths" />
+125-->[com.github.dhaval2404:imagepicker:1.3] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\45496fc0da867cd5e6c6daf1d5f8fcf3\jetified-imagepicker-1.3\AndroidManifest.xml:38:17-68
+126        </provider>
+127        <!--
+128             FirebaseMessagingService performs security checks at runtime,
+129             but set to not exported to explicitly avoid allowing another app to call it.
+130        -->
+131        <service
+131-->[com.google.firebase:firebase-messaging:20.1.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\ad5c2d95b0c19c3aae3ad03a5d14d113\jetified-firebase-messaging-20.1.0\AndroidManifest.xml:28:9-34:19
+132            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+132-->[com.google.firebase:firebase-messaging:20.1.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\ad5c2d95b0c19c3aae3ad03a5d14d113\jetified-firebase-messaging-20.1.0\AndroidManifest.xml:29:13-82
+133            android:exported="false" >
+133-->[com.google.firebase:firebase-messaging:20.1.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\ad5c2d95b0c19c3aae3ad03a5d14d113\jetified-firebase-messaging-20.1.0\AndroidManifest.xml:30:13-37
+134            <intent-filter android:priority="-500" >
+134-->[com.google.firebase:firebase-messaging:20.1.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\ad5c2d95b0c19c3aae3ad03a5d14d113\jetified-firebase-messaging-20.1.0\AndroidManifest.xml:31:13-33:29
+134-->[com.google.firebase:firebase-messaging:20.1.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\ad5c2d95b0c19c3aae3ad03a5d14d113\jetified-firebase-messaging-20.1.0\AndroidManifest.xml:31:28-51
+135                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+135-->[com.google.firebase:firebase-messaging:20.1.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\ad5c2d95b0c19c3aae3ad03a5d14d113\jetified-firebase-messaging-20.1.0\AndroidManifest.xml:32:17-78
+135-->[com.google.firebase:firebase-messaging:20.1.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\ad5c2d95b0c19c3aae3ad03a5d14d113\jetified-firebase-messaging-20.1.0\AndroidManifest.xml:32:25-75
+136            </intent-filter>
+137        </service>
+138        <service
+138-->[com.google.firebase:firebase-messaging:20.1.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\ad5c2d95b0c19c3aae3ad03a5d14d113\jetified-firebase-messaging-20.1.0\AndroidManifest.xml:35:9-41:19
+139            android:name="com.google.firebase.components.ComponentDiscoveryService"
+139-->[com.google.firebase:firebase-messaging:20.1.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\ad5c2d95b0c19c3aae3ad03a5d14d113\jetified-firebase-messaging-20.1.0\AndroidManifest.xml:36:13-84
+140            android:directBootAware="true"
+140-->[com.google.firebase:firebase-common:19.3.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\711be0095a0db137b01c8e51ea97843b\jetified-firebase-common-19.3.0\AndroidManifest.xml:34:13-43
+141            android:exported="false" >
+141-->[com.google.firebase:firebase-messaging:20.1.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\ad5c2d95b0c19c3aae3ad03a5d14d113\jetified-firebase-messaging-20.1.0\AndroidManifest.xml:37:13-37
+142            <meta-data
+142-->[com.google.firebase:firebase-messaging:20.1.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\ad5c2d95b0c19c3aae3ad03a5d14d113\jetified-firebase-messaging-20.1.0\AndroidManifest.xml:38:13-40:85
+143                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+143-->[com.google.firebase:firebase-messaging:20.1.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\ad5c2d95b0c19c3aae3ad03a5d14d113\jetified-firebase-messaging-20.1.0\AndroidManifest.xml:39:17-119
+144                android:value="com.google.firebase.components.ComponentRegistrar" />
+144-->[com.google.firebase:firebase-messaging:20.1.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\ad5c2d95b0c19c3aae3ad03a5d14d113\jetified-firebase-messaging-20.1.0\AndroidManifest.xml:40:17-82
+145            <meta-data
+145-->[com.google.firebase:firebase-datatransport:17.0.3] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\57d8cdae7c938e7fe73bcf5c4da1dd87\jetified-firebase-datatransport-17.0.3\AndroidManifest.xml:28:13-30:85
+146                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+146-->[com.google.firebase:firebase-datatransport:17.0.3] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\57d8cdae7c938e7fe73bcf5c4da1dd87\jetified-firebase-datatransport-17.0.3\AndroidManifest.xml:29:17-115
+147                android:value="com.google.firebase.components.ComponentRegistrar" />
+147-->[com.google.firebase:firebase-datatransport:17.0.3] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\57d8cdae7c938e7fe73bcf5c4da1dd87\jetified-firebase-datatransport-17.0.3\AndroidManifest.xml:30:17-82
+148            <meta-data
+148-->[com.google.android.gms:play-services-measurement-api:17.2.1] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\2cb4e6fc90b9956578bafe71067bc157\jetified-play-services-measurement-api-17.2.1\AndroidManifest.xml:30:13-32:85
+149                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+149-->[com.google.android.gms:play-services-measurement-api:17.2.1] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\2cb4e6fc90b9956578bafe71067bc157\jetified-play-services-measurement-api-17.2.1\AndroidManifest.xml:31:17-139
+150                android:value="com.google.firebase.components.ComponentRegistrar" />
+150-->[com.google.android.gms:play-services-measurement-api:17.2.1] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\2cb4e6fc90b9956578bafe71067bc157\jetified-play-services-measurement-api-17.2.1\AndroidManifest.xml:32:17-82
+151            <meta-data
+151-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\8344175b23848f74ff3b8f6acab1fcf9\jetified-firebase-iid-20.0.2\AndroidManifest.xml:32:13-34:85
+152                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+152-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\8344175b23848f74ff3b8f6acab1fcf9\jetified-firebase-iid-20.0.2\AndroidManifest.xml:33:17-96
+153                android:value="com.google.firebase.components.ComponentRegistrar" />
+153-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\8344175b23848f74ff3b8f6acab1fcf9\jetified-firebase-iid-20.0.2\AndroidManifest.xml:34:17-82
+154        </service>
+155
+156        <receiver
+156-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\8344175b23848f74ff3b8f6acab1fcf9\jetified-firebase-iid-20.0.2\AndroidManifest.xml:37:9-44:20
+157            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+157-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\8344175b23848f74ff3b8f6acab1fcf9\jetified-firebase-iid-20.0.2\AndroidManifest.xml:38:13-78
+158            android:exported="true"
+158-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\8344175b23848f74ff3b8f6acab1fcf9\jetified-firebase-iid-20.0.2\AndroidManifest.xml:39:13-36
+159            android:permission="com.google.android.c2dm.permission.SEND" >
+159-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\8344175b23848f74ff3b8f6acab1fcf9\jetified-firebase-iid-20.0.2\AndroidManifest.xml:40:13-73
+160            <intent-filter>
+160-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\8344175b23848f74ff3b8f6acab1fcf9\jetified-firebase-iid-20.0.2\AndroidManifest.xml:41:13-43:29
+161                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+161-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\8344175b23848f74ff3b8f6acab1fcf9\jetified-firebase-iid-20.0.2\AndroidManifest.xml:42:17-81
+161-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\8344175b23848f74ff3b8f6acab1fcf9\jetified-firebase-iid-20.0.2\AndroidManifest.xml:42:25-78
+162            </intent-filter>
+163        </receiver>
+164
+165        <provider
+165-->[com.google.firebase:firebase-common:19.3.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\711be0095a0db137b01c8e51ea97843b\jetified-firebase-common-19.3.0\AndroidManifest.xml:26:9-30:39
+166            android:name="com.google.firebase.provider.FirebaseInitProvider"
+166-->[com.google.firebase:firebase-common:19.3.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\711be0095a0db137b01c8e51ea97843b\jetified-firebase-common-19.3.0\AndroidManifest.xml:27:13-77
+167            android:authorities="sl.com.eightdigitz.userapp.firebaseinitprovider"
+167-->[com.google.firebase:firebase-common:19.3.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\711be0095a0db137b01c8e51ea97843b\jetified-firebase-common-19.3.0\AndroidManifest.xml:28:13-72
+168            android:exported="false"
+168-->[com.google.firebase:firebase-common:19.3.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\711be0095a0db137b01c8e51ea97843b\jetified-firebase-common-19.3.0\AndroidManifest.xml:29:13-37
+169            android:initOrder="100" />
+169-->[com.google.firebase:firebase-common:19.3.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\711be0095a0db137b01c8e51ea97843b\jetified-firebase-common-19.3.0\AndroidManifest.xml:30:13-36
+170
+171        <activity
+171-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\61c680c7ff3bb54b634cee47e85f0246\jetified-play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
+172            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+172-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\61c680c7ff3bb54b634cee47e85f0246\jetified-play-services-base-17.0.0\AndroidManifest.xml:24:13-79
+173            android:exported="false"
+173-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\61c680c7ff3bb54b634cee47e85f0246\jetified-play-services-base-17.0.0\AndroidManifest.xml:25:13-37
+174            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+174-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\61c680c7ff3bb54b634cee47e85f0246\jetified-play-services-base-17.0.0\AndroidManifest.xml:26:13-72
+175
+176        <receiver
+176-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\69cb57f3eb1b2289907ab53f303ac366\jetified-play-services-measurement-17.2.1\AndroidManifest.xml:29:9-33:20
+177            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+177-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\69cb57f3eb1b2289907ab53f303ac366\jetified-play-services-measurement-17.2.1\AndroidManifest.xml:30:13-85
+178            android:enabled="true"
+178-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\69cb57f3eb1b2289907ab53f303ac366\jetified-play-services-measurement-17.2.1\AndroidManifest.xml:31:13-35
+179            android:exported="false" >
+179-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\69cb57f3eb1b2289907ab53f303ac366\jetified-play-services-measurement-17.2.1\AndroidManifest.xml:32:13-37
+180        </receiver>
+181        <receiver
+181-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\69cb57f3eb1b2289907ab53f303ac366\jetified-play-services-measurement-17.2.1\AndroidManifest.xml:34:9-42:20
+182            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+182-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\69cb57f3eb1b2289907ab53f303ac366\jetified-play-services-measurement-17.2.1\AndroidManifest.xml:35:13-100
+183            android:enabled="true"
+183-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\69cb57f3eb1b2289907ab53f303ac366\jetified-play-services-measurement-17.2.1\AndroidManifest.xml:36:13-35
+184            android:exported="true"
+184-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\69cb57f3eb1b2289907ab53f303ac366\jetified-play-services-measurement-17.2.1\AndroidManifest.xml:37:13-36
+185            android:permission="android.permission.INSTALL_PACKAGES" >
+185-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\69cb57f3eb1b2289907ab53f303ac366\jetified-play-services-measurement-17.2.1\AndroidManifest.xml:38:13-69
+186            <intent-filter>
+186-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\69cb57f3eb1b2289907ab53f303ac366\jetified-play-services-measurement-17.2.1\AndroidManifest.xml:39:13-41:29
+187                <action android:name="com.android.vending.INSTALL_REFERRER" />
+187-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\69cb57f3eb1b2289907ab53f303ac366\jetified-play-services-measurement-17.2.1\AndroidManifest.xml:40:17-79
+187-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\69cb57f3eb1b2289907ab53f303ac366\jetified-play-services-measurement-17.2.1\AndroidManifest.xml:40:25-76
+188            </intent-filter>
+189        </receiver>
+190
+191        <service
+191-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\69cb57f3eb1b2289907ab53f303ac366\jetified-play-services-measurement-17.2.1\AndroidManifest.xml:44:9-47:40
+192            android:name="com.google.android.gms.measurement.AppMeasurementService"
+192-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\69cb57f3eb1b2289907ab53f303ac366\jetified-play-services-measurement-17.2.1\AndroidManifest.xml:45:13-84
+193            android:enabled="true"
+193-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\69cb57f3eb1b2289907ab53f303ac366\jetified-play-services-measurement-17.2.1\AndroidManifest.xml:46:13-35
+194            android:exported="false" />
+194-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\69cb57f3eb1b2289907ab53f303ac366\jetified-play-services-measurement-17.2.1\AndroidManifest.xml:47:13-37
+195        <service
+195-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\69cb57f3eb1b2289907ab53f303ac366\jetified-play-services-measurement-17.2.1\AndroidManifest.xml:48:9-52:72
+196            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+196-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\69cb57f3eb1b2289907ab53f303ac366\jetified-play-services-measurement-17.2.1\AndroidManifest.xml:49:13-87
+197            android:enabled="true"
+197-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\69cb57f3eb1b2289907ab53f303ac366\jetified-play-services-measurement-17.2.1\AndroidManifest.xml:50:13-35
+198            android:exported="false"
+198-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\69cb57f3eb1b2289907ab53f303ac366\jetified-play-services-measurement-17.2.1\AndroidManifest.xml:51:13-37
+199            android:permission="android.permission.BIND_JOB_SERVICE" />
+199-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\69cb57f3eb1b2289907ab53f303ac366\jetified-play-services-measurement-17.2.1\AndroidManifest.xml:52:13-69
+200
+201        <meta-data
+201-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\69975963faf7621faa389102aad36c6e\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+202            android:name="com.google.android.gms.version"
+202-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\69975963faf7621faa389102aad36c6e\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+203            android:value="@integer/google_play_services_version" />
+203-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\69975963faf7621faa389102aad36c6e\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+204
+205        <service
+205-->[com.google.android.datatransport:transport-backend-cct:2.2.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\be244003756d3c0c8519418056419f45\jetified-transport-backend-cct-2.2.0\AndroidManifest.xml:29:9-35:19
+206            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+206-->[com.google.android.datatransport:transport-backend-cct:2.2.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\be244003756d3c0c8519418056419f45\jetified-transport-backend-cct-2.2.0\AndroidManifest.xml:30:13-103
+207            android:exported="false" >
+207-->[com.google.android.datatransport:transport-backend-cct:2.2.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\be244003756d3c0c8519418056419f45\jetified-transport-backend-cct-2.2.0\AndroidManifest.xml:31:13-37
+208            <meta-data
+208-->[com.google.android.datatransport:transport-backend-cct:2.2.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\be244003756d3c0c8519418056419f45\jetified-transport-backend-cct-2.2.0\AndroidManifest.xml:32:13-34:39
+209                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+209-->[com.google.android.datatransport:transport-backend-cct:2.2.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\be244003756d3c0c8519418056419f45\jetified-transport-backend-cct-2.2.0\AndroidManifest.xml:33:17-94
+210                android:value="cct" />
+210-->[com.google.android.datatransport:transport-backend-cct:2.2.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\be244003756d3c0c8519418056419f45\jetified-transport-backend-cct-2.2.0\AndroidManifest.xml:34:17-36
+211        </service>
+212        <service
+212-->[com.google.android.datatransport:transport-runtime:2.2.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\2e125ebd2033133327fa9f32de6fbfd8\jetified-transport-runtime-2.2.0\AndroidManifest.xml:26:9-30:19
+213            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+213-->[com.google.android.datatransport:transport-runtime:2.2.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\2e125ebd2033133327fa9f32de6fbfd8\jetified-transport-runtime-2.2.0\AndroidManifest.xml:27:13-117
+214            android:exported="false"
+214-->[com.google.android.datatransport:transport-runtime:2.2.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\2e125ebd2033133327fa9f32de6fbfd8\jetified-transport-runtime-2.2.0\AndroidManifest.xml:28:13-37
+215            android:permission="android.permission.BIND_JOB_SERVICE" >
+215-->[com.google.android.datatransport:transport-runtime:2.2.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\2e125ebd2033133327fa9f32de6fbfd8\jetified-transport-runtime-2.2.0\AndroidManifest.xml:29:13-69
+216        </service>
+217
+218        <receiver
+218-->[com.google.android.datatransport:transport-runtime:2.2.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\2e125ebd2033133327fa9f32de6fbfd8\jetified-transport-runtime-2.2.0\AndroidManifest.xml:32:9-34:40
+219            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+219-->[com.google.android.datatransport:transport-runtime:2.2.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\2e125ebd2033133327fa9f32de6fbfd8\jetified-transport-runtime-2.2.0\AndroidManifest.xml:33:13-132
+220            android:exported="false" />
+220-->[com.google.android.datatransport:transport-runtime:2.2.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\2e125ebd2033133327fa9f32de6fbfd8\jetified-transport-runtime-2.2.0\AndroidManifest.xml:34:13-37
+221
+222        <provider
+222-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\96c3bb3d05c14e423eb89eccc64b7508\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:23:9-27:43
+223            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+223-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\96c3bb3d05c14e423eb89eccc64b7508\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:24:13-79
+224            android:authorities="sl.com.eightdigitz.userapp.lifecycle-process"
+224-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\96c3bb3d05c14e423eb89eccc64b7508\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:25:13-69
+225            android:exported="false"
+225-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\96c3bb3d05c14e423eb89eccc64b7508\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:26:13-37
+226            android:multiprocess="true" />
+226-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\96c3bb3d05c14e423eb89eccc64b7508\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:27:13-40
+227
+228        <activity
+228-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:23:9-28:63
+229            android:name="sl.com.eightdigitz.authentication.presentation.ChooseLanguage"
+229-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:24:13-89
+230            android:screenOrientation="portrait"
+230-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:25:13-49
+231            android:splitName="authentication"
+231-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:26:13-47
+232            android:theme="@style/AppTheme.NoActionBar"
+232-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:27:13-56
+233            android:windowSoftInputMode="stateAlwaysHidden" />
+233-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:28:13-60
+234        <activity
+234-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:29:9-34:58
+235            android:name="sl.com.eightdigitz.authentication.presentation.verifyOTP.GetOTP"
+235-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:30:13-91
+236            android:screenOrientation="portrait"
+236-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:31:13-49
+237            android:splitName="authentication"
+237-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:32:13-47
+238            android:theme="@style/AppTheme"
+238-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:33:13-44
+239            android:windowSoftInputMode="adjustResize" />
+239-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:34:13-55
+240        <activity
+240-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:35:9-40:58
+241            android:name="sl.com.eightdigitz.authentication.presentation.verifyOTP.VerifyOTP"
+241-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:36:13-94
+242            android:screenOrientation="portrait"
+242-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:37:13-49
+243            android:splitName="authentication"
+243-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:38:13-47
+244            android:theme="@style/AppTheme"
+244-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:39:13-44
+245            android:windowSoftInputMode="adjustResize" />
+245-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:40:13-55
+246        <activity
+246-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:41:9-46:63
+247            android:name="sl.com.eightdigitz.authentication.presentation.GetStarted"
+247-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:42:13-85
+248            android:screenOrientation="portrait"
+248-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:43:13-49
+249            android:splitName="authentication"
+249-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:44:13-47
+250            android:theme="@style/AppTheme.NoActionBar"
+250-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:45:13-56
+251            android:windowSoftInputMode="stateAlwaysHidden" />
+251-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:46:13-60
+252        <activity
+252-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:47:9-52:58
+253            android:name="sl.com.eightdigitz.authentication.presentation.registration.RegisterUser"
+253-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:48:13-100
+254            android:screenOrientation="portrait"
+254-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:49:13-49
+255            android:splitName="authentication"
+255-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:50:13-47
+256            android:theme="@style/AppTheme"
+256-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:51:13-44
+257            android:windowSoftInputMode="adjustResize" />
+257-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:52:13-55
+258        <activity
+258-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:53:9-58:63
+259            android:name="sl.com.eightdigitz.authentication.presentation.registration.PostRegister"
+259-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:54:13-100
+260            android:screenOrientation="portrait"
+260-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:55:13-49
+261            android:splitName="authentication"
+261-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:56:13-47
+262            android:theme="@style/AppTheme"
+262-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:57:13-44
+263            android:windowSoftInputMode="stateAlwaysHidden" />
+263-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:58:13-60
+264        <activity
+264-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:59:9-64:58
+265            android:name="sl.com.eightdigitz.authentication.presentation.contact.SendRequest"
+265-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:60:13-94
+266            android:screenOrientation="portrait"
+266-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:61:13-49
+267            android:splitName="authentication"
+267-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:62:13-47
+268            android:theme="@style/AppTheme"
+268-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:63:13-44
+269            android:windowSoftInputMode="adjustResize" />
+269-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:64:13-55
+270        <activity
+270-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:65:9-70:58
+271            android:name="sl.com.eightdigitz.authentication.presentation.contact.ContactSupport"
+271-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:66:13-97
+272            android:screenOrientation="portrait"
+272-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:67:13-49
+273            android:splitName="authentication"
+273-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:68:13-47
+274            android:theme="@style/AppTheme"
+274-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:69:13-44
+275            android:windowSoftInputMode="adjustResize" />
+275-->[:features:authentication] D:\Projects\UserApp\features\authentication\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:70:13-55
+276        <activity
+276-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:25:9-31:70
+277            android:name="sl.com.eightdigitz.app.presentation.main.MainActivity"
+277-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:26:13-81
+278            android:launchMode="singleTop"
+278-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:27:13-43
+279            android:screenOrientation="portrait"
+279-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:28:13-49
+280            android:splitName="app"
+280-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:29:13-36
+281            android:theme="@style/AppTheme.NoActionBar"
+281-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:30:13-56
+282            android:windowSoftInputMode="stateHidden|adjustResize" />
+282-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:31:13-67
+283        <activity
+283-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:32:9-37:70
+284            android:name="sl.com.eightdigitz.app.presentation.search.preferenceSearch.SearchTalentByPreference"
+284-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:33:13-112
+285            android:screenOrientation="portrait"
+285-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:34:13-49
+286            android:splitName="app"
+286-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:35:13-36
+287            android:theme="@style/AppTheme"
+287-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:36:13-44
+288            android:windowSoftInputMode="stateHidden|adjustResize" />
+288-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:37:13-67
+289        <activity
+289-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:38:9-43:70
+290            android:name="sl.com.eightdigitz.app.presentation.search.recentSearch.RecentSearches"
+290-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:39:13-98
+291            android:screenOrientation="portrait"
+291-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:40:13-49
+292            android:splitName="app"
+292-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:41:13-36
+293            android:theme="@style/AppTheme.NoActionBar"
+293-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:42:13-56
+294            android:windowSoftInputMode="stateHidden|adjustResize" />
+294-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:43:13-67
+295        <activity
+295-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:44:9-49:63
+296            android:name="sl.com.eightdigitz.app.presentation.profile.ViewProfile"
+296-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:45:13-83
+297            android:screenOrientation="portrait"
+297-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:46:13-49
+298            android:splitName="app"
+298-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:47:13-36
+299            android:theme="@style/AppTheme.NoActionBar"
+299-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:48:13-56
+300            android:windowSoftInputMode="stateAlwaysHidden" />
+300-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:49:13-60
+301        <activity
+301-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:50:9-55:70
+302            android:name="sl.com.eightdigitz.app.presentation.order.addNewOrder.ConfirmOrder"
+302-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:51:13-94
+303            android:screenOrientation="portrait"
+303-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:52:13-49
+304            android:splitName="app"
+304-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:53:13-36
+305            android:theme="@style/AppTheme"
+305-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:54:13-44
+306            android:windowSoftInputMode="stateHidden|adjustResize" />
+306-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:55:13-67
+307        <activity
+307-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:56:9-61:70
+308            android:name="sl.com.eightdigitz.app.presentation.order.addNewOrder.PaymentCheckout"
+308-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:57:13-97
+309            android:screenOrientation="portrait"
+309-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:58:13-49
+310            android:splitName="app"
+310-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:59:13-36
+311            android:theme="@style/AppTheme"
+311-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:60:13-44
+312            android:windowSoftInputMode="stateHidden|adjustResize" />
+312-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:61:13-67
+313        <activity
+313-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:62:9-67:70
+314            android:name="sl.com.eightdigitz.app.presentation.order.addNewOrder.OrderInstructions"
+314-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:63:13-99
+315            android:screenOrientation="portrait"
+315-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:64:13-49
+316            android:splitName="app"
+316-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:65:13-36
+317            android:theme="@style/AppTheme"
+317-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:66:13-44
+318            android:windowSoftInputMode="stateHidden|adjustResize" />
+318-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:67:13-67
+319        <activity
+319-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:68:9-73:70
+320            android:name="sl.com.eightdigitz.app.presentation.order.addNewOrder.OrderDetails"
+320-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:69:13-94
+321            android:screenOrientation="portrait"
+321-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:70:13-49
+322            android:splitName="app"
+322-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:71:13-36
+323            android:theme="@style/AppTheme"
+323-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:72:13-44
+324            android:windowSoftInputMode="stateHidden|adjustResize" />
+324-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:73:13-67
+325        <activity
+325-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:74:9-79:63
+326            android:name="sl.com.eightdigitz.app.presentation.order.userOrders.UserOrders"
+326-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:75:13-91
+327            android:screenOrientation="portrait"
+327-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:76:13-49
+328            android:splitName="app"
+328-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:77:13-36
+329            android:theme="@style/AppTheme"
+329-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:78:13-44
+330            android:windowSoftInputMode="stateAlwaysHidden" />
+330-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:79:13-60
+331        <activity
+331-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:80:9-85:63
+332            android:name="sl.com.eightdigitz.app.presentation.order.userOrders.OrderSummary"
+332-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:81:13-93
+333            android:screenOrientation="portrait"
+333-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:82:13-49
+334            android:splitName="app"
+334-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:83:13-36
+335            android:theme="@style/AppTheme"
+335-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:84:13-44
+336            android:windowSoftInputMode="stateAlwaysHidden" />
+336-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:85:13-60
+337        <activity
+337-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:86:9-91:63
+338            android:name="sl.com.eightdigitz.app.presentation.order.userOrders.OrderToProceed"
+338-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:87:13-95
+339            android:screenOrientation="portrait"
+339-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:88:13-49
+340            android:splitName="app"
+340-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:89:13-36
+341            android:theme="@style/AppTheme"
+341-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:90:13-44
+342            android:windowSoftInputMode="stateAlwaysHidden" />
+342-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:91:13-60
+343        <activity
+343-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:92:9-97:63
+344            android:name="sl.com.eightdigitz.app.presentation.explore.Explore"
+344-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:93:13-79
+345            android:screenOrientation="portrait"
+345-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:94:13-49
+346            android:splitName="app"
+346-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:95:13-36
+347            android:theme="@style/AppTheme.NoActionBar"
+347-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:96:13-56
+348            android:windowSoftInputMode="stateAlwaysHidden" />
+348-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:97:13-60
+349        <activity
+349-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:98:9-103:70
+350            android:name="sl.com.eightdigitz.app.presentation.profile.EditProfile"
+350-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:99:13-83
+351            android:screenOrientation="portrait"
+351-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:100:13-49
+352            android:splitName="app"
+352-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:101:13-36
+353            android:theme="@style/AppTheme.NoActionBar"
+353-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:102:13-56
+354            android:windowSoftInputMode="stateHidden|adjustResize" />
+354-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:103:13-67
+355        <activity
+355-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:104:9-109:63
+356            android:name="sl.com.eightdigitz.app.presentation.reminder.Reminders"
+356-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:105:13-82
+357            android:screenOrientation="portrait"
+357-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:106:13-49
+358            android:splitName="app"
+358-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:107:13-36
+359            android:theme="@style/AppTheme"
+359-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:108:13-44
+360            android:windowSoftInputMode="stateAlwaysHidden" />
+360-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:109:13-60
+361        <activity
+361-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:110:9-115:58
+362            android:name="sl.com.eightdigitz.app.presentation.favourite.Favourites"
+362-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:111:13-84
+363            android:screenOrientation="portrait"
+363-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:112:13-49
+364            android:splitName="app"
+364-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:113:13-36
+365            android:theme="@style/AppTheme"
+365-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:114:13-44
+366            android:windowSoftInputMode="adjustResize" />
+366-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:115:13-55
+367        <activity
+367-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:116:9-121:58
+368            android:name="sl.com.eightdigitz.app.presentation.profile.UpdateMobile"
+368-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:117:13-84
+369            android:screenOrientation="portrait"
+369-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:118:13-49
+370            android:splitName="app"
+370-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:119:13-36
+371            android:theme="@style/AppTheme"
+371-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:120:13-44
+372            android:windowSoftInputMode="adjustResize" />
+372-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:121:13-55
+373        <activity
+373-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:122:9-127:58
+374            android:name="sl.com.eightdigitz.app.presentation.reminder.AddNewReminder"
+374-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:123:13-87
+375            android:screenOrientation="portrait"
+375-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:124:13-49
+376            android:splitName="app"
+376-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:125:13-36
+377            android:theme="@style/AppTheme"
+377-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:126:13-44
+378            android:windowSoftInputMode="adjustResize" />
+378-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:127:13-55
+379        <activity
+379-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:128:9-133:63
+380            android:name="sl.com.eightdigitz.app.presentation.settings.Settings"
+380-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:129:13-81
+381            android:screenOrientation="portrait"
+381-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:130:13-49
+382            android:splitName="app"
+382-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:131:13-36
+383            android:theme="@style/AppTheme.NoActionBar"
+383-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:132:13-56
+384            android:windowSoftInputMode="stateAlwaysHidden" />
+384-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:133:13-60
+385        <activity
+385-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:134:9-139:63
+386            android:name="sl.com.eightdigitz.app.presentation.preferences.PreferenceEdit"
+386-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:135:13-90
+387            android:screenOrientation="portrait"
+387-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:136:13-49
+388            android:splitName="app"
+388-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:137:13-36
+389            android:theme="@style/AppTheme"
+389-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:138:13-44
+390            android:windowSoftInputMode="stateAlwaysHidden" />
+390-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:139:13-60
+391        <activity
+391-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:140:9-144:58
+392            android:name="sl.com.eightdigitz.app.presentation.order.userOrders.ViewShoutOutVideo"
+392-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:141:13-98
+393            android:screenOrientation="portrait"
+393-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:142:13-49
+394            android:splitName="app"
+394-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:143:13-36
+395            android:theme="@style/AppTheme.FullScreen" />
+395-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:144:13-55
+396        <activity
+396-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:145:9-150:58
+397            android:name="sl.com.eightdigitz.app.presentation.profile.VerifyMobileOTP"
+397-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:146:13-87
+398            android:screenOrientation="portrait"
+398-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:147:13-49
+399            android:splitName="app"
+399-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:148:13-36
+400            android:theme="@style/AppTheme"
+400-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:149:13-44
+401            android:windowSoftInputMode="adjustResize" />
+401-->[:app] D:\Projects\UserApp\app\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:150:13-55
+402
+403        <service
+403-->[:features:notifications] D:\Projects\UserApp\features\notifications\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:21:9-28:19
+404            android:name="sl.com.eightdigitz.notifications.presentation.service.FcmService"
+404-->[:features:notifications] D:\Projects\UserApp\features\notifications\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:22:13-92
+405            android:permission="TODO"
+405-->[:features:notifications] D:\Projects\UserApp\features\notifications\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:23:13-38
+406            android:splitName="notifications" >
+406-->[:features:notifications] D:\Projects\UserApp\features\notifications\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:24:13-46
+407            <intent-filter>
+407-->[com.google.firebase:firebase-messaging:20.1.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\ad5c2d95b0c19c3aae3ad03a5d14d113\jetified-firebase-messaging-20.1.0\AndroidManifest.xml:31:13-33:29
+408                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+408-->[com.google.firebase:firebase-messaging:20.1.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\ad5c2d95b0c19c3aae3ad03a5d14d113\jetified-firebase-messaging-20.1.0\AndroidManifest.xml:32:17-78
+408-->[com.google.firebase:firebase-messaging:20.1.0] C:\Users\MEDIA BOX\.gradle\caches\transforms-2\files-2.1\ad5c2d95b0c19c3aae3ad03a5d14d113\jetified-firebase-messaging-20.1.0\AndroidManifest.xml:32:25-75
+409            </intent-filter>
+410        </service> <!-- FCM: Disable auto-init -->
+411        <meta-data
+411-->[:features:notifications] D:\Projects\UserApp\features\notifications\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:30:9-32:37
+412            android:name="firebase_messaging_auto_init_enabled"
+412-->[:features:notifications] D:\Projects\UserApp\features\notifications\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:31:13-64
+413            android:value="false" />
+413-->[:features:notifications] D:\Projects\UserApp\features\notifications\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:32:13-34
+414        <meta-data
+414-->[:features:notifications] D:\Projects\UserApp\features\notifications\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:33:9-35:37
+415            android:name="firebase_analytics_collection_enabled"
+415-->[:features:notifications] D:\Projects\UserApp\features\notifications\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:34:13-65
+416            android:value="false" />
+416-->[:features:notifications] D:\Projects\UserApp\features\notifications\build\intermediates\metadata_feature_manifest\debug\AndroidManifest.xml:35:13-34
+417    </application>
+418
+419</manifest>

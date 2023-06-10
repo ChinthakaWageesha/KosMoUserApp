@@ -1,0 +1,2 @@
+sl/com/eightdigitz/app/BuildConfig.java
+ sl.com.eightdigitz.app.BuildConfig

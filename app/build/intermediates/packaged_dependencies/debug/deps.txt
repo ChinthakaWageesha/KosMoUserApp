@@ -1,0 +1,2 @@
+:app::debug
+androidx.legacy:legacy-support-v4

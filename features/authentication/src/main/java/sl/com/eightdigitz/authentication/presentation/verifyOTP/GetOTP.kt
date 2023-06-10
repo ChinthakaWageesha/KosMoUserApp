@@ -148,7 +148,7 @@ class GetOTP : BaseActivity(), View.OnClickListener {
     }
 
     private fun navigateToVerify() {
-        userRequest?.mobileNo0 = ccpPicker.fullNumberWithPlus.replace("+94", "0")
+        //userRequest?.mobileNo0 = ccpPicker.fullNumberWithPlus.replace("+94", "0")
         val intent = Intent(this, VerifyOTP::class.java)
         intent.putExtra(IntentParsableConstants.EXTRA_REGISTER_USER, userRequest)
         startActivityForResult(intent, RequestCodes.CREATE_USER_REQUEST_CODE)

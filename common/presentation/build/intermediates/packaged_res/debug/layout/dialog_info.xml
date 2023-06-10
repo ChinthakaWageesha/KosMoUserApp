@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_dialog_container"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:elevation="@dimen/cl_dialog_container_elevation"
+    android:minWidth="350dp"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/dialogInfoTitleTextView"
+        style="@style/BlackBoldTextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="sasaacascasc"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dialogInfoMessageTextView"
+        style="@style/DarkGrayNormalTextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dialogInfoMessageTextView_margin_top"
+        android:gravity="center"
+        android:text="acwewwcscsdsdc"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/dialogInfoTitleTextView"
+        app:layout_constraintStart_toStartOf="@+id/dialogInfoTitleTextView"
+        app:layout_constraintTop_toBottomOf="@+id/dialogInfoTitleTextView" />
+
+    <Button
+        android:id="@+id/dialogInfoPositiveButton"
+        style="@style/PinkButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/dialogInfoNegativeButton"
+        app:layout_constraintTop_toBottomOf="@+id/dialogInfoMessageTextView" />
+
+    <Button
+        android:id="@+id/dialogInfoNegativeButton"
+        style="@style/PinkButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/dialogInfoPositiveButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialogInfoMessageTextView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

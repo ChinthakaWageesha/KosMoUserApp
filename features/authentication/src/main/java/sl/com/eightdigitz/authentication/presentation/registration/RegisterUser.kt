@@ -164,7 +164,8 @@ class RegisterUser : BaseActivity(), View.OnClickListener {
     private fun authWithBackend(fmcToken: String?) {
         val registerRequest = RegisterRequest()
         registerRequest.firebaseID = fmcToken
-        registerRequest.mobileNo = userRequest?.mobileNo0
+        //registerRequest.mobileNo = userRequest?.mobileNo0
+        registerRequest.mobileNo = userRequest?.mobileNo94
         registerRequest.fullName = et_name_sign_up.getStringTrim()
         registerRequest.email = et_sign_up_email.getStringTrim()
         registerRequest.defaultLanguage = userRequest?.defaultLanguage

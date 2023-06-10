@@ -1,5 +1,7 @@
 package sl.com.eightdigitz.app.presentation.explore
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
@@ -75,6 +77,15 @@ class Explore : BaseActivity(), View.OnClickListener, (DUser, Int) -> Unit {
         rv_explore_user.adapter = ExploreAdapter(mutableListOf(), this)
         rv_explore_user.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
+        /*var resultLauncher = registerForActivityResult(StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                // There are no request codes
+                val data: Intent? = result.data
+                doSomeOperations()
+            }
+        }*/
+
     }
 
     override fun onClick(v: View?) {

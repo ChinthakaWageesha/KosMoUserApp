@@ -1,0 +1,4 @@
+:features:authentication::debug
+com.jakewharton:butterknife
+com.jakewharton:butterknife-annotations
+com.jakewharton:butterknife-runtime

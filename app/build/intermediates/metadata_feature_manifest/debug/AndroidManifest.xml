@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution"
+    featureSplit="app"
+    package="sl.com.eightdigitz.userapp"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk android:targetSdkVersion="29" />
+
+    <dist:module
+        dist:instant="true"
+        dist:onDemand="false"
+        dist:title="@string/module_feature_app" >
+        <dist:fusing dist:include="true" />
+    </dist:module>
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application android:debuggable="true" >
+        <activity
+            android:name="sl.com.eightdigitz.app.presentation.main.MainActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:splitName="app"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="sl.com.eightdigitz.app.presentation.search.preferenceSearch.SearchTalentByPreference"
+            android:screenOrientation="portrait"
+            android:splitName="app"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="sl.com.eightdigitz.app.presentation.search.recentSearch.RecentSearches"
+            android:screenOrientation="portrait"
+            android:splitName="app"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="sl.com.eightdigitz.app.presentation.profile.ViewProfile"
+            android:screenOrientation="portrait"
+            android:splitName="app"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="sl.com.eightdigitz.app.presentation.order.addNewOrder.ConfirmOrder"
+            android:screenOrientation="portrait"
+            android:splitName="app"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="sl.com.eightdigitz.app.presentation.order.addNewOrder.PaymentCheckout"
+            android:screenOrientation="portrait"
+            android:splitName="app"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="sl.com.eightdigitz.app.presentation.order.addNewOrder.OrderInstructions"
+            android:screenOrientation="portrait"
+            android:splitName="app"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="sl.com.eightdigitz.app.presentation.order.addNewOrder.OrderDetails"
+            android:screenOrientation="portrait"
+            android:splitName="app"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="sl.com.eightdigitz.app.presentation.order.userOrders.UserOrders"
+            android:screenOrientation="portrait"
+            android:splitName="app"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="sl.com.eightdigitz.app.presentation.order.userOrders.OrderSummary"
+            android:screenOrientation="portrait"
+            android:splitName="app"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="sl.com.eightdigitz.app.presentation.order.userOrders.OrderToProceed"
+            android:screenOrientation="portrait"
+            android:splitName="app"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="sl.com.eightdigitz.app.presentation.explore.Explore"
+            android:screenOrientation="portrait"
+            android:splitName="app"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="sl.com.eightdigitz.app.presentation.profile.EditProfile"
+            android:screenOrientation="portrait"
+            android:splitName="app"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="sl.com.eightdigitz.app.presentation.reminder.Reminders"
+            android:screenOrientation="portrait"
+            android:splitName="app"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="sl.com.eightdigitz.app.presentation.favourite.Favourites"
+            android:screenOrientation="portrait"
+            android:splitName="app"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="sl.com.eightdigitz.app.presentation.profile.UpdateMobile"
+            android:screenOrientation="portrait"
+            android:splitName="app"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="sl.com.eightdigitz.app.presentation.reminder.AddNewReminder"
+            android:screenOrientation="portrait"
+            android:splitName="app"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="sl.com.eightdigitz.app.presentation.settings.Settings"
+            android:screenOrientation="portrait"
+            android:splitName="app"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="sl.com.eightdigitz.app.presentation.preferences.PreferenceEdit"
+            android:screenOrientation="portrait"
+            android:splitName="app"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="sl.com.eightdigitz.app.presentation.order.userOrders.ViewShoutOutVideo"
+            android:screenOrientation="portrait"
+            android:splitName="app"
+            android:theme="@style/AppTheme.FullScreen" />
+        <activity
+            android:name="sl.com.eightdigitz.app.presentation.profile.VerifyMobileOTP"
+            android:screenOrientation="portrait"
+            android:splitName="app"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustResize" />
+    </application>
+
+</manifest>

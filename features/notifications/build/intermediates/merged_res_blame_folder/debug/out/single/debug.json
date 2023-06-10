@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "D:\\Projects\\UserApp\\features\\notifications\\build\\intermediates\\res\\merged\\debug\\layout_item_notification.xml.flat",
+        "source": "D:\\Projects\\UserApp\\features\\notifications\\src\\main\\res\\layout\\item_notification.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\features\\notifications\\build\\intermediates\\res\\merged\\debug\\layout_fragment_notifications.xml.flat",
+        "source": "D:\\Projects\\UserApp\\features\\notifications\\src\\main\\res\\layout\\fragment_notifications.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\features\\notifications\\build\\intermediates\\res\\merged\\debug\\drawable_ic_delete.xml.flat",
+        "source": "D:\\Projects\\UserApp\\features\\notifications\\src\\main\\res\\drawable\\ic_delete.xml"
+    }
+]

@@ -1,0 +1,832 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="http://schemas.android.com/tools">
+    <array name="com_google_android_gms_fonts_certs">
+        <item>@array/com_google_android_gms_fonts_certs_dev</item>
+        <item>@array/com_google_android_gms_fonts_certs_prod</item>
+    </array>
+    <string-array name="com_google_android_gms_fonts_certs_dev">
+        <item>
+            MIIEqDCCA5CgAwIBAgIJANWFuGx90071MA0GCSqGSIb3DQEBBAUAMIGUMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEQMA4GA1UEChMHQW5kcm9pZDEQMA4GA1UECxMHQW5kcm9pZDEQMA4GA1UEAxMHQW5kcm9pZDEiMCAGCSqGSIb3DQEJARYTYW5kcm9pZEBhbmRyb2lkLmNvbTAeFw0wODA0MTUyMzM2NTZaFw0zNTA5MDEyMzM2NTZaMIGUMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEQMA4GA1UEChMHQW5kcm9pZDEQMA4GA1UECxMHQW5kcm9pZDEQMA4GA1UEAxMHQW5kcm9pZDEiMCAGCSqGSIb3DQEJARYTYW5kcm9pZEBhbmRyb2lkLmNvbTCCASAwDQYJKoZIhvcNAQEBBQADggENADCCAQgCggEBANbOLggKv+IxTdGNs8/TGFy0PTP6DHThvbbR24kT9ixcOd9W+EaBPWW+wPPKQmsHxajtWjmQwWfna8mZuSeJS48LIgAZlKkpFeVyxW0qMBujb8X8ETrWy550NaFtI6t9+u7hZeTfHwqNvacKhp1RbE6dBRGWynwMVX8XW8N1+UjFaq6GCJukT4qmpN2afb8sCjUigq0GuMwYXrFVee74bQgLHWGJwPmvmLHC69EH6kWr22ijx4OKXlSIx2xT1AsSHee70w5iDBiK4aph27yH3TxkXy9V89TDdexAcKk/cVHYNnDBapcavl7y0RiQ4biu8ymM8Ga/nmzhRKya6G0cGw8CAQOjgfwwgfkwHQYDVR0OBBYEFI0cxb6VTEM8YYY6FbBMvAPyT+CyMIHJBgNVHSMEgcEwgb6AFI0cxb6VTEM8YYY6FbBMvAPyT+CyoYGapIGXMIGUMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEQMA4GA1UEChMHQW5kcm9pZDEQMA4GA1UECxMHQW5kcm9pZDEQMA4GA1UEAxMHQW5kcm9pZDEiMCAGCSqGSIb3DQEJARYTYW5kcm9pZEBhbmRyb2lkLmNvbYIJANWFuGx90071MAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEEBQADggEBABnTDPEF+3iSP0wNfdIjIz1AlnrPzgAIHVvXxunW7SBrDhEglQZBbKJEk5kT0mtKoOD1JMrSu1xuTKEBahWRbqHsXclaXjoBADb0kkjVEJu/Lh5hgYZnOjvlba8Ld7HCKePCVePoTJBdI4fvugnL8TsgK05aIskyY0hKI9L8KfqfGTl1lzOv2KoWD0KWwtAWPoGChZxmQ+nBli+gwYMzM1vAkP+aayLe0a1EQimlOalO762r0GXO0ks+UeXde2Z4e+8S/pf7pITEI/tP+MxJTALw9QUWEv9lKTk+jkbqxbsh8nfBUapfKqYn0eidpwq2AzVp3juYl7//fKnaPhJD9gs=
+        </item>
+    </string-array>
+    <string-array name="com_google_android_gms_fonts_certs_prod">
+        <item>
+            MIIEQzCCAyugAwIBAgIJAMLgh0ZkSjCNMA0GCSqGSIb3DQEBBAUAMHQxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtHb29nbGUgSW5jLjEQMA4GA1UECxMHQW5kcm9pZDEQMA4GA1UEAxMHQW5kcm9pZDAeFw0wODA4MjEyMzEzMzRaFw0zNjAxMDcyMzEzMzRaMHQxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtHb29nbGUgSW5jLjEQMA4GA1UECxMHQW5kcm9pZDEQMA4GA1UEAxMHQW5kcm9pZDCCASAwDQYJKoZIhvcNAQEBBQADggENADCCAQgCggEBAKtWLgDYO6IIrgqWbxJOKdoR8qtW0I9Y4sypEwPpt1TTcvZApxsdyxMJZ2JORland2qSGT2y5b+3JKkedxiLDmpHpDsz2WCbdxgxRczfey5YZnTJ4VZbH0xqWVW/8lGmPav5xVwnIiJS6HXk+BVKZF+JcWjAsb/GEuq/eFdpuzSqeYTcfi6idkyugwfYwXFU1+5fZKUaRKYCwkkFQVfcAs1fXA5V+++FGfvjJ/CxURaSxaBvGdGDhfXE28LWuT9ozCl5xw4Yq5OGazvV24mZVSoOO0yZ31j7kYvtwYK6NeADwbSxDdJEqO4k//0zOHKrUiGYXtqw/A0LFFtqoZKFjnkCAQOjgdkwgdYwHQYDVR0OBBYEFMd9jMIhF1Ylmn/Tgt9r45jk14alMIGmBgNVHSMEgZ4wgZuAFMd9jMIhF1Ylmn/Tgt9r45jk14aloXikdjB0MQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLR29vZ2xlIEluYy4xEDAOBgNVBAsTB0FuZHJvaWQxEDAOBgNVBAMTB0FuZHJvaWSCCQDC4IdGZEowjTAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBAUAA4IBAQBt0lLO74UwLDYKqs6Tm8/yzKkEu116FmH4rkaymUIE0P9KaMftGlMexFlaYjzmB2OxZyl6euNXEsQH8gjwyxCUKRJNexBiGcCEyj6z+a1fuHHvkiaai+KL8W1EyNmgjmyy8AW7P+LLlkR+ho5zEHatRbM/YAnqGcFh5iZBqpknHf1SKMXFh4dd239FJ1jWYfbMDMy3NS5CTMQ2XFI1MvcyUTdZPErjQfTbQe3aDQsQcafEQPD+nqActifKZ0Np0IS9L9kR/wbNvyz6ENwPiTrjV2KRkEjH78ZMcUQXg0L3BYHJ3lc69Vs5Ddf9uUGGMYldX3WfMBEmh/9iFBDAaTCK
+        </item>
+    </string-array>
+    <array name="progress_gradient">
+        <item>@color/colorDarkMagenta</item>
+        <item>@color/colorDarkPink</item>
+        <item>@color/colorDarkPurple</item>
+    </array>
+    <color name="colorAccent">@color/colorWhite</color>
+    <color name="colorBackgroundGray">#F9F9F9</color>
+    <color name="colorBackgroundGrayII">#F7F7F7</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorBlackOp50">#50000000</color>
+    <color name="colorBlackOp80">#80000000</color>
+    <color name="colorBlue">#FF0076FF</color>
+    <color name="colorDarkBlue">#001041</color>
+    <color name="colorDarkGray">#282828</color>
+    <color name="colorDarkMagenta">#8B008B</color>
+    <color name="colorDarkPink">#F52789</color>
+    <color name="colorDarkPinkOp50">#70DF186F</color>
+    <color name="colorDarkPurple">#6A266F</color>
+    <color name="colorGray">#C7C7C7</color>
+    <color name="colorGrayLine">#F2F2F2</color>
+    <color name="colorGrayLineII">#E5E5E5</color>
+    <color name="colorGrayWhite">#F6F8FA</color>
+    <color name="colorGreen">#00BE66</color>
+    <color name="colorHalvetica">#51799C</color>
+    <color name="colorLightBlack">#404040</color>
+    <color name="colorLightBlue">#22D3FF</color>
+    <color name="colorLightCream">#EAC691</color>
+    <color name="colorLightGray">#E1E1E1</color>
+    <color name="colorLightMediumGray">#D0D0D0</color>
+    <color name="colorLightRed">#FF2D55</color>
+    <color name="colorMediumDarkGray">#4D77819C</color>
+    <color name="colorMediumGray">#ACB1C0</color>
+    <color name="colorOpGray">#30F6F6F6</color>
+    <color name="colorOrange">#FF715B</color>
+    <color name="colorPink">#F1166F</color>
+    <color name="colorPinkAlpha30">#D894BE</color>
+    <color name="colorPrimary">@color/colorWhite</color>
+    <color name="colorPrimaryDark">@color/colorWhite</color>
+    <color name="colorPurple">#652770</color>
+    <color name="colorRed">#FD003A</color>
+    <color name="colorSnowGray">#FCFCFE</color>
+    <color name="colorTextBlack">#0D010C</color>
+    <color name="colorTextGray">#3D3D3D</color>
+    <color name="colorTransparent">#00000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorWhiteOp20">#80FFFFFF</color>
+    <color name="colorWhiteOp50">#50FFFFFF</color>
+    <color name="colorYellow">#FFF44F</color>
+    <dimen name="btn_border_width">1dp</dimen>
+    <dimen name="btn_corner_radios">100dp</dimen>
+    <dimen name="cl_dialog_container_elevation">8dp</dimen>
+    <dimen name="cl_dialog_container_min_width">350dp</dimen>
+    <dimen name="cl_dialog_container_padding">16dp</dimen>
+    <dimen name="dialogInfoMessageTextView_margin_top">16dp</dimen>
+    <dimen name="et_round_corner_radius">100dp</dimen>
+    <dimen name="et_square_corner_radius">5dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <string name="app_name">Presentation</string>
+    <string name="auth0_audience_url">https://%s/userinfo</string>
+    <string name="btn_add_promo_code">Add</string>
+    <string name="btn_add_reminder">Add Reminder</string>
+    <string name="btn_continue">Continue</string>
+    <string name="btn_decline_order">Decline</string>
+    <string name="btn_go_explore">Go Explore!</string>
+    <string name="btn_place_order">Place Order</string>
+    <string name="btn_proceed_order">Proceed</string>
+    <string name="btn_request_now">Request Now</string>
+    <string name="btn_send_code">Send Code</string>
+    <string name="btn_submit">Submit</string>
+    <string name="btn_verify">Verify</string>
+    <string name="com_auth0_client_id">k4PQJsn9sjtYNw6YGQyy5WnU7JmMvYQs</string>
+    <string name="com_auth0_domain">dev-ahamad.us.auth0.com</string>
+    <string name="error_invalid_country_code">The mobile code is invalid</string>
+    <string name="error_invalid_phone">The Phone number is invalid</string>
+    <string name="get_otp_error_desc_one">You must be able to receive SMS to the phone number you are trying to verify.</string>
+    <string name="heading_new_reminder">New Reminder</string>
+    <string name="hint_birthday_tv">Birthday</string>
+    <string name="hint_card_expiry_date">MM-YYYY</string>
+    <string name="hint_country_tv">Country</string>
+    <string name="hint_cvv">123</string>
+    <string name="hint_date">Date*</string>
+    <string name="hint_description_contact_us">Please note that we value and respect your privacy and will only use your data for
+        services purposes and will not share it with third parties. Please read the our Privacy Statement for more information.</string>
+    <string name="hint_email_contact_us">Email*</string>
+    <string name="hint_email_send_request">Email*</string>
+    <string name="hint_email_tv">Email address</string>
+    <string name="hint_enter_code">Enter Code</string>
+    <string name="hint_event_name">Event Name*</string>
+    <string name="hint_favourites">Search favourite people here</string>
+    <string name="hint_feedback_problem_contact_us">Describe your feedback or problem</string>
+    <string name="hint_full_name_tv">Your full name</string>
+    <string name="hint_mobile_number">Mobile Number</string>
+    <string name="hint_name_contact_us">Name</string>
+    <string name="hint_name_send_request">Name*</string>
+    <string name="hint_phone_number_contact_us">Phone Number*</string>
+    <string name="hint_phone_number_send_request">Phone Number*</string>
+    <string name="hint_phone_number_tv">Phone number (this is your verified number)</string>
+    <string name="hint_profile_description">Please describe yourself to us*</string>
+    <string name="hint_promo_code">Promo code here</string>
+    <string name="hint_search">Search</string>
+    <string name="hint_search_here">Search here</string>
+    <string name="hint_search_notifications">Search Notifications here</string>
+    <string name="hint_search_talent_home">Search favourite people here</string>
+    <string name="hint_sign_up_profile_description">Describe you here</string>
+    <string name="hint_social_media_link">Social Media Account Username/Link*</string>
+    <string name="hint_subject_contact_us">Subject*</string>
+    <string name="hint_top_social_media">Your top Social Media Platform*</string>
+    <string name="hint_upload_image_contact_us">Upload Screenshot/ Image</string>
+    <string name="label_contact_us">Contact Us</string>
+    <string name="label_select_language">Select Language</string>
+    <string name="label_view_more">View more</string>
+    <string name="message_are_u_talent">Are you a talent?</string>
+    <string name="message_confirm_order_description">By booking, you agree to Hello’s Terms of Service, including Additional Terms and Privacy Policy.</string>
+    <string name="message_did_not_receive_code">Didn\'t receive a code?</string>
+    <string name="message_enter_code">Type the code below</string>
+    <string name="message_get_otp_default">You will receive a one-time sms to verify your account. The SMS will contain a verification code, which you can enter in the next step.</string>
+    <string name="message_get_started_description">Book personalized video messages &amp; Shoutouts from your favorite people you love</string>
+    <string name="message_its_for">It\'s for</string>
+    <string name="message_join_us_desc_one">If you meet the eligibility requirements, a representative will contact you within a few days to finish onboarding.</string>
+    <string name="message_join_us_desc_three"><u>visit our help centre</u></string>
+    <string name="message_join_us_desc_two">Learn all you need to know,</string>
+    <string name="message_no_data_completed_orders">You have no completed orders right now!</string>
+    <string name="message_no_data_declined_orders">You have no declined orders right now!</string>
+    <string name="message_no_data_expired_orders">You have no expired orders right now!</string>
+    <string name="message_no_data_favourites">You have no favourites right now!</string>
+    <string name="message_no_data_ongoing_orders">You have no ongoing orders right now!</string>
+    <string name="message_no_data_recent_search">You have no recent searches right now!</string>
+    <string name="message_no_data_rejected_orders">You have no rejected orders right now!</string>
+    <string name="message_no_data_talent_preferences">You have no talents by this category!</string>
+    <string name="message_no_data_talents">You have no talents with this name</string>
+    <string name="message_no_data_today_reminders">No reminders for today</string>
+    <string name="message_no_data_upcoming_reminders">You don’t have any upcoming reminders, \nTap Add + to schedule new reminders.</string>
+    <string name="message_no_notifications">You have no notifications right now.</string>
+    <string name="message_no_related_talent">Sorry, The talent associate with this Order is not longer available.</string>
+    <string name="message_otp_sent">Verification code has been sent to </string>
+    <string name="message_payment_checkout">Your card will not be charged until the order is complete.</string>
+    <string name="message_see_all">See All</string>
+    <string name="message_send_request"><u>Send us a request</u></string>
+    <string name="message_sign_up_desc">Please note that we value and respect your privacy and will
+        only use your data for services purposes. Read the our Privacy Statement for more information.
+        Learn all you need to know, visit our help centre.</string>
+    <string name="message_sms_charges">Depending on your carrier, you might receive charges for SMS.</string>
+    <string name="message_upload_photo">Upload a Photo*</string>
+    <string name="sub_title_sign_up">Create Your Profile</string>
+    <string name="subtitle_contact_us">Have questions or need to report an issue with a product or service? We’ve got you covered.</string>
+    <string name="subtitle_get_started">Connect from anywhere! \nWith people you love.</string>
+    <string name="subtitle_instructions">Type your instructions for the video request</string>
+    <string name="subtitle_send_request">For talent registrations only.</string>
+    <string name="subtitle_verify_phone_number">Enter the 6 digit code sent to your mobile number</string>
+    <string name="tile_set_preferences">Set Preferences</string>
+    <string name="title_account_services">Account Services</string>
+    <string name="title_account_settings">Account Settings</string>
+    <string name="title_add_promo_code">Add Promo Code</string>
+    <string name="title_approved_stage">Approved</string>
+    <string name="title_bio">Bio</string>
+    <string name="title_bottom_nav_activity">Activity</string>
+    <string name="title_bottom_nav_explore">Explore</string>
+    <string name="title_bottom_nav_home">Home</string>
+    <string name="title_bottom_nav_profile">Profile</string>
+    <string name="title_bottom_nav_search">Search</string>
+    <string name="title_calendar_sync">Calendar Sync</string>
+    <string name="title_card_number">Card Number</string>
+    <string name="title_checkout">Check Out</string>
+    <string name="title_china_btn">जल्द आ रहा है \n\n\nहिंदी</string>
+    <string name="title_confirm_btn">Confirm</string>
+    <string name="title_confirm_order">Confirm Order</string>
+    <string name="title_contact_us">Contact Us</string>
+    <string name="title_contact_us_support">Contact us for Support</string>
+    <string name="title_copyright">Copyright</string>
+    <string name="title_country_picker">Select Country</string>
+    <string name="title_cvv">CVV</string>
+    <string name="title_edit_profile">Edit Profile</string>
+    <string name="title_english_btn">Choose \nEnglish as your \nLanguage \n\n\nEnglish</string>
+    <string name="title_enter_mobile_number">Enter your mobile number</string>
+    <string name="title_event_info">Event Information</string>
+    <string name="title_expired_stage">Expired</string>
+    <string name="title_expiry_date">Expiry Data</string>
+    <string name="title_faq">FAQ</string>
+    <string name="title_get_started_btn">Join Now!</string>
+    <string name="title_help">Help</string>
+    <string name="title_help_center">Help Centre</string>
+    <string name="title_how_should_address">How should we address</string>
+    <string name="title_instructions">Instructions</string>
+    <string name="title_language">Language</string>
+    <string name="title_latest_news">Latest News</string>
+    <string name="title_logout">Logout</string>
+    <string name="title_manage_account">Manage Account</string>
+    <string name="title_most_popular">Most Popular</string>
+    <string name="title_name">Name</string>
+    <string name="title_name_on_card">Name on Card</string>
+    <string name="title_next">Next</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_notify_me">Notify Me</string>
+    <string name="title_on_hold">On Hold</string>
+    <string name="title_on_hold_stage">On Hold</string>
+    <string name="title_order_details">Order Details</string>
+    <string name="title_order_summary">Order Summary</string>
+    <string name="title_orders">Orders</string>
+    <string name="title_payment_summary">Your Payment Summary</string>
+    <string name="title_people_you_know">People you may know</string>
+    <string name="title_preferences">Preferences</string>
+    <string name="title_pricing_terms">Pricing &amp; Payments Terms</string>
+    <string name="title_privacy_policy">Privacy Policy</string>
+    <string name="title_processing">Processing</string>
+    <string name="title_processing_stage">Processing</string>
+    <string name="title_promo_code">Promo Code Applied</string>
+    <string name="title_promotions">Promotions</string>
+    <string name="title_recent_searches">Recent Searches</string>
+    <string name="title_recommended">Recommended</string>
+    <string name="title_refund">Refund</string>
+    <string name="title_refund_stage">Refund</string>
+    <string name="title_reminder_list">Reminder List</string>
+    <string name="title_reminders">Reminders</string>
+    <string name="title_request_verification">Request Verification</string>
+    <string name="title_review">Review</string>
+    <string name="title_review_order_to_continue">Please review order status to continue</string>
+    <string name="title_reviewing_stage">Reviewing</string>
+    <string name="title_select_country">Select Country</string>
+    <string name="title_select_language">Bringing you closer to the people you love</string>
+    <string name="title_send_request">Join us</string>
+    <string name="title_services">Service &amp; Tax</string>
+    <string name="title_settings">Settings</string>
+    <string name="title_sign_up">Signup</string>
+    <string name="title_sinhala_btn">ඔබේ භාෂාව \nසිංහල ලෙස \nතෝරන්න \n\n\nසිංහල</string>
+    <string name="title_software_licence">Software Licenses</string>
+    <string name="title_subtotal">Subtotal</string>
+    <string name="title_support_inbox">Support Inbox</string>
+    <string name="title_talent_searches">Talent Searches</string>
+    <string name="title_tamil_btn">உங்கள் \nமொழியாக \nதமிழை \nஅமைக்கவும் \n\n\nதமிழ்</string>
+    <string name="title_terms_of_use">Terms of Use</string>
+    <string name="title_today">Today</string>
+    <string name="title_total">Total</string>
+    <string name="title_upcoming">Upcoming</string>
+    <string name="title_update">Update</string>
+    <string name="title_update_mobile">Update Number</string>
+    <string name="title_user_information">User Information</string>
+    <string name="title_user_orders">All your order information can be viewed here</string>
+    <string name="title_verify_phone_number">Verification</string>
+    <string name="title_video_for">Who is this video for?</string>
+    <string name="title_video_to">Video To</string>
+    <string name="title_view_profile">View Profile</string>
+    <string name="title_welcome">Welcome</string>
+    <string name="title_welcome_hello">Account Created</string>
+    <string name="title_your_favourites">Your Favourites</string>
+    <string name="title_your_orders">Your Orders</string>
+    <string name="tv_post_register_desc">We use these preferences to recommend you favorite genres and people, Go on tap your favs!</string>
+    <style name="AnyColorNormalStyle">
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="AnyColorNormalStyle.Size10">
+        <item name="android:textSize">10sp</item>
+    </style>
+    <style name="AnyColorNormalStyle.Size12">
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="AnyColorNormalStyle.Size13">
+        <item name="android:textSize">13sp</item>
+    </style>
+    <style name="AnyColorNormalStyle.Size14">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="AnyColorNormalStyle.Size16">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="AnyColorNormalStyle.Size18">
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="AnyColorNormalStyle.Size34">
+        <item name="android:textSize">34sp</item>
+    </style>
+    <style name="AnyColorNormalStyle.Size8">
+        <item name="android:textSize">8sp</item>
+    </style>
+    <style name="AnyColorNormalStyle.Size9">
+        <item name="android:textSize">9sp</item>
+    </style>
+    <style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/colorBlack</item>
+        <item name="android:textColorSecondary">@color/colorBlack</item>
+        <item name="android:textAppearanceSmall">@style/BlackBoldTextStyle.Size14</item>
+        <item name="android:textAppearanceMedium">@style/BlackBoldTextStyle.Size14</item>
+        <item name="android:textAppearanceLarge">@style/BlackBoldTextStyle.Size14</item>
+    </style>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.Bridge">
+        <item name="colorPrimary">@color/colorTransparent</item>
+        <item name="colorPrimaryDark">@color/colorTransparent</item>
+        <item name="colorAccent">@color/colorDarkPink</item>
+        <item name="android:statusBarColor">@color/colorTransparent</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:windowLightNavigationBar" ns1:targetApi="o_mr1">true</item>
+        <item name="android:windowLightStatusBar" ns1:targetApi="m">true</item>
+        <item name="actionMenuTextColor">@color/colorWhite</item>
+    </style>
+    <style name="AppTheme.FullScreen">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+    <style name="AppTheme.SplashTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds" ns1:targetApi="lollipop">true</item>
+        <item name="android:windowTranslucentStatus" ns1:targetApi="kitkat">true</item>
+        <item name="android:windowBackground">@drawable/bg_splash</item>
+    </style>
+    <style name="BlackBoldTextStyle">
+        <item name="android:textColor">@color/colorTextBlack</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="BlackBoldTextStyle.Size14">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="BlackBoldTextStyle.Size16">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="BlackBoldTextStyle.Size27">
+        <item name="android:textSize">27sp</item>
+    </style>
+    <style name="BlackBoldTextStyle.Size50">
+        <item name="android:textSize">50sp</item>
+    </style>
+    <style name="BlackHintTextStyle">
+        <item name="android:textColor">@color/colorTextBlack</item>
+        <item name="android:textStyle">normal</item>
+        <item name="fontFamily">@font/sf_pro_display_regular</item>
+    </style>
+    <style name="BlackHintTextStyle.Size15">
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="BlackNormalStyle">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="BlackNormalStyle.Size12">
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="BlackNormalStyle.Size14">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="BlackNormalStyle.Size15">
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="BlackNormalStyle.Size16">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="BlackNormalTextStyle">
+        <item name="android:textColor">@color/colorTextBlack</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="BlackNormalTextStyle.Size10">
+        <item name="android:textSize">10sp</item>
+    </style>
+    <style name="BlackNormalTextStyle.Size12">
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="BlackNormalTextStyle.Size14">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="BlackNormalTextStyle.Size15">
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="BlackNormalTextStyle.Size16">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="BlackNormalTextStyle.Size18">
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="BlackNormalTextStyle.Size19">
+        <item name="android:textSize">19sp</item>
+    </style>
+    <style name="BlackNormalTextStyle.Size20">
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="BlackNormalTextStyle.Size24">
+        <item name="android:textSize">24sp</item>
+    </style>
+    <style name="BlackOp80NormalTextStyle">
+        <item name="android:textColor">@color/colorBlackOp80</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="BlackOp80NormalTextStyle.Size13">
+        <item name="android:textSize">13sp</item>
+    </style>
+    <style name="BlueBoldTextStyle">
+        <item name="android:textColor">@color/colorDarkBlue</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="BlueBoldTextStyle.Size14">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="BlueBoldTextStyle.Size17">
+        <item name="android:textSize">17sp</item>
+    </style>
+    <style name="BlueNormalTextStyle">
+        <item name="android:textColor">@color/colorDarkBlue</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="BlueNormalTextStyle.Size12">
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="BlueNormalTextStyle.Size14">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="BottomNavigationActiveTextStyle">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:fontFamily">@font/sf_pro_text_regular</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+    <style name="BottomNavigationInactiveTextStyle">
+        <item name="android:textColor">@color/colorBlackOp50</item>
+        <item name="android:fontFamily">@font/sf_pro_text_regular</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+    <style name="CustomAlertDialogStyle">
+        <item name="android:bottomBright">@color/colorTransparent</item>
+        <item name="android:bottomDark">@color/colorTransparent</item>
+        <item name="android:bottomMedium">@color/colorTransparent</item>
+        <item name="android:centerBright">@color/colorTransparent</item>
+        <item name="android:centerDark">@color/colorTransparent</item>
+        <item name="android:centerMedium">@color/colorTransparent</item>
+        <item name="android:fullBright">@color/colorTransparent</item>
+        <item name="android:fullDark">@color/colorTransparent</item>
+        <item name="android:topBright">@color/colorTransparent</item>
+        <item name="android:topDark">@color/colorTransparent</item>
+    </style>
+    <style name="DarkGrayBoldTextStyle">
+        <item name="android:textColor">@color/colorDarkGray</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="DarkGrayBoldTextStyle.Size17">
+        <item name="android:textSize">17sp</item>
+    </style>
+    <style name="DarkGrayNormalTextStyle">
+        <item name="android:textColor">@color/colorDarkGray</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="DarkGrayNormalTextStyle.Size14">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="DarkPinkNormalTextStyle">
+        <item name="android:textColor">@color/colorDarkPink</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="DarkPinkNormalTextStyle.Size14">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="DarkPinkNormalTextStyle.Size16">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="DarkPinkOp30NormalTextStyle">
+        <item name="android:textColor">@color/colorDarkPinkOp50</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="DarkPinkOp30NormalTextStyle.Size16">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="EditTextTheme">
+        <item name="android:textColor">@color/colorTextBlack</item>
+        <item name="android:textColorHint">@color/colorLightGray</item>
+        <item name="android:colorAccent">@color/colorTransparent</item>
+    </style>
+    <style name="HomeCategoriesTabTextStyle">
+        <item name="android:textColor">@color/colorMediumGray</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/sf_ui_display_regular</item>
+    </style>
+    <style name="LightBlackNormalTextStyle">
+        <item name="android:textColor">@color/colorLightBlack</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="LightBlackNormalTextStyle.Size18">
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="LightGrayNormalTextStyle">
+        <item name="android:textColor">@color/colorLightGray</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="LightGrayNormalTextStyle.Size13">
+        <item name="android:textSize">13sp</item>
+    </style>
+    <style name="MainSearchStyle">
+        <item name="android:background">@drawable/bg_gray_search_corner_round_10dp</item>
+        <item name="android:drawableStart">@drawable/ic_search_app</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/colorTextBlack</item>
+        <item name="android:textColorHint">@color/colorBlackOp50</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textCursorDrawable">@drawable/bg_cursor_color</item>
+    </style>
+    <style name="NoDataTextViewStyle">
+        <item name="android:background">@color/colorWhite</item>
+        <item name="android:fontFamily">@font/sf_pro_text_regular</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:textColor">@color/colorTextGray</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:paddingBottom">20dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+    <style name="OrangeNormalTextStyle">
+        <item name="android:textColor">@color/colorOrange</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="OrangeNormalTextStyle.Size14">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="OrangeNormalTextStyle.Size8">
+        <item name="android:textSize">8sp</item>
+    </style>
+    <style name="OrderStagesTabTextStyle">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/sf_pro_text_regular</item>
+    </style>
+    <style name="PhoneNumberEditTextStyle">
+        <item name="android:textAppearance">@style/BlackNormalTextStyle.Size16</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:paddingLeft">6dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingRight">6dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:background">@drawable/bg_white_corner_round_5dp</item>
+        <item name="android:textCursorDrawable">@drawable/bg_cursor_color</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+    <style name="PinkButtonStyle">
+        <item name="android:textAppearance">@style/PrimaryButtonTextStyle</item>
+        <item name="android:background">@drawable/bg_pink_btn_corner_round_5dp</item>
+        <item name="android:paddingLeft">14dp</item>
+        <item name="android:paddingRight">14dp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:minWidth">140dp</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+    <style name="PreferenceButtonStyle">
+        <item name="android:textAppearance">@style/TextGrayNormalStyle.Size12</item>
+        <item name="android:background">@drawable/bg_white_black_stroke_corner_round_4dp</item>
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:paddingLeft">6dp</item>
+        <item name="android:paddingRight">6dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:gravity">center</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+    <style name="PrimaryButtonTextStyle">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textStyle">normal</item>
+        <item name="fontFamily">@font/sf_pro_display_bold</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+    <style name="PrimaryEditTextStyle">
+        <item name="android:textAppearance">@style/BlackNormalTextStyle.Size16</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:background">@drawable/bg_white_corner_round_5dp</item>
+        <item name="android:textCursorDrawable">@drawable/bg_cursor_color</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+    <style name="PurpleButtonStyle">
+        <item name="android:textAppearance">@style/PrimaryButtonTextStyle</item>
+        <item name="android:background">@drawable/bg_purple_btn_corner_round_3dp</item>
+        <item name="android:paddingLeft">14dp</item>
+        <item name="android:paddingRight">14dp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:minWidth">140dp</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+    <style name="RedNormalTextStyle">
+        <item name="android:textColor">@color/colorRed</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="RedNormalTextStyle.Size12">
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="RedNormalTextStyle.Size13">
+        <item name="android:textSize">13sp</item>
+    </style>
+    <style name="SecondaryEditTextStyle">
+        <item name="android:textAppearance">@style/BlackNormalTextStyle.Size16</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:colorAccent">@color/colorTransparent</item>
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:background">@drawable/bg_white_corner_round_7dp_edit_text</item>
+        <item name="android:textCursorDrawable">@drawable/bg_cursor_color</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+    <style name="SelectLanguageButtonStyle">
+        <item name="android:background">@drawable/bg_select_language_toggle</item>
+        <item name="android:textColor">@drawable/bg_select_language_text</item>
+        <item name="textAllCaps">false</item>
+        <item name="fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:elevation">1dp</item>
+    </style>
+    <style name="TextGrayNormalStyle">
+        <item name="android:textColor">@color/colorTextGray</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="TextGrayNormalStyle.Size10">
+        <item name="android:textSize">10sp</item>
+    </style>
+    <style name="TextGrayNormalStyle.Size12">
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="TextGrayNormalStyle.Size14">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="TextGrayNormalStyle.Size15">
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="TextGrayNormalStyle.Size16">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="TextGrayNormalStyle.Size17">
+        <item name="android:textSize">17sp</item>
+    </style>
+    <style name="TextGrayNormalStyle.Size18">
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="TextGrayNormalStyle.Size20">
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="TextPinkAlpha30Normal">
+        <item name="android:textColor">@color/colorPinkAlpha30</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+    <style name="TextPinkAlpha30Normal.size17">
+        <item name="android:textSize">17sp</item>
+    </style>
+    <style name="TextPinkAlpha30Normal.size19">
+        <item name="android:textSize">19sp</item>
+    </style>
+    <style name="ToolbarBlackTitleStyle">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">24sp</item> <!--set to 34sp-->
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+    <style name="ToolbarTextWhiteStyle">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">18sp</item>
+        <item name="fontFamily">@font/sf_pro_display_bold</item>
+        <item name="textAllCaps">false</item>
+    </style>
+    <style name="TransparentButtonStyle">
+        <item name="android:textAppearance">@style/WhiteNormalTextStyle.Size17</item>
+        <item name="android:background">@drawable/bg_transparent_white_stroke_5dp</item>
+        <item name="fontFamily">@font/sf_pro_display_bold</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:minHeight">44dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:minWidth">100dp</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+    <style name="TransparentButtonStyleII">
+        <item name="android:textAppearance">@style/BlackBoldTextStyle.Size16</item>
+        <item name="android:background">@drawable/bg_transparent_corner_round_8dp</item>
+        <item name="fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:minHeight">44dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:minWidth">100dp</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+    <style name="WhiteBoldTextStyle">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="WhiteBoldTextStyle.Size14">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="WhiteBoldTextStyle.Size16">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="WhiteBoldTextStyle.Size18">
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="WhiteBoldTextStyle.Size19">
+        <item name="android:textSize">19sp</item>
+    </style>
+    <style name="WhiteBoldTextStyle.Size26">
+        <item name="android:textSize">26sp</item>
+    </style>
+    <style name="WhiteBoldTextStyle.Size27">
+        <item name="android:textSize">27sp</item>
+    </style>
+    <style name="WhiteBoldTextStyle.Size30">
+        <item name="android:textSize">30sp</item>
+    </style>
+    <style name="WhiteBoldTextStyle.Size34">
+        <item name="android:textSize">34sp</item>
+    </style>
+    <style name="WhiteButtonStyle">
+        <item name="android:textAppearance">@style/TextGrayNormalStyle.Size15</item>
+        <item name="android:background">@drawable/bg_white_corner_round_8dp</item>
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:paddingLeft">6dp</item>
+        <item name="android:paddingRight">6dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:gravity">center</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+    <style name="WhiteButtonStyleII">
+        <item name="android:textAppearance">@style/DarkPinkNormalTextStyle.Size16</item>
+        <item name="android:textColor">#F52789</item>
+        <item name="android:background">@drawable/bg_white_corner_round_20dp</item>
+        <item name="android:fontFamily">@font/sf_pro_display_semibold</item>
+        <item name="android:paddingLeft">6dp</item>
+        <item name="android:paddingRight">6dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:gravity">center</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+    <style name="WhiteNormalTextStyle">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="WhiteNormalTextStyle.Size12">
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="WhiteNormalTextStyle.Size13">
+        <item name="android:textSize">13sp</item>
+    </style>
+    <style name="WhiteNormalTextStyle.Size14">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="WhiteNormalTextStyle.Size15">
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="WhiteNormalTextStyle.Size16">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="WhiteNormalTextStyle.Size17">
+        <item name="android:textSize">17sp</item>
+    </style>
+    <style name="WhiteNormalTextStyle.Size19">
+        <item name="android:textSize">19sp</item>
+    </style>
+    <style name="WhiteNormalTextStyle.Size36">
+        <item name="android:textSize">36sp</item>
+    </style>
+    <style name="WhiteOpacity20TextStyle">
+        <item name="android:textColor">@color/colorWhiteOp20</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="WhiteOpacity20TextStyle.Size13">
+        <item name="android:textSize">13sp</item>
+    </style>
+    <style name="WhiteOpacity20TextStyle.Size15">
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="WhiteOpacity50TextStyle">
+        <item name="android:textColor">@color/colorWhiteOp50</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="WhiteOpacity50TextStyle.Size17">
+        <item name="android:textSize">17sp</item>
+    </style>
+    <style name="YellowNormalTextStyle">
+        <item name="android:textColor">@color/colorYellow</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="YellowNormalTextStyle.Size13">
+        <item name="android:textSize">13sp</item>
+    </style>
+    <style name="progressBarStyle" parent="android:Theme.Holo.Dialog">
+        <item name="android:windowBackground">@color/colorTransparent</item>
+    </style>
+</resources>

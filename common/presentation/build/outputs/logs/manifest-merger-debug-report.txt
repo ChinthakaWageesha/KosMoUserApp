@@ -1,0 +1,43 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\Projects\UserApp\common\presentation\src\main\AndroidManifest.xml:2:1-9:12
+INJECTED from D:\Projects\UserApp\common\presentation\src\main\AndroidManifest.xml:2:1-9:12
+INJECTED from D:\Projects\UserApp\common\presentation\src\main\AndroidManifest.xml:2:1-9:12
+INJECTED from D:\Projects\UserApp\common\presentation\src\main\AndroidManifest.xml:2:1-9:12
+INJECTED from D:\Projects\UserApp\common\presentation\src\main\AndroidManifest.xml:2:1-9:12
+INJECTED from D:\Projects\UserApp\common\presentation\src\main\AndroidManifest.xml:2:1-9:12
+INJECTED from D:\Projects\UserApp\common\presentation\src\main\AndroidManifest.xml:2:1-9:12
+	package
+		ADDED from D:\Projects\UserApp\common\presentation\src\main\AndroidManifest.xml:3:5-46
+		INJECTED from D:\Projects\UserApp\common\presentation\src\main\AndroidManifest.xml
+		INJECTED from D:\Projects\UserApp\common\presentation\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from D:\Projects\UserApp\common\presentation\src\main\AndroidManifest.xml
+		ADDED from D:\Projects\UserApp\common\presentation\src\main\AndroidManifest.xml:2:1-9:12
+		INJECTED from D:\Projects\UserApp\common\presentation\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from D:\Projects\UserApp\common\presentation\src\main\AndroidManifest.xml
+		ADDED from D:\Projects\UserApp\common\presentation\src\main\AndroidManifest.xml:2:1-9:12
+		INJECTED from D:\Projects\UserApp\common\presentation\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\Projects\UserApp\common\presentation\src\main\AndroidManifest.xml:2:11-69
+application
+ADDED from D:\Projects\UserApp\common\presentation\src\main\AndroidManifest.xml:5:5-7:19
+activity#sl.com.eightdigitz.presentation.cropper.CropImageActivity
+ADDED from D:\Projects\UserApp\common\presentation\src\main\AndroidManifest.xml:6:9-72
+	android:name
+		ADDED from D:\Projects\UserApp\common\presentation\src\main\AndroidManifest.xml:6:19-60
+uses-sdk
+INJECTED from D:\Projects\UserApp\common\presentation\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\Projects\UserApp\common\presentation\src\main\AndroidManifest.xml
+INJECTED from D:\Projects\UserApp\common\presentation\src\main\AndroidManifest.xml
+INJECTED from D:\Projects\UserApp\common\presentation\src\main\AndroidManifest.xml
+INJECTED from D:\Projects\UserApp\common\presentation\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from D:\Projects\UserApp\common\presentation\src\main\AndroidManifest.xml
+		ADDED from D:\Projects\UserApp\common\presentation\src\main\AndroidManifest.xml
+		INJECTED from D:\Projects\UserApp\common\presentation\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\Projects\UserApp\common\presentation\src\main\AndroidManifest.xml
+		ADDED from D:\Projects\UserApp\common\presentation\src\main\AndroidManifest.xml
+		INJECTED from D:\Projects\UserApp\common\presentation\src\main\AndroidManifest.xml

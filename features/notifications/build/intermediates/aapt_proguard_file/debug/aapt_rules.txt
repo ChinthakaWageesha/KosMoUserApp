@@ -1,0 +1,5 @@
+-keep class sl.com.eightdigitz.notifications.presentation.service.FcmService { <init>(); }
+-keep class androidx.constraintlayout.widget.ConstraintLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.recyclerview.widget.RecyclerView { <init>(android.content.Context, android.util.AttributeSet); }
+

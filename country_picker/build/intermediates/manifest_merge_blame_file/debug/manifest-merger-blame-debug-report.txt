@@ -1,0 +1,47 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    xmlns:tools="http://schemas.android.com/tools"
+4    package="sl.com.eightdigitz.country_picker"
+5    android:versionCode="1"
+6    android:versionName="1.0" >
+7
+8    <uses-sdk
+9        android:minSdkVersion="19"
+9-->D:\Projects\UserApp\country_picker\src\main\AndroidManifest.xml
+10        android:targetSdkVersion="29" />
+10-->D:\Projects\UserApp\country_picker\src\main\AndroidManifest.xml
+11
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->D:\Projects\UserApp\country_picker\src\main\AndroidManifest.xml:5:5-67
+12-->D:\Projects\UserApp\country_picker\src\main\AndroidManifest.xml:5:22-64
+13
+14    <application tools:ignore="GoogleAppIndexingWarning" >
+14-->D:\Projects\UserApp\country_picker\src\main\AndroidManifest.xml:7:5-21:19
+14-->D:\Projects\UserApp\country_picker\src\main\AndroidManifest.xml:7:18-57
+15        <activity
+15-->D:\Projects\UserApp\country_picker\src\main\AndroidManifest.xml:8:9-13:70
+16            android:name="sl.com.eightdigitz.country_picker.presentation.country_picker.CountryPicker"
+16-->D:\Projects\UserApp\country_picker\src\main\AndroidManifest.xml:9:13-70
+17            android:launchMode="singleTop"
+17-->D:\Projects\UserApp\country_picker\src\main\AndroidManifest.xml:10:13-43
+18            android:screenOrientation="portrait"
+18-->D:\Projects\UserApp\country_picker\src\main\AndroidManifest.xml:11:13-49
+19            android:theme="@style/AppTheme"
+19-->D:\Projects\UserApp\country_picker\src\main\AndroidManifest.xml:12:13-44
+20            android:windowSoftInputMode="stateHidden|adjustResize" />
+20-->D:\Projects\UserApp\country_picker\src\main\AndroidManifest.xml:13:13-67
+21        <activity
+21-->D:\Projects\UserApp\country_picker\src\main\AndroidManifest.xml:15:9-20:70
+22            android:name="sl.com.eightdigitz.country_picker.presentation.validator.NumberValidator"
+22-->D:\Projects\UserApp\country_picker\src\main\AndroidManifest.xml:16:13-67
+23            android:launchMode="singleTop"
+23-->D:\Projects\UserApp\country_picker\src\main\AndroidManifest.xml:17:13-43
+24            android:screenOrientation="portrait"
+24-->D:\Projects\UserApp\country_picker\src\main\AndroidManifest.xml:18:13-49
+25            android:theme="@style/AppTheme"
+25-->D:\Projects\UserApp\country_picker\src\main\AndroidManifest.xml:19:13-44
+26            android:windowSoftInputMode="stateHidden|adjustResize" />
+26-->D:\Projects\UserApp\country_picker\src\main\AndroidManifest.xml:20:13-67
+27    </application>
+28
+29</manifest>

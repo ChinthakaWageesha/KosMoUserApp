@@ -1,0 +1,45 @@
+-keep class sl.com.eightdigitz.app.presentation.explore.Explore { <init>(); }
+-keep class sl.com.eightdigitz.app.presentation.favourite.Favourites { <init>(); }
+-keep class sl.com.eightdigitz.app.presentation.main.MainActivity { <init>(); }
+-keep class sl.com.eightdigitz.app.presentation.order.addNewOrder.ConfirmOrder { <init>(); }
+-keep class sl.com.eightdigitz.app.presentation.order.addNewOrder.OrderDetails { <init>(); }
+-keep class sl.com.eightdigitz.app.presentation.order.addNewOrder.OrderInstructions { <init>(); }
+-keep class sl.com.eightdigitz.app.presentation.order.addNewOrder.PaymentCheckout { <init>(); }
+-keep class sl.com.eightdigitz.app.presentation.order.userOrders.OrderSummary { <init>(); }
+-keep class sl.com.eightdigitz.app.presentation.order.userOrders.OrderToProceed { <init>(); }
+-keep class sl.com.eightdigitz.app.presentation.order.userOrders.UserOrders { <init>(); }
+-keep class sl.com.eightdigitz.app.presentation.order.userOrders.ViewShoutOutVideo { <init>(); }
+-keep class sl.com.eightdigitz.app.presentation.preferences.PreferenceEdit { <init>(); }
+-keep class sl.com.eightdigitz.app.presentation.profile.EditProfile { <init>(); }
+-keep class sl.com.eightdigitz.app.presentation.profile.UpdateMobile { <init>(); }
+-keep class sl.com.eightdigitz.app.presentation.profile.VerifyMobileOTP { <init>(); }
+-keep class sl.com.eightdigitz.app.presentation.profile.ViewProfile { <init>(); }
+-keep class sl.com.eightdigitz.app.presentation.reminder.AddNewReminder { <init>(); }
+-keep class sl.com.eightdigitz.app.presentation.reminder.Reminders { <init>(); }
+-keep class sl.com.eightdigitz.app.presentation.search.preferenceSearch.SearchTalentByPreference { <init>(); }
+-keep class sl.com.eightdigitz.app.presentation.search.recentSearch.RecentSearches { <init>(); }
+-keep class sl.com.eightdigitz.app.presentation.settings.Settings { <init>(); }
+-keep class androidx.constraintlayout.widget.ConstraintLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.recyclerview.widget.RecyclerView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.viewpager2.widget.ViewPager2 { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.akexorcist.roundcornerprogressbar.TextRoundCornerProgressBar { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.google.android.material.bottomnavigation.BottomNavigationView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.google.android.material.tabs.TabLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.google.android.material.textfield.TextInputEditText { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.google.android.material.textfield.TextInputLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.potyvideo.library.AndExoPlayerView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.skyhope.eventcalenderlibrary.CalenderEvent { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.suke.widget.SwitchButton { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class de.hdodenhof.circleimageview.CircleImageView { <init>(android.content.Context, android.util.AttributeSet); }
+

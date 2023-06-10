@@ -1,0 +1,63 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    xmlns:dist="http://schemas.android.com/apk/distribution"
+4    featureSplit="notifications"
+5    package="sl.com.eightdigitz.userapp"
+6    android:versionCode="1"
+7    android:versionName="1.0" >
+8
+9    <uses-sdk
+10        android:minSdkVersion="21"
+10-->D:\Projects\UserApp\features\notifications\src\main\AndroidManifest.xml
+11        android:targetSdkVersion="29" />
+11-->D:\Projects\UserApp\features\notifications\src\main\AndroidManifest.xml
+12
+13    <dist:module
+13-->D:\Projects\UserApp\features\notifications\src\main\AndroidManifest.xml:7:5-12:19
+14        dist:instant="true"
+14-->D:\Projects\UserApp\features\notifications\src\main\AndroidManifest.xml:8:9-28
+15        dist:onDemand="false"
+15-->D:\Projects\UserApp\features\notifications\src\main\AndroidManifest.xml:9:9-30
+16        dist:title="@string/module_feature_notifications" >
+16-->D:\Projects\UserApp\features\notifications\src\main\AndroidManifest.xml:10:9-58
+17        <dist:fusing dist:include="true" />
+17-->D:\Projects\UserApp\features\notifications\src\main\AndroidManifest.xml:11:9-44
+17-->D:\Projects\UserApp\features\notifications\src\main\AndroidManifest.xml:11:22-41
+18    </dist:module>
+19
+20    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+20-->D:\Projects\UserApp\features\notifications\src\main\AndroidManifest.xml:14:5-79
+20-->D:\Projects\UserApp\features\notifications\src\main\AndroidManifest.xml:14:22-76
+21
+22    <application android:debuggable="true" >
+22-->D:\Projects\UserApp\features\notifications\src\main\AndroidManifest.xml:16:5-30:19
+23        <service
+23-->D:\Projects\UserApp\features\notifications\src\main\AndroidManifest.xml:18:9-24:19
+24            android:name="sl.com.eightdigitz.notifications.presentation.service.FcmService"
+24-->D:\Projects\UserApp\features\notifications\src\main\AndroidManifest.xml:19:13-60
+25            android:permission="TODO"
+25-->D:\Projects\UserApp\features\notifications\src\main\AndroidManifest.xml:20:13-38
+26            android:splitName="notifications" >
+27            <intent-filter>
+27-->D:\Projects\UserApp\features\notifications\src\main\AndroidManifest.xml:21:13-23:29
+28                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+28-->D:\Projects\UserApp\features\notifications\src\main\AndroidManifest.xml:22:17-77
+28-->D:\Projects\UserApp\features\notifications\src\main\AndroidManifest.xml:22:25-75
+29            </intent-filter>
+30        </service>
+31        <!-- FCM: Disable auto-init -->
+32        <meta-data
+32-->D:\Projects\UserApp\features\notifications\src\main\AndroidManifest.xml:26:9-27:37
+33            android:name="firebase_messaging_auto_init_enabled"
+33-->D:\Projects\UserApp\features\notifications\src\main\AndroidManifest.xml:26:20-71
+34            android:value="false" />
+34-->D:\Projects\UserApp\features\notifications\src\main\AndroidManifest.xml:27:13-34
+35        <meta-data
+35-->D:\Projects\UserApp\features\notifications\src\main\AndroidManifest.xml:28:9-29:37
+36            android:name="firebase_analytics_collection_enabled"
+36-->D:\Projects\UserApp\features\notifications\src\main\AndroidManifest.xml:28:20-72
+37            android:value="false" />
+37-->D:\Projects\UserApp\features\notifications\src\main\AndroidManifest.xml:29:13-34
+38    </application>
+39
+40</manifest>

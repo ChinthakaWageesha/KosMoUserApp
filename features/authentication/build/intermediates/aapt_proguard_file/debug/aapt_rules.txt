@@ -1,0 +1,20 @@
+-keep class sl.com.eightdigitz.authentication.presentation.ChooseLanguage { <init>(); }
+-keep class sl.com.eightdigitz.authentication.presentation.GetStarted { <init>(); }
+-keep class sl.com.eightdigitz.authentication.presentation.contact.ContactSupport { <init>(); }
+-keep class sl.com.eightdigitz.authentication.presentation.contact.SendRequest { <init>(); }
+-keep class sl.com.eightdigitz.authentication.presentation.registration.PostRegister { <init>(); }
+-keep class sl.com.eightdigitz.authentication.presentation.registration.RegisterUser { <init>(); }
+-keep class sl.com.eightdigitz.authentication.presentation.verifyOTP.GetOTP { <init>(); }
+-keep class sl.com.eightdigitz.authentication.presentation.verifyOTP.VerifyOTP { <init>(); }
+-keep class androidx.constraintlayout.widget.ConstraintLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.recyclerview.widget.RecyclerView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.google.android.material.textfield.TextInputEditText { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.google.android.material.textfield.TextInputLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.potyvideo.library.AndExoPlayerView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class de.hdodenhof.circleimageview.CircleImageView { <init>(android.content.Context, android.util.AttributeSet); }
+

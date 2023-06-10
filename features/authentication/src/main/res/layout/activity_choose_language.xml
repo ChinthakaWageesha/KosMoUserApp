@@ -8,16 +8,14 @@
     tools:context=".presentation.ChooseLanguage">
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="none"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:fillViewport="true"
+        android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_choose_language"
@@ -135,7 +133,7 @@
                         android:paddingBottom="16dp"
                         android:text="@string/title_tamil_btn"
                         android:textColor="@drawable/bg_select_language_text"
-                        android:textSize="13sp"/>
+                        android:textSize="13sp" />
 
                     <RadioButton
                         android:id="@+id/btn_hindi"
@@ -153,7 +151,7 @@
                         android:paddingBottom="16dp"
                         android:text="@string/title_china_btn"
                         android:textColor="@drawable/bg_select_language_text"
-                        android:textSize="13sp"/>
+                        android:textSize="13sp" />
 
                 </RadioGroup>
 
@@ -164,11 +162,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                app:layout_constraintVertical_chainStyle="spread_inside"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+                app:layout_constraintVertical_chainStyle="spread_inside">
 
                 <TextView
                     android:id="@+id/tv_contact_us"
@@ -192,11 +190,11 @@
                     android:layout_marginStart="32dp"
                     android:layout_marginEnd="32dp"
                     android:layout_marginBottom="40dp"
+                    android:clickable="false"
+                    android:enabled="false"
+                    android:focusable="false"
                     android:fontFamily="@font/sf_pro_display_bold"
                     android:text="@string/title_confirm_btn"
-                    android:clickable="false"
-                    android:focusable="false"
-                    android:enabled="false"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />

@@ -1,0 +1,202 @@
+[
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_explore_user.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\item_explore_user.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_reminders.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\activity_reminders.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_home.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_recent_searches.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\item_recent_searches.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_reminders.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\item_reminders.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_recent_searches.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\activity_recent_searches.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_fullscreen_expand.png.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\drawable\\ic_fullscreen_expand.png"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\color_bottom_nav_icon_color.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\color\\bottom_nav_icon_color.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_view_shoutout_video.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\activity_view_shoutout_video.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_preference_edit.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\activity_preference_edit.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_fullscreen_skrink.png.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\drawable\\ic_fullscreen_skrink.png"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_order_summary.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\activity_order_summary.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_edit_profile.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\activity_edit_profile.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_view_profile.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\activity_view_profile.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_home_most_popular.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\item_home_most_popular.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_search_talent_by_preference.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\activity_search_talent_by_preference.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_order_stages.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\item_order_stages.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_home_main.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\item_home_main.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_activity.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\fragment_activity.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_completed.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\fragment_completed.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_rejected.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\fragment_rejected.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_add_new_reminder.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\activity_add_new_reminder.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_order_instructions.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\activity_order_instructions.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_expired.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\fragment_expired.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_set_preferences.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\item_set_preferences.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_order_to_proceed.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\activity_order_to_proceed.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_declined.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\fragment_declined.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_profile.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\fragment_profile.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_home_category_item.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\fragment_home_category_item.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_verify_mobile_otp.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\activity_verify_mobile_otp.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_favourites.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\activity_favourites.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_search_talents_horizontal.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\item_search_talents_horizontal.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_update_mobile.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\activity_update_mobile.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_home_latest_news.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\item_home_latest_news.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_ongoing.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\fragment_ongoing.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_search_talent_vertical.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\item_search_talent_vertical.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_confirm_order.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\activity_confirm_order.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_user_orders.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\item_user_orders.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_app_main.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\activity_app_main.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_order_details.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\activity_order_details.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_video_for.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\item_video_for.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_order_types.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\item_order_types.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\color_bottom_nav_item_text_color.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\color\\bottom_nav_item_text_color.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_home_preferences.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\item_home_preferences.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_user_orders.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\activity_user_orders.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_payment_checkout.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\activity_payment_checkout.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\menu_menu_bottom_nav.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\menu\\menu_bottom_nav.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_explore.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\activity_explore.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_search.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\fragment_search.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_settings.xml.flat",
+        "source": "D:\\Projects\\UserApp\\app\\src\\main\\res\\layout\\activity_settings.xml"
+    }
+]

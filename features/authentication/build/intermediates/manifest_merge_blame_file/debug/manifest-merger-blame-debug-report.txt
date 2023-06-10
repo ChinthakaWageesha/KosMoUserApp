@@ -1,0 +1,130 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    xmlns:dist="http://schemas.android.com/apk/distribution"
+4    featureSplit="authentication"
+5    package="sl.com.eightdigitz.userapp"
+6    android:versionCode="1"
+7    android:versionName="1.0" >
+8
+9    <uses-sdk
+10        android:minSdkVersion="21"
+10-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml
+11        android:targetSdkVersion="29" />
+11-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml
+12
+13    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+13-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:7:5-79
+13-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:7:22-76
+14    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+14-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:7:5-79
+14-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:7:22-76
+15    <uses-permission android:name="android.permission.INTERNET" />
+15-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:9:5-67
+15-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:9:22-64
+16
+17    <dist:module
+17-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:11:5-16:19
+18        dist:instant="false"
+18-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:12:9-29
+19        dist:onDemand="true"
+19-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:13:9-29
+20        dist:title="@string/module_feature_authentication" >
+20-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:14:9-59
+21        <dist:fusing dist:include="true" />
+21-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:15:9-44
+21-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:15:22-41
+22    </dist:module>
+23
+24    <application android:debuggable="true" >
+24-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:18:5-60:19
+25        <activity
+25-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:20:9-24:63
+26            android:name="sl.com.eightdigitz.authentication.presentation.ChooseLanguage"
+26-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:21:13-56
+27            android:screenOrientation="portrait"
+27-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:22:13-49
+28            android:splitName="authentication"
+29            android:theme="@style/AppTheme.NoActionBar"
+29-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:23:13-56
+30            android:windowSoftInputMode="stateAlwaysHidden" />
+30-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:24:13-60
+31        <activity
+31-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:25:9-29:58
+32            android:name="sl.com.eightdigitz.authentication.presentation.verifyOTP.GetOTP"
+32-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:26:13-58
+33            android:screenOrientation="portrait"
+33-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:27:13-49
+34            android:splitName="authentication"
+35            android:theme="@style/AppTheme"
+35-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:28:13-44
+36            android:windowSoftInputMode="adjustResize" />
+36-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:29:13-55
+37        <activity
+37-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:30:9-34:58
+38            android:name="sl.com.eightdigitz.authentication.presentation.verifyOTP.VerifyOTP"
+38-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:31:13-61
+39            android:screenOrientation="portrait"
+39-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:32:13-49
+40            android:splitName="authentication"
+41            android:theme="@style/AppTheme"
+41-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:33:13-44
+42            android:windowSoftInputMode="adjustResize" />
+42-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:34:13-55
+43        <activity
+43-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:35:9-39:63
+44            android:name="sl.com.eightdigitz.authentication.presentation.GetStarted"
+44-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:36:13-52
+45            android:screenOrientation="portrait"
+45-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:37:13-49
+46            android:splitName="authentication"
+47            android:theme="@style/AppTheme.NoActionBar"
+47-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:38:13-56
+48            android:windowSoftInputMode="stateAlwaysHidden" />
+48-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:39:13-60
+49        <activity
+49-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:40:9-44:58
+50            android:name="sl.com.eightdigitz.authentication.presentation.registration.RegisterUser"
+50-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:41:13-67
+51            android:screenOrientation="portrait"
+51-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:42:13-49
+52            android:splitName="authentication"
+53            android:theme="@style/AppTheme"
+53-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:43:13-44
+54            android:windowSoftInputMode="adjustResize" />
+54-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:44:13-55
+55        <activity
+55-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:45:9-49:63
+56            android:name="sl.com.eightdigitz.authentication.presentation.registration.PostRegister"
+56-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:46:13-67
+57            android:screenOrientation="portrait"
+57-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:47:13-49
+58            android:splitName="authentication"
+59            android:theme="@style/AppTheme"
+59-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:48:13-44
+60            android:windowSoftInputMode="stateAlwaysHidden" />
+60-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:49:13-60
+61        <activity
+61-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:50:9-54:58
+62            android:name="sl.com.eightdigitz.authentication.presentation.contact.SendRequest"
+62-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:51:13-61
+63            android:screenOrientation="portrait"
+63-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:52:13-49
+64            android:splitName="authentication"
+65            android:theme="@style/AppTheme"
+65-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:53:13-44
+66            android:windowSoftInputMode="adjustResize" />
+66-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:54:13-55
+67        <activity
+67-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:55:9-59:58
+68            android:name="sl.com.eightdigitz.authentication.presentation.contact.ContactSupport"
+68-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:56:13-64
+69            android:screenOrientation="portrait"
+69-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:57:13-49
+70            android:splitName="authentication"
+71            android:theme="@style/AppTheme"
+71-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:58:13-44
+72            android:windowSoftInputMode="adjustResize" />
+72-->D:\Projects\UserApp\features\authentication\src\main\AndroidManifest.xml:59:13-55
+73    </application>
+74
+75</manifest>

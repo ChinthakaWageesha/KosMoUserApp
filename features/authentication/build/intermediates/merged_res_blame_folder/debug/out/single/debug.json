@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "D:\\Projects\\UserApp\\features\\authentication\\build\\intermediates\\res\\merged\\debug\\layout_activity_send_request.xml.flat",
+        "source": "D:\\Projects\\UserApp\\features\\authentication\\src\\main\\res\\layout\\activity_send_request.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\features\\authentication\\build\\intermediates\\res\\merged\\debug\\layout_activity_get_started.xml.flat",
+        "source": "D:\\Projects\\UserApp\\features\\authentication\\src\\main\\res\\layout\\activity_get_started.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\features\\authentication\\build\\intermediates\\res\\merged\\debug\\layout_activity_contact_support.xml.flat",
+        "source": "D:\\Projects\\UserApp\\features\\authentication\\src\\main\\res\\layout\\activity_contact_support.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\features\\authentication\\build\\intermediates\\res\\merged\\debug\\layout_item_preferences.xml.flat",
+        "source": "D:\\Projects\\UserApp\\features\\authentication\\src\\main\\res\\layout\\item_preferences.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\features\\authentication\\build\\intermediates\\res\\merged\\debug\\layout_activity_choose_language.xml.flat",
+        "source": "D:\\Projects\\UserApp\\features\\authentication\\src\\main\\res\\layout\\activity_choose_language.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\features\\authentication\\build\\intermediates\\res\\merged\\debug\\layout_activity_register.xml.flat",
+        "source": "D:\\Projects\\UserApp\\features\\authentication\\src\\main\\res\\layout\\activity_register.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\features\\authentication\\build\\intermediates\\res\\merged\\debug\\layout_activity_verify_otp.xml.flat",
+        "source": "D:\\Projects\\UserApp\\features\\authentication\\src\\main\\res\\layout\\activity_verify_otp.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\features\\authentication\\build\\intermediates\\res\\merged\\debug\\layout_activity_post_register.xml.flat",
+        "source": "D:\\Projects\\UserApp\\features\\authentication\\src\\main\\res\\layout\\activity_post_register.xml"
+    },
+    {
+        "merged": "D:\\Projects\\UserApp\\features\\authentication\\build\\intermediates\\res\\merged\\debug\\layout_activity_get_otp.xml.flat",
+        "source": "D:\\Projects\\UserApp\\features\\authentication\\src\\main\\res\\layout\\activity_get_otp.xml"
+    }
+]
